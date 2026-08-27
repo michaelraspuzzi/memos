@@ -116,6 +116,13 @@ STYLE = """
   thead th { background: #f4f4f2; border-bottom: 1px solid #111111; }
   tbody tr:last-child td { border-bottom: 0; }
 
+  sup.fnref { font-size: 0.68em; line-height: 0; vertical-align: super; }
+  sup.fnref a { text-decoration: none; padding: 0 0.06em; }
+  ol.footnotes { list-style: none; padding-left: 0; margin-top: 1.1rem; font-size: 0.92rem; }
+  ol.footnotes li { position: relative; padding-left: 2.3em; margin-bottom: 0.75rem; }
+  ol.footnotes li .fnnum { position: absolute; left: 0; width: 2em; text-align: right; color: #555555; }
+  ol.footnotes li:target { background: #f4f4f2; }
+
   .foot { margin-top: 3rem; padding-top: 0.9rem; border-top: 3px double #111111; font-size: 0.85rem; color: #555555; }
 """
 
@@ -206,6 +213,8 @@ SCRIPT = r"""
 def inline(text):
     text = html.escape(text, quote=False)
     text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
+    text = re.sub(r'\[\^([0-9A-Za-z-]+)\]',
+                  r'<sup class="fnref"><a href="#fn-\1">\1</a></sup>', text)
     text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
     text = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', text)
     text = re.sub(r'(?<!\*)\*([^*]+)\*(?!\*)', r'<em>\1</em>', text)
@@ -317,6 +326,21 @@ def convert(md):
             out.append('</blockquote>')
             continue
 
+        # footnote definitions: [^1]: text
+        if re.match(r'^\[\^[0-9A-Za-z-]+\]:\s+', stripped):
+            notes = []
+            while i < n and re.match(r'^\[\^[0-9A-Za-z-]+\]:\s+', lines[i].strip()):
+                fm = re.match(r'^\[\^([0-9A-Za-z-]+)\]:\s+(.*)$', lines[i].strip())
+                notes.append((fm.group(1), fm.group(2)))
+                i += 1
+            out.append('<ol class="footnotes">')
+            for key, body in notes:
+                out.append('<li id="fn-%s"><span class="fnnum">%s.</span> %s</li>'
+                           % (html.escape(key, quote=True), html.escape(key, quote=False),
+                              inline(body)))
+            out.append('</ol>')
+            continue
+
         # ordered list
         if re.match(r'^\d+\.\s+', stripped):
             items = []
@@ -401,7 +425,7 @@ def main():
         r'[Open memo](memos/\1.html)', raw)
     web = re.sub(r'\(memos/([a-z0-9.-]+)\.md\)', r'(memos/\1.html)', web)
     out = page('Closing the Source', 'closing-the-source', convert(web), raw,
-               'Seven memos on open source as a business decision', None)
+               'Ten memos on open source, credentials, and what a signal is worth', None)
     with open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(out)
     print('built index.html')

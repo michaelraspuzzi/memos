@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="400" viewBox="0 0 1000 400" role="img" aria-labelledby="title desc">
+<title id="title">Two-year cost of Harvard MDE and MS/MBA including forgone salary</title>
+<desc id="desc">MDE: about 210,000 dollars in published budget plus 300,000 dollars of forgone salary, totalling about 510,000 dollars. MS/MBA: about 295,000 dollars in published budget plus 300,000 dollars forgone, totalling about 595,000 dollars, reduced to about 495,000 dollars for the roughly half of HBS students who receive a need-based scholarship averaging 100,000 dollars over two years.</desc>
+<rect width="1000" height="400" fill="#ffffff"/>
+<text x="60" y="38" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111111">After aid, the cheaper-looking degree is the more expensive one</text>
+<text x="60" y="61" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#555555">Two-year cost of attendance at published 2026&#8211;27 rates held flat, plus an assumed $150,000 a year of forgone salary</text>
+<g font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#333333">
+<rect x="60" y="80" width="14" height="12" fill="#111111"/><text x="80" y="91">Published budget (tuition, fees, living)</text>
+<rect x="330" y="80" width="14" height="12" fill="#cfcfcf"/><text x="350" y="91">Forgone salary (assumption)</text>
+<rect x="560" y="80" width="14" height="12" fill="#ffffff" stroke="#7a1c14" stroke-width="1.5"/><text x="580" y="91">Typical HBS need-based scholarship</text>
+</g>
+<text x="60" y="146" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111111">Master in Design</text>
+<text x="60" y="164" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#777777">Engineering &#183; GSD&#8211;SEAS</text>
+<rect x="320.0" y="134" width="203.2" height="34" fill="#111111"/>
+<rect x="523.2" y="134" width="290.3" height="34" fill="#cfcfcf"/>
+<text x="330.0" y="156" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#ffffff">$210k</text>
+<text x="533.2" y="156" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#333333">$300k</text>
+<text x="823.5" y="156" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111111">$510k</text>
+<text x="60" y="246" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111111">MS/MBA: Engineering</text>
+<text x="60" y="264" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#777777">Sciences &#183; HBS&#8211;SEAS</text>
+<rect x="320.0" y="234" width="285.5" height="34" fill="#111111"/>
+<rect x="605.5" y="234" width="290.3" height="34" fill="#cfcfcf"/>
+<text x="330.0" y="256" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#ffffff">$295k</text>
+<text x="615.5" y="256" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#333333">$300k</text>
+<text x="905.8" y="256" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111111">$595k</text>
+<rect x="799.0" y="229" width="96.8" height="44" fill="none" stroke="#7a1c14" stroke-width="1.6" stroke-dasharray="5 3"/>
+<line x1="799.0" y1="273" x2="799.0" y2="298" stroke="#7a1c14" stroke-width="1.2"/>
+<text x="793.0" y="312" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#7a1c14" text-anchor="end">$495k after the median HBS scholarship &#8212; below an unaided MDE</text>
+<line x1="320.0" y1="330" x2="920.0" y2="330" stroke="#cccccc"/>
+<line x1="320.0" y1="330" x2="320.0" y2="336" stroke="#cccccc"/>
+<text x="320.0" y="352" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#777777" text-anchor="middle">$0k</text>
+<line x1="416.8" y1="330" x2="416.8" y2="336" stroke="#cccccc"/>
+<text x="416.8" y="352" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#777777" text-anchor="middle">$100k</text>
+<line x1="513.5" y1="330" x2="513.5" y2="336" stroke="#cccccc"/>
+<text x="513.5" y="352" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#777777" text-anchor="middle">$200k</text>
+<line x1="610.3" y1="330" x2="610.3" y2="336" stroke="#cccccc"/>
+<text x="610.3" y="352" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#777777" text-anchor="middle">$300k</text>
+<line x1="707.1" y1="330" x2="707.1" y2="336" stroke="#cccccc"/>
+<text x="707.1" y="352" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#777777" text-anchor="middle">$400k</text>
+<line x1="803.9" y1="330" x2="803.9" y2="336" stroke="#cccccc"/>
+<text x="803.9" y="352" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#777777" text-anchor="middle">$500k</text>
+<line x1="900.6" y1="330" x2="900.6" y2="336" stroke="#cccccc"/>
+<text x="900.6" y="352" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#777777" text-anchor="middle">$600k</text>
+<text x="60" y="378" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#888888">Published budgets: Harvard GSD registrar 2026&#8211;27 ($104,802/yr) and HBS MS/MBA 2026&#8211;27 ($147,332/yr).</text>
+<text x="60" y="392" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#888888">Scholarship: HBS reports ~50% of MBA students receive a need-based award averaging $100,000 over two years.</text>
+</svg>

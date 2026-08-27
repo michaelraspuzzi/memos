@@ -1,6 +1,6 @@
 # Closing the Source
 
-Seven memos on open source as a business decision. Four companies that closed their code between September 2025 and June 2026, and three that stayed open and are worth more than all four combined.
+Seven memos on open source as a business decision — four companies that closed their code between September 2025 and June 2026, and three that stayed open and are worth more than all four combined — plus three on credentials and ratings, which are the same problem with a different artifact: who controls the gate, and what the signal is worth once everyone can copy the thing behind it.
 
 **Read on the web: [michaelraspuzzi.github.io/memos](https://michaelraspuzzi.github.io/memos/)**
 
@@ -24,6 +24,16 @@ Compiled August 26, 2026.
 | **ClickHouse** | Apache 2.0 | Give the engine away, sell the operating burden. $250M ARR, $15B valuation. | [Markdown](memos/clickhouse.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/clickhouse.html) |
 | **Supabase** | Apache 2.0 | Fully self-hostable, and winning because AI coding tools provision it by default. $10.5B valuation. | [Markdown](memos/supabase.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/supabase.html) |
 | **n8n** | Sustainable Use License | Never open source, on purpose, since 2022. No rug to pull. $5.2B valuation. | [Markdown](memos/n8n.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/n8n.html) |
+
+## Part three: credentials, and what a signal is actually worth
+
+| Memo | The question | The finding | Read |
+| --- | --- | --- | --- |
+| **The bachelor's degree** | Why has a million-credential market not displaced one 800-year-old signal? | The degree sells licensure, not learning. Employers who dropped degree requirements changed fewer than 1 in 700 hires. | [Markdown](memos/bachelors-degree.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/bachelors-degree.html) |
+| **Harvard's hybrid master's** | MDE or MS/MBA: Engineering Sciences? | Both cost roughly half a million dollars once forgone salary is counted, and after aid the cheaper-looking one is the more expensive one. | [Markdown](memos/harvard-hybrid-masters.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/harvard-hybrid-masters.html) |
+| **Bouldering grades** | Can a community-negotiated rating ever be a measurement? | Only once the rated thing is reproducible. The LED board fixed the artifact; the ratings followed. | [Markdown](memos/bouldering-grades.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/bouldering-grades.html) |
+
+The through-line with part one: a licence is worth what its issuer can withhold. Open source gives away the artifact and sells the operating burden; a university gives away the lectures and sells admission to practice; a boulder grade is worth nothing until enough people have paid to check it. In all three the asset is the gate, not the thing behind it.
 
 Each memo covers the model, the founding team, the product, distribution, current numbers, and what to take from it. Every claim is cited.
 
