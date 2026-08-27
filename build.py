@@ -346,7 +346,7 @@ def main():
         r'[Open memo](memos/\1.html)', raw)
     web = re.sub(r'\(memos/([a-z0-9.-]+)\.md\)', r'(memos/\1.html)', web)
     out = page('Closing the Source', 'closing-the-source', convert(web), raw,
-               'Four companies that stopped being open source', None)
+               'Seven memos on open source as a business decision', None)
     with open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(out)
     print('built index.html')
