@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540" role="img" aria-labelledby="title desc">
+  <title id="title">Monthly downloads of the tldraw npm package</title>
+  <desc id="desc">Downloads increased from 45,602 in April 2024 to 1,401,419 in July 2026.</desc>
+  <rect width="1200" height="540" fill="#ffffff"/>
+  <text x="72" y="42" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111111">Monthly downloads of the tldraw npm package</text>
+  <text x="72" y="70" font-family="Arial, sans-serif" font-size="15" fill="#555555">Selected quarter-ending months; package launched under its current name in 2024</text>
+  <g stroke="#dedede" stroke-width="1">
+    <line x1="80" y1="420" x2="1120" y2="420"/><line x1="80" y1="307" x2="1120" y2="307"/>
+    <line x1="80" y1="193" x2="1120" y2="193"/><line x1="80" y1="80" x2="1120" y2="80"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="14" fill="#555555" text-anchor="end">
+    <text x="67" y="425">0</text><text x="67" y="312">0.5m</text><text x="67" y="198">1.0m</text><text x="67" y="85">1.5m</text>
+  </g>
+  <polyline points="90,410 200,392 310,386 420,395 530,377 640,349 750,353 860,341 970,239 1080,102" fill="none" stroke="#2f80ed" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#2f80ed" stroke="#ffffff" stroke-width="3">
+    <circle cx="90" cy="410" r="7"/><circle cx="200" cy="392" r="7"/><circle cx="310" cy="386" r="7"/><circle cx="420" cy="395" r="7"/><circle cx="530" cy="377" r="7"/><circle cx="640" cy="349" r="7"/><circle cx="750" cy="353" r="7"/><circle cx="860" cy="341" r="7"/><circle cx="970" cy="239" r="7"/><circle cx="1080" cy="102" r="7"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="13" fill="#555555" text-anchor="middle">
+    <text x="90" y="455">Apr ’24</text><text x="200" y="455">Jul ’24</text><text x="310" y="455">Oct ’24</text><text x="420" y="455">Jan ’25</text><text x="530" y="455">Apr ’25</text><text x="640" y="455">Jul ’25</text><text x="750" y="455">Oct ’25</text><text x="860" y="455">Jan ’26</text><text x="970" y="455">Apr ’26</text><text x="1080" y="455">Jul ’26</text>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#111111">
+    <text x="92" y="389">45.6k</text><text x="640" y="328" text-anchor="middle">311.7k</text><text x="1080" y="88" text-anchor="middle">1.40m</text>
+  </g>
+  <text x="72" y="510" font-family="Arial, sans-serif" font-size="13" fill="#666666">Source: npm Downloads API; daily observations aggregated by month.</text>
+</svg>
