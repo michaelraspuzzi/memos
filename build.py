@@ -14,10 +14,15 @@ import re
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
 MEMOS = [
+    # Companies that closed
     ("cal-com", "Cal.com"),
     ("tldraw", "tldraw"),
     ("gemini-cli", "Google, Gemini CLI"),
     ("meta-llama", "Meta, Llama"),
+    # Companies that stayed open
+    ("clickhouse", "ClickHouse"),
+    ("supabase", "Supabase"),
+    ("n8n", "n8n"),
 ]
 
 STYLE = """
@@ -333,10 +338,13 @@ def main():
 
     with open(os.path.join(ROOT, 'README.md'), encoding='utf-8') as f:
         raw = f.read()
-    web = raw.replace('memos/cal-com.md', 'memos/cal-com.html')
-    web = web.replace('memos/tldraw.md', 'memos/tldraw.html')
-    web = web.replace('memos/gemini-cli.md', 'memos/gemini-cli.html')
-    web = web.replace('memos/meta-llama.md', 'memos/meta-llama.html')
+    # The web index links straight to the HTML pages; the dual
+    # "Markdown / Web" cell only makes sense on github.com.
+    web = re.sub(
+        r'\[Markdown\]\(memos/([a-z0-9.-]+)\.md\)\s*/\s*'
+        r'\[Web\]\(https://[^)]+\)',
+        r'[Open memo](memos/\1.html)', raw)
+    web = re.sub(r'\(memos/([a-z0-9.-]+)\.md\)', r'(memos/\1.html)', web)
     out = page('Closing the Source', 'closing-the-source', convert(web), raw,
                'Four companies that stopped being open source', None)
     with open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8') as f:

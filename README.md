@@ -1,21 +1,31 @@
 # Closing the Source
 
-Four companies stopped being open source between September 2025 and June 2026. These are the memos.
+Seven memos on open source as a business decision. Four companies that closed their code between September 2025 and June 2026, and three that stayed open and are worth more than all four combined.
+
+**Read on the web: [michaelraspuzzi.github.io/memos](https://michaelraspuzzi.github.io/memos/)**
 
 Compiled August 26, 2026.
 
 ---
 
-## The memos
+## Part one: the companies that closed
 
-| Memo | Closed | The move |
-| --- | --- | --- |
-| **[Cal.com](memos/cal-com.md)** | Apr 14, 2026 | AGPL 3.0 to proprietary. Public repo renamed `cal.diy`, relicensed MIT, stripped of commercial features. |
-| **[tldraw](memos/tldraw.md)** | Sep 18, 2025 | MIT to source-available to runtime license keys. $6,000 per team per year. |
-| **[Google, Gemini CLI](memos/gemini-cli.md)** | Jun 18, 2026 | Apache 2.0 with 104K stars and 6,000 outside PRs, replaced by a closed Go binary. |
-| **[Meta, Llama](memos/meta-llama.md)** | Apr 8, 2026 | Open weights to a proprietary API-only frontier model. |
+| Memo | Closed | The move | Read |
+| --- | --- | --- | --- |
+| **Cal.com** | Apr 14, 2026 | AGPL 3.0 to proprietary. Public repo renamed `cal.diy`, relicensed MIT, stripped of commercial features. | [Markdown](memos/cal-com.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/cal-com.html) |
+| **tldraw** | Sep 18, 2025 | MIT to source-available to runtime license keys. $6,000 per team per year. | [Markdown](memos/tldraw.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/tldraw.html) |
+| **Google, Gemini CLI** | Jun 18, 2026 | Apache 2.0 with 104K stars and 6,000 outside PRs, replaced by a closed Go binary. | [Markdown](memos/gemini-cli.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/gemini-cli.html) |
+| **Meta, Llama** | Apr 8, 2026 | Open weights to a proprietary API-only frontier model. | [Markdown](memos/meta-llama.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/meta-llama.html) |
 
-Each memo covers the move, the real reason, the founding team, product, business model, distribution, current numbers, and what the closure cost. Every claim is cited.
+## Part two: the companies that stayed open, and how they make money
+
+| Memo | License | The model | Read |
+| --- | --- | --- | --- |
+| **ClickHouse** | Apache 2.0 | Give the engine away, sell the operating burden. $250M ARR, $15B valuation. | [Markdown](memos/clickhouse.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/clickhouse.html) |
+| **Supabase** | Apache 2.0 | Fully self-hostable, and winning because AI coding tools provision it by default. $10.5B valuation. | [Markdown](memos/supabase.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/supabase.html) |
+| **n8n** | Sustainable Use License | Never open source, on purpose, since 2022. No rug to pull. $5.2B valuation. | [Markdown](memos/n8n.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/n8n.html) |
+
+Each memo covers the model, the founding team, the product, distribution, current numbers, and what to take from it. Every claim is cited.
 
 ---
 
@@ -23,9 +33,15 @@ Each memo covers the move, the real reason, the founding team, product, business
 
 **The stated reason is rarely the operative one.** Cal.com said security. tldraw said sustainability. Google said consolidation. Meta said safety. In all four the operative variable is the same: the cost of giving the artifact away exceeded the distribution value of giving it away. That crossover is predictable. It arrives when the product is good enough that people would pay, and the free channel has already delivered most of the users it will ever deliver.
 
-**The application layer closes. Infrastructure holds.** Nothing in the database or observability tier closed this year. Redis and Elastic went the other way and re-added AGPLv3. Closures cluster where the code is the product and there is no hosting margin underneath it: a canvas SDK, a scheduling app, a CLI, a model. If your business has real cloud gross margin, you do not need to close the source. If it does not, you eventually will.
+**The real question is whether you have an operating burden to sell.** ClickHouse gives away a petabyte-scale database engine and charges $250M a year for not being paged at 3am. Supabase ships a Docker Compose file that stands up its entire stack and is worth $10.5B. Neither needed a restrictive license, because in both cases the download and the product are different goods. tldraw is a React SDK. Nobody gets paged for a canvas library, so there is nothing to sell but the code, so the license had to do the work. Ask which one you are before you ask what license to use.
+
+**The application layer closes. Infrastructure holds.** Nothing in the database or observability tier closed this year. Redis and Elastic went the other way and re-added AGPLv3. Closures cluster where the code is the product and there is no hosting margin underneath it: a canvas SDK, a scheduling app, a CLI, a model.
+
+**If you will eventually need a restriction, add it on day one.** n8n put its Sustainable Use License in place in March 2022, when the company was small and the reputational cost was cheap. It gave up the words "open source" and kept everything else: 188,000 stars, 1.7 million monthly builders, a $5.2B valuation. Cal.com and tldraw paid the same bill four years later, at a much worse exchange rate.
 
 **The fork is the price, and it usually goes unpaid.** OpenTofu after Terraform, Valkey after Redis, OpenSearch after Elasticsearch. Those only happen when large corporate users are dependent enough to fund a fork. Cal.com and tldraw sit below that threshold, which is exactly why they could close. The absence of a fork is not community approval. It is community indifference plus switching cost.
+
+**A new variable: your buyer may be an agent.** Over 60 percent of new databases on Supabase are now launched by an AI tool rather than a human. When a coding agent picks your default, what wins is being the most legible, most copyable, best documented option available. Closing the source protects nothing there and costs you the channel.
 
 ---
 
@@ -49,9 +65,9 @@ The 2026 rankings that get cited most (TrueUp's 40 Hottest, Seedtable's 287-comp
 | Databricks | Lakehouse; Spark, Delta, MLflow | Core Apache 2.0, platform proprietary. Open core. |
 | Hugging Face | Model and dataset hub | Apache 2.0 libraries, hosted hub. Open. |
 | Mistral AI | Frontier and open-weight models | Apache 2.0 open models plus commercial tier. Open. |
-| ClickHouse | Real-time OLAP database | Apache 2.0. Open. |
-| Supabase | Postgres application backend | Apache 2.0. Open. |
-| n8n | Workflow automation | Fair-code Sustainable Use License. Never OSI approved. |
+| ClickHouse | Real-time OLAP database | Apache 2.0. Open. [Memo](memos/clickhouse.md) |
+| Supabase | Postgres application backend | Apache 2.0. Open. [Memo](memos/supabase.md) |
+| n8n | Workflow automation | Fair-code Sustainable Use License. Never OSI approved. [Memo](memos/n8n.md) |
 | Grafana Labs | Observability | AGPLv3 since 2021. Still open source. |
 | GitLab | DevSecOps platform | MIT community edition plus proprietary EE. Open core. |
 | HashiCorp (IBM) | Terraform, Vault, Consul | BUSL 1.1 since Aug 2023. Unchanged after the $6.4B acquisition. |
@@ -61,14 +77,16 @@ Most of the top tier has not closed. RedMonk's March 2026 licensing survey found
 
 ### Checked and not closed, despite rumor
 
-Excalidraw is still MIT. Supabase, ClickHouse and Grafana are unchanged. PostHog remains MIT with a proprietary enterprise directory. Sentry has been on the Functional Source License since 2023 and did not move. n8n has been fair-code since inception, so it never was open source in the OSI sense. Discourse published an explicit ["we are not going closed source"](https://blog.discourse.org/2026/04/discourse-is-not-going-closed-source/) post in April 2026, in direct response to Cal.com.
+Excalidraw is still MIT. PostHog remains MIT with a proprietary enterprise directory. Sentry has been on the Functional Source License since 2023 and did not move. Discourse published an explicit ["we are not going closed source"](https://blog.discourse.org/2026/04/discourse-is-not-going-closed-source/) post in April 2026, in direct response to Cal.com.
 
 **Baseline sources:** [RedMonk, The State of Open Source Licensing in 2026](https://redmonk.com/sogrady/2026/03/25/open-source-licensing-2026/) / [TrueUp Open Source Report](https://www.trueup.io/open-source/reports) / [Seedtable](https://seedtable.com/best-open-source-startups) / [Tracxn](https://tracxn.com/d/sectors/open-source/__86qzqopfw3B9E1ADrcSHQNkYs66EJskfaNi6oSJHuM0/companies)
 
 ---
 
-## Formats
+## Formats and build
 
-Each memo exists as Markdown (renders here on GitHub) and as HTML with copy-for-agents and download buttons. If GitHub Pages is enabled on this repo, the HTML index is at `index.html`.
+Every memo exists twice, from one source. The Markdown renders here on GitHub. The HTML is served by GitHub Pages at [michaelraspuzzi.github.io/memos](https://michaelraspuzzi.github.io/memos/), in plain document style, with a **Copy for agents** button and a **Download .md** button at the top of each page.
 
-Confidence is high for Cal.com, tldraw and Gemini CLI. Medium for Meta, which is flagged in the memo body.
+To change a memo, edit the Markdown in `memos/`, then run `python3 build.py` and push. The HTML is generated, never hand-edited, so the two formats cannot drift.
+
+Confidence is high for Cal.com, tldraw, Gemini CLI, ClickHouse, Supabase and n8n. Medium for Meta, which is flagged in the memo body. Revenue figures sourced from third parties rather than the companies are flagged individually.

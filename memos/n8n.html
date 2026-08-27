@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>n8n | Closing the Source</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  html { background: #ffffff; }
+  body {
+    background: #ffffff;
+    color: #111111;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .page { max-width: 46em; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.6rem;
+    border-bottom: 1px solid #cccccc;
+  }
+  .bar .home {
+    font-size: 0.85rem;
+    margin-right: auto;
+    color: #555555;
+  }
+  button.act {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 0.85rem;
+    background: #f4f4f2;
+    color: #111111;
+    border: 1px solid #999999;
+    border-radius: 2px;
+    padding: 0.32rem 0.8rem;
+    cursor: pointer;
+  }
+  button.act:hover { background: #e8e8e4; }
+  button.act:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  button.act.done { background: #e6efe6; border-color: #4a7a4a; }
+
+  h1, h2, h3, h4 { font-weight: bold; margin: 0; }
+  h1 { font-size: 2rem; line-height: 1.15; }
+  h2 { font-size: 1.4rem; line-height: 1.2; margin-top: 2.4rem; padding-top: 0.9rem; border-top: 2px solid #111111; }
+  h3 { font-size: 1.1rem; margin-top: 1.6rem; }
+  p { margin: 0.75rem 0 0; }
+  ul, ol { margin: 0.7rem 0 0; padding-left: 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: #111111; }
+  a:hover { color: #7a1c14; }
+  a:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  hr { border: 0; border-top: 1px solid #cccccc; margin: 2rem 0 0; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: #f4f4f2;
+    padding: 0.05em 0.3em;
+    border-radius: 2px;
+  }
+  blockquote {
+    margin: 1rem 0 0;
+    padding: 0.1rem 0 0.1rem 1rem;
+    border-left: 3px solid #999999;
+  }
+  blockquote p { margin-top: 0.4rem; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote em.attrib { font-style: normal; font-size: 0.85rem; color: #555555; }
+
+  .tablewrap { overflow-x: auto; margin-top: 1.1rem; border: 1px solid #cccccc; }
+  table { border-collapse: collapse; width: 100%; min-width: 34em; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid #cccccc; vertical-align: top; }
+  thead th { background: #f4f4f2; border-bottom: 1px solid #111111; }
+  tbody tr:last-child td { border-bottom: 0; }
+
+  .foot { margin-top: 3rem; padding-top: 0.9rem; border-top: 3px double #111111; font-size: 0.85rem; color: #555555; }
+</style>
+</head>
+<body data-slug="n8n">
+<div class="page">
+  <div class="bar">
+    <span class="home"><a href="../index.html">Closing the Source</a></span>
+    <button class="act" id="btn-copy" type="button">Copy for agents</button>
+    <button class="act" id="btn-download" type="button">Download .md</button>
+  </div>
+<h1>n8n</h1>
+<p><strong>Never open source, on purpose.</strong> Sustainable Use License since March 2022. $5.2B valuation and no rug to pull.</p>
+<hr>
+<h2>The model in one line</h2>
+<p>Take every distribution benefit of a public repository, and never grant the one right you would later have to take back.</p>
+<h2>How it makes money</h2>
+<p>Two lines. n8n Cloud, priced on workflow executions rather than seats, which means revenue tracks how much automation a customer actually runs. And enterprise licenses for self-hosted deployments, which unlock SSO, RBAC, log streaming and air-gapped operation.</p>
+<p>Underneath both sits the Sustainable Use License. The source is public. You may read it, modify it, self-host it and run it inside your own company for free, forever. You may not resell it as a service. That is the whole restriction.</p>
+<h2>Why this is the interesting one</h2>
+<p>Every other memo in this series is about a company that granted a right and then took it back. n8n never granted it.</p>
+<p>The Sustainable Use License has been in place since March 2022, when the company was small. Anyone who adopted n8n knew the terms on day one. There is no cohort of users who built on a promise that later changed, no contributor who can say the deal moved, no fork with a moral claim on the name. A rug pull is impossible when the rug was never laid.</p>
+<p>That is the honest version of where Cal.com and tldraw ended up. Both spent years open, accumulated goodwill priced as free distribution, then reclaimed the right when the bill came due. n8n took the reputational cost up front, in 2022, when it was cheap, instead of in 2026, when it is expensive.</p>
+<p><strong>What it paid for that.</strong> n8n does not get to call itself open source. The OSI definition does not admit a field-of-use restriction, and purists say so regularly. The company uses the term "fair-code" instead, which is a coinage, not a standard.</p>
+<p><strong>What that cost turned out to be.</strong> Nothing measurable. 1.7 million monthly active builders, 188,000+ GitHub stars, more than 230,000 active users, and a valuation that doubled in seven months. The label mattered to commentators. It did not move a single adoption curve.</p>
+<h2>The company</h2>
+<p><strong>Founder.</strong> Jan Oberhauser, CEO. Founded 2019 in Berlin, after years building automation for VFX pipelines. n8n stands for "nodemation," which tells you it was a tool before it was a company.</p>
+<p><strong>Product.</strong> Workflow automation on a node graph. Connect an API to a transformation to another API, on a trigger. The 2024 to 2026 repositioning was from "self-hostable Zapier" to AI agent orchestration, which is what took the valuation from hundreds of millions to billions. Agents need a place to run tools reliably, and n8n was already that.</p>
+<p><strong>Distribution.</strong> A public repo with a very large star count, a template gallery, and an unusually loud community of builders publishing workflows. Self-hosting is the top of the funnel: teams run it free internally, hit governance requirements, and buy the enterprise license for SSO and RBAC. That path only exists because self-hosting is genuinely permitted.</p>
+<p><strong>The 2026 accelerant.</strong> SAP invested around €60M for just under 1.3 percent on May 12, 2026, valuing n8n at $5.2B, and is embedding n8n natively inside Joule Studio, its agent-building environment. That is distribution into the enterprise install base that no amount of community growth would have bought.</p>
+<h2>Numbers</h2>
+<div class="tablewrap"><table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody>
+<tr><td>Valuation</td><td>$5.2B, May 2026, doubled from $2.5B seven months earlier</td></tr>
+<tr><td>SAP investment</td><td>~€60M for just under 1.3%, plus a multi-year commercial partnership</td></tr>
+<tr><td>Series C</td><td>$180M, October 2025, at $2.5B, led by Accel</td></tr>
+<tr><td>Total raised</td><td>~$254M. Investors include Accel, Sequoia, Felicis, SAP</td></tr>
+<tr><td>ARR</td><td>€100M+ as of May 2026, up from $40M+ reported in March</td></tr>
+<tr><td>Users</td><td>230,000+ active users, 1.7M monthly active builders</td></tr>
+<tr><td>Enterprise customers</td><td>1,400+</td></tr>
+<tr><td>GitHub stars</td><td>188,000+</td></tr>
+<tr><td>License</td><td>Sustainable Use License, unchanged since March 2022</td></tr>
+</tbody></table></div>
+<blockquote>
+<p><strong>Confidence note.</strong> ARR figures move fast and come from different sources on different dates. The €100M+ milestone is tied to the May 2026 SAP announcement. The March figure of $40M+ is from earlier reporting, and the gap between them is large enough to warrant checking against a current source before you quote either.</p>
+</blockquote>
+<h2>What to take from it</h2>
+<p>If you know your business will eventually need a commercial restriction, put it in on day one and call it what it is. The distribution benefit of a public repository survives the restriction almost entirely. The reputational cost of adding one later does not.</p>
+<p>Founders resist this because "open source" is a better recruiting and launch word than "source available." n8n's numbers say that word is worth far less than the option it costs you.</p>
+<h2>Citations</h2>
+<ol><li>n8n, <a href="https://docs.n8n.io/sustainable-use-license/">Sustainable Use License</a> and <a href="https://blog.n8n.io/announcing-new-sustainable-use-license/">Announcing the new Sustainable Use License</a>, March 2022. Primary. License terms.</li><li>n8n, <a href="https://blog.n8n.io/n8n-sap/">Announcing SAP's strategic investment in n8n</a>, May 12, 2026. Primary.</li><li><a href="https://finance.yahoo.com/sectors/technology/articles/n8n-valuation-doubles-5-2bn-123000713.html">n8n valuation doubles to $5.2bn as SAP makes strategic investment</a>, May 2026. Stake size and Joule Studio integration.</li><li>n8n, <a href="https://blog.n8n.io/series-c/">n8n raises $180m to get AI closer to value with orchestration</a>, October 2025. Primary. Series C.</li><li>PitchBook, <a href="https://pitchbook.com/news/articles/ai-agent-startup-n8n-lands-2-5b-valuation-with-180m-series-c">AI agent startup n8n lands $2.5B valuation with $180M Series C</a>.</li><li><a href="https://www.arr.club/n8n/n8n-arr-hit-100m-valued-at-5-2b">ARR Club, n8n ARR hit €100M+</a>. Revenue milestone.</li><li><a href="https://tracxn.com/d/companies/n8n/__J5xwUZ9C29t7Du-yVvv0S99EWc7s69t2NGt5YmhQG0A">Tracxn, n8n</a>. Users, enterprise customers, total funding.</li></ol>
+<p class="foot"><em>Compiled August 26, 2026.</em></p>
+</div>
+<script type="text/plain" id="memo-src">IyBuOG4KCioqTmV2ZXIgb3BlbiBzb3VyY2UsIG9uIHB1cnBvc2UuKiogU3VzdGFpbmFibGUgVXNlIExpY2Vuc2Ugc2luY2UgTWFyY2ggMjAyMi4gJDUuMkIgdmFsdWF0aW9uIGFuZCBubyBydWcgdG8gcHVsbC4KCi0tLQoKIyMgVGhlIG1vZGVsIGluIG9uZSBsaW5lCgpUYWtlIGV2ZXJ5IGRpc3RyaWJ1dGlvbiBiZW5lZml0IG9mIGEgcHVibGljIHJlcG9zaXRvcnksIGFuZCBuZXZlciBncmFudCB0aGUgb25lIHJpZ2h0IHlvdSB3b3VsZCBsYXRlciBoYXZlIHRvIHRha2UgYmFjay4KCiMjIEhvdyBpdCBtYWtlcyBtb25leQoKVHdvIGxpbmVzLiBuOG4gQ2xvdWQsIHByaWNlZCBvbiB3b3JrZmxvdyBleGVjdXRpb25zIHJhdGhlciB0aGFuIHNlYXRzLCB3aGljaCBtZWFucyByZXZlbnVlIHRyYWNrcyBob3cgbXVjaCBhdXRvbWF0aW9uIGEgY3VzdG9tZXIgYWN0dWFsbHkgcnVucy4gQW5kIGVudGVycHJpc2UgbGljZW5zZXMgZm9yIHNlbGYtaG9zdGVkIGRlcGxveW1lbnRzLCB3aGljaCB1bmxvY2sgU1NPLCBSQkFDLCBsb2cgc3RyZWFtaW5nIGFuZCBhaXItZ2FwcGVkIG9wZXJhdGlvbi4KClVuZGVybmVhdGggYm90aCBzaXRzIHRoZSBTdXN0YWluYWJsZSBVc2UgTGljZW5zZS4gVGhlIHNvdXJjZSBpcyBwdWJsaWMuIFlvdSBtYXkgcmVhZCBpdCwgbW9kaWZ5IGl0LCBzZWxmLWhvc3QgaXQgYW5kIHJ1biBpdCBpbnNpZGUgeW91ciBvd24gY29tcGFueSBmb3IgZnJlZSwgZm9yZXZlci4gWW91IG1heSBub3QgcmVzZWxsIGl0IGFzIGEgc2VydmljZS4gVGhhdCBpcyB0aGUgd2hvbGUgcmVzdHJpY3Rpb24uCgojIyBXaHkgdGhpcyBpcyB0aGUgaW50ZXJlc3Rpbmcgb25lCgpFdmVyeSBvdGhlciBtZW1vIGluIHRoaXMgc2VyaWVzIGlzIGFib3V0IGEgY29tcGFueSB0aGF0IGdyYW50ZWQgYSByaWdodCBhbmQgdGhlbiB0b29rIGl0IGJhY2suIG44biBuZXZlciBncmFudGVkIGl0LgoKVGhlIFN1c3RhaW5hYmxlIFVzZSBMaWNlbnNlIGhhcyBiZWVuIGluIHBsYWNlIHNpbmNlIE1hcmNoIDIwMjIsIHdoZW4gdGhlIGNvbXBhbnkgd2FzIHNtYWxsLiBBbnlvbmUgd2hvIGFkb3B0ZWQgbjhuIGtuZXcgdGhlIHRlcm1zIG9uIGRheSBvbmUuIFRoZXJlIGlzIG5vIGNvaG9ydCBvZiB1c2VycyB3aG8gYnVpbHQgb24gYSBwcm9taXNlIHRoYXQgbGF0ZXIgY2hhbmdlZCwgbm8gY29udHJpYnV0b3Igd2hvIGNhbiBzYXkgdGhlIGRlYWwgbW92ZWQsIG5vIGZvcmsgd2l0aCBhIG1vcmFsIGNsYWltIG9uIHRoZSBuYW1lLiBBIHJ1ZyBwdWxsIGlzIGltcG9zc2libGUgd2hlbiB0aGUgcnVnIHdhcyBuZXZlciBsYWlkLgoKVGhhdCBpcyB0aGUgaG9uZXN0IHZlcnNpb24gb2Ygd2hlcmUgQ2FsLmNvbSBhbmQgdGxkcmF3IGVuZGVkIHVwLiBCb3RoIHNwZW50IHllYXJzIG9wZW4sIGFjY3VtdWxhdGVkIGdvb2R3aWxsIHByaWNlZCBhcyBmcmVlIGRpc3RyaWJ1dGlvbiwgdGhlbiByZWNsYWltZWQgdGhlIHJpZ2h0IHdoZW4gdGhlIGJpbGwgY2FtZSBkdWUuIG44biB0b29rIHRoZSByZXB1dGF0aW9uYWwgY29zdCB1cCBmcm9udCwgaW4gMjAyMiwgd2hlbiBpdCB3YXMgY2hlYXAsIGluc3RlYWQgb2YgaW4gMjAyNiwgd2hlbiBpdCBpcyBleHBlbnNpdmUuCgoqKldoYXQgaXQgcGFpZCBmb3IgdGhhdC4qKiBuOG4gZG9lcyBub3QgZ2V0IHRvIGNhbGwgaXRzZWxmIG9wZW4gc291cmNlLiBUaGUgT1NJIGRlZmluaXRpb24gZG9lcyBub3QgYWRtaXQgYSBmaWVsZC1vZi11c2UgcmVzdHJpY3Rpb24sIGFuZCBwdXJpc3RzIHNheSBzbyByZWd1bGFybHkuIFRoZSBjb21wYW55IHVzZXMgdGhlIHRlcm0gImZhaXItY29kZSIgaW5zdGVhZCwgd2hpY2ggaXMgYSBjb2luYWdlLCBub3QgYSBzdGFuZGFyZC4KCioqV2hhdCB0aGF0IGNvc3QgdHVybmVkIG91dCB0byBiZS4qKiBOb3RoaW5nIG1lYXN1cmFibGUuIDEuNyBtaWxsaW9uIG1vbnRobHkgYWN0aXZlIGJ1aWxkZXJzLCAxODgsMDAwKyBHaXRIdWIgc3RhcnMsIG1vcmUgdGhhbiAyMzAsMDAwIGFjdGl2ZSB1c2VycywgYW5kIGEgdmFsdWF0aW9uIHRoYXQgZG91YmxlZCBpbiBzZXZlbiBtb250aHMuIFRoZSBsYWJlbCBtYXR0ZXJlZCB0byBjb21tZW50YXRvcnMuIEl0IGRpZCBub3QgbW92ZSBhIHNpbmdsZSBhZG9wdGlvbiBjdXJ2ZS4KCiMjIFRoZSBjb21wYW55CgoqKkZvdW5kZXIuKiogSmFuIE9iZXJoYXVzZXIsIENFTy4gRm91bmRlZCAyMDE5IGluIEJlcmxpbiwgYWZ0ZXIgeWVhcnMgYnVpbGRpbmcgYXV0b21hdGlvbiBmb3IgVkZYIHBpcGVsaW5lcy4gbjhuIHN0YW5kcyBmb3IgIm5vZGVtYXRpb24sIiB3aGljaCB0ZWxscyB5b3UgaXQgd2FzIGEgdG9vbCBiZWZvcmUgaXQgd2FzIGEgY29tcGFueS4KCioqUHJvZHVjdC4qKiBXb3JrZmxvdyBhdXRvbWF0aW9uIG9uIGEgbm9kZSBncmFwaC4gQ29ubmVjdCBhbiBBUEkgdG8gYSB0cmFuc2Zvcm1hdGlvbiB0byBhbm90aGVyIEFQSSwgb24gYSB0cmlnZ2VyLiBUaGUgMjAyNCB0byAyMDI2IHJlcG9zaXRpb25pbmcgd2FzIGZyb20gInNlbGYtaG9zdGFibGUgWmFwaWVyIiB0byBBSSBhZ2VudCBvcmNoZXN0cmF0aW9uLCB3aGljaCBpcyB3aGF0IHRvb2sgdGhlIHZhbHVhdGlvbiBmcm9tIGh1bmRyZWRzIG9mIG1pbGxpb25zIHRvIGJpbGxpb25zLiBBZ2VudHMgbmVlZCBhIHBsYWNlIHRvIHJ1biB0b29scyByZWxpYWJseSwgYW5kIG44biB3YXMgYWxyZWFkeSB0aGF0LgoKKipEaXN0cmlidXRpb24uKiogQSBwdWJsaWMgcmVwbyB3aXRoIGEgdmVyeSBsYXJnZSBzdGFyIGNvdW50LCBhIHRlbXBsYXRlIGdhbGxlcnksIGFuZCBhbiB1bnVzdWFsbHkgbG91ZCBjb21tdW5pdHkgb2YgYnVpbGRlcnMgcHVibGlzaGluZyB3b3JrZmxvd3MuIFNlbGYtaG9zdGluZyBpcyB0aGUgdG9wIG9mIHRoZSBmdW5uZWw6IHRlYW1zIHJ1biBpdCBmcmVlIGludGVybmFsbHksIGhpdCBnb3Zlcm5hbmNlIHJlcXVpcmVtZW50cywgYW5kIGJ1eSB0aGUgZW50ZXJwcmlzZSBsaWNlbnNlIGZvciBTU08gYW5kIFJCQUMuIFRoYXQgcGF0aCBvbmx5IGV4aXN0cyBiZWNhdXNlIHNlbGYtaG9zdGluZyBpcyBnZW51aW5lbHkgcGVybWl0dGVkLgoKKipUaGUgMjAyNiBhY2NlbGVyYW50LioqIFNBUCBpbnZlc3RlZCBhcm91bmQg4oKsNjBNIGZvciBqdXN0IHVuZGVyIDEuMyBwZXJjZW50IG9uIE1heSAxMiwgMjAyNiwgdmFsdWluZyBuOG4gYXQgJDUuMkIsIGFuZCBpcyBlbWJlZGRpbmcgbjhuIG5hdGl2ZWx5IGluc2lkZSBKb3VsZSBTdHVkaW8sIGl0cyBhZ2VudC1idWlsZGluZyBlbnZpcm9ubWVudC4gVGhhdCBpcyBkaXN0cmlidXRpb24gaW50byB0aGUgZW50ZXJwcmlzZSBpbnN0YWxsIGJhc2UgdGhhdCBubyBhbW91bnQgb2YgY29tbXVuaXR5IGdyb3d0aCB3b3VsZCBoYXZlIGJvdWdodC4KCiMjIE51bWJlcnMKCnwgTWV0cmljIHwgVmFsdWUgfAp8IC0tLSB8IC0tLSB8CnwgVmFsdWF0aW9uIHwgJDUuMkIsIE1heSAyMDI2LCBkb3VibGVkIGZyb20gJDIuNUIgc2V2ZW4gbW9udGhzIGVhcmxpZXIgfAp8IFNBUCBpbnZlc3RtZW50IHwgfuKCrDYwTSBmb3IganVzdCB1bmRlciAxLjMlLCBwbHVzIGEgbXVsdGkteWVhciBjb21tZXJjaWFsIHBhcnRuZXJzaGlwIHwKfCBTZXJpZXMgQyB8ICQxODBNLCBPY3RvYmVyIDIwMjUsIGF0ICQyLjVCLCBsZWQgYnkgQWNjZWwgfAp8IFRvdGFsIHJhaXNlZCB8IH4kMjU0TS4gSW52ZXN0b3JzIGluY2x1ZGUgQWNjZWwsIFNlcXVvaWEsIEZlbGljaXMsIFNBUCB8CnwgQVJSIHwg4oKsMTAwTSsgYXMgb2YgTWF5IDIwMjYsIHVwIGZyb20gJDQwTSsgcmVwb3J0ZWQgaW4gTWFyY2ggfAp8IFVzZXJzIHwgMjMwLDAwMCsgYWN0aXZlIHVzZXJzLCAxLjdNIG1vbnRobHkgYWN0aXZlIGJ1aWxkZXJzIHwKfCBFbnRlcnByaXNlIGN1c3RvbWVycyB8IDEsNDAwKyB8CnwgR2l0SHViIHN0YXJzIHwgMTg4LDAwMCsgfAp8IExpY2Vuc2UgfCBTdXN0YWluYWJsZSBVc2UgTGljZW5zZSwgdW5jaGFuZ2VkIHNpbmNlIE1hcmNoIDIwMjIgfAoKPiAqKkNvbmZpZGVuY2Ugbm90ZS4qKiBBUlIgZmlndXJlcyBtb3ZlIGZhc3QgYW5kIGNvbWUgZnJvbSBkaWZmZXJlbnQgc291cmNlcyBvbiBkaWZmZXJlbnQgZGF0ZXMuIFRoZSDigqwxMDBNKyBtaWxlc3RvbmUgaXMgdGllZCB0byB0aGUgTWF5IDIwMjYgU0FQIGFubm91bmNlbWVudC4gVGhlIE1hcmNoIGZpZ3VyZSBvZiAkNDBNKyBpcyBmcm9tIGVhcmxpZXIgcmVwb3J0aW5nLCBhbmQgdGhlIGdhcCBiZXR3ZWVuIHRoZW0gaXMgbGFyZ2UgZW5vdWdoIHRvIHdhcnJhbnQgY2hlY2tpbmcgYWdhaW5zdCBhIGN1cnJlbnQgc291cmNlIGJlZm9yZSB5b3UgcXVvdGUgZWl0aGVyLgoKIyMgV2hhdCB0byB0YWtlIGZyb20gaXQKCklmIHlvdSBrbm93IHlvdXIgYnVzaW5lc3Mgd2lsbCBldmVudHVhbGx5IG5lZWQgYSBjb21tZXJjaWFsIHJlc3RyaWN0aW9uLCBwdXQgaXQgaW4gb24gZGF5IG9uZSBhbmQgY2FsbCBpdCB3aGF0IGl0IGlzLiBUaGUgZGlzdHJpYnV0aW9uIGJlbmVmaXQgb2YgYSBwdWJsaWMgcmVwb3NpdG9yeSBzdXJ2aXZlcyB0aGUgcmVzdHJpY3Rpb24gYWxtb3N0IGVudGlyZWx5LiBUaGUgcmVwdXRhdGlvbmFsIGNvc3Qgb2YgYWRkaW5nIG9uZSBsYXRlciBkb2VzIG5vdC4KCkZvdW5kZXJzIHJlc2lzdCB0aGlzIGJlY2F1c2UgIm9wZW4gc291cmNlIiBpcyBhIGJldHRlciByZWNydWl0aW5nIGFuZCBsYXVuY2ggd29yZCB0aGFuICJzb3VyY2UgYXZhaWxhYmxlLiIgbjhuJ3MgbnVtYmVycyBzYXkgdGhhdCB3b3JkIGlzIHdvcnRoIGZhciBsZXNzIHRoYW4gdGhlIG9wdGlvbiBpdCBjb3N0cyB5b3UuCgojIyBDaXRhdGlvbnMKCjEuIG44biwgW1N1c3RhaW5hYmxlIFVzZSBMaWNlbnNlXShodHRwczovL2RvY3MubjhuLmlvL3N1c3RhaW5hYmxlLXVzZS1saWNlbnNlLykgYW5kIFtBbm5vdW5jaW5nIHRoZSBuZXcgU3VzdGFpbmFibGUgVXNlIExpY2Vuc2VdKGh0dHBzOi8vYmxvZy5uOG4uaW8vYW5ub3VuY2luZy1uZXctc3VzdGFpbmFibGUtdXNlLWxpY2Vuc2UvKSwgTWFyY2ggMjAyMi4gUHJpbWFyeS4gTGljZW5zZSB0ZXJtcy4KMi4gbjhuLCBbQW5ub3VuY2luZyBTQVAncyBzdHJhdGVnaWMgaW52ZXN0bWVudCBpbiBuOG5dKGh0dHBzOi8vYmxvZy5uOG4uaW8vbjhuLXNhcC8pLCBNYXkgMTIsIDIwMjYuIFByaW1hcnkuCjMuIFtuOG4gdmFsdWF0aW9uIGRvdWJsZXMgdG8gJDUuMmJuIGFzIFNBUCBtYWtlcyBzdHJhdGVnaWMgaW52ZXN0bWVudF0oaHR0cHM6Ly9maW5hbmNlLnlhaG9vLmNvbS9zZWN0b3JzL3RlY2hub2xvZ3kvYXJ0aWNsZXMvbjhuLXZhbHVhdGlvbi1kb3VibGVzLTUtMmJuLTEyMzAwMDcxMy5odG1sKSwgTWF5IDIwMjYuIFN0YWtlIHNpemUgYW5kIEpvdWxlIFN0dWRpbyBpbnRlZ3JhdGlvbi4KNC4gbjhuLCBbbjhuIHJhaXNlcyAkMTgwbSB0byBnZXQgQUkgY2xvc2VyIHRvIHZhbHVlIHdpdGggb3JjaGVzdHJhdGlvbl0oaHR0cHM6Ly9ibG9nLm44bi5pby9zZXJpZXMtYy8pLCBPY3RvYmVyIDIwMjUuIFByaW1hcnkuIFNlcmllcyBDLgo1LiBQaXRjaEJvb2ssIFtBSSBhZ2VudCBzdGFydHVwIG44biBsYW5kcyAkMi41QiB2YWx1YXRpb24gd2l0aCAkMTgwTSBTZXJpZXMgQ10oaHR0cHM6Ly9waXRjaGJvb2suY29tL25ld3MvYXJ0aWNsZXMvYWktYWdlbnQtc3RhcnR1cC1uOG4tbGFuZHMtMi01Yi12YWx1YXRpb24td2l0aC0xODBtLXNlcmllcy1jKS4KNi4gW0FSUiBDbHViLCBuOG4gQVJSIGhpdCDigqwxMDBNK10oaHR0cHM6Ly93d3cuYXJyLmNsdWIvbjhuL244bi1hcnItaGl0LTEwMG0tdmFsdWVkLWF0LTUtMmIpLiBSZXZlbnVlIG1pbGVzdG9uZS4KNy4gW1RyYWN4biwgbjhuXShodHRwczovL3RyYWN4bi5jb20vZC9jb21wYW5pZXMvbjhuL19fSjV4d1VaOUMyOXQ3RHUteVZ2djBTOTlFV2M3czY5dDJOR3Q1WW1oUUcwQSkuIFVzZXJzLCBlbnRlcnByaXNlIGN1c3RvbWVycywgdG90YWwgZnVuZGluZy4KCipDb21waWxlZCBBdWd1c3QgMjYsIDIwMjYuKgo=</script>
+<script>
+  (function () {
+    var src = document.getElementById('memo-src');
+    var raw = '';
+    try {
+      var bin = atob((src.textContent || '').replace(/\s+/g, ''));
+      var bytes = new Uint8Array(bin.length);
+      for (var k = 0; k < bin.length; k++) { bytes[k] = bin.charCodeAt(k); }
+      raw = new TextDecoder('utf-8').decode(bytes);
+    } catch (e) { raw = ''; }
+    var name = document.body.getAttribute('data-slug') + '.md';
+
+    var copy = document.getElementById('btn-copy');
+    copy.addEventListener('click', function () {
+      var done = function () {
+        copy.textContent = 'Copied';
+        copy.classList.add('done');
+        setTimeout(function () {
+          copy.textContent = 'Copy for agents';
+          copy.classList.remove('done');
+        }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(raw).then(done, fallback);
+      } else {
+        fallback();
+      }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = raw;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); } catch (e) { /* no-op */ }
+        document.body.removeChild(ta);
+      }
+    });
+
+    var dl = document.getElementById('btn-download');
+
+    function flash(label) {
+      var was = dl.textContent;
+      dl.textContent = label;
+      dl.classList.add('done');
+      setTimeout(function () {
+        dl.textContent = was;
+        dl.classList.remove('done');
+      }, 1600);
+    }
+
+    function blobSave() {
+      var blob = new Blob([raw], { type: 'text/markdown;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+    }
+
+    dl.addEventListener('click', function () {
+      // On claude.ai the host mediates saves; on GitHub Pages a blob link works.
+      if (window.claude && typeof window.claude.use === 'function') {
+        window.claude.use('downloads').then(function (d) {
+          if (!d) { blobSave(); return; }
+          d.save({ filename: name, data: raw }).then(
+            function () { flash('Saved'); },
+            function (e) { if (!e || e.code !== 'declined') { blobSave(); } }
+          );
+        }, blobSave);
+        return;
+      }
+      blobSave();
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ClickHouse | Closing the Source</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  html { background: #ffffff; }
+  body {
+    background: #ffffff;
+    color: #111111;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .page { max-width: 46em; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.6rem;
+    border-bottom: 1px solid #cccccc;
+  }
+  .bar .home {
+    font-size: 0.85rem;
+    margin-right: auto;
+    color: #555555;
+  }
+  button.act {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 0.85rem;
+    background: #f4f4f2;
+    color: #111111;
+    border: 1px solid #999999;
+    border-radius: 2px;
+    padding: 0.32rem 0.8rem;
+    cursor: pointer;
+  }
+  button.act:hover { background: #e8e8e4; }
+  button.act:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  button.act.done { background: #e6efe6; border-color: #4a7a4a; }
+
+  h1, h2, h3, h4 { font-weight: bold; margin: 0; }
+  h1 { font-size: 2rem; line-height: 1.15; }
+  h2 { font-size: 1.4rem; line-height: 1.2; margin-top: 2.4rem; padding-top: 0.9rem; border-top: 2px solid #111111; }
+  h3 { font-size: 1.1rem; margin-top: 1.6rem; }
+  p { margin: 0.75rem 0 0; }
+  ul, ol { margin: 0.7rem 0 0; padding-left: 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: #111111; }
+  a:hover { color: #7a1c14; }
+  a:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  hr { border: 0; border-top: 1px solid #cccccc; margin: 2rem 0 0; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: #f4f4f2;
+    padding: 0.05em 0.3em;
+    border-radius: 2px;
+  }
+  blockquote {
+    margin: 1rem 0 0;
+    padding: 0.1rem 0 0.1rem 1rem;
+    border-left: 3px solid #999999;
+  }
+  blockquote p { margin-top: 0.4rem; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote em.attrib { font-style: normal; font-size: 0.85rem; color: #555555; }
+
+  .tablewrap { overflow-x: auto; margin-top: 1.1rem; border: 1px solid #cccccc; }
+  table { border-collapse: collapse; width: 100%; min-width: 34em; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid #cccccc; vertical-align: top; }
+  thead th { background: #f4f4f2; border-bottom: 1px solid #111111; }
+  tbody tr:last-child td { border-bottom: 0; }
+
+  .foot { margin-top: 3rem; padding-top: 0.9rem; border-top: 3px double #111111; font-size: 0.85rem; color: #555555; }
+</style>
+</head>
+<body data-slug="clickhouse">
+<div class="page">
+  <div class="bar">
+    <span class="home"><a href="../index.html">Closing the Source</a></span>
+    <button class="act" id="btn-copy" type="button">Copy for agents</button>
+    <button class="act" id="btn-download" type="button">Download .md</button>
+  </div>
+<h1>ClickHouse</h1>
+<p><strong>Still open. Apache 2.0, no restrictions.</strong> $250M ARR, $15B valuation, and not one line of the license touched.</p>
+<hr>
+<h2>The model in one line</h2>
+<p>Give the engine away under the most permissive license available, then sell the thing that is hard to operate.</p>
+<h2>How it makes money</h2>
+<p>ClickHouse Cloud, priced on consumption. You pay for compute units actually used and storage held, not for seats and not for a subscription tier that ignores your workload. Tiers are Basic, Scale and Enterprise. There is a second line in managed connectors (ClickPipes, for Kafka, S3 and similar), which is the same idea applied to the plumbing around the database.</p>
+<p>The open source database has no commercial restriction on it at all. You can run it, resell it, build a competing managed service on it. Apache 2.0 means Apache 2.0.</p>
+<h2>Why it can afford to stay open</h2>
+<p>Because the download and the product are different goods.</p>
+<p>ClickHouse gives away the hardest engineering in the company, the columnar engine, and keeps the business anyway. That works because the engine is not where the cost sits. Running it is. Operating a petabyte-scale analytics database means capacity planning, replication, upgrades, backups, tiered storage and being paged at 3am. A team can have the binary for free and still rationally pay to never touch any of that.</p>
+<p>That gap is the entire business. It is also the test for whether you need to close your source. tldraw is a React SDK. Nobody gets paged for a canvas library, so there is no operational gap, so there is nothing to sell but the code itself. ClickHouse has a gap measured in headcount. The license never had to do the work.</p>
+<p>Second thing worth noticing: ClickHouse did not have to build its community. The project started inside Yandex in 2016 and was already widely used before the company existed. The company was formed in 2021 around adoption that had already happened. Buying that distribution afterward would have cost more than the Series D.</p>
+<h2>The company</h2>
+<p><strong>Founders.</strong> Alexey Milovidov, who wrote ClickHouse at Yandex and is CTO. Aaron Katz, CEO, from Elastic. Yury Izrailevsky, president of product and technology, from Netflix. Incorporated 2021, five years after the code.</p>
+<p><strong>Product.</strong> A real-time OLAP database. Analytical queries over very large tables, returned fast enough to sit behind an interactive dashboard. The 2026 expansion is into observability and AI workloads, bought rather than built: HyperDX, Langfuse and LibreChat were all acquired.</p>
+<p><strong>Distribution.</strong> Benchmarks and word of mouth among data engineers, an Apache 2.0 repo anyone can adopt without a procurement conversation, then land and expand. Developers start free, hit the operational wall, move the workload to Cloud. The named customer list is its own channel: Anthropic, Tesla, OpenAI, Meta, Mercado Libre.</p>
+<h2>Numbers</h2>
+<div class="tablewrap"><table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody>
+<tr><td>ARR</td><td>$250M annualized as of May 2026, roughly tripled year over year. Third-party estimate of $350M by August 2026</td></tr>
+<tr><td>Valuation</td><td>$15B, Series D, January 2026</td></tr>
+<tr><td>Latest round</td><td>$400M led by Dragoneer, with Bessemer, GIC, Index, Khosla, Lightspeed, T. Rowe Price, WCM</td></tr>
+<tr><td>Total raised</td><td>Over $1B</td></tr>
+<tr><td>Customers</td><td>4,000 as of May 2026, up from 3,000 in January</td></tr>
+<tr><td>Named customers</td><td>Anthropic, Tesla, OpenAI, Meta, Mercado Libre</td></tr>
+<tr><td>License</td><td>Apache 2.0, unchanged</td></tr>
+<tr><td>Next step</td><td>Targeting an IPO within a few years</td></tr>
+</tbody></table></div>
+<blockquote>
+<p><strong>Confidence note.</strong> The $250M figure is company-reported via TechCrunch and dated May 2026. The $350M August figure is a Sacra estimate, not company-confirmed. Treat the trajectory as solid and the current exact number as approximate.</p>
+</blockquote>
+<h2>What to take from it</h2>
+<p>If your product has a real operating burden, open source is free distribution with no downside. Publish everything. The people who will self-host were never going to pay you, and the people who will pay you are buying relief from work, not access to code.</p>
+<p>Ask honestly which one you are. Most application-layer companies want ClickHouse's outcome and have tldraw's cost structure.</p>
+<h2>Citations</h2>
+<ol><li>TechCrunch, <a href="https://techcrunch.com/2026/05/27/clickhouse-triples-annualized-revenue-to-250m-charting-a-path-toward-an-ipo/">ClickHouse triples annualized revenue to $250M, charting a path toward an IPO</a>, May 27, 2026. ARR, customer count, IPO intent.</li><li>Bloomberg, <a href="https://www.bloomberg.com/news/articles/2026-01-16/clickhouse-lands-15-billion-valuation-in-ai-database-race">ClickHouse Lands $15 Billion Valuation in AI Database Race</a>, January 16, 2026.</li><li><a href="https://finance.yahoo.com/news/clickhouse-secures-400m-series-d-123835366.html">ClickHouse secures $400m in Series D led by Dragoneer</a>. Round composition.</li><li><a href="https://sacra.com/c/clickhouse/">Sacra, ClickHouse</a>. Pricing mechanics, revenue estimates, named customers, acquisitions.</li><li><a href="https://github.com/ClickHouse/ClickHouse">ClickHouse on GitHub</a>. Apache 2.0.</li></ol>
+<p class="foot"><em>Compiled August 26, 2026.</em></p>
+</div>
+<script type="text/plain" id="memo-src">IyBDbGlja0hvdXNlCgoqKlN0aWxsIG9wZW4uIEFwYWNoZSAyLjAsIG5vIHJlc3RyaWN0aW9ucy4qKiAkMjUwTSBBUlIsICQxNUIgdmFsdWF0aW9uLCBhbmQgbm90IG9uZSBsaW5lIG9mIHRoZSBsaWNlbnNlIHRvdWNoZWQuCgotLS0KCiMjIFRoZSBtb2RlbCBpbiBvbmUgbGluZQoKR2l2ZSB0aGUgZW5naW5lIGF3YXkgdW5kZXIgdGhlIG1vc3QgcGVybWlzc2l2ZSBsaWNlbnNlIGF2YWlsYWJsZSwgdGhlbiBzZWxsIHRoZSB0aGluZyB0aGF0IGlzIGhhcmQgdG8gb3BlcmF0ZS4KCiMjIEhvdyBpdCBtYWtlcyBtb25leQoKQ2xpY2tIb3VzZSBDbG91ZCwgcHJpY2VkIG9uIGNvbnN1bXB0aW9uLiBZb3UgcGF5IGZvciBjb21wdXRlIHVuaXRzIGFjdHVhbGx5IHVzZWQgYW5kIHN0b3JhZ2UgaGVsZCwgbm90IGZvciBzZWF0cyBhbmQgbm90IGZvciBhIHN1YnNjcmlwdGlvbiB0aWVyIHRoYXQgaWdub3JlcyB5b3VyIHdvcmtsb2FkLiBUaWVycyBhcmUgQmFzaWMsIFNjYWxlIGFuZCBFbnRlcnByaXNlLiBUaGVyZSBpcyBhIHNlY29uZCBsaW5lIGluIG1hbmFnZWQgY29ubmVjdG9ycyAoQ2xpY2tQaXBlcywgZm9yIEthZmthLCBTMyBhbmQgc2ltaWxhciksIHdoaWNoIGlzIHRoZSBzYW1lIGlkZWEgYXBwbGllZCB0byB0aGUgcGx1bWJpbmcgYXJvdW5kIHRoZSBkYXRhYmFzZS4KClRoZSBvcGVuIHNvdXJjZSBkYXRhYmFzZSBoYXMgbm8gY29tbWVyY2lhbCByZXN0cmljdGlvbiBvbiBpdCBhdCBhbGwuIFlvdSBjYW4gcnVuIGl0LCByZXNlbGwgaXQsIGJ1aWxkIGEgY29tcGV0aW5nIG1hbmFnZWQgc2VydmljZSBvbiBpdC4gQXBhY2hlIDIuMCBtZWFucyBBcGFjaGUgMi4wLgoKIyMgV2h5IGl0IGNhbiBhZmZvcmQgdG8gc3RheSBvcGVuCgpCZWNhdXNlIHRoZSBkb3dubG9hZCBhbmQgdGhlIHByb2R1Y3QgYXJlIGRpZmZlcmVudCBnb29kcy4KCkNsaWNrSG91c2UgZ2l2ZXMgYXdheSB0aGUgaGFyZGVzdCBlbmdpbmVlcmluZyBpbiB0aGUgY29tcGFueSwgdGhlIGNvbHVtbmFyIGVuZ2luZSwgYW5kIGtlZXBzIHRoZSBidXNpbmVzcyBhbnl3YXkuIFRoYXQgd29ya3MgYmVjYXVzZSB0aGUgZW5naW5lIGlzIG5vdCB3aGVyZSB0aGUgY29zdCBzaXRzLiBSdW5uaW5nIGl0IGlzLiBPcGVyYXRpbmcgYSBwZXRhYnl0ZS1zY2FsZSBhbmFseXRpY3MgZGF0YWJhc2UgbWVhbnMgY2FwYWNpdHkgcGxhbm5pbmcsIHJlcGxpY2F0aW9uLCB1cGdyYWRlcywgYmFja3VwcywgdGllcmVkIHN0b3JhZ2UgYW5kIGJlaW5nIHBhZ2VkIGF0IDNhbS4gQSB0ZWFtIGNhbiBoYXZlIHRoZSBiaW5hcnkgZm9yIGZyZWUgYW5kIHN0aWxsIHJhdGlvbmFsbHkgcGF5IHRvIG5ldmVyIHRvdWNoIGFueSBvZiB0aGF0LgoKVGhhdCBnYXAgaXMgdGhlIGVudGlyZSBidXNpbmVzcy4gSXQgaXMgYWxzbyB0aGUgdGVzdCBmb3Igd2hldGhlciB5b3UgbmVlZCB0byBjbG9zZSB5b3VyIHNvdXJjZS4gdGxkcmF3IGlzIGEgUmVhY3QgU0RLLiBOb2JvZHkgZ2V0cyBwYWdlZCBmb3IgYSBjYW52YXMgbGlicmFyeSwgc28gdGhlcmUgaXMgbm8gb3BlcmF0aW9uYWwgZ2FwLCBzbyB0aGVyZSBpcyBub3RoaW5nIHRvIHNlbGwgYnV0IHRoZSBjb2RlIGl0c2VsZi4gQ2xpY2tIb3VzZSBoYXMgYSBnYXAgbWVhc3VyZWQgaW4gaGVhZGNvdW50LiBUaGUgbGljZW5zZSBuZXZlciBoYWQgdG8gZG8gdGhlIHdvcmsuCgpTZWNvbmQgdGhpbmcgd29ydGggbm90aWNpbmc6IENsaWNrSG91c2UgZGlkIG5vdCBoYXZlIHRvIGJ1aWxkIGl0cyBjb21tdW5pdHkuIFRoZSBwcm9qZWN0IHN0YXJ0ZWQgaW5zaWRlIFlhbmRleCBpbiAyMDE2IGFuZCB3YXMgYWxyZWFkeSB3aWRlbHkgdXNlZCBiZWZvcmUgdGhlIGNvbXBhbnkgZXhpc3RlZC4gVGhlIGNvbXBhbnkgd2FzIGZvcm1lZCBpbiAyMDIxIGFyb3VuZCBhZG9wdGlvbiB0aGF0IGhhZCBhbHJlYWR5IGhhcHBlbmVkLiBCdXlpbmcgdGhhdCBkaXN0cmlidXRpb24gYWZ0ZXJ3YXJkIHdvdWxkIGhhdmUgY29zdCBtb3JlIHRoYW4gdGhlIFNlcmllcyBELgoKIyMgVGhlIGNvbXBhbnkKCioqRm91bmRlcnMuKiogQWxleGV5IE1pbG92aWRvdiwgd2hvIHdyb3RlIENsaWNrSG91c2UgYXQgWWFuZGV4IGFuZCBpcyBDVE8uIEFhcm9uIEthdHosIENFTywgZnJvbSBFbGFzdGljLiBZdXJ5IEl6cmFpbGV2c2t5LCBwcmVzaWRlbnQgb2YgcHJvZHVjdCBhbmQgdGVjaG5vbG9neSwgZnJvbSBOZXRmbGl4LiBJbmNvcnBvcmF0ZWQgMjAyMSwgZml2ZSB5ZWFycyBhZnRlciB0aGUgY29kZS4KCioqUHJvZHVjdC4qKiBBIHJlYWwtdGltZSBPTEFQIGRhdGFiYXNlLiBBbmFseXRpY2FsIHF1ZXJpZXMgb3ZlciB2ZXJ5IGxhcmdlIHRhYmxlcywgcmV0dXJuZWQgZmFzdCBlbm91Z2ggdG8gc2l0IGJlaGluZCBhbiBpbnRlcmFjdGl2ZSBkYXNoYm9hcmQuIFRoZSAyMDI2IGV4cGFuc2lvbiBpcyBpbnRvIG9ic2VydmFiaWxpdHkgYW5kIEFJIHdvcmtsb2FkcywgYm91Z2h0IHJhdGhlciB0aGFuIGJ1aWx0OiBIeXBlckRYLCBMYW5nZnVzZSBhbmQgTGlicmVDaGF0IHdlcmUgYWxsIGFjcXVpcmVkLgoKKipEaXN0cmlidXRpb24uKiogQmVuY2htYXJrcyBhbmQgd29yZCBvZiBtb3V0aCBhbW9uZyBkYXRhIGVuZ2luZWVycywgYW4gQXBhY2hlIDIuMCByZXBvIGFueW9uZSBjYW4gYWRvcHQgd2l0aG91dCBhIHByb2N1cmVtZW50IGNvbnZlcnNhdGlvbiwgdGhlbiBsYW5kIGFuZCBleHBhbmQuIERldmVsb3BlcnMgc3RhcnQgZnJlZSwgaGl0IHRoZSBvcGVyYXRpb25hbCB3YWxsLCBtb3ZlIHRoZSB3b3JrbG9hZCB0byBDbG91ZC4gVGhlIG5hbWVkIGN1c3RvbWVyIGxpc3QgaXMgaXRzIG93biBjaGFubmVsOiBBbnRocm9waWMsIFRlc2xhLCBPcGVuQUksIE1ldGEsIE1lcmNhZG8gTGlicmUuCgojIyBOdW1iZXJzCgp8IE1ldHJpYyB8IFZhbHVlIHwKfCAtLS0gfCAtLS0gfAp8IEFSUiB8ICQyNTBNIGFubnVhbGl6ZWQgYXMgb2YgTWF5IDIwMjYsIHJvdWdobHkgdHJpcGxlZCB5ZWFyIG92ZXIgeWVhci4gVGhpcmQtcGFydHkgZXN0aW1hdGUgb2YgJDM1ME0gYnkgQXVndXN0IDIwMjYgfAp8IFZhbHVhdGlvbiB8ICQxNUIsIFNlcmllcyBELCBKYW51YXJ5IDIwMjYgfAp8IExhdGVzdCByb3VuZCB8ICQ0MDBNIGxlZCBieSBEcmFnb25lZXIsIHdpdGggQmVzc2VtZXIsIEdJQywgSW5kZXgsIEtob3NsYSwgTGlnaHRzcGVlZCwgVC4gUm93ZSBQcmljZSwgV0NNIHwKfCBUb3RhbCByYWlzZWQgfCBPdmVyICQxQiB8CnwgQ3VzdG9tZXJzIHwgNCwwMDAgYXMgb2YgTWF5IDIwMjYsIHVwIGZyb20gMywwMDAgaW4gSmFudWFyeSB8CnwgTmFtZWQgY3VzdG9tZXJzIHwgQW50aHJvcGljLCBUZXNsYSwgT3BlbkFJLCBNZXRhLCBNZXJjYWRvIExpYnJlIHwKfCBMaWNlbnNlIHwgQXBhY2hlIDIuMCwgdW5jaGFuZ2VkIHwKfCBOZXh0IHN0ZXAgfCBUYXJnZXRpbmcgYW4gSVBPIHdpdGhpbiBhIGZldyB5ZWFycyB8Cgo+ICoqQ29uZmlkZW5jZSBub3RlLioqIFRoZSAkMjUwTSBmaWd1cmUgaXMgY29tcGFueS1yZXBvcnRlZCB2aWEgVGVjaENydW5jaCBhbmQgZGF0ZWQgTWF5IDIwMjYuIFRoZSAkMzUwTSBBdWd1c3QgZmlndXJlIGlzIGEgU2FjcmEgZXN0aW1hdGUsIG5vdCBjb21wYW55LWNvbmZpcm1lZC4gVHJlYXQgdGhlIHRyYWplY3RvcnkgYXMgc29saWQgYW5kIHRoZSBjdXJyZW50IGV4YWN0IG51bWJlciBhcyBhcHByb3hpbWF0ZS4KCiMjIFdoYXQgdG8gdGFrZSBmcm9tIGl0CgpJZiB5b3VyIHByb2R1Y3QgaGFzIGEgcmVhbCBvcGVyYXRpbmcgYnVyZGVuLCBvcGVuIHNvdXJjZSBpcyBmcmVlIGRpc3RyaWJ1dGlvbiB3aXRoIG5vIGRvd25zaWRlLiBQdWJsaXNoIGV2ZXJ5dGhpbmcuIFRoZSBwZW9wbGUgd2hvIHdpbGwgc2VsZi1ob3N0IHdlcmUgbmV2ZXIgZ29pbmcgdG8gcGF5IHlvdSwgYW5kIHRoZSBwZW9wbGUgd2hvIHdpbGwgcGF5IHlvdSBhcmUgYnV5aW5nIHJlbGllZiBmcm9tIHdvcmssIG5vdCBhY2Nlc3MgdG8gY29kZS4KCkFzayBob25lc3RseSB3aGljaCBvbmUgeW91IGFyZS4gTW9zdCBhcHBsaWNhdGlvbi1sYXllciBjb21wYW5pZXMgd2FudCBDbGlja0hvdXNlJ3Mgb3V0Y29tZSBhbmQgaGF2ZSB0bGRyYXcncyBjb3N0IHN0cnVjdHVyZS4KCiMjIENpdGF0aW9ucwoKMS4gVGVjaENydW5jaCwgW0NsaWNrSG91c2UgdHJpcGxlcyBhbm51YWxpemVkIHJldmVudWUgdG8gJDI1ME0sIGNoYXJ0aW5nIGEgcGF0aCB0b3dhcmQgYW4gSVBPXShodHRwczovL3RlY2hjcnVuY2guY29tLzIwMjYvMDUvMjcvY2xpY2tob3VzZS10cmlwbGVzLWFubnVhbGl6ZWQtcmV2ZW51ZS10by0yNTBtLWNoYXJ0aW5nLWEtcGF0aC10b3dhcmQtYW4taXBvLyksIE1heSAyNywgMjAyNi4gQVJSLCBjdXN0b21lciBjb3VudCwgSVBPIGludGVudC4KMi4gQmxvb21iZXJnLCBbQ2xpY2tIb3VzZSBMYW5kcyAkMTUgQmlsbGlvbiBWYWx1YXRpb24gaW4gQUkgRGF0YWJhc2UgUmFjZV0oaHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMjYtMDEtMTYvY2xpY2tob3VzZS1sYW5kcy0xNS1iaWxsaW9uLXZhbHVhdGlvbi1pbi1haS1kYXRhYmFzZS1yYWNlKSwgSmFudWFyeSAxNiwgMjAyNi4KMy4gW0NsaWNrSG91c2Ugc2VjdXJlcyAkNDAwbSBpbiBTZXJpZXMgRCBsZWQgYnkgRHJhZ29uZWVyXShodHRwczovL2ZpbmFuY2UueWFob28uY29tL25ld3MvY2xpY2tob3VzZS1zZWN1cmVzLTQwMG0tc2VyaWVzLWQtMTIzODM1MzY2Lmh0bWwpLiBSb3VuZCBjb21wb3NpdGlvbi4KNC4gW1NhY3JhLCBDbGlja0hvdXNlXShodHRwczovL3NhY3JhLmNvbS9jL2NsaWNraG91c2UvKS4gUHJpY2luZyBtZWNoYW5pY3MsIHJldmVudWUgZXN0aW1hdGVzLCBuYW1lZCBjdXN0b21lcnMsIGFjcXVpc2l0aW9ucy4KNS4gW0NsaWNrSG91c2Ugb24gR2l0SHViXShodHRwczovL2dpdGh1Yi5jb20vQ2xpY2tIb3VzZS9DbGlja0hvdXNlKS4gQXBhY2hlIDIuMC4KCipDb21waWxlZCBBdWd1c3QgMjYsIDIwMjYuKgo=</script>
+<script>
+  (function () {
+    var src = document.getElementById('memo-src');
+    var raw = '';
+    try {
+      var bin = atob((src.textContent || '').replace(/\s+/g, ''));
+      var bytes = new Uint8Array(bin.length);
+      for (var k = 0; k < bin.length; k++) { bytes[k] = bin.charCodeAt(k); }
+      raw = new TextDecoder('utf-8').decode(bytes);
+    } catch (e) { raw = ''; }
+    var name = document.body.getAttribute('data-slug') + '.md';
+
+    var copy = document.getElementById('btn-copy');
+    copy.addEventListener('click', function () {
+      var done = function () {
+        copy.textContent = 'Copied';
+        copy.classList.add('done');
+        setTimeout(function () {
+          copy.textContent = 'Copy for agents';
+          copy.classList.remove('done');
+        }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(raw).then(done, fallback);
+      } else {
+        fallback();
+      }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = raw;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); } catch (e) { /* no-op */ }
+        document.body.removeChild(ta);
+      }
+    });
+
+    var dl = document.getElementById('btn-download');
+
+    function flash(label) {
+      var was = dl.textContent;
+      dl.textContent = label;
+      dl.classList.add('done');
+      setTimeout(function () {
+        dl.textContent = was;
+        dl.classList.remove('done');
+      }, 1600);
+    }
+
+    function blobSave() {
+      var blob = new Blob([raw], { type: 'text/markdown;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+    }
+
+    dl.addEventListener('click', function () {
+      // On claude.ai the host mediates saves; on GitHub Pages a blob link works.
+      if (window.claude && typeof window.claude.use === 'function') {
+        window.claude.use('downloads').then(function (d) {
+          if (!d) { blobSave(); return; }
+          d.save({ filename: name, data: raw }).then(
+            function () { flash('Saved'); },
+            function (e) { if (!e || e.code !== 'declined') { blobSave(); } }
+          );
+        }, blobSave);
+        return;
+      }
+      blobSave();
+    });
+  })();
+</script>
+</body>
+</html>

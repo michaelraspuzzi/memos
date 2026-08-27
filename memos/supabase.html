@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Supabase | Closing the Source</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  html { background: #ffffff; }
+  body {
+    background: #ffffff;
+    color: #111111;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .page { max-width: 46em; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.6rem;
+    border-bottom: 1px solid #cccccc;
+  }
+  .bar .home {
+    font-size: 0.85rem;
+    margin-right: auto;
+    color: #555555;
+  }
+  button.act {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 0.85rem;
+    background: #f4f4f2;
+    color: #111111;
+    border: 1px solid #999999;
+    border-radius: 2px;
+    padding: 0.32rem 0.8rem;
+    cursor: pointer;
+  }
+  button.act:hover { background: #e8e8e4; }
+  button.act:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  button.act.done { background: #e6efe6; border-color: #4a7a4a; }
+
+  h1, h2, h3, h4 { font-weight: bold; margin: 0; }
+  h1 { font-size: 2rem; line-height: 1.15; }
+  h2 { font-size: 1.4rem; line-height: 1.2; margin-top: 2.4rem; padding-top: 0.9rem; border-top: 2px solid #111111; }
+  h3 { font-size: 1.1rem; margin-top: 1.6rem; }
+  p { margin: 0.75rem 0 0; }
+  ul, ol { margin: 0.7rem 0 0; padding-left: 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: #111111; }
+  a:hover { color: #7a1c14; }
+  a:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  hr { border: 0; border-top: 1px solid #cccccc; margin: 2rem 0 0; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: #f4f4f2;
+    padding: 0.05em 0.3em;
+    border-radius: 2px;
+  }
+  blockquote {
+    margin: 1rem 0 0;
+    padding: 0.1rem 0 0.1rem 1rem;
+    border-left: 3px solid #999999;
+  }
+  blockquote p { margin-top: 0.4rem; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote em.attrib { font-style: normal; font-size: 0.85rem; color: #555555; }
+
+  .tablewrap { overflow-x: auto; margin-top: 1.1rem; border: 1px solid #cccccc; }
+  table { border-collapse: collapse; width: 100%; min-width: 34em; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid #cccccc; vertical-align: top; }
+  thead th { background: #f4f4f2; border-bottom: 1px solid #111111; }
+  tbody tr:last-child td { border-bottom: 0; }
+
+  .foot { margin-top: 3rem; padding-top: 0.9rem; border-top: 3px double #111111; font-size: 0.85rem; color: #555555; }
+</style>
+</head>
+<body data-slug="supabase">
+<div class="page">
+  <div class="bar">
+    <span class="home"><a href="../index.html">Closing the Source</a></span>
+    <button class="act" id="btn-copy" type="button">Copy for agents</button>
+    <button class="act" id="btn-download" type="button">Download .md</button>
+  </div>
+<h1>Supabase</h1>
+<p><strong>Still open. Apache 2.0, fully self-hostable.</strong> $10.5B valuation, and the distribution channel is now AI agents, not developers.</p>
+<hr>
+<h2>The model in one line</h2>
+<p>Give away a backend anyone can self-host, then win because being the default thing an AI coding tool provisions is worth more than being the only thing you can buy.</p>
+<h2>How it makes money</h2>
+<p>Hosted Postgres, sold as a subscription with metered overage. Free at $0, Pro at $25, Team at $599 per organization, Enterprise negotiated. You pay a fixed monthly fee, then meter on compute, storage and egress once you cross the included quota.</p>
+<p>The free tier is deliberately shaped, not just small: two active projects, 500 MB of database storage, and projects pause after seven days of inactivity. That last rule is the real conversion mechanism. It is fine for learning and impossible for production.</p>
+<h2>Why it can afford to stay open</h2>
+<p>Two reasons, and the second one is new.</p>
+<p><strong>First, the same operational gap as ClickHouse.</strong> The whole stack self-hosts through a Docker Compose file, and Apache 2.0 permits commercial use with no restriction. It is genuinely allowed. It is also genuinely worse: you inherit backups, connection pooling, upgrades, replication and PITR. The license is not what stops people. The work is.</p>
+<p><strong>Second, and more interesting: the buyer changed.</strong> Database launches on Supabase grew more than 600 percent in the year to June 2026, and over 60 percent of new databases were launched by an AI tool rather than a human. Bolt, Lovable, Cursor, Claude Code and Codex reach for Supabase automatically when a generated app needs a backend.</p>
+<p>That flips what the source code is for. When your acquisition channel is a coding agent choosing a default, what protects you is being the easiest thing to wire up correctly on the first try: clean docs, a predictable API, a client library in the model's training data, provisioning that works without a human. Closing the source would do nothing for any of that. Being maximally open, documented and copyable is the moat, because those are the exact properties that make an agent pick you.</p>
+<p>Cal.com closed its repo to protect an embed business. Supabase kept its repo open and got embedded by every code generator on the market.</p>
+<h2>The company</h2>
+<p><strong>Founders.</strong> Paul Copplestone, CEO, and Ant Wilson, CTO. Founded 2020, Y Combinator S20. Distributed from the start.</p>
+<p><strong>Product.</strong> A Postgres development platform. You get a real Postgres database, plus the pieces every app needs anyway: auth, row-level security, object storage, realtime subscriptions, edge functions and an auto-generated API. The positioning was "open source Firebase alternative," which meant the migration path off it was always visible. That was the point.</p>
+<p><strong>Distribution.</strong> Three layers, each larger than the last. Developer word of mouth and a very large GitHub presence. Then a free tier generous enough to build a real prototype on. Then, from 2025, AI code generators provisioning it by default. The third layer is the one that produced the current numbers.</p>
+<h2>Numbers</h2>
+<div class="tablewrap"><table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody>
+<tr><td>Valuation</td><td>$10.5B post-money, Series F, June 2026</td></tr>
+<tr><td>Latest round</td><td>$500M led by GIC. Stripe invested a second time, Salesforce Ventures joined new</td></tr>
+<tr><td>Prior round</td><td>$100M Series E, October 2025, at $5B, co-led by Accel and Peak XV</td></tr>
+<tr><td>ARR</td><td>~$170M estimated for 2026, up from ~$70M mid-2025 and ~$30M at end of 2024</td></tr>
+<tr><td>Developers</td><td>4M+</td></tr>
+<tr><td>Customers</td><td>100,000+</td></tr>
+<tr><td>Growth signal</td><td>Database launches up 600%+ year over year, 60%+ launched by an AI tool</td></tr>
+<tr><td>License</td><td>Apache 2.0, unchanged</td></tr>
+</tbody></table></div>
+<blockquote>
+<p><strong>Confidence note.</strong> The ARR figure is a third-party estimate (Latka). The valuation, round composition and growth percentages are company-announced.</p>
+</blockquote>
+<h2>What to take from it</h2>
+<p>The question is no longer only "can a cloud vendor strip-mine my code." It is "what makes a coding agent choose me by default." Those two questions push in opposite directions. The first argues for restriction. The second argues for the most permissive, most legible, most copyable thing you can ship.</p>
+<p>If your users are increasingly agents acting for humans, the second question is the one that pays. Supabase's revenue roughly doubled in twelve months without changing a word of its license.</p>
+<h2>Citations</h2>
+<ol><li>Supabase, <a href="https://supabase.com/blog/supabase-series-e">Series E announcement</a>. Primary.</li><li><a href="https://www.prnewswire.com/news-releases/supabase-raises-500m-at-10-5b-to-accelerate-lead-in-agentic-infrastructure-302791787.html">Supabase Raises $500M at $10.5B to Accelerate Lead in Agentic Infrastructure</a>, June 2026. Round composition.</li><li>TechCrunch, <a href="https://techcrunch.com/2026/06/05/supabase-doubles-valuation-to-10b-in-8-months/">Supabase doubles valuation to $10B in 8 months</a>, June 5, 2026. Growth figures, AI-tool share of launches.</li><li>CNBC, <a href="https://www.cnbc.com/2026/06/04/database-startup-supabase-raises-500-million-10point5-billion-valuation.html">Vibe-coding phenomenon lifts Supabase to $10.5 billion valuation</a>, June 4, 2026.</li><li><a href="https://getlatka.com/companies/supabase.com">Latka, Supabase</a>. Revenue estimate.</li><li><a href="https://sacra.com/c/supabase/">Sacra, Supabase</a>. Business model and pricing mechanics.</li><li><a href="https://github.com/supabase/supabase">supabase/supabase on GitHub</a>. Apache 2.0 and the self-host path.</li></ol>
+<p class="foot"><em>Compiled August 26, 2026.</em></p>
+</div>
+<script type="text/plain" id="memo-src">IyBTdXBhYmFzZQoKKipTdGlsbCBvcGVuLiBBcGFjaGUgMi4wLCBmdWxseSBzZWxmLWhvc3RhYmxlLioqICQxMC41QiB2YWx1YXRpb24sIGFuZCB0aGUgZGlzdHJpYnV0aW9uIGNoYW5uZWwgaXMgbm93IEFJIGFnZW50cywgbm90IGRldmVsb3BlcnMuCgotLS0KCiMjIFRoZSBtb2RlbCBpbiBvbmUgbGluZQoKR2l2ZSBhd2F5IGEgYmFja2VuZCBhbnlvbmUgY2FuIHNlbGYtaG9zdCwgdGhlbiB3aW4gYmVjYXVzZSBiZWluZyB0aGUgZGVmYXVsdCB0aGluZyBhbiBBSSBjb2RpbmcgdG9vbCBwcm92aXNpb25zIGlzIHdvcnRoIG1vcmUgdGhhbiBiZWluZyB0aGUgb25seSB0aGluZyB5b3UgY2FuIGJ1eS4KCiMjIEhvdyBpdCBtYWtlcyBtb25leQoKSG9zdGVkIFBvc3RncmVzLCBzb2xkIGFzIGEgc3Vic2NyaXB0aW9uIHdpdGggbWV0ZXJlZCBvdmVyYWdlLiBGcmVlIGF0ICQwLCBQcm8gYXQgJDI1LCBUZWFtIGF0ICQ1OTkgcGVyIG9yZ2FuaXphdGlvbiwgRW50ZXJwcmlzZSBuZWdvdGlhdGVkLiBZb3UgcGF5IGEgZml4ZWQgbW9udGhseSBmZWUsIHRoZW4gbWV0ZXIgb24gY29tcHV0ZSwgc3RvcmFnZSBhbmQgZWdyZXNzIG9uY2UgeW91IGNyb3NzIHRoZSBpbmNsdWRlZCBxdW90YS4KClRoZSBmcmVlIHRpZXIgaXMgZGVsaWJlcmF0ZWx5IHNoYXBlZCwgbm90IGp1c3Qgc21hbGw6IHR3byBhY3RpdmUgcHJvamVjdHMsIDUwMCBNQiBvZiBkYXRhYmFzZSBzdG9yYWdlLCBhbmQgcHJvamVjdHMgcGF1c2UgYWZ0ZXIgc2V2ZW4gZGF5cyBvZiBpbmFjdGl2aXR5LiBUaGF0IGxhc3QgcnVsZSBpcyB0aGUgcmVhbCBjb252ZXJzaW9uIG1lY2hhbmlzbS4gSXQgaXMgZmluZSBmb3IgbGVhcm5pbmcgYW5kIGltcG9zc2libGUgZm9yIHByb2R1Y3Rpb24uCgojIyBXaHkgaXQgY2FuIGFmZm9yZCB0byBzdGF5IG9wZW4KClR3byByZWFzb25zLCBhbmQgdGhlIHNlY29uZCBvbmUgaXMgbmV3LgoKKipGaXJzdCwgdGhlIHNhbWUgb3BlcmF0aW9uYWwgZ2FwIGFzIENsaWNrSG91c2UuKiogVGhlIHdob2xlIHN0YWNrIHNlbGYtaG9zdHMgdGhyb3VnaCBhIERvY2tlciBDb21wb3NlIGZpbGUsIGFuZCBBcGFjaGUgMi4wIHBlcm1pdHMgY29tbWVyY2lhbCB1c2Ugd2l0aCBubyByZXN0cmljdGlvbi4gSXQgaXMgZ2VudWluZWx5IGFsbG93ZWQuIEl0IGlzIGFsc28gZ2VudWluZWx5IHdvcnNlOiB5b3UgaW5oZXJpdCBiYWNrdXBzLCBjb25uZWN0aW9uIHBvb2xpbmcsIHVwZ3JhZGVzLCByZXBsaWNhdGlvbiBhbmQgUElUUi4gVGhlIGxpY2Vuc2UgaXMgbm90IHdoYXQgc3RvcHMgcGVvcGxlLiBUaGUgd29yayBpcy4KCioqU2Vjb25kLCBhbmQgbW9yZSBpbnRlcmVzdGluZzogdGhlIGJ1eWVyIGNoYW5nZWQuKiogRGF0YWJhc2UgbGF1bmNoZXMgb24gU3VwYWJhc2UgZ3JldyBtb3JlIHRoYW4gNjAwIHBlcmNlbnQgaW4gdGhlIHllYXIgdG8gSnVuZSAyMDI2LCBhbmQgb3ZlciA2MCBwZXJjZW50IG9mIG5ldyBkYXRhYmFzZXMgd2VyZSBsYXVuY2hlZCBieSBhbiBBSSB0b29sIHJhdGhlciB0aGFuIGEgaHVtYW4uIEJvbHQsIExvdmFibGUsIEN1cnNvciwgQ2xhdWRlIENvZGUgYW5kIENvZGV4IHJlYWNoIGZvciBTdXBhYmFzZSBhdXRvbWF0aWNhbGx5IHdoZW4gYSBnZW5lcmF0ZWQgYXBwIG5lZWRzIGEgYmFja2VuZC4KClRoYXQgZmxpcHMgd2hhdCB0aGUgc291cmNlIGNvZGUgaXMgZm9yLiBXaGVuIHlvdXIgYWNxdWlzaXRpb24gY2hhbm5lbCBpcyBhIGNvZGluZyBhZ2VudCBjaG9vc2luZyBhIGRlZmF1bHQsIHdoYXQgcHJvdGVjdHMgeW91IGlzIGJlaW5nIHRoZSBlYXNpZXN0IHRoaW5nIHRvIHdpcmUgdXAgY29ycmVjdGx5IG9uIHRoZSBmaXJzdCB0cnk6IGNsZWFuIGRvY3MsIGEgcHJlZGljdGFibGUgQVBJLCBhIGNsaWVudCBsaWJyYXJ5IGluIHRoZSBtb2RlbCdzIHRyYWluaW5nIGRhdGEsIHByb3Zpc2lvbmluZyB0aGF0IHdvcmtzIHdpdGhvdXQgYSBodW1hbi4gQ2xvc2luZyB0aGUgc291cmNlIHdvdWxkIGRvIG5vdGhpbmcgZm9yIGFueSBvZiB0aGF0LiBCZWluZyBtYXhpbWFsbHkgb3BlbiwgZG9jdW1lbnRlZCBhbmQgY29weWFibGUgaXMgdGhlIG1vYXQsIGJlY2F1c2UgdGhvc2UgYXJlIHRoZSBleGFjdCBwcm9wZXJ0aWVzIHRoYXQgbWFrZSBhbiBhZ2VudCBwaWNrIHlvdS4KCkNhbC5jb20gY2xvc2VkIGl0cyByZXBvIHRvIHByb3RlY3QgYW4gZW1iZWQgYnVzaW5lc3MuIFN1cGFiYXNlIGtlcHQgaXRzIHJlcG8gb3BlbiBhbmQgZ290IGVtYmVkZGVkIGJ5IGV2ZXJ5IGNvZGUgZ2VuZXJhdG9yIG9uIHRoZSBtYXJrZXQuCgojIyBUaGUgY29tcGFueQoKKipGb3VuZGVycy4qKiBQYXVsIENvcHBsZXN0b25lLCBDRU8sIGFuZCBBbnQgV2lsc29uLCBDVE8uIEZvdW5kZWQgMjAyMCwgWSBDb21iaW5hdG9yIFMyMC4gRGlzdHJpYnV0ZWQgZnJvbSB0aGUgc3RhcnQuCgoqKlByb2R1Y3QuKiogQSBQb3N0Z3JlcyBkZXZlbG9wbWVudCBwbGF0Zm9ybS4gWW91IGdldCBhIHJlYWwgUG9zdGdyZXMgZGF0YWJhc2UsIHBsdXMgdGhlIHBpZWNlcyBldmVyeSBhcHAgbmVlZHMgYW55d2F5OiBhdXRoLCByb3ctbGV2ZWwgc2VjdXJpdHksIG9iamVjdCBzdG9yYWdlLCByZWFsdGltZSBzdWJzY3JpcHRpb25zLCBlZGdlIGZ1bmN0aW9ucyBhbmQgYW4gYXV0by1nZW5lcmF0ZWQgQVBJLiBUaGUgcG9zaXRpb25pbmcgd2FzICJvcGVuIHNvdXJjZSBGaXJlYmFzZSBhbHRlcm5hdGl2ZSwiIHdoaWNoIG1lYW50IHRoZSBtaWdyYXRpb24gcGF0aCBvZmYgaXQgd2FzIGFsd2F5cyB2aXNpYmxlLiBUaGF0IHdhcyB0aGUgcG9pbnQuCgoqKkRpc3RyaWJ1dGlvbi4qKiBUaHJlZSBsYXllcnMsIGVhY2ggbGFyZ2VyIHRoYW4gdGhlIGxhc3QuIERldmVsb3BlciB3b3JkIG9mIG1vdXRoIGFuZCBhIHZlcnkgbGFyZ2UgR2l0SHViIHByZXNlbmNlLiBUaGVuIGEgZnJlZSB0aWVyIGdlbmVyb3VzIGVub3VnaCB0byBidWlsZCBhIHJlYWwgcHJvdG90eXBlIG9uLiBUaGVuLCBmcm9tIDIwMjUsIEFJIGNvZGUgZ2VuZXJhdG9ycyBwcm92aXNpb25pbmcgaXQgYnkgZGVmYXVsdC4gVGhlIHRoaXJkIGxheWVyIGlzIHRoZSBvbmUgdGhhdCBwcm9kdWNlZCB0aGUgY3VycmVudCBudW1iZXJzLgoKIyMgTnVtYmVycwoKfCBNZXRyaWMgfCBWYWx1ZSB8CnwgLS0tIHwgLS0tIHwKfCBWYWx1YXRpb24gfCAkMTAuNUIgcG9zdC1tb25leSwgU2VyaWVzIEYsIEp1bmUgMjAyNiB8CnwgTGF0ZXN0IHJvdW5kIHwgJDUwME0gbGVkIGJ5IEdJQy4gU3RyaXBlIGludmVzdGVkIGEgc2Vjb25kIHRpbWUsIFNhbGVzZm9yY2UgVmVudHVyZXMgam9pbmVkIG5ldyB8CnwgUHJpb3Igcm91bmQgfCAkMTAwTSBTZXJpZXMgRSwgT2N0b2JlciAyMDI1LCBhdCAkNUIsIGNvLWxlZCBieSBBY2NlbCBhbmQgUGVhayBYViB8CnwgQVJSIHwgfiQxNzBNIGVzdGltYXRlZCBmb3IgMjAyNiwgdXAgZnJvbSB+JDcwTSBtaWQtMjAyNSBhbmQgfiQzME0gYXQgZW5kIG9mIDIwMjQgfAp8IERldmVsb3BlcnMgfCA0TSsgfAp8IEN1c3RvbWVycyB8IDEwMCwwMDArIHwKfCBHcm93dGggc2lnbmFsIHwgRGF0YWJhc2UgbGF1bmNoZXMgdXAgNjAwJSsgeWVhciBvdmVyIHllYXIsIDYwJSsgbGF1bmNoZWQgYnkgYW4gQUkgdG9vbCB8CnwgTGljZW5zZSB8IEFwYWNoZSAyLjAsIHVuY2hhbmdlZCB8Cgo+ICoqQ29uZmlkZW5jZSBub3RlLioqIFRoZSBBUlIgZmlndXJlIGlzIGEgdGhpcmQtcGFydHkgZXN0aW1hdGUgKExhdGthKS4gVGhlIHZhbHVhdGlvbiwgcm91bmQgY29tcG9zaXRpb24gYW5kIGdyb3d0aCBwZXJjZW50YWdlcyBhcmUgY29tcGFueS1hbm5vdW5jZWQuCgojIyBXaGF0IHRvIHRha2UgZnJvbSBpdAoKVGhlIHF1ZXN0aW9uIGlzIG5vIGxvbmdlciBvbmx5ICJjYW4gYSBjbG91ZCB2ZW5kb3Igc3RyaXAtbWluZSBteSBjb2RlLiIgSXQgaXMgIndoYXQgbWFrZXMgYSBjb2RpbmcgYWdlbnQgY2hvb3NlIG1lIGJ5IGRlZmF1bHQuIiBUaG9zZSB0d28gcXVlc3Rpb25zIHB1c2ggaW4gb3Bwb3NpdGUgZGlyZWN0aW9ucy4gVGhlIGZpcnN0IGFyZ3VlcyBmb3IgcmVzdHJpY3Rpb24uIFRoZSBzZWNvbmQgYXJndWVzIGZvciB0aGUgbW9zdCBwZXJtaXNzaXZlLCBtb3N0IGxlZ2libGUsIG1vc3QgY29weWFibGUgdGhpbmcgeW91IGNhbiBzaGlwLgoKSWYgeW91ciB1c2VycyBhcmUgaW5jcmVhc2luZ2x5IGFnZW50cyBhY3RpbmcgZm9yIGh1bWFucywgdGhlIHNlY29uZCBxdWVzdGlvbiBpcyB0aGUgb25lIHRoYXQgcGF5cy4gU3VwYWJhc2UncyByZXZlbnVlIHJvdWdobHkgZG91YmxlZCBpbiB0d2VsdmUgbW9udGhzIHdpdGhvdXQgY2hhbmdpbmcgYSB3b3JkIG9mIGl0cyBsaWNlbnNlLgoKIyMgQ2l0YXRpb25zCgoxLiBTdXBhYmFzZSwgW1NlcmllcyBFIGFubm91bmNlbWVudF0oaHR0cHM6Ly9zdXBhYmFzZS5jb20vYmxvZy9zdXBhYmFzZS1zZXJpZXMtZSkuIFByaW1hcnkuCjIuIFtTdXBhYmFzZSBSYWlzZXMgJDUwME0gYXQgJDEwLjVCIHRvIEFjY2VsZXJhdGUgTGVhZCBpbiBBZ2VudGljIEluZnJhc3RydWN0dXJlXShodHRwczovL3d3dy5wcm5ld3N3aXJlLmNvbS9uZXdzLXJlbGVhc2VzL3N1cGFiYXNlLXJhaXNlcy01MDBtLWF0LTEwLTViLXRvLWFjY2VsZXJhdGUtbGVhZC1pbi1hZ2VudGljLWluZnJhc3RydWN0dXJlLTMwMjc5MTc4Ny5odG1sKSwgSnVuZSAyMDI2LiBSb3VuZCBjb21wb3NpdGlvbi4KMy4gVGVjaENydW5jaCwgW1N1cGFiYXNlIGRvdWJsZXMgdmFsdWF0aW9uIHRvICQxMEIgaW4gOCBtb250aHNdKGh0dHBzOi8vdGVjaGNydW5jaC5jb20vMjAyNi8wNi8wNS9zdXBhYmFzZS1kb3VibGVzLXZhbHVhdGlvbi10by0xMGItaW4tOC1tb250aHMvKSwgSnVuZSA1LCAyMDI2LiBHcm93dGggZmlndXJlcywgQUktdG9vbCBzaGFyZSBvZiBsYXVuY2hlcy4KNC4gQ05CQywgW1ZpYmUtY29kaW5nIHBoZW5vbWVub24gbGlmdHMgU3VwYWJhc2UgdG8gJDEwLjUgYmlsbGlvbiB2YWx1YXRpb25dKGh0dHBzOi8vd3d3LmNuYmMuY29tLzIwMjYvMDYvMDQvZGF0YWJhc2Utc3RhcnR1cC1zdXBhYmFzZS1yYWlzZXMtNTAwLW1pbGxpb24tMTBwb2ludDUtYmlsbGlvbi12YWx1YXRpb24uaHRtbCksIEp1bmUgNCwgMjAyNi4KNS4gW0xhdGthLCBTdXBhYmFzZV0oaHR0cHM6Ly9nZXRsYXRrYS5jb20vY29tcGFuaWVzL3N1cGFiYXNlLmNvbSkuIFJldmVudWUgZXN0aW1hdGUuCjYuIFtTYWNyYSwgU3VwYWJhc2VdKGh0dHBzOi8vc2FjcmEuY29tL2Mvc3VwYWJhc2UvKS4gQnVzaW5lc3MgbW9kZWwgYW5kIHByaWNpbmcgbWVjaGFuaWNzLgo3LiBbc3VwYWJhc2Uvc3VwYWJhc2Ugb24gR2l0SHViXShodHRwczovL2dpdGh1Yi5jb20vc3VwYWJhc2Uvc3VwYWJhc2UpLiBBcGFjaGUgMi4wIGFuZCB0aGUgc2VsZi1ob3N0IHBhdGguCgoqQ29tcGlsZWQgQXVndXN0IDI2LCAyMDI2LioK</script>
+<script>
+  (function () {
+    var src = document.getElementById('memo-src');
+    var raw = '';
+    try {
+      var bin = atob((src.textContent || '').replace(/\s+/g, ''));
+      var bytes = new Uint8Array(bin.length);
+      for (var k = 0; k < bin.length; k++) { bytes[k] = bin.charCodeAt(k); }
+      raw = new TextDecoder('utf-8').decode(bytes);
+    } catch (e) { raw = ''; }
+    var name = document.body.getAttribute('data-slug') + '.md';
+
+    var copy = document.getElementById('btn-copy');
+    copy.addEventListener('click', function () {
+      var done = function () {
+        copy.textContent = 'Copied';
+        copy.classList.add('done');
+        setTimeout(function () {
+          copy.textContent = 'Copy for agents';
+          copy.classList.remove('done');
+        }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(raw).then(done, fallback);
+      } else {
+        fallback();
+      }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = raw;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); } catch (e) { /* no-op */ }
+        document.body.removeChild(ta);
+      }
+    });
+
+    var dl = document.getElementById('btn-download');
+
+    function flash(label) {
+      var was = dl.textContent;
+      dl.textContent = label;
+      dl.classList.add('done');
+      setTimeout(function () {
+        dl.textContent = was;
+        dl.classList.remove('done');
+      }, 1600);
+    }
+
+    function blobSave() {
+      var blob = new Blob([raw], { type: 'text/markdown;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+    }
+
+    dl.addEventListener('click', function () {
+      // On claude.ai the host mediates saves; on GitHub Pages a blob link works.
+      if (window.claude && typeof window.claude.use === 'function') {
+        window.claude.use('downloads').then(function (d) {
+          if (!d) { blobSave(); return; }
+          d.save({ filename: name, data: raw }).then(
+            function () { flash('Saved'); },
+            function (e) { if (!e || e.code !== 'declined') { blobSave(); } }
+          );
+        }, blobSave);
+        return;
+      }
+      blobSave();
+    });
+  })();
+</script>
+</body>
+</html>
