@@ -177,7 +177,18 @@
     });
 
     var dl = document.getElementById('btn-download');
-    dl.addEventListener('click', function () {
+
+    function flash(label) {
+      var was = dl.textContent;
+      dl.textContent = label;
+      dl.classList.add('done');
+      setTimeout(function () {
+        dl.textContent = was;
+        dl.classList.remove('done');
+      }, 1600);
+    }
+
+    function blobSave() {
       var blob = new Blob([raw], { type: 'text/markdown;charset=utf-8' });
       var url = URL.createObjectURL(blob);
       var a = document.createElement('a');
@@ -187,6 +198,21 @@
       a.click();
       document.body.removeChild(a);
       setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+    }
+
+    dl.addEventListener('click', function () {
+      // On claude.ai the host mediates saves; on GitHub Pages a blob link works.
+      if (window.claude && typeof window.claude.use === 'function') {
+        window.claude.use('downloads').then(function (d) {
+          if (!d) { blobSave(); return; }
+          d.save({ filename: name, data: raw }).then(
+            function () { flash('Saved'); },
+            function (e) { if (!e || e.code !== 'declined') { blobSave(); } }
+          );
+        }, blobSave);
+        return;
+      }
+      blobSave();
     });
   })();
 </script>
