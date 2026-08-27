@@ -14,6 +14,9 @@ import re
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
 MEMOS = [
+    ("bachelors-degree", "The bachelor's degree"),
+    ("harvard-hybrid-masters", "Harvard hybrid master's programs"),
+    ("bouldering-grades", "Bouldering grades"),
     # Companies that closed
     ("cal-com", "Cal.com"),
     ("tldraw", "tldraw"),
@@ -231,6 +234,13 @@ def convert(md):
 
         if stripped == '---':
             out.append('<hr>')
+            i += 1
+            continue
+
+        # A source footer is rendered as the visual footer used by the memo pages.
+        m = re.match(r'^<footer>(.*)</footer>$', stripped)
+        if m:
+            out.append('<div class="foot">%s</div>' % inline(m.group(1)))
             i += 1
             continue
 

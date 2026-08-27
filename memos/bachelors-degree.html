@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The bachelor&#x27;s degree | Closing the Source</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  html { background: #ffffff; }
+  body {
+    background: #ffffff;
+    color: #111111;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .page { max-width: 46em; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.6rem;
+    border-bottom: 1px solid #cccccc;
+  }
+  .bar .home {
+    font-size: 0.85rem;
+    margin-right: auto;
+    color: #555555;
+  }
+  button.act {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 0.85rem;
+    background: #f4f4f2;
+    color: #111111;
+    border: 1px solid #999999;
+    border-radius: 2px;
+    padding: 0.32rem 0.8rem;
+    cursor: pointer;
+  }
+  button.act:hover { background: #e8e8e4; }
+  button.act:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  button.act.done { background: #e6efe6; border-color: #4a7a4a; }
+
+  h1, h2, h3, h4 { font-weight: bold; margin: 0; }
+  h1 { font-size: 2rem; line-height: 1.15; }
+  h2 { font-size: 1.4rem; line-height: 1.2; margin-top: 2.4rem; padding-top: 0.9rem; border-top: 2px solid #111111; }
+  h3 { font-size: 1.1rem; margin-top: 1.6rem; }
+  p { margin: 0.75rem 0 0; }
+  ul, ol { margin: 0.7rem 0 0; padding-left: 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: #111111; }
+  a:hover { color: #7a1c14; }
+  a:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  hr { border: 0; border-top: 1px solid #cccccc; margin: 2rem 0 0; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: #f4f4f2;
+    padding: 0.05em 0.3em;
+    border-radius: 2px;
+  }
+  pre {
+    margin: 1rem 0 0;
+    padding: 1rem;
+    overflow-x: auto;
+    background: #f4f4f2;
+    border: 1px solid #cccccc;
+    line-height: 1.45;
+  }
+  pre code { padding: 0; background: transparent; font-size: 0.78rem; }
+  blockquote {
+    margin: 1rem 0 0;
+    padding: 0.1rem 0 0.1rem 1rem;
+    border-left: 3px solid #999999;
+  }
+  blockquote p { margin-top: 0.4rem; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote em.attrib { font-style: normal; font-size: 0.85rem; color: #555555; }
+
+  figure { margin: 1.35rem 0 0; }
+  figure img { display: block; width: 100%; height: auto; border: 1px solid #cccccc; }
+  figcaption { margin-top: 0.45rem; color: #555555; font-size: 0.82rem; line-height: 1.35; }
+
+  .tablewrap { overflow-x: auto; margin-top: 1.1rem; border: 1px solid #cccccc; }
+  table { border-collapse: collapse; width: 100%; min-width: 34em; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid #cccccc; vertical-align: top; }
+  thead th { background: #f4f4f2; border-bottom: 1px solid #111111; }
+  tbody tr:last-child td { border-bottom: 0; }
+
+  .foot { margin-top: 3rem; padding-top: 0.9rem; border-top: 3px double #111111; font-size: 0.85rem; color: #555555; }
+</style>
+</head>
+<body data-slug="bachelors-degree">
+<div class="page">
+  <div class="bar">
+    <span class="home"><a href="../index.html">Closing the Source</a></span>
+    <button class="act" id="btn-copy" type="button">Copy for agents</button>
+    <button class="act" id="btn-download" type="button">Download .md</button>
+  </div>
+<h1>The bachelor’s degree was not invented once—it became the first scalable credential</h1>
+<p><strong>Founder audience: builders of education, hiring, and credentialing products. The bachelor’s degree was not “made” by a single founder on a known day. It emerged in the medieval university as a supervised, intermediate rank between student and master, principally during the late twelfth and early thirteenth centuries. Its durable insight is less the curriculum than the interface: a portable signal that says a person has completed a common course and can enter the next gate. The opportunity for a modern credential is to make that signal more legible and useful without pretending that a badge alone creates capability.</strong></p>
+<h2>TL;DR</h2>
+<ul><li><strong>The honest answer is a period, not a birthday.</strong> Bologna and Paris developed organized universities around the twelfth century; Paris gained formal protections in 1200, statutes in 1215, and papal confirmation in 1231. In that system the baccalaureate became the junior degree in arts, before the master’s license to teach.[^1][^2]</li><li><strong>“Bachelor” originally described a rank, not a four-year product.</strong> Medieval arts students typically studied grammar, logic, and philosophy for years, passed examinations and disputations, and then held a junior status with teaching obligations. Cambridge’s record calls the BA its most junior degree and documents a medieval four-year arts course.[^3]</li><li><strong>The credential scaled because it compressed uncertainty.</strong> A university, curriculum, examination, and ceremony turned private learning into a public claim that employers, churches, and later states could recognize across distance.</li><li><strong>Its weakness is also its moat.</strong> The bachelor’s signal is broad, slow, and hard to compare by actual skill. That creates room for better evidence—but only if a new credential earns trust from both learners and the institutions that make consequential decisions.</li></ul>
+<figure><img src="assets/bachelors-degree/timeline.svg" alt="Timeline: Paris’s schools became an organized university c. 1200; statutes followed in 1215; Parens scientiarum in 1231; the arts baccalaureate then became a repeatable junior degree."><figcaption>The bachelor’s degree is best understood as a product of institutionalization, not a single invention. Dates show Paris’s legal and organizational milestones; they do not establish the first individual graduate. Sources: Sorbonne and scholarly records cited below.</figcaption></figure>
+<h2>The first bachelor’s degree has no single timestamp</h2>
+<p>The question appears simple only because modern degrees are standardized products. Medieval learning was not. Cathedral schools, masters, students, bishops, monarchs, and emerging corporations negotiated authority over decades. Paris’s own history traces the association of masters and students through protections in 1200, a legate’s rules in 1215, and the papal bull <em>Parens scientiarum</em> in 1231.[^1] A specialist history of the university describes its institutional formation as stretching from 1208–09 to the middle of the thirteenth century.[^2]</p>
+<p>That makes a specific first BA recipient impossible to substantiate from the readily available record. The useful historical answer is: <strong>the bachelor’s degree emerged in the northern European medieval university system around the late twelfth and early thirteenth centuries, with Paris central to the arts model.</strong> It was an intermediate credential, normally preceding the master’s degree and the right to teach. Later universities standardized and exported the model; they did not receive a finished product from one inventor.</p>
+<p>The word itself carried rank before it carried an academic program. The bachelor was junior to a master, and the arts bachelor was part of a ladder of demonstrated competence. Cambridge’s institutional glossary still describes the BA as the university’s most junior degree; its account of the medieval course says it extended over four years and required examinations, formal responses, and a period “standing in quadragesima” before the full degree.[^3] The eventual master did not merely finish more classes: the master was admitted to teach. In other words, the original product had a clear economic role—controlled entry into a knowledge profession.</p>
+<h2>Universities sold trusted coordination, not lectures</h2>
+<p>A contemporary founder can mistake the university for a content company. The medieval institution’s scarce asset was coordination. It assembled a curriculum, selected and regulated teachers, set an examination standard, conferred a recognized status, and maintained a record. Teaching existed outside universities; the university made the claim portable.</p>
+<div class="tablewrap"><table><thead><tr><th>Layer</th><th>Medieval function</th><th>Modern analogue</th><th>What creates trust</th></tr></thead><tbody>
+<tr><td>Curriculum</td><td>Shared arts course</td><td>Program requirements</td><td>A public, stable standard</td></tr>
+<tr><td>Assessment</td><td>Disputation and examination</td><td>Performance assessment</td><td>Independent judgment</td></tr>
+<tr><td>Status</td><td>Bachelor before master</td><td>Credential and transcript</td><td>A recognizable threshold</td></tr>
+<tr><td>Network</td><td>Corporation of masters and students</td><td>Employer and alumni network</td><td>Repeated use by decision-makers</td></tr>
+</tbody></table></div>
+<p>The causal chain matters. Employers and authorities could rely on a degree because the university had incentives and standing to defend the standard; learners would pay time and money because the signal opened the next gate. A credential company that only delivers content has rebuilt the least defensible component. A company that can provide verifiable work, calibrated assessment, and a trusted decision network can create a new category—but it must earn all three.</p>
+<h2>The four-year format is an adaptation, not the original rule</h2>
+<p>Modern readers often reverse the history: they assume a bachelor’s degree means four years, then look for the ancient origin of that package. The medieval arts course could be four years at Cambridge, but timing varied by place and era, and the degree’s social function came before today’s standardized duration.[^3] The U.S. four-year residential bachelor’s degree emerged much later through college organization, elective systems, accreditation, and labor-market convention.</p>
+<p>That distinction is strategically useful. Time-in-seat is not the irreducible product. The irreducible product is a credible transition from <em>learner</em> to <em>recognized novice</em>: someone who has met a shared bar and can proceed into a profession, advanced study, or a higher-status role. Competency-based and apprenticeship models can unbundle duration. They cannot unbundle trust without losing the central value proposition.</p>
+<h2>The real competitor is the hiring decision</h2>
+<p>For a founder, the buyer is rarely the learner alone. The learner pays with tuition, time, and opportunity cost; the employer, graduate program, regulator, or funder consumes the signal. The system works when a credential reduces the consumer’s cost of judging an unfamiliar person better than its alternatives.</p>
+<p>This creates two distinct motions:</p>
+<ol><li><strong>Entry motion:</strong> a learner needs access to a role, a visa, a regulated occupation, or further study. The credential’s value is eligibility.</li><li><strong>Selection motion:</strong> a decision-maker must triage many applicants under uncertainty. The credential’s value is lower screening cost, even when it is an imperfect measure of skill.</li></ol>
+<p>The bachelor’s degree remains durable because both motions reinforce each other. Replacing it requires more than better instructional outcomes. A challenger needs employers to change filters, learners to risk a less-established path, and some mechanism that makes assessment comparable at scale.</p>
+<h2>A founder playbook: build evidence before you build a diploma</h2>
+<div class="tablewrap"><table><thead><tr><th>Phase</th><th>Action</th><th>Test</th><th>Lesson from the bachelor’s degree</th></tr></thead><tbody>
+<tr><td>Choose a wedge</td><td>Start with a role where capability can be observed in work.</td><td>Do five employers agree on the same hiring artifact and bar?</td><td>A degree mattered because it mediated a real professional transition.</td></tr>
+<tr><td>Create a standard</td><td>Publish a narrow competency map and assess it with trained reviewers.</td><td>Can independent reviewers reach acceptable agreement?</td><td>The university’s authority rested on a shared, defensible threshold.</td></tr>
+<tr><td>Make the signal portable</td><td>Give the learner a verifiable transcript, work sample, and assessment record.</td><td>Do employers use it without a custom explanation?</td><td>Ceremony and records turned learning into a public claim.</td></tr>
+<tr><td>Add a network last</td><td>Partner with decision-makers who will hire, admit, or promote based on the evidence.</td><td>Track interview and hire rates against comparable applicants.</td><td>Recognition creates the flywheel; branding alone does not.</td></tr>
+</tbody></table></div>
+<p>The durable design rule is: <strong>treat a credential as a market protocol.</strong> Start with the decision it must improve, not the course catalog. Prove that the assessment predicts useful work. Then make the result easy for third parties to consume. The bachelor’s degree survived for centuries not because its original syllabus was immutable, but because its institutional wrapper converted learning into trusted access.</p>
+<h2>Research notes and sources</h2>
+<p>[^1]: Sorbonne, <a href="https://www.sorbonne.fr/la-sorbonne/histoire-de-la-sorbonne/la-fondation-de-la-sorbonne-au-moyen-age-par-le-theologien-robert-de-sorbon/">the medieval foundation and organization of the University of Paris</a>. Primary institutional history for the 1200, 1215, and 1231 milestones. [^2]: Nathalie Gorochov, <a href="https://www.persee.fr/doc/bsnaf_0081-1181_2015_num_2013_1_12138">“Le sceau de l’université de Paris au XIIIe siècle”</a>, <em>Bulletin de la Société nationale des Antiquaires de France</em>. Scholarly source describing the protracted institutional formation of Paris’s university. [^3]: University of Cambridge, <a href="https://glossary.lib.cam.ac.uk/term/ba">BA glossary entry</a>. Institutional historical account of the BA’s junior rank, medieval course, examinations, and degree procedures.</p>
+<div class="foot">Compiled August 27, 2026. Historical sources do not support identifying a single, first named recipient of a bachelor’s degree; the memo therefore gives a bounded institutional chronology rather than a false precision.</div>
+</div>
+<script type="text/plain" id="memo-src">IyBUaGUgYmFjaGVsb3LigJlzIGRlZ3JlZSB3YXMgbm90IGludmVudGVkIG9uY2XigJRpdCBiZWNhbWUgdGhlIGZpcnN0IHNjYWxhYmxlIGNyZWRlbnRpYWwKCioqRm91bmRlciBhdWRpZW5jZTogYnVpbGRlcnMgb2YgZWR1Y2F0aW9uLCBoaXJpbmcsIGFuZCBjcmVkZW50aWFsaW5nIHByb2R1Y3RzLiBUaGUgYmFjaGVsb3LigJlzIGRlZ3JlZSB3YXMgbm90IOKAnG1hZGXigJ0gYnkgYSBzaW5nbGUgZm91bmRlciBvbiBhIGtub3duIGRheS4gSXQgZW1lcmdlZCBpbiB0aGUgbWVkaWV2YWwgdW5pdmVyc2l0eSBhcyBhIHN1cGVydmlzZWQsIGludGVybWVkaWF0ZSByYW5rIGJldHdlZW4gc3R1ZGVudCBhbmQgbWFzdGVyLCBwcmluY2lwYWxseSBkdXJpbmcgdGhlIGxhdGUgdHdlbGZ0aCBhbmQgZWFybHkgdGhpcnRlZW50aCBjZW50dXJpZXMuIEl0cyBkdXJhYmxlIGluc2lnaHQgaXMgbGVzcyB0aGUgY3VycmljdWx1bSB0aGFuIHRoZSBpbnRlcmZhY2U6IGEgcG9ydGFibGUgc2lnbmFsIHRoYXQgc2F5cyBhIHBlcnNvbiBoYXMgY29tcGxldGVkIGEgY29tbW9uIGNvdXJzZSBhbmQgY2FuIGVudGVyIHRoZSBuZXh0IGdhdGUuIFRoZSBvcHBvcnR1bml0eSBmb3IgYSBtb2Rlcm4gY3JlZGVudGlhbCBpcyB0byBtYWtlIHRoYXQgc2lnbmFsIG1vcmUgbGVnaWJsZSBhbmQgdXNlZnVsIHdpdGhvdXQgcHJldGVuZGluZyB0aGF0IGEgYmFkZ2UgYWxvbmUgY3JlYXRlcyBjYXBhYmlsaXR5LioqCgojIyBUTDtEUgoKLSAqKlRoZSBob25lc3QgYW5zd2VyIGlzIGEgcGVyaW9kLCBub3QgYSBiaXJ0aGRheS4qKiBCb2xvZ25hIGFuZCBQYXJpcyBkZXZlbG9wZWQgb3JnYW5pemVkIHVuaXZlcnNpdGllcyBhcm91bmQgdGhlIHR3ZWxmdGggY2VudHVyeTsgUGFyaXMgZ2FpbmVkIGZvcm1hbCBwcm90ZWN0aW9ucyBpbiAxMjAwLCBzdGF0dXRlcyBpbiAxMjE1LCBhbmQgcGFwYWwgY29uZmlybWF0aW9uIGluIDEyMzEuIEluIHRoYXQgc3lzdGVtIHRoZSBiYWNjYWxhdXJlYXRlIGJlY2FtZSB0aGUganVuaW9yIGRlZ3JlZSBpbiBhcnRzLCBiZWZvcmUgdGhlIG1hc3RlcuKAmXMgbGljZW5zZSB0byB0ZWFjaC5bXjFdW14yXQotICoq4oCcQmFjaGVsb3LigJ0gb3JpZ2luYWxseSBkZXNjcmliZWQgYSByYW5rLCBub3QgYSBmb3VyLXllYXIgcHJvZHVjdC4qKiBNZWRpZXZhbCBhcnRzIHN0dWRlbnRzIHR5cGljYWxseSBzdHVkaWVkIGdyYW1tYXIsIGxvZ2ljLCBhbmQgcGhpbG9zb3BoeSBmb3IgeWVhcnMsIHBhc3NlZCBleGFtaW5hdGlvbnMgYW5kIGRpc3B1dGF0aW9ucywgYW5kIHRoZW4gaGVsZCBhIGp1bmlvciBzdGF0dXMgd2l0aCB0ZWFjaGluZyBvYmxpZ2F0aW9ucy4gQ2FtYnJpZGdl4oCZcyByZWNvcmQgY2FsbHMgdGhlIEJBIGl0cyBtb3N0IGp1bmlvciBkZWdyZWUgYW5kIGRvY3VtZW50cyBhIG1lZGlldmFsIGZvdXIteWVhciBhcnRzIGNvdXJzZS5bXjNdCi0gKipUaGUgY3JlZGVudGlhbCBzY2FsZWQgYmVjYXVzZSBpdCBjb21wcmVzc2VkIHVuY2VydGFpbnR5LioqIEEgdW5pdmVyc2l0eSwgY3VycmljdWx1bSwgZXhhbWluYXRpb24sIGFuZCBjZXJlbW9ueSB0dXJuZWQgcHJpdmF0ZSBsZWFybmluZyBpbnRvIGEgcHVibGljIGNsYWltIHRoYXQgZW1wbG95ZXJzLCBjaHVyY2hlcywgYW5kIGxhdGVyIHN0YXRlcyBjb3VsZCByZWNvZ25pemUgYWNyb3NzIGRpc3RhbmNlLgotICoqSXRzIHdlYWtuZXNzIGlzIGFsc28gaXRzIG1vYXQuKiogVGhlIGJhY2hlbG9y4oCZcyBzaWduYWwgaXMgYnJvYWQsIHNsb3csIGFuZCBoYXJkIHRvIGNvbXBhcmUgYnkgYWN0dWFsIHNraWxsLiBUaGF0IGNyZWF0ZXMgcm9vbSBmb3IgYmV0dGVyIGV2aWRlbmNl4oCUYnV0IG9ubHkgaWYgYSBuZXcgY3JlZGVudGlhbCBlYXJucyB0cnVzdCBmcm9tIGJvdGggbGVhcm5lcnMgYW5kIHRoZSBpbnN0aXR1dGlvbnMgdGhhdCBtYWtlIGNvbnNlcXVlbnRpYWwgZGVjaXNpb25zLgoKIVtUaW1lbGluZTogUGFyaXPigJlzIHNjaG9vbHMgYmVjYW1lIGFuIG9yZ2FuaXplZCB1bml2ZXJzaXR5IGMuIDEyMDA7IHN0YXR1dGVzIGZvbGxvd2VkIGluIDEyMTU7IFBhcmVucyBzY2llbnRpYXJ1bSBpbiAxMjMxOyB0aGUgYXJ0cyBiYWNjYWxhdXJlYXRlIHRoZW4gYmVjYW1lIGEgcmVwZWF0YWJsZSBqdW5pb3IgZGVncmVlLl0oYXNzZXRzL2JhY2hlbG9ycy1kZWdyZWUvdGltZWxpbmUuc3ZnKQoqVGhlIGJhY2hlbG9y4oCZcyBkZWdyZWUgaXMgYmVzdCB1bmRlcnN0b29kIGFzIGEgcHJvZHVjdCBvZiBpbnN0aXR1dGlvbmFsaXphdGlvbiwgbm90IGEgc2luZ2xlIGludmVudGlvbi4gRGF0ZXMgc2hvdyBQYXJpc+KAmXMgbGVnYWwgYW5kIG9yZ2FuaXphdGlvbmFsIG1pbGVzdG9uZXM7IHRoZXkgZG8gbm90IGVzdGFibGlzaCB0aGUgZmlyc3QgaW5kaXZpZHVhbCBncmFkdWF0ZS4gU291cmNlczogU29yYm9ubmUgYW5kIHNjaG9sYXJseSByZWNvcmRzIGNpdGVkIGJlbG93LioKCiMjIFRoZSBmaXJzdCBiYWNoZWxvcuKAmXMgZGVncmVlIGhhcyBubyBzaW5nbGUgdGltZXN0YW1wCgpUaGUgcXVlc3Rpb24gYXBwZWFycyBzaW1wbGUgb25seSBiZWNhdXNlIG1vZGVybiBkZWdyZWVzIGFyZSBzdGFuZGFyZGl6ZWQgcHJvZHVjdHMuIE1lZGlldmFsIGxlYXJuaW5nIHdhcyBub3QuIENhdGhlZHJhbCBzY2hvb2xzLCBtYXN0ZXJzLCBzdHVkZW50cywgYmlzaG9wcywgbW9uYXJjaHMsIGFuZCBlbWVyZ2luZyBjb3Jwb3JhdGlvbnMgbmVnb3RpYXRlZCBhdXRob3JpdHkgb3ZlciBkZWNhZGVzLiBQYXJpc+KAmXMgb3duIGhpc3RvcnkgdHJhY2VzIHRoZSBhc3NvY2lhdGlvbiBvZiBtYXN0ZXJzIGFuZCBzdHVkZW50cyB0aHJvdWdoIHByb3RlY3Rpb25zIGluIDEyMDAsIGEgbGVnYXRl4oCZcyBydWxlcyBpbiAxMjE1LCBhbmQgdGhlIHBhcGFsIGJ1bGwgKlBhcmVucyBzY2llbnRpYXJ1bSogaW4gMTIzMS5bXjFdIEEgc3BlY2lhbGlzdCBoaXN0b3J5IG9mIHRoZSB1bml2ZXJzaXR5IGRlc2NyaWJlcyBpdHMgaW5zdGl0dXRpb25hbCBmb3JtYXRpb24gYXMgc3RyZXRjaGluZyBmcm9tIDEyMDjigJMwOSB0byB0aGUgbWlkZGxlIG9mIHRoZSB0aGlydGVlbnRoIGNlbnR1cnkuW14yXQoKVGhhdCBtYWtlcyBhIHNwZWNpZmljIGZpcnN0IEJBIHJlY2lwaWVudCBpbXBvc3NpYmxlIHRvIHN1YnN0YW50aWF0ZSBmcm9tIHRoZSByZWFkaWx5IGF2YWlsYWJsZSByZWNvcmQuIFRoZSB1c2VmdWwgaGlzdG9yaWNhbCBhbnN3ZXIgaXM6ICoqdGhlIGJhY2hlbG9y4oCZcyBkZWdyZWUgZW1lcmdlZCBpbiB0aGUgbm9ydGhlcm4gRXVyb3BlYW4gbWVkaWV2YWwgdW5pdmVyc2l0eSBzeXN0ZW0gYXJvdW5kIHRoZSBsYXRlIHR3ZWxmdGggYW5kIGVhcmx5IHRoaXJ0ZWVudGggY2VudHVyaWVzLCB3aXRoIFBhcmlzIGNlbnRyYWwgdG8gdGhlIGFydHMgbW9kZWwuKiogSXQgd2FzIGFuIGludGVybWVkaWF0ZSBjcmVkZW50aWFsLCBub3JtYWxseSBwcmVjZWRpbmcgdGhlIG1hc3RlcuKAmXMgZGVncmVlIGFuZCB0aGUgcmlnaHQgdG8gdGVhY2guIExhdGVyIHVuaXZlcnNpdGllcyBzdGFuZGFyZGl6ZWQgYW5kIGV4cG9ydGVkIHRoZSBtb2RlbDsgdGhleSBkaWQgbm90IHJlY2VpdmUgYSBmaW5pc2hlZCBwcm9kdWN0IGZyb20gb25lIGludmVudG9yLgoKVGhlIHdvcmQgaXRzZWxmIGNhcnJpZWQgcmFuayBiZWZvcmUgaXQgY2FycmllZCBhbiBhY2FkZW1pYyBwcm9ncmFtLiBUaGUgYmFjaGVsb3Igd2FzIGp1bmlvciB0byBhIG1hc3RlciwgYW5kIHRoZSBhcnRzIGJhY2hlbG9yIHdhcyBwYXJ0IG9mIGEgbGFkZGVyIG9mIGRlbW9uc3RyYXRlZCBjb21wZXRlbmNlLiBDYW1icmlkZ2XigJlzIGluc3RpdHV0aW9uYWwgZ2xvc3Nhcnkgc3RpbGwgZGVzY3JpYmVzIHRoZSBCQSBhcyB0aGUgdW5pdmVyc2l0eeKAmXMgbW9zdCBqdW5pb3IgZGVncmVlOyBpdHMgYWNjb3VudCBvZiB0aGUgbWVkaWV2YWwgY291cnNlIHNheXMgaXQgZXh0ZW5kZWQgb3ZlciBmb3VyIHllYXJzIGFuZCByZXF1aXJlZCBleGFtaW5hdGlvbnMsIGZvcm1hbCByZXNwb25zZXMsIGFuZCBhIHBlcmlvZCDigJxzdGFuZGluZyBpbiBxdWFkcmFnZXNpbWHigJ0gYmVmb3JlIHRoZSBmdWxsIGRlZ3JlZS5bXjNdIFRoZSBldmVudHVhbCBtYXN0ZXIgZGlkIG5vdCBtZXJlbHkgZmluaXNoIG1vcmUgY2xhc3NlczogdGhlIG1hc3RlciB3YXMgYWRtaXR0ZWQgdG8gdGVhY2guIEluIG90aGVyIHdvcmRzLCB0aGUgb3JpZ2luYWwgcHJvZHVjdCBoYWQgYSBjbGVhciBlY29ub21pYyByb2xl4oCUY29udHJvbGxlZCBlbnRyeSBpbnRvIGEga25vd2xlZGdlIHByb2Zlc3Npb24uCgojIyBVbml2ZXJzaXRpZXMgc29sZCB0cnVzdGVkIGNvb3JkaW5hdGlvbiwgbm90IGxlY3R1cmVzCgpBIGNvbnRlbXBvcmFyeSBmb3VuZGVyIGNhbiBtaXN0YWtlIHRoZSB1bml2ZXJzaXR5IGZvciBhIGNvbnRlbnQgY29tcGFueS4gVGhlIG1lZGlldmFsIGluc3RpdHV0aW9u4oCZcyBzY2FyY2UgYXNzZXQgd2FzIGNvb3JkaW5hdGlvbi4gSXQgYXNzZW1ibGVkIGEgY3VycmljdWx1bSwgc2VsZWN0ZWQgYW5kIHJlZ3VsYXRlZCB0ZWFjaGVycywgc2V0IGFuIGV4YW1pbmF0aW9uIHN0YW5kYXJkLCBjb25mZXJyZWQgYSByZWNvZ25pemVkIHN0YXR1cywgYW5kIG1haW50YWluZWQgYSByZWNvcmQuIFRlYWNoaW5nIGV4aXN0ZWQgb3V0c2lkZSB1bml2ZXJzaXRpZXM7IHRoZSB1bml2ZXJzaXR5IG1hZGUgdGhlIGNsYWltIHBvcnRhYmxlLgoKfCBMYXllciB8IE1lZGlldmFsIGZ1bmN0aW9uIHwgTW9kZXJuIGFuYWxvZ3VlIHwgV2hhdCBjcmVhdGVzIHRydXN0IHwKfCAtLS0gfCAtLS0gfCAtLS0gfCAtLS0gfAp8IEN1cnJpY3VsdW0gfCBTaGFyZWQgYXJ0cyBjb3Vyc2UgfCBQcm9ncmFtIHJlcXVpcmVtZW50cyB8IEEgcHVibGljLCBzdGFibGUgc3RhbmRhcmQgfAp8IEFzc2Vzc21lbnQgfCBEaXNwdXRhdGlvbiBhbmQgZXhhbWluYXRpb24gfCBQZXJmb3JtYW5jZSBhc3Nlc3NtZW50IHwgSW5kZXBlbmRlbnQganVkZ21lbnQgfAp8IFN0YXR1cyB8IEJhY2hlbG9yIGJlZm9yZSBtYXN0ZXIgfCBDcmVkZW50aWFsIGFuZCB0cmFuc2NyaXB0IHwgQSByZWNvZ25pemFibGUgdGhyZXNob2xkIHwKfCBOZXR3b3JrIHwgQ29ycG9yYXRpb24gb2YgbWFzdGVycyBhbmQgc3R1ZGVudHMgfCBFbXBsb3llciBhbmQgYWx1bW5pIG5ldHdvcmsgfCBSZXBlYXRlZCB1c2UgYnkgZGVjaXNpb24tbWFrZXJzIHwKClRoZSBjYXVzYWwgY2hhaW4gbWF0dGVycy4gRW1wbG95ZXJzIGFuZCBhdXRob3JpdGllcyBjb3VsZCByZWx5IG9uIGEgZGVncmVlIGJlY2F1c2UgdGhlIHVuaXZlcnNpdHkgaGFkIGluY2VudGl2ZXMgYW5kIHN0YW5kaW5nIHRvIGRlZmVuZCB0aGUgc3RhbmRhcmQ7IGxlYXJuZXJzIHdvdWxkIHBheSB0aW1lIGFuZCBtb25leSBiZWNhdXNlIHRoZSBzaWduYWwgb3BlbmVkIHRoZSBuZXh0IGdhdGUuIEEgY3JlZGVudGlhbCBjb21wYW55IHRoYXQgb25seSBkZWxpdmVycyBjb250ZW50IGhhcyByZWJ1aWx0IHRoZSBsZWFzdCBkZWZlbnNpYmxlIGNvbXBvbmVudC4gQSBjb21wYW55IHRoYXQgY2FuIHByb3ZpZGUgdmVyaWZpYWJsZSB3b3JrLCBjYWxpYnJhdGVkIGFzc2Vzc21lbnQsIGFuZCBhIHRydXN0ZWQgZGVjaXNpb24gbmV0d29yayBjYW4gY3JlYXRlIGEgbmV3IGNhdGVnb3J54oCUYnV0IGl0IG11c3QgZWFybiBhbGwgdGhyZWUuCgojIyBUaGUgZm91ci15ZWFyIGZvcm1hdCBpcyBhbiBhZGFwdGF0aW9uLCBub3QgdGhlIG9yaWdpbmFsIHJ1bGUKCk1vZGVybiByZWFkZXJzIG9mdGVuIHJldmVyc2UgdGhlIGhpc3Rvcnk6IHRoZXkgYXNzdW1lIGEgYmFjaGVsb3LigJlzIGRlZ3JlZSBtZWFucyBmb3VyIHllYXJzLCB0aGVuIGxvb2sgZm9yIHRoZSBhbmNpZW50IG9yaWdpbiBvZiB0aGF0IHBhY2thZ2UuIFRoZSBtZWRpZXZhbCBhcnRzIGNvdXJzZSBjb3VsZCBiZSBmb3VyIHllYXJzIGF0IENhbWJyaWRnZSwgYnV0IHRpbWluZyB2YXJpZWQgYnkgcGxhY2UgYW5kIGVyYSwgYW5kIHRoZSBkZWdyZWXigJlzIHNvY2lhbCBmdW5jdGlvbiBjYW1lIGJlZm9yZSB0b2RheeKAmXMgc3RhbmRhcmRpemVkIGR1cmF0aW9uLlteM10gVGhlIFUuUy4gZm91ci15ZWFyIHJlc2lkZW50aWFsIGJhY2hlbG9y4oCZcyBkZWdyZWUgZW1lcmdlZCBtdWNoIGxhdGVyIHRocm91Z2ggY29sbGVnZSBvcmdhbml6YXRpb24sIGVsZWN0aXZlIHN5c3RlbXMsIGFjY3JlZGl0YXRpb24sIGFuZCBsYWJvci1tYXJrZXQgY29udmVudGlvbi4KClRoYXQgZGlzdGluY3Rpb24gaXMgc3RyYXRlZ2ljYWxseSB1c2VmdWwuIFRpbWUtaW4tc2VhdCBpcyBub3QgdGhlIGlycmVkdWNpYmxlIHByb2R1Y3QuIFRoZSBpcnJlZHVjaWJsZSBwcm9kdWN0IGlzIGEgY3JlZGlibGUgdHJhbnNpdGlvbiBmcm9tICpsZWFybmVyKiB0byAqcmVjb2duaXplZCBub3ZpY2UqOiBzb21lb25lIHdobyBoYXMgbWV0IGEgc2hhcmVkIGJhciBhbmQgY2FuIHByb2NlZWQgaW50byBhIHByb2Zlc3Npb24sIGFkdmFuY2VkIHN0dWR5LCBvciBhIGhpZ2hlci1zdGF0dXMgcm9sZS4gQ29tcGV0ZW5jeS1iYXNlZCBhbmQgYXBwcmVudGljZXNoaXAgbW9kZWxzIGNhbiB1bmJ1bmRsZSBkdXJhdGlvbi4gVGhleSBjYW5ub3QgdW5idW5kbGUgdHJ1c3Qgd2l0aG91dCBsb3NpbmcgdGhlIGNlbnRyYWwgdmFsdWUgcHJvcG9zaXRpb24uCgojIyBUaGUgcmVhbCBjb21wZXRpdG9yIGlzIHRoZSBoaXJpbmcgZGVjaXNpb24KCkZvciBhIGZvdW5kZXIsIHRoZSBidXllciBpcyByYXJlbHkgdGhlIGxlYXJuZXIgYWxvbmUuIFRoZSBsZWFybmVyIHBheXMgd2l0aCB0dWl0aW9uLCB0aW1lLCBhbmQgb3Bwb3J0dW5pdHkgY29zdDsgdGhlIGVtcGxveWVyLCBncmFkdWF0ZSBwcm9ncmFtLCByZWd1bGF0b3IsIG9yIGZ1bmRlciBjb25zdW1lcyB0aGUgc2lnbmFsLiBUaGUgc3lzdGVtIHdvcmtzIHdoZW4gYSBjcmVkZW50aWFsIHJlZHVjZXMgdGhlIGNvbnN1bWVy4oCZcyBjb3N0IG9mIGp1ZGdpbmcgYW4gdW5mYW1pbGlhciBwZXJzb24gYmV0dGVyIHRoYW4gaXRzIGFsdGVybmF0aXZlcy4KClRoaXMgY3JlYXRlcyB0d28gZGlzdGluY3QgbW90aW9uczoKCjEuICoqRW50cnkgbW90aW9uOioqIGEgbGVhcm5lciBuZWVkcyBhY2Nlc3MgdG8gYSByb2xlLCBhIHZpc2EsIGEgcmVndWxhdGVkIG9jY3VwYXRpb24sIG9yIGZ1cnRoZXIgc3R1ZHkuIFRoZSBjcmVkZW50aWFs4oCZcyB2YWx1ZSBpcyBlbGlnaWJpbGl0eS4KMi4gKipTZWxlY3Rpb24gbW90aW9uOioqIGEgZGVjaXNpb24tbWFrZXIgbXVzdCB0cmlhZ2UgbWFueSBhcHBsaWNhbnRzIHVuZGVyIHVuY2VydGFpbnR5LiBUaGUgY3JlZGVudGlhbOKAmXMgdmFsdWUgaXMgbG93ZXIgc2NyZWVuaW5nIGNvc3QsIGV2ZW4gd2hlbiBpdCBpcyBhbiBpbXBlcmZlY3QgbWVhc3VyZSBvZiBza2lsbC4KClRoZSBiYWNoZWxvcuKAmXMgZGVncmVlIHJlbWFpbnMgZHVyYWJsZSBiZWNhdXNlIGJvdGggbW90aW9ucyByZWluZm9yY2UgZWFjaCBvdGhlci4gUmVwbGFjaW5nIGl0IHJlcXVpcmVzIG1vcmUgdGhhbiBiZXR0ZXIgaW5zdHJ1Y3Rpb25hbCBvdXRjb21lcy4gQSBjaGFsbGVuZ2VyIG5lZWRzIGVtcGxveWVycyB0byBjaGFuZ2UgZmlsdGVycywgbGVhcm5lcnMgdG8gcmlzayBhIGxlc3MtZXN0YWJsaXNoZWQgcGF0aCwgYW5kIHNvbWUgbWVjaGFuaXNtIHRoYXQgbWFrZXMgYXNzZXNzbWVudCBjb21wYXJhYmxlIGF0IHNjYWxlLgoKIyMgQSBmb3VuZGVyIHBsYXlib29rOiBidWlsZCBldmlkZW5jZSBiZWZvcmUgeW91IGJ1aWxkIGEgZGlwbG9tYQoKfCBQaGFzZSB8IEFjdGlvbiB8IFRlc3QgfCBMZXNzb24gZnJvbSB0aGUgYmFjaGVsb3LigJlzIGRlZ3JlZSB8CnwgLS0tIHwgLS0tIHwgLS0tIHwgLS0tIHwKfCBDaG9vc2UgYSB3ZWRnZSB8IFN0YXJ0IHdpdGggYSByb2xlIHdoZXJlIGNhcGFiaWxpdHkgY2FuIGJlIG9ic2VydmVkIGluIHdvcmsuIHwgRG8gZml2ZSBlbXBsb3llcnMgYWdyZWUgb24gdGhlIHNhbWUgaGlyaW5nIGFydGlmYWN0IGFuZCBiYXI/IHwgQSBkZWdyZWUgbWF0dGVyZWQgYmVjYXVzZSBpdCBtZWRpYXRlZCBhIHJlYWwgcHJvZmVzc2lvbmFsIHRyYW5zaXRpb24uIHwKfCBDcmVhdGUgYSBzdGFuZGFyZCB8IFB1Ymxpc2ggYSBuYXJyb3cgY29tcGV0ZW5jeSBtYXAgYW5kIGFzc2VzcyBpdCB3aXRoIHRyYWluZWQgcmV2aWV3ZXJzLiB8IENhbiBpbmRlcGVuZGVudCByZXZpZXdlcnMgcmVhY2ggYWNjZXB0YWJsZSBhZ3JlZW1lbnQ/IHwgVGhlIHVuaXZlcnNpdHnigJlzIGF1dGhvcml0eSByZXN0ZWQgb24gYSBzaGFyZWQsIGRlZmVuc2libGUgdGhyZXNob2xkLiB8CnwgTWFrZSB0aGUgc2lnbmFsIHBvcnRhYmxlIHwgR2l2ZSB0aGUgbGVhcm5lciBhIHZlcmlmaWFibGUgdHJhbnNjcmlwdCwgd29yayBzYW1wbGUsIGFuZCBhc3Nlc3NtZW50IHJlY29yZC4gfCBEbyBlbXBsb3llcnMgdXNlIGl0IHdpdGhvdXQgYSBjdXN0b20gZXhwbGFuYXRpb24/IHwgQ2VyZW1vbnkgYW5kIHJlY29yZHMgdHVybmVkIGxlYXJuaW5nIGludG8gYSBwdWJsaWMgY2xhaW0uIHwKfCBBZGQgYSBuZXR3b3JrIGxhc3QgfCBQYXJ0bmVyIHdpdGggZGVjaXNpb24tbWFrZXJzIHdobyB3aWxsIGhpcmUsIGFkbWl0LCBvciBwcm9tb3RlIGJhc2VkIG9uIHRoZSBldmlkZW5jZS4gfCBUcmFjayBpbnRlcnZpZXcgYW5kIGhpcmUgcmF0ZXMgYWdhaW5zdCBjb21wYXJhYmxlIGFwcGxpY2FudHMuIHwgUmVjb2duaXRpb24gY3JlYXRlcyB0aGUgZmx5d2hlZWw7IGJyYW5kaW5nIGFsb25lIGRvZXMgbm90LiB8CgpUaGUgZHVyYWJsZSBkZXNpZ24gcnVsZSBpczogKip0cmVhdCBhIGNyZWRlbnRpYWwgYXMgYSBtYXJrZXQgcHJvdG9jb2wuKiogU3RhcnQgd2l0aCB0aGUgZGVjaXNpb24gaXQgbXVzdCBpbXByb3ZlLCBub3QgdGhlIGNvdXJzZSBjYXRhbG9nLiBQcm92ZSB0aGF0IHRoZSBhc3Nlc3NtZW50IHByZWRpY3RzIHVzZWZ1bCB3b3JrLiBUaGVuIG1ha2UgdGhlIHJlc3VsdCBlYXN5IGZvciB0aGlyZCBwYXJ0aWVzIHRvIGNvbnN1bWUuIFRoZSBiYWNoZWxvcuKAmXMgZGVncmVlIHN1cnZpdmVkIGZvciBjZW50dXJpZXMgbm90IGJlY2F1c2UgaXRzIG9yaWdpbmFsIHN5bGxhYnVzIHdhcyBpbW11dGFibGUsIGJ1dCBiZWNhdXNlIGl0cyBpbnN0aXR1dGlvbmFsIHdyYXBwZXIgY29udmVydGVkIGxlYXJuaW5nIGludG8gdHJ1c3RlZCBhY2Nlc3MuCgojIyBSZXNlYXJjaCBub3RlcyBhbmQgc291cmNlcwoKW14xXTogU29yYm9ubmUsIFt0aGUgbWVkaWV2YWwgZm91bmRhdGlvbiBhbmQgb3JnYW5pemF0aW9uIG9mIHRoZSBVbml2ZXJzaXR5IG9mIFBhcmlzXShodHRwczovL3d3dy5zb3Jib25uZS5mci9sYS1zb3Jib25uZS9oaXN0b2lyZS1kZS1sYS1zb3Jib25uZS9sYS1mb25kYXRpb24tZGUtbGEtc29yYm9ubmUtYXUtbW95ZW4tYWdlLXBhci1sZS10aGVvbG9naWVuLXJvYmVydC1kZS1zb3Jib24vKS4gUHJpbWFyeSBpbnN0aXR1dGlvbmFsIGhpc3RvcnkgZm9yIHRoZSAxMjAwLCAxMjE1LCBhbmQgMTIzMSBtaWxlc3RvbmVzLgpbXjJdOiBOYXRoYWxpZSBHb3JvY2hvdiwgW+KAnExlIHNjZWF1IGRlIGzigJl1bml2ZXJzaXTDqSBkZSBQYXJpcyBhdSBYSUlJZSBzacOoY2xl4oCdXShodHRwczovL3d3dy5wZXJzZWUuZnIvZG9jL2JzbmFmXzAwODEtMTE4MV8yMDE1X251bV8yMDEzXzFfMTIxMzgpLCAqQnVsbGV0aW4gZGUgbGEgU29jacOpdMOpIG5hdGlvbmFsZSBkZXMgQW50aXF1YWlyZXMgZGUgRnJhbmNlKi4gU2Nob2xhcmx5IHNvdXJjZSBkZXNjcmliaW5nIHRoZSBwcm90cmFjdGVkIGluc3RpdHV0aW9uYWwgZm9ybWF0aW9uIG9mIFBhcmlz4oCZcyB1bml2ZXJzaXR5LgpbXjNdOiBVbml2ZXJzaXR5IG9mIENhbWJyaWRnZSwgW0JBIGdsb3NzYXJ5IGVudHJ5XShodHRwczovL2dsb3NzYXJ5LmxpYi5jYW0uYWMudWsvdGVybS9iYSkuIEluc3RpdHV0aW9uYWwgaGlzdG9yaWNhbCBhY2NvdW50IG9mIHRoZSBCQeKAmXMganVuaW9yIHJhbmssIG1lZGlldmFsIGNvdXJzZSwgZXhhbWluYXRpb25zLCBhbmQgZGVncmVlIHByb2NlZHVyZXMuCgo8Zm9vdGVyPkNvbXBpbGVkIEF1Z3VzdCAyNywgMjAyNi4gSGlzdG9yaWNhbCBzb3VyY2VzIGRvIG5vdCBzdXBwb3J0IGlkZW50aWZ5aW5nIGEgc2luZ2xlLCBmaXJzdCBuYW1lZCByZWNpcGllbnQgb2YgYSBiYWNoZWxvcuKAmXMgZGVncmVlOyB0aGUgbWVtbyB0aGVyZWZvcmUgZ2l2ZXMgYSBib3VuZGVkIGluc3RpdHV0aW9uYWwgY2hyb25vbG9neSByYXRoZXIgdGhhbiBhIGZhbHNlIHByZWNpc2lvbi48L2Zvb3Rlcj4K</script>
+<script>
+  (function () {
+    var src = document.getElementById('memo-src');
+    var raw = '';
+    try {
+      var bin = atob((src.textContent || '').replace(/\s+/g, ''));
+      var bytes = new Uint8Array(bin.length);
+      for (var k = 0; k < bin.length; k++) { bytes[k] = bin.charCodeAt(k); }
+      raw = new TextDecoder('utf-8').decode(bytes);
+    } catch (e) { raw = ''; }
+    var name = document.body.getAttribute('data-slug') + '.md';
+
+    var copy = document.getElementById('btn-copy');
+    copy.addEventListener('click', function () {
+      var done = function () {
+        copy.textContent = 'Copied';
+        copy.classList.add('done');
+        setTimeout(function () {
+          copy.textContent = 'Copy for agents';
+          copy.classList.remove('done');
+        }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(raw).then(done, fallback);
+      } else {
+        fallback();
+      }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = raw;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); } catch (e) { /* no-op */ }
+        document.body.removeChild(ta);
+      }
+    });
+
+    var dl = document.getElementById('btn-download');
+
+    function flash(label) {
+      var was = dl.textContent;
+      dl.textContent = label;
+      dl.classList.add('done');
+      setTimeout(function () {
+        dl.textContent = was;
+        dl.classList.remove('done');
+      }, 1600);
+    }
+
+    function blobSave() {
+      var blob = new Blob([raw], { type: 'text/markdown;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+    }
+
+    dl.addEventListener('click', function () {
+      // On claude.ai the host mediates saves; on GitHub Pages a blob link works.
+      if (window.claude && typeof window.claude.use === 'function') {
+        window.claude.use('downloads').then(function (d) {
+          if (!d) { blobSave(); return; }
+          d.save({ filename: name, data: raw }).then(
+            function () { flash('Saved'); },
+            function (e) { if (!e || e.code !== 'declined') { blobSave(); } }
+          );
+        }, blobSave);
+        return;
+      }
+      blobSave();
+    });
+  })();
+</script>
+</body>
+</html>

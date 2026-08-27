@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bouldering grades | Closing the Source</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  html { background: #ffffff; }
+  body {
+    background: #ffffff;
+    color: #111111;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .page { max-width: 46em; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.6rem;
+    border-bottom: 1px solid #cccccc;
+  }
+  .bar .home {
+    font-size: 0.85rem;
+    margin-right: auto;
+    color: #555555;
+  }
+  button.act {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 0.85rem;
+    background: #f4f4f2;
+    color: #111111;
+    border: 1px solid #999999;
+    border-radius: 2px;
+    padding: 0.32rem 0.8rem;
+    cursor: pointer;
+  }
+  button.act:hover { background: #e8e8e4; }
+  button.act:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  button.act.done { background: #e6efe6; border-color: #4a7a4a; }
+
+  h1, h2, h3, h4 { font-weight: bold; margin: 0; }
+  h1 { font-size: 2rem; line-height: 1.15; }
+  h2 { font-size: 1.4rem; line-height: 1.2; margin-top: 2.4rem; padding-top: 0.9rem; border-top: 2px solid #111111; }
+  h3 { font-size: 1.1rem; margin-top: 1.6rem; }
+  p { margin: 0.75rem 0 0; }
+  ul, ol { margin: 0.7rem 0 0; padding-left: 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: #111111; }
+  a:hover { color: #7a1c14; }
+  a:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  hr { border: 0; border-top: 1px solid #cccccc; margin: 2rem 0 0; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: #f4f4f2;
+    padding: 0.05em 0.3em;
+    border-radius: 2px;
+  }
+  pre {
+    margin: 1rem 0 0;
+    padding: 1rem;
+    overflow-x: auto;
+    background: #f4f4f2;
+    border: 1px solid #cccccc;
+    line-height: 1.45;
+  }
+  pre code { padding: 0; background: transparent; font-size: 0.78rem; }
+  blockquote {
+    margin: 1rem 0 0;
+    padding: 0.1rem 0 0.1rem 1rem;
+    border-left: 3px solid #999999;
+  }
+  blockquote p { margin-top: 0.4rem; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote em.attrib { font-style: normal; font-size: 0.85rem; color: #555555; }
+
+  figure { margin: 1.35rem 0 0; }
+  figure img { display: block; width: 100%; height: auto; border: 1px solid #cccccc; }
+  figcaption { margin-top: 0.45rem; color: #555555; font-size: 0.82rem; line-height: 1.35; }
+
+  .tablewrap { overflow-x: auto; margin-top: 1.1rem; border: 1px solid #cccccc; }
+  table { border-collapse: collapse; width: 100%; min-width: 34em; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid #cccccc; vertical-align: top; }
+  thead th { background: #f4f4f2; border-bottom: 1px solid #111111; }
+  tbody tr:last-child td { border-bottom: 0; }
+
+  .foot { margin-top: 3rem; padding-top: 0.9rem; border-top: 3px double #111111; font-size: 0.85rem; color: #555555; }
+</style>
+</head>
+<body data-slug="bouldering-grades">
+<div class="page">
+  <div class="bar">
+    <span class="home"><a href="../index.html">Closing the Source</a></span>
+    <button class="act" id="btn-copy" type="button">Copy for agents</button>
+    <button class="act" id="btn-download" type="button">Download .md</button>
+  </div>
+<h1>Bouldering grades are a market signal, not a measurement system</h1>
+<p><strong>Founder audience: builders of athletic communities, marketplaces, training products, and performance data systems. Bouldering grades tell climbers where to spend attention, but they are not laboratory measurements. A grade is a community-negotiated prediction of difficulty under a particular style, height, condition, and sequence. The V scale dominates much of North America; the Fontainebleau (“Font”) scale dominates much of continental Europe and is used widely elsewhere. A good product treats grades as noisy, contextual metadata—not as a universal ranking of athletes.</strong></p>
+<h2>TL;DR</h2>
+<ul><li><strong>Two systems anchor outdoor bouldering.</strong> The Hueco or V scale begins around VB/V0 and progresses V1, V2, and upward; the Font scale uses numbers and letter suffixes such as 4, 5, 6A, 6A+, 6B. The UIAA publishes comparison tables but labels them approximate.[^1]</li><li><strong>A grade rates a problem, not a person.</strong> It reflects the hardest accepted sequence under expected conditions, not the climber’s height, reach, attempts, strength, or talent. Indoors, gyms may use colors, circuits, or locally invented labels; these are calibration systems, not translations.</li><li><strong>Consensus is the mechanism.</strong> First ascensionists propose a grade; repeat ascents, especially by climbers with relevant experience, tend to stabilize or revise it. Local ethics and conditions make exact cross-area conversion impossible.</li><li><strong>For a product, preserve the evidence behind the label.</strong> Grade, location, style, hold type, angle, conditions, ascent type, and user confidence produce a far better training and discovery system than a single global number.</li></ul>
+<figure><img src="assets/bouldering-grades/scale-map.svg" alt="A grade-system map: the V scale progresses in integers; Font combines a number, letter and optional plus. Both represent a band of community consensus rather than a precise conversion."><figcaption>The systems are useful navigation tools, not exact equivalents. UIAA’s published comparison table is explicitly approximate. Source: UIAA, cited below.</figcaption></figure>
+<h2>The product is a route-level prediction of effort</h2>
+<p>A boulder problem is short enough that the grade cannot mean endurance alone. It typically bundles movement complexity, hold size and texture, body position, coordination, steepness, required power, friction, and the feasibility of a sequence. A slab with insecure feet can be hard in a different way from a roof with powerful compression. A tall climber may skip a move; a shorter climber may find a different beta. Humidity, skin condition, temperature, and a worn hold can change the effective difficulty without changing the printed grade.</p>
+<p>That is why grades must not be treated as an objective measurement. The UIAA’s comparative table aligns V, Font, French, British, UIAA, and other systems, but calls it an <strong>approximate comparative table</strong>.[^1] The table is useful to choose a starting range when travelling. It is not a conversion API.</p>
+<h2>V scale: discrete labels from Hueco Tanks</h2>
+<p>The V scale—often called the Hueco scale—uses <code>VB</code> for beginner problems in some areas, then <code>V0</code>, <code>V1</code>, <code>V2</code>, and so on. A <code>+</code> or <code>-</code> may appear around lower grades (<code>V0-</code>, <code>V0+</code>) and some guidebooks or gyms subdivide further. The system is named for John “Verm” Sherman, who developed the labels in Hueco Tanks, Texas, in the 1980s; it spread with the modern North American bouldering scene.[^2]</p>
+<p>Its virtue is speed. A climber who regularly sends V4 can make a useful first guess about a V4 elsewhere. Its danger is false precision: V4 in one guidebook, season, or style can be materially different from V4 in another. Treat an integer step as a category label backed by local consensus, not a standard unit of force.</p>
+<h2>Font scale: finer notation, same social process</h2>
+<p>The Fontainebleau scale grew from the bouldering culture around Fontainebleau, France. For boulders it is commonly written <code>4</code>, <code>5</code>, <code>6A</code>, <code>6A+</code>, <code>6B</code>, <code>6B+</code>, through 7 and 8 levels, with letter and plus increments. The UIAA table places V0 roughly around Font 4b, V2 around 5b, V4 around 6a/6a+, and V6 around 6c/6c+—a useful orientation that should not be read as a promise.[^1]</p>
+<p>The finer notation does not make the underlying judgment more scientific. It gives a local community more labels with which to express consensus. A 6A may be technical, powerful, morpho, or conditions-dependent. The grade supplies a rough challenge band; the guidebook description, style tags, and repeated ascents supply the explanation.</p>
+<div class="tablewrap"><table><thead><tr><th>What a grade can do</th><th>What it cannot do</th></tr></thead><tbody>
+<tr><td>Help choose a problem near a climber’s current range</td><td>Predict every climber’s experience</td></tr>
+<tr><td>Create a shared language within an area</td><td>Convert perfectly between V and Font</td></tr>
+<tr><td>Support progression tracking over repeated comparable attempts</td><td>Measure force, intelligence, or athletic worth</td></tr>
+<tr><td>Signal when a new problem may need more repeat data</td><td>Replace safety judgment, spotting, pads, or conditions assessment</td></tr>
+</tbody></table></div>
+<h2>How a grade gets made: proposal, repeats, revision</h2>
+<p>The grade normally begins with a first ascensionist’s proposal. That person establishes a legal, climbable line and estimates difficulty against known nearby problems. The next signal is repeat ascents: strong and experienced climbers compare the sequence, ask whether a key hold has changed, test alternative beta, and report an opinion. A guidebook author, local database, or community gradually converges on a number.</p>
+<p>This is a marketplace rating problem with unusually high context. The valuable review is not the raw score; it is the reviewer’s relationship to the product: which height, which beta, which condition, whether it was a stand start or a sit start, whether a chipped hold or eliminated feature was used, and whether the climber matched the intended line. Without that metadata, an average can conceal the reason climbers disagree.</p>
+<p>Indoor grades add another layer. A commercial gym may grade for safety, movement learning, turnover, and customer experience as well as relative difficulty. One gym’s color may deliberately span several V grades; another resets frequently and recalibrates with staff consensus. Never market a gym’s circuit color as a universal V or Font equivalent unless the gym explicitly supplies that mapping and understands the limitation.</p>
+<h2>The athletic product should measure a portfolio, not a max grade</h2>
+<p>An app that reduces a climber to “highest send” encourages distorted behavior: avoiding slabs, chasing a soft benchmark, or treating one perfect conditions day as permanent ability. The better profile is a portfolio:</p>
+<div class="tablewrap"><table><thead><tr><th>Field</th><th>Why it matters</th></tr></thead><tbody>
+<tr><td>Grade system and local area</td><td>Keeps comparisons anchored to a calibration context</td></tr>
+<tr><td>Angle, style, hold type, and height</td><td>Explains why a grade may be easy or hard for this athlete</td></tr>
+<tr><td>Send style: flash, send, repeat, projected</td><td>Distinguishes route reading from persistence</td></tr>
+<tr><td>Attempts and sessions</td><td>Captures effort without pretending it is universal</td></tr>
+<tr><td>Conditions and hold state</td><td>Preserves changes that affect repeatability</td></tr>
+<tr><td>Confidence / community agreement</td><td>Flags grades with little evidence or active disagreement</td></tr>
+</tbody></table></div>
+<p>This product design shifts the incentive from bragging rights to useful feedback. It can recommend a project that stretches the climber’s weak style, show whether outdoor performance differs from gym performance, and identify suspect grades that need more repeat data. It also protects against the most common trust failure: telling a user their body or training is wrong when the measurement is actually local noise.</p>
+<h2>Founder playbook</h2>
+<ol><li><strong>Store grades as structured data, not strings.</strong> Capture system, value, modifiers, area, version, and source. Test: can the product display <code>V4</code>, <code>6A+</code>, and a gym color without inventing an equivalence?</li><li><strong>Make uncertainty visible.</strong> Show proposed, consensus, and disputed states, plus number of knowledgeable repeats. Test: do users see why a grade moved rather than merely noticing a changed label?</li><li><strong>Design for style-aware progression.</strong> Ask for angle, holds, start position, and ascent type. Test: can recommendations improve after ten logged problems without using a global leaderboard?</li><li><strong>Keep safety and ethics out of the score.</strong> Add area-specific access, landing, pad, and environmental information as first-class fields. Test: can a climber plan a responsible attempt without leaving the product?</li></ol>
+<p>The enduring lesson is that <strong>a grade works when a community can challenge it.</strong> A platform should help local knowledge travel without flattening it into a pseudo-scientific score. Get the data model right, and grades become useful inputs to discovery, coaching, and safety—not a brittle identity label.</p>
+<h2>Research notes and sources</h2>
+<p>[^1]: UIAA, <a href="https://www.theuiaa.org/documents/sport/THE-SCALES-OF-DIFFICULTY-IN-CLIMBING_p1b.pdf"><em>The Scales of Difficulty in Climbing</em></a>, especially its approximate comparative table for boulder and climbing scales. Primary federation reference for the existence and approximate relation of V and Font systems. [^2]: John Sherman, <a href="https://www.mountaineersbooks.org/product/9781594851964/"><em>Better Bouldering</em></a>, Mountaineers Books. Historical and practitioner reference for the Hueco/V scale’s development. The UIAA document above is used for comparative notation, not a claim of exact conversion.</p>
+<div class="foot">Compiled and checked August 27, 2026. Grades change with conditions, access, hold breakage, style conventions, and local consensus. Check current local guides and respect area-specific access and safety practices.</div>
+</div>
+<script type="text/plain" id="memo-src">IyBCb3VsZGVyaW5nIGdyYWRlcyBhcmUgYSBtYXJrZXQgc2lnbmFsLCBub3QgYSBtZWFzdXJlbWVudCBzeXN0ZW0KCioqRm91bmRlciBhdWRpZW5jZTogYnVpbGRlcnMgb2YgYXRobGV0aWMgY29tbXVuaXRpZXMsIG1hcmtldHBsYWNlcywgdHJhaW5pbmcgcHJvZHVjdHMsIGFuZCBwZXJmb3JtYW5jZSBkYXRhIHN5c3RlbXMuIEJvdWxkZXJpbmcgZ3JhZGVzIHRlbGwgY2xpbWJlcnMgd2hlcmUgdG8gc3BlbmQgYXR0ZW50aW9uLCBidXQgdGhleSBhcmUgbm90IGxhYm9yYXRvcnkgbWVhc3VyZW1lbnRzLiBBIGdyYWRlIGlzIGEgY29tbXVuaXR5LW5lZ290aWF0ZWQgcHJlZGljdGlvbiBvZiBkaWZmaWN1bHR5IHVuZGVyIGEgcGFydGljdWxhciBzdHlsZSwgaGVpZ2h0LCBjb25kaXRpb24sIGFuZCBzZXF1ZW5jZS4gVGhlIFYgc2NhbGUgZG9taW5hdGVzIG11Y2ggb2YgTm9ydGggQW1lcmljYTsgdGhlIEZvbnRhaW5lYmxlYXUgKOKAnEZvbnTigJ0pIHNjYWxlIGRvbWluYXRlcyBtdWNoIG9mIGNvbnRpbmVudGFsIEV1cm9wZSBhbmQgaXMgdXNlZCB3aWRlbHkgZWxzZXdoZXJlLiBBIGdvb2QgcHJvZHVjdCB0cmVhdHMgZ3JhZGVzIGFzIG5vaXN5LCBjb250ZXh0dWFsIG1ldGFkYXRh4oCUbm90IGFzIGEgdW5pdmVyc2FsIHJhbmtpbmcgb2YgYXRobGV0ZXMuKioKCiMjIFRMO0RSCgotICoqVHdvIHN5c3RlbXMgYW5jaG9yIG91dGRvb3IgYm91bGRlcmluZy4qKiBUaGUgSHVlY28gb3IgViBzY2FsZSBiZWdpbnMgYXJvdW5kIFZCL1YwIGFuZCBwcm9ncmVzc2VzIFYxLCBWMiwgYW5kIHVwd2FyZDsgdGhlIEZvbnQgc2NhbGUgdXNlcyBudW1iZXJzIGFuZCBsZXR0ZXIgc3VmZml4ZXMgc3VjaCBhcyA0LCA1LCA2QSwgNkErLCA2Qi4gVGhlIFVJQUEgcHVibGlzaGVzIGNvbXBhcmlzb24gdGFibGVzIGJ1dCBsYWJlbHMgdGhlbSBhcHByb3hpbWF0ZS5bXjFdCi0gKipBIGdyYWRlIHJhdGVzIGEgcHJvYmxlbSwgbm90IGEgcGVyc29uLioqIEl0IHJlZmxlY3RzIHRoZSBoYXJkZXN0IGFjY2VwdGVkIHNlcXVlbmNlIHVuZGVyIGV4cGVjdGVkIGNvbmRpdGlvbnMsIG5vdCB0aGUgY2xpbWJlcuKAmXMgaGVpZ2h0LCByZWFjaCwgYXR0ZW1wdHMsIHN0cmVuZ3RoLCBvciB0YWxlbnQuIEluZG9vcnMsIGd5bXMgbWF5IHVzZSBjb2xvcnMsIGNpcmN1aXRzLCBvciBsb2NhbGx5IGludmVudGVkIGxhYmVsczsgdGhlc2UgYXJlIGNhbGlicmF0aW9uIHN5c3RlbXMsIG5vdCB0cmFuc2xhdGlvbnMuCi0gKipDb25zZW5zdXMgaXMgdGhlIG1lY2hhbmlzbS4qKiBGaXJzdCBhc2NlbnNpb25pc3RzIHByb3Bvc2UgYSBncmFkZTsgcmVwZWF0IGFzY2VudHMsIGVzcGVjaWFsbHkgYnkgY2xpbWJlcnMgd2l0aCByZWxldmFudCBleHBlcmllbmNlLCB0ZW5kIHRvIHN0YWJpbGl6ZSBvciByZXZpc2UgaXQuIExvY2FsIGV0aGljcyBhbmQgY29uZGl0aW9ucyBtYWtlIGV4YWN0IGNyb3NzLWFyZWEgY29udmVyc2lvbiBpbXBvc3NpYmxlLgotICoqRm9yIGEgcHJvZHVjdCwgcHJlc2VydmUgdGhlIGV2aWRlbmNlIGJlaGluZCB0aGUgbGFiZWwuKiogR3JhZGUsIGxvY2F0aW9uLCBzdHlsZSwgaG9sZCB0eXBlLCBhbmdsZSwgY29uZGl0aW9ucywgYXNjZW50IHR5cGUsIGFuZCB1c2VyIGNvbmZpZGVuY2UgcHJvZHVjZSBhIGZhciBiZXR0ZXIgdHJhaW5pbmcgYW5kIGRpc2NvdmVyeSBzeXN0ZW0gdGhhbiBhIHNpbmdsZSBnbG9iYWwgbnVtYmVyLgoKIVtBIGdyYWRlLXN5c3RlbSBtYXA6IHRoZSBWIHNjYWxlIHByb2dyZXNzZXMgaW4gaW50ZWdlcnM7IEZvbnQgY29tYmluZXMgYSBudW1iZXIsIGxldHRlciBhbmQgb3B0aW9uYWwgcGx1cy4gQm90aCByZXByZXNlbnQgYSBiYW5kIG9mIGNvbW11bml0eSBjb25zZW5zdXMgcmF0aGVyIHRoYW4gYSBwcmVjaXNlIGNvbnZlcnNpb24uXShhc3NldHMvYm91bGRlcmluZy1ncmFkZXMvc2NhbGUtbWFwLnN2ZykKKlRoZSBzeXN0ZW1zIGFyZSB1c2VmdWwgbmF2aWdhdGlvbiB0b29scywgbm90IGV4YWN0IGVxdWl2YWxlbnRzLiBVSUFB4oCZcyBwdWJsaXNoZWQgY29tcGFyaXNvbiB0YWJsZSBpcyBleHBsaWNpdGx5IGFwcHJveGltYXRlLiBTb3VyY2U6IFVJQUEsIGNpdGVkIGJlbG93LioKCiMjIFRoZSBwcm9kdWN0IGlzIGEgcm91dGUtbGV2ZWwgcHJlZGljdGlvbiBvZiBlZmZvcnQKCkEgYm91bGRlciBwcm9ibGVtIGlzIHNob3J0IGVub3VnaCB0aGF0IHRoZSBncmFkZSBjYW5ub3QgbWVhbiBlbmR1cmFuY2UgYWxvbmUuIEl0IHR5cGljYWxseSBidW5kbGVzIG1vdmVtZW50IGNvbXBsZXhpdHksIGhvbGQgc2l6ZSBhbmQgdGV4dHVyZSwgYm9keSBwb3NpdGlvbiwgY29vcmRpbmF0aW9uLCBzdGVlcG5lc3MsIHJlcXVpcmVkIHBvd2VyLCBmcmljdGlvbiwgYW5kIHRoZSBmZWFzaWJpbGl0eSBvZiBhIHNlcXVlbmNlLiBBIHNsYWIgd2l0aCBpbnNlY3VyZSBmZWV0IGNhbiBiZSBoYXJkIGluIGEgZGlmZmVyZW50IHdheSBmcm9tIGEgcm9vZiB3aXRoIHBvd2VyZnVsIGNvbXByZXNzaW9uLiBBIHRhbGwgY2xpbWJlciBtYXkgc2tpcCBhIG1vdmU7IGEgc2hvcnRlciBjbGltYmVyIG1heSBmaW5kIGEgZGlmZmVyZW50IGJldGEuIEh1bWlkaXR5LCBza2luIGNvbmRpdGlvbiwgdGVtcGVyYXR1cmUsIGFuZCBhIHdvcm4gaG9sZCBjYW4gY2hhbmdlIHRoZSBlZmZlY3RpdmUgZGlmZmljdWx0eSB3aXRob3V0IGNoYW5naW5nIHRoZSBwcmludGVkIGdyYWRlLgoKVGhhdCBpcyB3aHkgZ3JhZGVzIG11c3Qgbm90IGJlIHRyZWF0ZWQgYXMgYW4gb2JqZWN0aXZlIG1lYXN1cmVtZW50LiBUaGUgVUlBQeKAmXMgY29tcGFyYXRpdmUgdGFibGUgYWxpZ25zIFYsIEZvbnQsIEZyZW5jaCwgQnJpdGlzaCwgVUlBQSwgYW5kIG90aGVyIHN5c3RlbXMsIGJ1dCBjYWxscyBpdCBhbiAqKmFwcHJveGltYXRlIGNvbXBhcmF0aXZlIHRhYmxlKiouW14xXSBUaGUgdGFibGUgaXMgdXNlZnVsIHRvIGNob29zZSBhIHN0YXJ0aW5nIHJhbmdlIHdoZW4gdHJhdmVsbGluZy4gSXQgaXMgbm90IGEgY29udmVyc2lvbiBBUEkuCgojIyBWIHNjYWxlOiBkaXNjcmV0ZSBsYWJlbHMgZnJvbSBIdWVjbyBUYW5rcwoKVGhlIFYgc2NhbGXigJRvZnRlbiBjYWxsZWQgdGhlIEh1ZWNvIHNjYWxl4oCUdXNlcyBgVkJgIGZvciBiZWdpbm5lciBwcm9ibGVtcyBpbiBzb21lIGFyZWFzLCB0aGVuIGBWMGAsIGBWMWAsIGBWMmAsIGFuZCBzbyBvbi4gQSBgK2Agb3IgYC1gIG1heSBhcHBlYXIgYXJvdW5kIGxvd2VyIGdyYWRlcyAoYFYwLWAsIGBWMCtgKSBhbmQgc29tZSBndWlkZWJvb2tzIG9yIGd5bXMgc3ViZGl2aWRlIGZ1cnRoZXIuIFRoZSBzeXN0ZW0gaXMgbmFtZWQgZm9yIEpvaG4g4oCcVmVybeKAnSBTaGVybWFuLCB3aG8gZGV2ZWxvcGVkIHRoZSBsYWJlbHMgaW4gSHVlY28gVGFua3MsIFRleGFzLCBpbiB0aGUgMTk4MHM7IGl0IHNwcmVhZCB3aXRoIHRoZSBtb2Rlcm4gTm9ydGggQW1lcmljYW4gYm91bGRlcmluZyBzY2VuZS5bXjJdCgpJdHMgdmlydHVlIGlzIHNwZWVkLiBBIGNsaW1iZXIgd2hvIHJlZ3VsYXJseSBzZW5kcyBWNCBjYW4gbWFrZSBhIHVzZWZ1bCBmaXJzdCBndWVzcyBhYm91dCBhIFY0IGVsc2V3aGVyZS4gSXRzIGRhbmdlciBpcyBmYWxzZSBwcmVjaXNpb246IFY0IGluIG9uZSBndWlkZWJvb2ssIHNlYXNvbiwgb3Igc3R5bGUgY2FuIGJlIG1hdGVyaWFsbHkgZGlmZmVyZW50IGZyb20gVjQgaW4gYW5vdGhlci4gVHJlYXQgYW4gaW50ZWdlciBzdGVwIGFzIGEgY2F0ZWdvcnkgbGFiZWwgYmFja2VkIGJ5IGxvY2FsIGNvbnNlbnN1cywgbm90IGEgc3RhbmRhcmQgdW5pdCBvZiBmb3JjZS4KCiMjIEZvbnQgc2NhbGU6IGZpbmVyIG5vdGF0aW9uLCBzYW1lIHNvY2lhbCBwcm9jZXNzCgpUaGUgRm9udGFpbmVibGVhdSBzY2FsZSBncmV3IGZyb20gdGhlIGJvdWxkZXJpbmcgY3VsdHVyZSBhcm91bmQgRm9udGFpbmVibGVhdSwgRnJhbmNlLiBGb3IgYm91bGRlcnMgaXQgaXMgY29tbW9ubHkgd3JpdHRlbiBgNGAsIGA1YCwgYDZBYCwgYDZBK2AsIGA2QmAsIGA2QitgLCB0aHJvdWdoIDcgYW5kIDggbGV2ZWxzLCB3aXRoIGxldHRlciBhbmQgcGx1cyBpbmNyZW1lbnRzLiBUaGUgVUlBQSB0YWJsZSBwbGFjZXMgVjAgcm91Z2hseSBhcm91bmQgRm9udCA0YiwgVjIgYXJvdW5kIDViLCBWNCBhcm91bmQgNmEvNmErLCBhbmQgVjYgYXJvdW5kIDZjLzZjK+KAlGEgdXNlZnVsIG9yaWVudGF0aW9uIHRoYXQgc2hvdWxkIG5vdCBiZSByZWFkIGFzIGEgcHJvbWlzZS5bXjFdCgpUaGUgZmluZXIgbm90YXRpb24gZG9lcyBub3QgbWFrZSB0aGUgdW5kZXJseWluZyBqdWRnbWVudCBtb3JlIHNjaWVudGlmaWMuIEl0IGdpdmVzIGEgbG9jYWwgY29tbXVuaXR5IG1vcmUgbGFiZWxzIHdpdGggd2hpY2ggdG8gZXhwcmVzcyBjb25zZW5zdXMuIEEgNkEgbWF5IGJlIHRlY2huaWNhbCwgcG93ZXJmdWwsIG1vcnBobywgb3IgY29uZGl0aW9ucy1kZXBlbmRlbnQuIFRoZSBncmFkZSBzdXBwbGllcyBhIHJvdWdoIGNoYWxsZW5nZSBiYW5kOyB0aGUgZ3VpZGVib29rIGRlc2NyaXB0aW9uLCBzdHlsZSB0YWdzLCBhbmQgcmVwZWF0ZWQgYXNjZW50cyBzdXBwbHkgdGhlIGV4cGxhbmF0aW9uLgoKfCBXaGF0IGEgZ3JhZGUgY2FuIGRvIHwgV2hhdCBpdCBjYW5ub3QgZG8gfAp8IC0tLSB8IC0tLSB8CnwgSGVscCBjaG9vc2UgYSBwcm9ibGVtIG5lYXIgYSBjbGltYmVy4oCZcyBjdXJyZW50IHJhbmdlIHwgUHJlZGljdCBldmVyeSBjbGltYmVy4oCZcyBleHBlcmllbmNlIHwKfCBDcmVhdGUgYSBzaGFyZWQgbGFuZ3VhZ2Ugd2l0aGluIGFuIGFyZWEgfCBDb252ZXJ0IHBlcmZlY3RseSBiZXR3ZWVuIFYgYW5kIEZvbnQgfAp8IFN1cHBvcnQgcHJvZ3Jlc3Npb24gdHJhY2tpbmcgb3ZlciByZXBlYXRlZCBjb21wYXJhYmxlIGF0dGVtcHRzIHwgTWVhc3VyZSBmb3JjZSwgaW50ZWxsaWdlbmNlLCBvciBhdGhsZXRpYyB3b3J0aCB8CnwgU2lnbmFsIHdoZW4gYSBuZXcgcHJvYmxlbSBtYXkgbmVlZCBtb3JlIHJlcGVhdCBkYXRhIHwgUmVwbGFjZSBzYWZldHkganVkZ21lbnQsIHNwb3R0aW5nLCBwYWRzLCBvciBjb25kaXRpb25zIGFzc2Vzc21lbnQgfAoKIyMgSG93IGEgZ3JhZGUgZ2V0cyBtYWRlOiBwcm9wb3NhbCwgcmVwZWF0cywgcmV2aXNpb24KClRoZSBncmFkZSBub3JtYWxseSBiZWdpbnMgd2l0aCBhIGZpcnN0IGFzY2Vuc2lvbmlzdOKAmXMgcHJvcG9zYWwuIFRoYXQgcGVyc29uIGVzdGFibGlzaGVzIGEgbGVnYWwsIGNsaW1iYWJsZSBsaW5lIGFuZCBlc3RpbWF0ZXMgZGlmZmljdWx0eSBhZ2FpbnN0IGtub3duIG5lYXJieSBwcm9ibGVtcy4gVGhlIG5leHQgc2lnbmFsIGlzIHJlcGVhdCBhc2NlbnRzOiBzdHJvbmcgYW5kIGV4cGVyaWVuY2VkIGNsaW1iZXJzIGNvbXBhcmUgdGhlIHNlcXVlbmNlLCBhc2sgd2hldGhlciBhIGtleSBob2xkIGhhcyBjaGFuZ2VkLCB0ZXN0IGFsdGVybmF0aXZlIGJldGEsIGFuZCByZXBvcnQgYW4gb3Bpbmlvbi4gQSBndWlkZWJvb2sgYXV0aG9yLCBsb2NhbCBkYXRhYmFzZSwgb3IgY29tbXVuaXR5IGdyYWR1YWxseSBjb252ZXJnZXMgb24gYSBudW1iZXIuCgpUaGlzIGlzIGEgbWFya2V0cGxhY2UgcmF0aW5nIHByb2JsZW0gd2l0aCB1bnVzdWFsbHkgaGlnaCBjb250ZXh0LiBUaGUgdmFsdWFibGUgcmV2aWV3IGlzIG5vdCB0aGUgcmF3IHNjb3JlOyBpdCBpcyB0aGUgcmV2aWV3ZXLigJlzIHJlbGF0aW9uc2hpcCB0byB0aGUgcHJvZHVjdDogd2hpY2ggaGVpZ2h0LCB3aGljaCBiZXRhLCB3aGljaCBjb25kaXRpb24sIHdoZXRoZXIgaXQgd2FzIGEgc3RhbmQgc3RhcnQgb3IgYSBzaXQgc3RhcnQsIHdoZXRoZXIgYSBjaGlwcGVkIGhvbGQgb3IgZWxpbWluYXRlZCBmZWF0dXJlIHdhcyB1c2VkLCBhbmQgd2hldGhlciB0aGUgY2xpbWJlciBtYXRjaGVkIHRoZSBpbnRlbmRlZCBsaW5lLiBXaXRob3V0IHRoYXQgbWV0YWRhdGEsIGFuIGF2ZXJhZ2UgY2FuIGNvbmNlYWwgdGhlIHJlYXNvbiBjbGltYmVycyBkaXNhZ3JlZS4KCkluZG9vciBncmFkZXMgYWRkIGFub3RoZXIgbGF5ZXIuIEEgY29tbWVyY2lhbCBneW0gbWF5IGdyYWRlIGZvciBzYWZldHksIG1vdmVtZW50IGxlYXJuaW5nLCB0dXJub3ZlciwgYW5kIGN1c3RvbWVyIGV4cGVyaWVuY2UgYXMgd2VsbCBhcyByZWxhdGl2ZSBkaWZmaWN1bHR5LiBPbmUgZ3lt4oCZcyBjb2xvciBtYXkgZGVsaWJlcmF0ZWx5IHNwYW4gc2V2ZXJhbCBWIGdyYWRlczsgYW5vdGhlciByZXNldHMgZnJlcXVlbnRseSBhbmQgcmVjYWxpYnJhdGVzIHdpdGggc3RhZmYgY29uc2Vuc3VzLiBOZXZlciBtYXJrZXQgYSBneW3igJlzIGNpcmN1aXQgY29sb3IgYXMgYSB1bml2ZXJzYWwgViBvciBGb250IGVxdWl2YWxlbnQgdW5sZXNzIHRoZSBneW0gZXhwbGljaXRseSBzdXBwbGllcyB0aGF0IG1hcHBpbmcgYW5kIHVuZGVyc3RhbmRzIHRoZSBsaW1pdGF0aW9uLgoKIyMgVGhlIGF0aGxldGljIHByb2R1Y3Qgc2hvdWxkIG1lYXN1cmUgYSBwb3J0Zm9saW8sIG5vdCBhIG1heCBncmFkZQoKQW4gYXBwIHRoYXQgcmVkdWNlcyBhIGNsaW1iZXIgdG8g4oCcaGlnaGVzdCBzZW5k4oCdIGVuY291cmFnZXMgZGlzdG9ydGVkIGJlaGF2aW9yOiBhdm9pZGluZyBzbGFicywgY2hhc2luZyBhIHNvZnQgYmVuY2htYXJrLCBvciB0cmVhdGluZyBvbmUgcGVyZmVjdCBjb25kaXRpb25zIGRheSBhcyBwZXJtYW5lbnQgYWJpbGl0eS4gVGhlIGJldHRlciBwcm9maWxlIGlzIGEgcG9ydGZvbGlvOgoKfCBGaWVsZCB8IFdoeSBpdCBtYXR0ZXJzIHwKfCAtLS0gfCAtLS0gfAp8IEdyYWRlIHN5c3RlbSBhbmQgbG9jYWwgYXJlYSB8IEtlZXBzIGNvbXBhcmlzb25zIGFuY2hvcmVkIHRvIGEgY2FsaWJyYXRpb24gY29udGV4dCB8CnwgQW5nbGUsIHN0eWxlLCBob2xkIHR5cGUsIGFuZCBoZWlnaHQgfCBFeHBsYWlucyB3aHkgYSBncmFkZSBtYXkgYmUgZWFzeSBvciBoYXJkIGZvciB0aGlzIGF0aGxldGUgfAp8IFNlbmQgc3R5bGU6IGZsYXNoLCBzZW5kLCByZXBlYXQsIHByb2plY3RlZCB8IERpc3Rpbmd1aXNoZXMgcm91dGUgcmVhZGluZyBmcm9tIHBlcnNpc3RlbmNlIHwKfCBBdHRlbXB0cyBhbmQgc2Vzc2lvbnMgfCBDYXB0dXJlcyBlZmZvcnQgd2l0aG91dCBwcmV0ZW5kaW5nIGl0IGlzIHVuaXZlcnNhbCB8CnwgQ29uZGl0aW9ucyBhbmQgaG9sZCBzdGF0ZSB8IFByZXNlcnZlcyBjaGFuZ2VzIHRoYXQgYWZmZWN0IHJlcGVhdGFiaWxpdHkgfAp8IENvbmZpZGVuY2UgLyBjb21tdW5pdHkgYWdyZWVtZW50IHwgRmxhZ3MgZ3JhZGVzIHdpdGggbGl0dGxlIGV2aWRlbmNlIG9yIGFjdGl2ZSBkaXNhZ3JlZW1lbnQgfAoKVGhpcyBwcm9kdWN0IGRlc2lnbiBzaGlmdHMgdGhlIGluY2VudGl2ZSBmcm9tIGJyYWdnaW5nIHJpZ2h0cyB0byB1c2VmdWwgZmVlZGJhY2suIEl0IGNhbiByZWNvbW1lbmQgYSBwcm9qZWN0IHRoYXQgc3RyZXRjaGVzIHRoZSBjbGltYmVy4oCZcyB3ZWFrIHN0eWxlLCBzaG93IHdoZXRoZXIgb3V0ZG9vciBwZXJmb3JtYW5jZSBkaWZmZXJzIGZyb20gZ3ltIHBlcmZvcm1hbmNlLCBhbmQgaWRlbnRpZnkgc3VzcGVjdCBncmFkZXMgdGhhdCBuZWVkIG1vcmUgcmVwZWF0IGRhdGEuIEl0IGFsc28gcHJvdGVjdHMgYWdhaW5zdCB0aGUgbW9zdCBjb21tb24gdHJ1c3QgZmFpbHVyZTogdGVsbGluZyBhIHVzZXIgdGhlaXIgYm9keSBvciB0cmFpbmluZyBpcyB3cm9uZyB3aGVuIHRoZSBtZWFzdXJlbWVudCBpcyBhY3R1YWxseSBsb2NhbCBub2lzZS4KCiMjIEZvdW5kZXIgcGxheWJvb2sKCjEuICoqU3RvcmUgZ3JhZGVzIGFzIHN0cnVjdHVyZWQgZGF0YSwgbm90IHN0cmluZ3MuKiogQ2FwdHVyZSBzeXN0ZW0sIHZhbHVlLCBtb2RpZmllcnMsIGFyZWEsIHZlcnNpb24sIGFuZCBzb3VyY2UuIFRlc3Q6IGNhbiB0aGUgcHJvZHVjdCBkaXNwbGF5IGBWNGAsIGA2QStgLCBhbmQgYSBneW0gY29sb3Igd2l0aG91dCBpbnZlbnRpbmcgYW4gZXF1aXZhbGVuY2U/CjIuICoqTWFrZSB1bmNlcnRhaW50eSB2aXNpYmxlLioqIFNob3cgcHJvcG9zZWQsIGNvbnNlbnN1cywgYW5kIGRpc3B1dGVkIHN0YXRlcywgcGx1cyBudW1iZXIgb2Yga25vd2xlZGdlYWJsZSByZXBlYXRzLiBUZXN0OiBkbyB1c2VycyBzZWUgd2h5IGEgZ3JhZGUgbW92ZWQgcmF0aGVyIHRoYW4gbWVyZWx5IG5vdGljaW5nIGEgY2hhbmdlZCBsYWJlbD8KMy4gKipEZXNpZ24gZm9yIHN0eWxlLWF3YXJlIHByb2dyZXNzaW9uLioqIEFzayBmb3IgYW5nbGUsIGhvbGRzLCBzdGFydCBwb3NpdGlvbiwgYW5kIGFzY2VudCB0eXBlLiBUZXN0OiBjYW4gcmVjb21tZW5kYXRpb25zIGltcHJvdmUgYWZ0ZXIgdGVuIGxvZ2dlZCBwcm9ibGVtcyB3aXRob3V0IHVzaW5nIGEgZ2xvYmFsIGxlYWRlcmJvYXJkPwo0LiAqKktlZXAgc2FmZXR5IGFuZCBldGhpY3Mgb3V0IG9mIHRoZSBzY29yZS4qKiBBZGQgYXJlYS1zcGVjaWZpYyBhY2Nlc3MsIGxhbmRpbmcsIHBhZCwgYW5kIGVudmlyb25tZW50YWwgaW5mb3JtYXRpb24gYXMgZmlyc3QtY2xhc3MgZmllbGRzLiBUZXN0OiBjYW4gYSBjbGltYmVyIHBsYW4gYSByZXNwb25zaWJsZSBhdHRlbXB0IHdpdGhvdXQgbGVhdmluZyB0aGUgcHJvZHVjdD8KClRoZSBlbmR1cmluZyBsZXNzb24gaXMgdGhhdCAqKmEgZ3JhZGUgd29ya3Mgd2hlbiBhIGNvbW11bml0eSBjYW4gY2hhbGxlbmdlIGl0LioqIEEgcGxhdGZvcm0gc2hvdWxkIGhlbHAgbG9jYWwga25vd2xlZGdlIHRyYXZlbCB3aXRob3V0IGZsYXR0ZW5pbmcgaXQgaW50byBhIHBzZXVkby1zY2llbnRpZmljIHNjb3JlLiBHZXQgdGhlIGRhdGEgbW9kZWwgcmlnaHQsIGFuZCBncmFkZXMgYmVjb21lIHVzZWZ1bCBpbnB1dHMgdG8gZGlzY292ZXJ5LCBjb2FjaGluZywgYW5kIHNhZmV0eeKAlG5vdCBhIGJyaXR0bGUgaWRlbnRpdHkgbGFiZWwuCgojIyBSZXNlYXJjaCBub3RlcyBhbmQgc291cmNlcwoKW14xXTogVUlBQSwgWypUaGUgU2NhbGVzIG9mIERpZmZpY3VsdHkgaW4gQ2xpbWJpbmcqXShodHRwczovL3d3dy50aGV1aWFhLm9yZy9kb2N1bWVudHMvc3BvcnQvVEhFLVNDQUxFUy1PRi1ESUZGSUNVTFRZLUlOLUNMSU1CSU5HX3AxYi5wZGYpLCBlc3BlY2lhbGx5IGl0cyBhcHByb3hpbWF0ZSBjb21wYXJhdGl2ZSB0YWJsZSBmb3IgYm91bGRlciBhbmQgY2xpbWJpbmcgc2NhbGVzLiBQcmltYXJ5IGZlZGVyYXRpb24gcmVmZXJlbmNlIGZvciB0aGUgZXhpc3RlbmNlIGFuZCBhcHByb3hpbWF0ZSByZWxhdGlvbiBvZiBWIGFuZCBGb250IHN5c3RlbXMuClteMl06IEpvaG4gU2hlcm1hbiwgWypCZXR0ZXIgQm91bGRlcmluZypdKGh0dHBzOi8vd3d3Lm1vdW50YWluZWVyc2Jvb2tzLm9yZy9wcm9kdWN0Lzk3ODE1OTQ4NTE5NjQvKSwgTW91bnRhaW5lZXJzIEJvb2tzLiBIaXN0b3JpY2FsIGFuZCBwcmFjdGl0aW9uZXIgcmVmZXJlbmNlIGZvciB0aGUgSHVlY28vViBzY2FsZeKAmXMgZGV2ZWxvcG1lbnQuIFRoZSBVSUFBIGRvY3VtZW50IGFib3ZlIGlzIHVzZWQgZm9yIGNvbXBhcmF0aXZlIG5vdGF0aW9uLCBub3QgYSBjbGFpbSBvZiBleGFjdCBjb252ZXJzaW9uLgoKPGZvb3Rlcj5Db21waWxlZCBhbmQgY2hlY2tlZCBBdWd1c3QgMjcsIDIwMjYuIEdyYWRlcyBjaGFuZ2Ugd2l0aCBjb25kaXRpb25zLCBhY2Nlc3MsIGhvbGQgYnJlYWthZ2UsIHN0eWxlIGNvbnZlbnRpb25zLCBhbmQgbG9jYWwgY29uc2Vuc3VzLiBDaGVjayBjdXJyZW50IGxvY2FsIGd1aWRlcyBhbmQgcmVzcGVjdCBhcmVhLXNwZWNpZmljIGFjY2VzcyBhbmQgc2FmZXR5IHByYWN0aWNlcy48L2Zvb3Rlcj4K</script>
+<script>
+  (function () {
+    var src = document.getElementById('memo-src');
+    var raw = '';
+    try {
+      var bin = atob((src.textContent || '').replace(/\s+/g, ''));
+      var bytes = new Uint8Array(bin.length);
+      for (var k = 0; k < bin.length; k++) { bytes[k] = bin.charCodeAt(k); }
+      raw = new TextDecoder('utf-8').decode(bytes);
+    } catch (e) { raw = ''; }
+    var name = document.body.getAttribute('data-slug') + '.md';
+
+    var copy = document.getElementById('btn-copy');
+    copy.addEventListener('click', function () {
+      var done = function () {
+        copy.textContent = 'Copied';
+        copy.classList.add('done');
+        setTimeout(function () {
+          copy.textContent = 'Copy for agents';
+          copy.classList.remove('done');
+        }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(raw).then(done, fallback);
+      } else {
+        fallback();
+      }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = raw;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); } catch (e) { /* no-op */ }
+        document.body.removeChild(ta);
+      }
+    });
+
+    var dl = document.getElementById('btn-download');
+
+    function flash(label) {
+      var was = dl.textContent;
+      dl.textContent = label;
+      dl.classList.add('done');
+      setTimeout(function () {
+        dl.textContent = was;
+        dl.classList.remove('done');
+      }, 1600);
+    }
+
+    function blobSave() {
+      var blob = new Blob([raw], { type: 'text/markdown;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+    }
+
+    dl.addEventListener('click', function () {
+      // On claude.ai the host mediates saves; on GitHub Pages a blob link works.
+      if (window.claude && typeof window.claude.use === 'function') {
+        window.claude.use('downloads').then(function (d) {
+          if (!d) { blobSave(); return; }
+          d.save({ filename: name, data: raw }).then(
+            function () { flash('Saved'); },
+            function (e) { if (!e || e.code !== 'declined') { blobSave(); } }
+          );
+        }, blobSave);
+        return;
+      }
+      blobSave();
+    });
+  })();
+</script>
+</body>
+</html>
