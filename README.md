@@ -13,7 +13,7 @@ Compiled August 26, 2026.
 | Memo | Closed | The move | Read |
 | --- | --- | --- | --- |
 | **Cal.com** | Apr 14, 2026 | AGPL 3.0 to proprietary. Public repo renamed `cal.diy`, relicensed MIT, stripped of commercial features. | [Markdown](memos/cal-com.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/cal-com.html) |
-| **tldraw** | Sep 18, 2025 | MIT to source-available to runtime license keys. $6,000 per team per year. | [Markdown](memos/tldraw.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/tldraw.html) |
+| **tldraw** | Sep 18, 2025 | MIT to source-available to runtime license keys. Annual, value-based production licensing. | [Markdown](memos/tldraw.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/tldraw.html) |
 | **Google, Gemini CLI** | Jun 18, 2026 | Apache 2.0 with 104K stars and 6,000 outside PRs, replaced by a closed Go binary. | [Markdown](memos/gemini-cli.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/gemini-cli.html) |
 | **Meta, Llama** | Apr 8, 2026 | Open weights to a proprietary API-only frontier model. | [Markdown](memos/meta-llama.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/meta-llama.html) |
 
@@ -88,5 +88,7 @@ Excalidraw is still MIT. PostHog remains MIT with a proprietary enterprise direc
 Every memo exists twice, from one source. The Markdown renders here on GitHub. The HTML is served by GitHub Pages at [michaelraspuzzi.github.io/memos](https://michaelraspuzzi.github.io/memos/), in plain document style, with a **Copy for agents** button and a **Download .md** button at the top of each page.
 
 To change a memo, edit the Markdown in `memos/`, then run `python3 build.py` and push. The HTML is generated, never hand-edited, so the two formats cannot drift.
+
+For new memos and major revisions, use the [Founder Memo skill](.codex/skills/founder-memo/SKILL.md). It defines the narrative standard, research rules, founder-action format, hard quality gates, and 100-point publication rubric.
 
 Confidence is high for Cal.com, tldraw, Gemini CLI, ClickHouse, Supabase and n8n. Medium for Meta, which is flagged in the memo body. Revenue figures sourced from third parties rather than the companies are flagged individually.

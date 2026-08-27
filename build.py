@@ -85,6 +85,15 @@ STYLE = """
     padding: 0.05em 0.3em;
     border-radius: 2px;
   }
+  pre {
+    margin: 1rem 0 0;
+    padding: 1rem;
+    overflow-x: auto;
+    background: #f4f4f2;
+    border: 1px solid #cccccc;
+    line-height: 1.45;
+  }
+  pre code { padding: 0; background: transparent; font-size: 0.78rem; }
   blockquote {
     margin: 1rem 0 0;
     padding: 0.1rem 0 0.1rem 1rem;
@@ -93,6 +102,10 @@ STYLE = """
   blockquote p { margin-top: 0.4rem; }
   blockquote p:first-child { margin-top: 0; }
   blockquote em.attrib { font-style: normal; font-size: 0.85rem; color: #555555; }
+
+  figure { margin: 1.35rem 0 0; }
+  figure img { display: block; width: 100%; height: auto; border: 1px solid #cccccc; }
+  figcaption { margin-top: 0.45rem; color: #555555; font-size: 0.82rem; line-height: 1.35; }
 
   .tablewrap { overflow-x: auto; margin-top: 1.1rem; border: 1px solid #cccccc; }
   table { border-collapse: collapse; width: 100%; min-width: 34em; font-size: 0.92rem; }
@@ -221,10 +234,42 @@ def convert(md):
             i += 1
             continue
 
+        # fenced code block
+        m = re.match(r'^```([A-Za-z0-9_-]*)$', stripped)
+        if m:
+            lang = m.group(1)
+            i += 1
+            code_lines = []
+            while i < n and lines[i].strip() != '```':
+                code_lines.append(lines[i])
+                i += 1
+            if i < n:
+                i += 1
+            cls = ' class="language-%s"' % html.escape(lang, quote=True) if lang else ''
+            out.append('<pre><code%s>%s</code></pre>' %
+                       (cls, html.escape('\n'.join(code_lines), quote=False)))
+            continue
+
         m = re.match(r'^(#{1,4})\s+(.*)$', stripped)
         if m:
             level = len(m.group(1))
             out.append('<h%d>%s</h%d>' % (level, inline(m.group(2)), level))
+            i += 1
+            continue
+
+        # image, optionally followed immediately by an italic caption
+        m = re.match(r'^!\[([^\]]*)\]\(([^)]+)\)$', stripped)
+        if m:
+            alt = html.escape(m.group(1), quote=True)
+            src = html.escape(m.group(2), quote=True)
+            caption = None
+            if i + 1 < n:
+                cm = re.match(r'^\*([^*].*)\*$', lines[i + 1].strip())
+                if cm:
+                    caption = inline(cm.group(1))
+                    i += 1
+            out.append('<figure><img src="%s" alt="%s">%s</figure>' %
+                       (src, alt, '<figcaption>%s</figcaption>' % caption if caption else ''))
             i += 1
             continue
 
@@ -283,7 +328,7 @@ def convert(md):
         # paragraph
         para = [stripped]
         i += 1
-        while i < n and lines[i].strip() and not re.match(r'^(#{1,4}\s|>|\||-\s|\*\s|\d+\.\s|---$)', lines[i].strip()):
+        while i < n and lines[i].strip() and not re.match(r'^(#{1,4}\s|>|\||-\s|\*\s|\d+\.\s|```|---$)', lines[i].strip()):
             para.append(lines[i].strip())
             i += 1
         body = inline(' '.join(para))

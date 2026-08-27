@@ -1,0 +1,4 @@
+interface:
+  display_name: "Founder Memo"
+  short_description: "Write sourced, actionable founder strategy memos"
+  default_prompt: "Write or revise this company memo for founders, then score it against the quality rubric."
