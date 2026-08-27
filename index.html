@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Closing the Source</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  html { background: #ffffff; }
+  body {
+    background: #ffffff;
+    color: #111111;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .page { max-width: 46em; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.6rem;
+    border-bottom: 1px solid #cccccc;
+  }
+  .bar .home {
+    font-size: 0.85rem;
+    margin-right: auto;
+    color: #555555;
+  }
+  button.act {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 0.85rem;
+    background: #f4f4f2;
+    color: #111111;
+    border: 1px solid #999999;
+    border-radius: 2px;
+    padding: 0.32rem 0.8rem;
+    cursor: pointer;
+  }
+  button.act:hover { background: #e8e8e4; }
+  button.act:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  button.act.done { background: #e6efe6; border-color: #4a7a4a; }
+
+  h1, h2, h3, h4 { font-weight: bold; margin: 0; }
+  h1 { font-size: 2rem; line-height: 1.15; }
+  h2 { font-size: 1.4rem; line-height: 1.2; margin-top: 2.4rem; padding-top: 0.9rem; border-top: 2px solid #111111; }
+  h3 { font-size: 1.1rem; margin-top: 1.6rem; }
+  p { margin: 0.75rem 0 0; }
+  ul, ol { margin: 0.7rem 0 0; padding-left: 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: #111111; }
+  a:hover { color: #7a1c14; }
+  a:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  hr { border: 0; border-top: 1px solid #cccccc; margin: 2rem 0 0; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: #f4f4f2;
+    padding: 0.05em 0.3em;
+    border-radius: 2px;
+  }
+  blockquote {
+    margin: 1rem 0 0;
+    padding: 0.1rem 0 0.1rem 1rem;
+    border-left: 3px solid #999999;
+  }
+  blockquote p { margin-top: 0.4rem; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote em.attrib { font-style: normal; font-size: 0.85rem; color: #555555; }
+
+  .tablewrap { overflow-x: auto; margin-top: 1.1rem; border: 1px solid #cccccc; }
+  table { border-collapse: collapse; width: 100%; min-width: 34em; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid #cccccc; vertical-align: top; }
+  thead th { background: #f4f4f2; border-bottom: 1px solid #111111; }
+  tbody tr:last-child td { border-bottom: 0; }
+
+  .foot { margin-top: 3rem; padding-top: 0.9rem; border-top: 3px double #111111; font-size: 0.85rem; color: #555555; }
+</style>
+</head>
+<body data-slug="closing-the-source">
+<div class="page">
+  <div class="bar">
+    <span class="home">Four companies that stopped being open source</span>
+    <button class="act" id="btn-copy" type="button">Copy for agents</button>
+    <button class="act" id="btn-download" type="button">Download .md</button>
+  </div>
+<h1>Closing the Source</h1>
+<p>Four companies stopped being open source between September 2025 and June 2026. These are the memos.</p>
+<p>Compiled August 26, 2026.</p>
+<hr>
+<h2>The memos</h2>
+<div class="tablewrap"><table><thead><tr><th>Memo</th><th>Closed</th><th>The move</th></tr></thead><tbody>
+<tr><td><strong><a href="memos/cal-com.html">Cal.com</a></strong></td><td>Apr 14, 2026</td><td>AGPL 3.0 to proprietary. Public repo renamed <code>cal.diy</code>, relicensed MIT, stripped of commercial features.</td></tr>
+<tr><td><strong><a href="memos/tldraw.html">tldraw</a></strong></td><td>Sep 18, 2025</td><td>MIT to source-available to runtime license keys. $6,000 per team per year.</td></tr>
+<tr><td><strong><a href="memos/gemini-cli.html">Google, Gemini CLI</a></strong></td><td>Jun 18, 2026</td><td>Apache 2.0 with 104K stars and 6,000 outside PRs, replaced by a closed Go binary.</td></tr>
+<tr><td><strong><a href="memos/meta-llama.html">Meta, Llama</a></strong></td><td>Apr 8, 2026</td><td>Open weights to a proprietary API-only frontier model.</td></tr>
+</tbody></table></div>
+<p>Each memo covers the move, the real reason, the founding team, product, business model, distribution, current numbers, and what the closure cost. Every claim is cited.</p>
+<hr>
+<h2>The pattern</h2>
+<p><strong>The stated reason is rarely the operative one.</strong> Cal.com said security. tldraw said sustainability. Google said consolidation. Meta said safety. In all four the operative variable is the same: the cost of giving the artifact away exceeded the distribution value of giving it away. That crossover is predictable. It arrives when the product is good enough that people would pay, and the free channel has already delivered most of the users it will ever deliver.</p>
+<p><strong>The application layer closes. Infrastructure holds.</strong> Nothing in the database or observability tier closed this year. Redis and Elastic went the other way and re-added AGPLv3. Closures cluster where the code is the product and there is no hosting margin underneath it: a canvas SDK, a scheduling app, a CLI, a model. If your business has real cloud gross margin, you do not need to close the source. If it does not, you eventually will.</p>
+<p><strong>The fork is the price, and it usually goes unpaid.</strong> OpenTofu after Terraform, Valkey after Redis, OpenSearch after Elasticsearch. Those only happen when large corporate users are dependent enough to fund a fork. Cal.com and tldraw sit below that threshold, which is exactly why they could close. The absence of a fork is not community approval. It is community indifference plus switching cost.</p>
+<hr>
+<h2>Four questions before you build on someone's open repo</h2>
+<ol><li><strong>Does the vendor have a hosting margin, or is the code the only asset they can sell?</strong> If the code is the only asset, assume it closes.</li><li><strong>Is there a contributor license agreement?</strong> If so, your work can legally become their proprietary product. That is what happened to Gemini CLI's 6,000 contributors.</li><li><strong>Does the tool need a vendor-hosted backend to function?</strong> That is the real chokepoint, not the license text. A fork without model access is worthless.</li><li><strong>Is the last permissively licensed commit forkable and self-sufficient?</strong> If not, you have a dependency, not an option.</li></ol>
+<p>These four would have flagged every closure here in advance.</p>
+<hr>
+<h2>Baseline: the top open source companies</h2>
+<p>The 2026 rankings that get cited most (TrueUp's 40 Hottest, Seedtable's 287-company index, Tracxn's sector view) converge on roughly the same ten names. Ranking lists do not track license status, so the third column is the one that matters.</p>
+<div class="tablewrap"><table><thead><tr><th>Company</th><th>What it is</th><th>License status, Aug 2026</th></tr></thead><tbody>
+<tr><td>Databricks</td><td>Lakehouse; Spark, Delta, MLflow</td><td>Core Apache 2.0, platform proprietary. Open core.</td></tr>
+<tr><td>Hugging Face</td><td>Model and dataset hub</td><td>Apache 2.0 libraries, hosted hub. Open.</td></tr>
+<tr><td>Mistral AI</td><td>Frontier and open-weight models</td><td>Apache 2.0 open models plus commercial tier. Open.</td></tr>
+<tr><td>ClickHouse</td><td>Real-time OLAP database</td><td>Apache 2.0. Open.</td></tr>
+<tr><td>Supabase</td><td>Postgres application backend</td><td>Apache 2.0. Open.</td></tr>
+<tr><td>n8n</td><td>Workflow automation</td><td>Fair-code Sustainable Use License. Never OSI approved.</td></tr>
+<tr><td>Grafana Labs</td><td>Observability</td><td>AGPLv3 since 2021. Still open source.</td></tr>
+<tr><td>GitLab</td><td>DevSecOps platform</td><td>MIT community edition plus proprietary EE. Open core.</td></tr>
+<tr><td>HashiCorp (IBM)</td><td>Terraform, Vault, Consul</td><td>BUSL 1.1 since Aug 2023. Unchanged after the $6.4B acquisition.</td></tr>
+<tr><td>Redis and Elastic</td><td>Cache and search</td><td>Both re-added AGPLv3. Reversals, not defections.</td></tr>
+</tbody></table></div>
+<p>Most of the top tier has not closed. RedMonk's March 2026 licensing survey found BUSL and SSPL adoption still does not register at statistically significant levels. These closures are loud, not numerous.</p>
+<h3>Checked and not closed, despite rumor</h3>
+<p>Excalidraw is still MIT. Supabase, ClickHouse and Grafana are unchanged. PostHog remains MIT with a proprietary enterprise directory. Sentry has been on the Functional Source License since 2023 and did not move. n8n has been fair-code since inception, so it never was open source in the OSI sense. Discourse published an explicit <a href="https://blog.discourse.org/2026/04/discourse-is-not-going-closed-source/">"we are not going closed source"</a> post in April 2026, in direct response to Cal.com.</p>
+<p><strong>Baseline sources:</strong> <a href="https://redmonk.com/sogrady/2026/03/25/open-source-licensing-2026/">RedMonk, The State of Open Source Licensing in 2026</a> / <a href="https://www.trueup.io/open-source/reports">TrueUp Open Source Report</a> / <a href="https://seedtable.com/best-open-source-startups">Seedtable</a> / <a href="https://tracxn.com/d/sectors/open-source/__86qzqopfw3B9E1ADrcSHQNkYs66EJskfaNi6oSJHuM0/companies">Tracxn</a></p>
+<hr>
+<h2>Formats</h2>
+<p>Each memo exists as Markdown (renders here on GitHub) and as HTML with copy-for-agents and download buttons. If GitHub Pages is enabled on this repo, the HTML index is at <code>index.html</code>.</p>
+<p>Confidence is high for Cal.com, tldraw and Gemini CLI. Medium for Meta, which is flagged in the memo body.</p>
+</div>
+<script type="text/plain" id="memo-src">IyBDbG9zaW5nIHRoZSBTb3VyY2UKCkZvdXIgY29tcGFuaWVzIHN0b3BwZWQgYmVpbmcgb3BlbiBzb3VyY2UgYmV0d2VlbiBTZXB0ZW1iZXIgMjAyNSBhbmQgSnVuZSAyMDI2LiBUaGVzZSBhcmUgdGhlIG1lbW9zLgoKQ29tcGlsZWQgQXVndXN0IDI2LCAyMDI2LgoKLS0tCgojIyBUaGUgbWVtb3MKCnwgTWVtbyB8IENsb3NlZCB8IFRoZSBtb3ZlIHwKfCAtLS0gfCAtLS0gfCAtLS0gfAp8ICoqW0NhbC5jb21dKG1lbW9zL2NhbC1jb20ubWQpKiogfCBBcHIgMTQsIDIwMjYgfCBBR1BMIDMuMCB0byBwcm9wcmlldGFyeS4gUHVibGljIHJlcG8gcmVuYW1lZCBgY2FsLmRpeWAsIHJlbGljZW5zZWQgTUlULCBzdHJpcHBlZCBvZiBjb21tZXJjaWFsIGZlYXR1cmVzLiB8CnwgKipbdGxkcmF3XShtZW1vcy90bGRyYXcubWQpKiogfCBTZXAgMTgsIDIwMjUgfCBNSVQgdG8gc291cmNlLWF2YWlsYWJsZSB0byBydW50aW1lIGxpY2Vuc2Uga2V5cy4gJDYsMDAwIHBlciB0ZWFtIHBlciB5ZWFyLiB8CnwgKipbR29vZ2xlLCBHZW1pbmkgQ0xJXShtZW1vcy9nZW1pbmktY2xpLm1kKSoqIHwgSnVuIDE4LCAyMDI2IHwgQXBhY2hlIDIuMCB3aXRoIDEwNEsgc3RhcnMgYW5kIDYsMDAwIG91dHNpZGUgUFJzLCByZXBsYWNlZCBieSBhIGNsb3NlZCBHbyBiaW5hcnkuIHwKfCAqKltNZXRhLCBMbGFtYV0obWVtb3MvbWV0YS1sbGFtYS5tZCkqKiB8IEFwciA4LCAyMDI2IHwgT3BlbiB3ZWlnaHRzIHRvIGEgcHJvcHJpZXRhcnkgQVBJLW9ubHkgZnJvbnRpZXIgbW9kZWwuIHwKCkVhY2ggbWVtbyBjb3ZlcnMgdGhlIG1vdmUsIHRoZSByZWFsIHJlYXNvbiwgdGhlIGZvdW5kaW5nIHRlYW0sIHByb2R1Y3QsIGJ1c2luZXNzIG1vZGVsLCBkaXN0cmlidXRpb24sIGN1cnJlbnQgbnVtYmVycywgYW5kIHdoYXQgdGhlIGNsb3N1cmUgY29zdC4gRXZlcnkgY2xhaW0gaXMgY2l0ZWQuCgotLS0KCiMjIFRoZSBwYXR0ZXJuCgoqKlRoZSBzdGF0ZWQgcmVhc29uIGlzIHJhcmVseSB0aGUgb3BlcmF0aXZlIG9uZS4qKiBDYWwuY29tIHNhaWQgc2VjdXJpdHkuIHRsZHJhdyBzYWlkIHN1c3RhaW5hYmlsaXR5LiBHb29nbGUgc2FpZCBjb25zb2xpZGF0aW9uLiBNZXRhIHNhaWQgc2FmZXR5LiBJbiBhbGwgZm91ciB0aGUgb3BlcmF0aXZlIHZhcmlhYmxlIGlzIHRoZSBzYW1lOiB0aGUgY29zdCBvZiBnaXZpbmcgdGhlIGFydGlmYWN0IGF3YXkgZXhjZWVkZWQgdGhlIGRpc3RyaWJ1dGlvbiB2YWx1ZSBvZiBnaXZpbmcgaXQgYXdheS4gVGhhdCBjcm9zc292ZXIgaXMgcHJlZGljdGFibGUuIEl0IGFycml2ZXMgd2hlbiB0aGUgcHJvZHVjdCBpcyBnb29kIGVub3VnaCB0aGF0IHBlb3BsZSB3b3VsZCBwYXksIGFuZCB0aGUgZnJlZSBjaGFubmVsIGhhcyBhbHJlYWR5IGRlbGl2ZXJlZCBtb3N0IG9mIHRoZSB1c2VycyBpdCB3aWxsIGV2ZXIgZGVsaXZlci4KCioqVGhlIGFwcGxpY2F0aW9uIGxheWVyIGNsb3Nlcy4gSW5mcmFzdHJ1Y3R1cmUgaG9sZHMuKiogTm90aGluZyBpbiB0aGUgZGF0YWJhc2Ugb3Igb2JzZXJ2YWJpbGl0eSB0aWVyIGNsb3NlZCB0aGlzIHllYXIuIFJlZGlzIGFuZCBFbGFzdGljIHdlbnQgdGhlIG90aGVyIHdheSBhbmQgcmUtYWRkZWQgQUdQTHYzLiBDbG9zdXJlcyBjbHVzdGVyIHdoZXJlIHRoZSBjb2RlIGlzIHRoZSBwcm9kdWN0IGFuZCB0aGVyZSBpcyBubyBob3N0aW5nIG1hcmdpbiB1bmRlcm5lYXRoIGl0OiBhIGNhbnZhcyBTREssIGEgc2NoZWR1bGluZyBhcHAsIGEgQ0xJLCBhIG1vZGVsLiBJZiB5b3VyIGJ1c2luZXNzIGhhcyByZWFsIGNsb3VkIGdyb3NzIG1hcmdpbiwgeW91IGRvIG5vdCBuZWVkIHRvIGNsb3NlIHRoZSBzb3VyY2UuIElmIGl0IGRvZXMgbm90LCB5b3UgZXZlbnR1YWxseSB3aWxsLgoKKipUaGUgZm9yayBpcyB0aGUgcHJpY2UsIGFuZCBpdCB1c3VhbGx5IGdvZXMgdW5wYWlkLioqIE9wZW5Ub2Z1IGFmdGVyIFRlcnJhZm9ybSwgVmFsa2V5IGFmdGVyIFJlZGlzLCBPcGVuU2VhcmNoIGFmdGVyIEVsYXN0aWNzZWFyY2guIFRob3NlIG9ubHkgaGFwcGVuIHdoZW4gbGFyZ2UgY29ycG9yYXRlIHVzZXJzIGFyZSBkZXBlbmRlbnQgZW5vdWdoIHRvIGZ1bmQgYSBmb3JrLiBDYWwuY29tIGFuZCB0bGRyYXcgc2l0IGJlbG93IHRoYXQgdGhyZXNob2xkLCB3aGljaCBpcyBleGFjdGx5IHdoeSB0aGV5IGNvdWxkIGNsb3NlLiBUaGUgYWJzZW5jZSBvZiBhIGZvcmsgaXMgbm90IGNvbW11bml0eSBhcHByb3ZhbC4gSXQgaXMgY29tbXVuaXR5IGluZGlmZmVyZW5jZSBwbHVzIHN3aXRjaGluZyBjb3N0LgoKLS0tCgojIyBGb3VyIHF1ZXN0aW9ucyBiZWZvcmUgeW91IGJ1aWxkIG9uIHNvbWVvbmUncyBvcGVuIHJlcG8KCjEuICoqRG9lcyB0aGUgdmVuZG9yIGhhdmUgYSBob3N0aW5nIG1hcmdpbiwgb3IgaXMgdGhlIGNvZGUgdGhlIG9ubHkgYXNzZXQgdGhleSBjYW4gc2VsbD8qKiBJZiB0aGUgY29kZSBpcyB0aGUgb25seSBhc3NldCwgYXNzdW1lIGl0IGNsb3Nlcy4KMi4gKipJcyB0aGVyZSBhIGNvbnRyaWJ1dG9yIGxpY2Vuc2UgYWdyZWVtZW50PyoqIElmIHNvLCB5b3VyIHdvcmsgY2FuIGxlZ2FsbHkgYmVjb21lIHRoZWlyIHByb3ByaWV0YXJ5IHByb2R1Y3QuIFRoYXQgaXMgd2hhdCBoYXBwZW5lZCB0byBHZW1pbmkgQ0xJJ3MgNiwwMDAgY29udHJpYnV0b3JzLgozLiAqKkRvZXMgdGhlIHRvb2wgbmVlZCBhIHZlbmRvci1ob3N0ZWQgYmFja2VuZCB0byBmdW5jdGlvbj8qKiBUaGF0IGlzIHRoZSByZWFsIGNob2tlcG9pbnQsIG5vdCB0aGUgbGljZW5zZSB0ZXh0LiBBIGZvcmsgd2l0aG91dCBtb2RlbCBhY2Nlc3MgaXMgd29ydGhsZXNzLgo0LiAqKklzIHRoZSBsYXN0IHBlcm1pc3NpdmVseSBsaWNlbnNlZCBjb21taXQgZm9ya2FibGUgYW5kIHNlbGYtc3VmZmljaWVudD8qKiBJZiBub3QsIHlvdSBoYXZlIGEgZGVwZW5kZW5jeSwgbm90IGFuIG9wdGlvbi4KClRoZXNlIGZvdXIgd291bGQgaGF2ZSBmbGFnZ2VkIGV2ZXJ5IGNsb3N1cmUgaGVyZSBpbiBhZHZhbmNlLgoKLS0tCgojIyBCYXNlbGluZTogdGhlIHRvcCBvcGVuIHNvdXJjZSBjb21wYW5pZXMKClRoZSAyMDI2IHJhbmtpbmdzIHRoYXQgZ2V0IGNpdGVkIG1vc3QgKFRydWVVcCdzIDQwIEhvdHRlc3QsIFNlZWR0YWJsZSdzIDI4Ny1jb21wYW55IGluZGV4LCBUcmFjeG4ncyBzZWN0b3IgdmlldykgY29udmVyZ2Ugb24gcm91Z2hseSB0aGUgc2FtZSB0ZW4gbmFtZXMuIFJhbmtpbmcgbGlzdHMgZG8gbm90IHRyYWNrIGxpY2Vuc2Ugc3RhdHVzLCBzbyB0aGUgdGhpcmQgY29sdW1uIGlzIHRoZSBvbmUgdGhhdCBtYXR0ZXJzLgoKfCBDb21wYW55IHwgV2hhdCBpdCBpcyB8IExpY2Vuc2Ugc3RhdHVzLCBBdWcgMjAyNiB8CnwgLS0tIHwgLS0tIHwgLS0tIHwKfCBEYXRhYnJpY2tzIHwgTGFrZWhvdXNlOyBTcGFyaywgRGVsdGEsIE1MZmxvdyB8IENvcmUgQXBhY2hlIDIuMCwgcGxhdGZvcm0gcHJvcHJpZXRhcnkuIE9wZW4gY29yZS4gfAp8IEh1Z2dpbmcgRmFjZSB8IE1vZGVsIGFuZCBkYXRhc2V0IGh1YiB8IEFwYWNoZSAyLjAgbGlicmFyaWVzLCBob3N0ZWQgaHViLiBPcGVuLiB8CnwgTWlzdHJhbCBBSSB8IEZyb250aWVyIGFuZCBvcGVuLXdlaWdodCBtb2RlbHMgfCBBcGFjaGUgMi4wIG9wZW4gbW9kZWxzIHBsdXMgY29tbWVyY2lhbCB0aWVyLiBPcGVuLiB8CnwgQ2xpY2tIb3VzZSB8IFJlYWwtdGltZSBPTEFQIGRhdGFiYXNlIHwgQXBhY2hlIDIuMC4gT3Blbi4gfAp8IFN1cGFiYXNlIHwgUG9zdGdyZXMgYXBwbGljYXRpb24gYmFja2VuZCB8IEFwYWNoZSAyLjAuIE9wZW4uIHwKfCBuOG4gfCBXb3JrZmxvdyBhdXRvbWF0aW9uIHwgRmFpci1jb2RlIFN1c3RhaW5hYmxlIFVzZSBMaWNlbnNlLiBOZXZlciBPU0kgYXBwcm92ZWQuIHwKfCBHcmFmYW5hIExhYnMgfCBPYnNlcnZhYmlsaXR5IHwgQUdQTHYzIHNpbmNlIDIwMjEuIFN0aWxsIG9wZW4gc291cmNlLiB8CnwgR2l0TGFiIHwgRGV2U2VjT3BzIHBsYXRmb3JtIHwgTUlUIGNvbW11bml0eSBlZGl0aW9uIHBsdXMgcHJvcHJpZXRhcnkgRUUuIE9wZW4gY29yZS4gfAp8IEhhc2hpQ29ycCAoSUJNKSB8IFRlcnJhZm9ybSwgVmF1bHQsIENvbnN1bCB8IEJVU0wgMS4xIHNpbmNlIEF1ZyAyMDIzLiBVbmNoYW5nZWQgYWZ0ZXIgdGhlICQ2LjRCIGFjcXVpc2l0aW9uLiB8CnwgUmVkaXMgYW5kIEVsYXN0aWMgfCBDYWNoZSBhbmQgc2VhcmNoIHwgQm90aCByZS1hZGRlZCBBR1BMdjMuIFJldmVyc2Fscywgbm90IGRlZmVjdGlvbnMuIHwKCk1vc3Qgb2YgdGhlIHRvcCB0aWVyIGhhcyBub3QgY2xvc2VkLiBSZWRNb25rJ3MgTWFyY2ggMjAyNiBsaWNlbnNpbmcgc3VydmV5IGZvdW5kIEJVU0wgYW5kIFNTUEwgYWRvcHRpb24gc3RpbGwgZG9lcyBub3QgcmVnaXN0ZXIgYXQgc3RhdGlzdGljYWxseSBzaWduaWZpY2FudCBsZXZlbHMuIFRoZXNlIGNsb3N1cmVzIGFyZSBsb3VkLCBub3QgbnVtZXJvdXMuCgojIyMgQ2hlY2tlZCBhbmQgbm90IGNsb3NlZCwgZGVzcGl0ZSBydW1vcgoKRXhjYWxpZHJhdyBpcyBzdGlsbCBNSVQuIFN1cGFiYXNlLCBDbGlja0hvdXNlIGFuZCBHcmFmYW5hIGFyZSB1bmNoYW5nZWQuIFBvc3RIb2cgcmVtYWlucyBNSVQgd2l0aCBhIHByb3ByaWV0YXJ5IGVudGVycHJpc2UgZGlyZWN0b3J5LiBTZW50cnkgaGFzIGJlZW4gb24gdGhlIEZ1bmN0aW9uYWwgU291cmNlIExpY2Vuc2Ugc2luY2UgMjAyMyBhbmQgZGlkIG5vdCBtb3ZlLiBuOG4gaGFzIGJlZW4gZmFpci1jb2RlIHNpbmNlIGluY2VwdGlvbiwgc28gaXQgbmV2ZXIgd2FzIG9wZW4gc291cmNlIGluIHRoZSBPU0kgc2Vuc2UuIERpc2NvdXJzZSBwdWJsaXNoZWQgYW4gZXhwbGljaXQgWyJ3ZSBhcmUgbm90IGdvaW5nIGNsb3NlZCBzb3VyY2UiXShodHRwczovL2Jsb2cuZGlzY291cnNlLm9yZy8yMDI2LzA0L2Rpc2NvdXJzZS1pcy1ub3QtZ29pbmctY2xvc2VkLXNvdXJjZS8pIHBvc3QgaW4gQXByaWwgMjAyNiwgaW4gZGlyZWN0IHJlc3BvbnNlIHRvIENhbC5jb20uCgoqKkJhc2VsaW5lIHNvdXJjZXM6KiogW1JlZE1vbmssIFRoZSBTdGF0ZSBvZiBPcGVuIFNvdXJjZSBMaWNlbnNpbmcgaW4gMjAyNl0oaHR0cHM6Ly9yZWRtb25rLmNvbS9zb2dyYWR5LzIwMjYvMDMvMjUvb3Blbi1zb3VyY2UtbGljZW5zaW5nLTIwMjYvKSAvIFtUcnVlVXAgT3BlbiBTb3VyY2UgUmVwb3J0XShodHRwczovL3d3dy50cnVldXAuaW8vb3Blbi1zb3VyY2UvcmVwb3J0cykgLyBbU2VlZHRhYmxlXShodHRwczovL3NlZWR0YWJsZS5jb20vYmVzdC1vcGVuLXNvdXJjZS1zdGFydHVwcykgLyBbVHJhY3huXShodHRwczovL3RyYWN4bi5jb20vZC9zZWN0b3JzL29wZW4tc291cmNlL19fODZxenFvcGZ3M0I5RTFBRHJjU0hRTmtZczY2RUpza2ZhTmk2b1NKSHVNMC9jb21wYW5pZXMpCgotLS0KCiMjIEZvcm1hdHMKCkVhY2ggbWVtbyBleGlzdHMgYXMgTWFya2Rvd24gKHJlbmRlcnMgaGVyZSBvbiBHaXRIdWIpIGFuZCBhcyBIVE1MIHdpdGggY29weS1mb3ItYWdlbnRzIGFuZCBkb3dubG9hZCBidXR0b25zLiBJZiBHaXRIdWIgUGFnZXMgaXMgZW5hYmxlZCBvbiB0aGlzIHJlcG8sIHRoZSBIVE1MIGluZGV4IGlzIGF0IGBpbmRleC5odG1sYC4KCkNvbmZpZGVuY2UgaXMgaGlnaCBmb3IgQ2FsLmNvbSwgdGxkcmF3IGFuZCBHZW1pbmkgQ0xJLiBNZWRpdW0gZm9yIE1ldGEsIHdoaWNoIGlzIGZsYWdnZWQgaW4gdGhlIG1lbW8gYm9keS4K</script>
+<script>
+  (function () {
+    var src = document.getElementById('memo-src');
+    var raw = '';
+    try {
+      var bin = atob((src.textContent || '').replace(/\s+/g, ''));
+      var bytes = new Uint8Array(bin.length);
+      for (var k = 0; k < bin.length; k++) { bytes[k] = bin.charCodeAt(k); }
+      raw = new TextDecoder('utf-8').decode(bytes);
+    } catch (e) { raw = ''; }
+    var name = document.body.getAttribute('data-slug') + '.md';
+
+    var copy = document.getElementById('btn-copy');
+    copy.addEventListener('click', function () {
+      var done = function () {
+        copy.textContent = 'Copied';
+        copy.classList.add('done');
+        setTimeout(function () {
+          copy.textContent = 'Copy for agents';
+          copy.classList.remove('done');
+        }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(raw).then(done, fallback);
+      } else {
+        fallback();
+      }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = raw;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); } catch (e) { /* no-op */ }
+        document.body.removeChild(ta);
+      }
+    });
+
+    var dl = document.getElementById('btn-download');
+    dl.addEventListener('click', function () {
+      var blob = new Blob([raw], { type: 'text/markdown;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+    });
+  })();
+</script>
+</body>
+</html>

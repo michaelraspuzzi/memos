@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meta, Llama | Closing the Source</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  html { background: #ffffff; }
+  body {
+    background: #ffffff;
+    color: #111111;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .page { max-width: 46em; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.6rem;
+    border-bottom: 1px solid #cccccc;
+  }
+  .bar .home {
+    font-size: 0.85rem;
+    margin-right: auto;
+    color: #555555;
+  }
+  button.act {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 0.85rem;
+    background: #f4f4f2;
+    color: #111111;
+    border: 1px solid #999999;
+    border-radius: 2px;
+    padding: 0.32rem 0.8rem;
+    cursor: pointer;
+  }
+  button.act:hover { background: #e8e8e4; }
+  button.act:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  button.act.done { background: #e6efe6; border-color: #4a7a4a; }
+
+  h1, h2, h3, h4 { font-weight: bold; margin: 0; }
+  h1 { font-size: 2rem; line-height: 1.15; }
+  h2 { font-size: 1.4rem; line-height: 1.2; margin-top: 2.4rem; padding-top: 0.9rem; border-top: 2px solid #111111; }
+  h3 { font-size: 1.1rem; margin-top: 1.6rem; }
+  p { margin: 0.75rem 0 0; }
+  ul, ol { margin: 0.7rem 0 0; padding-left: 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: #111111; }
+  a:hover { color: #7a1c14; }
+  a:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  hr { border: 0; border-top: 1px solid #cccccc; margin: 2rem 0 0; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: #f4f4f2;
+    padding: 0.05em 0.3em;
+    border-radius: 2px;
+  }
+  blockquote {
+    margin: 1rem 0 0;
+    padding: 0.1rem 0 0.1rem 1rem;
+    border-left: 3px solid #999999;
+  }
+  blockquote p { margin-top: 0.4rem; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote em.attrib { font-style: normal; font-size: 0.85rem; color: #555555; }
+
+  .tablewrap { overflow-x: auto; margin-top: 1.1rem; border: 1px solid #cccccc; }
+  table { border-collapse: collapse; width: 100%; min-width: 34em; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid #cccccc; vertical-align: top; }
+  thead th { background: #f4f4f2; border-bottom: 1px solid #111111; }
+  tbody tr:last-child td { border-bottom: 0; }
+
+  .foot { margin-top: 3rem; padding-top: 0.9rem; border-top: 3px double #111111; font-size: 0.85rem; color: #555555; }
+</style>
+</head>
+<body data-slug="meta-llama">
+<div class="page">
+  <div class="bar">
+    <span class="home"><a href="../index.html">Closing the Source</a></span>
+    <button class="act" id="btn-copy" type="button">Copy for agents</button>
+    <button class="act" id="btn-download" type="button">Download .md</button>
+  </div>
+<h1>Meta, Llama to Muse Spark</h1>
+<p><strong>Closed weights shipped April 8, 2026.</strong> Downloadable open weights, to a proprietary API-only frontier model.</p>
+<blockquote>
+<p><strong>Read this memo at medium confidence.</strong> Primary Meta documentation was not reachable during research. Details come from secondary coverage, and reported dates for the pivot range from December 2025 to April 2026. Verify the announcement date and the benchmark figures against Meta's own release before citing externally.</p>
+</blockquote>
+<hr>
+<h2>The move</h2>
+<p>Meta released Muse Spark, the first product from Meta Superintelligence Labs and its first frontier model with closed weights.</p>
+<p>Llama is not deleted. Existing weights stay downloadable. But the frontier line no longer ships openly, and that was the whole proposition.</p>
+<p>Reported benchmark spread: Muse Spark around 52 on the Artificial Analysis Intelligence Index, against Llama 4 Maverick at 18.</p>
+<h2>The stated reason</h2>
+<p>Two arguments. Cloning, pointing at competitors who built on Llama's architecture. And irrevocability, because released weights can never be recalled.</p>
+<h2>The real reason</h2>
+<p>Llama was never a value. It was commoditize your complement.</p>
+<p>The logic worked like this. Make the model layer free so no rival can own it, harvest the tooling and talent that assembles around it, and route the value back into Meta's advertising business. The model was a cost of denying someone else a moat.</p>
+<p>That trade stops paying when the complement becomes the business. At $115B to $135B of 2026 capital expenditure and billions per training run, giving away the output requires a return that ad-supported distribution no longer provides. Meta's pivot dates almost exactly to that crossover.</p>
+<p>Which means the reversal is not hypocrisy. It is the same calculation run against new numbers. If open weights were a strategy rather than a value, they end the moment the strategy stops paying. Mark Zuckerberg's July 2024 line, that open source AI is the path forward because it distributes power rather than centralizing it, was a description of Meta's position, not a commitment.</p>
+<h2>The company</h2>
+<p><strong>Who owned the decision.</strong> Meta Superintelligence Labs, the reorganized AI group. Zuckerberg reversed his own stated position. No other company spent as much reputational capital arguing the opposite case, which is why this closure carries more weight than its revenue impact suggests.</p>
+<p><strong>Product.</strong> Llama was a family of open-weight LLMs, downloadable and fine-tunable, that became the default substrate for local inference, academic research and most of the self-hosted AI ecosystem. Muse Spark is a frontier-competitive proprietary model served through an API. The same shape as every lab Meta previously criticized.</p>
+<p><strong>Business model.</strong> Llama was never sold. Muse Spark is: API access plus Meta's own consumer and enterprise surfaces. The strategy moved from denying rivals a moat to building one.</p>
+<p><strong>Distribution.</strong> Llama shipped through Hugging Face, Ollama, llama.cpp and every cloud provider's model garden. Roughly a million downloads a day at peak. No marketing budget buys that. Muse Spark ships through an API endpoint and Meta's own products. Smaller top of funnel by orders of magnitude, traded for a revenue line.</p>
+<h2>Numbers</h2>
+<div class="tablewrap"><table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody>
+<tr><td>Cumulative Llama downloads</td><td>1.2 billion by early 2026</td></tr>
+<tr><td>Peak download rate</td><td>~1 million per day</td></tr>
+<tr><td>Intelligence index</td><td>52 (Muse Spark) vs 18 (Llama 4 Maverick), reported</td></tr>
+<tr><td>Meta 2026 capex guidance</td><td>$115B to $135B</td></tr>
+<tr><td>Open weights era</td><td>About three years, 2023 to 2026</td></tr>
+</tbody></table></div>
+<h2>What it cost</h2>
+<p>The frontier tier is now closed across every major US lab. The open ecosystem's center of gravity has moved to Mistral, Qwen and the Chinese labs.</p>
+<p>If you build on open models, plan for portability. Do not assume the weights you fine-tuned on this year will have an open successor next year. The assumption held for three years. It no longer does.</p>
+<h2>Citations</h2>
+<ol><li>AI News, <a href="https://www.artificialintelligence-news.com/news/meta-muse-spark-ai-model-open-source/">Did Meta Sacrifice Its Open-Source Identity for a Competitive AI Model?</a></li><li>Secondary reporting on reasons, benchmarks and capex: <a href="https://blog.pebblous.ai/blog/meta-muse-spark-closed-source/en/">Pebblous</a>, <a href="https://miraflow.ai/blog/meta-closed-source-muse-spark-changes-everything-ai-2026">Miraflow</a>, <a href="https://the-agent-report.com/2026/06/meta-muse-spark-llama-abandoned/">The Agent Report</a>.</li><li>WinBuzzer, <a href="https://winbuzzer.com/2025/12/09/meta-pivots-from-llama-to-closed-ai-models-abandoning-open-source-roots-xcxwbn/">Meta Pivots from Llama to Closed AI Models</a>, December 9, 2025. Note the date conflict with the April 2026 reporting above.</li></ol>
+<p class="foot"><em>Compiled August 26, 2026.</em></p>
+</div>
+<script type="text/plain" id="memo-src">IyBNZXRhLCBMbGFtYSB0byBNdXNlIFNwYXJrCgoqKkNsb3NlZCB3ZWlnaHRzIHNoaXBwZWQgQXByaWwgOCwgMjAyNi4qKiBEb3dubG9hZGFibGUgb3BlbiB3ZWlnaHRzLCB0byBhIHByb3ByaWV0YXJ5IEFQSS1vbmx5IGZyb250aWVyIG1vZGVsLgoKPiAqKlJlYWQgdGhpcyBtZW1vIGF0IG1lZGl1bSBjb25maWRlbmNlLioqIFByaW1hcnkgTWV0YSBkb2N1bWVudGF0aW9uIHdhcyBub3QgcmVhY2hhYmxlIGR1cmluZyByZXNlYXJjaC4gRGV0YWlscyBjb21lIGZyb20gc2Vjb25kYXJ5IGNvdmVyYWdlLCBhbmQgcmVwb3J0ZWQgZGF0ZXMgZm9yIHRoZSBwaXZvdCByYW5nZSBmcm9tIERlY2VtYmVyIDIwMjUgdG8gQXByaWwgMjAyNi4gVmVyaWZ5IHRoZSBhbm5vdW5jZW1lbnQgZGF0ZSBhbmQgdGhlIGJlbmNobWFyayBmaWd1cmVzIGFnYWluc3QgTWV0YSdzIG93biByZWxlYXNlIGJlZm9yZSBjaXRpbmcgZXh0ZXJuYWxseS4KCi0tLQoKIyMgVGhlIG1vdmUKCk1ldGEgcmVsZWFzZWQgTXVzZSBTcGFyaywgdGhlIGZpcnN0IHByb2R1Y3QgZnJvbSBNZXRhIFN1cGVyaW50ZWxsaWdlbmNlIExhYnMgYW5kIGl0cyBmaXJzdCBmcm9udGllciBtb2RlbCB3aXRoIGNsb3NlZCB3ZWlnaHRzLgoKTGxhbWEgaXMgbm90IGRlbGV0ZWQuIEV4aXN0aW5nIHdlaWdodHMgc3RheSBkb3dubG9hZGFibGUuIEJ1dCB0aGUgZnJvbnRpZXIgbGluZSBubyBsb25nZXIgc2hpcHMgb3Blbmx5LCBhbmQgdGhhdCB3YXMgdGhlIHdob2xlIHByb3Bvc2l0aW9uLgoKUmVwb3J0ZWQgYmVuY2htYXJrIHNwcmVhZDogTXVzZSBTcGFyayBhcm91bmQgNTIgb24gdGhlIEFydGlmaWNpYWwgQW5hbHlzaXMgSW50ZWxsaWdlbmNlIEluZGV4LCBhZ2FpbnN0IExsYW1hIDQgTWF2ZXJpY2sgYXQgMTguCgojIyBUaGUgc3RhdGVkIHJlYXNvbgoKVHdvIGFyZ3VtZW50cy4gQ2xvbmluZywgcG9pbnRpbmcgYXQgY29tcGV0aXRvcnMgd2hvIGJ1aWx0IG9uIExsYW1hJ3MgYXJjaGl0ZWN0dXJlLiBBbmQgaXJyZXZvY2FiaWxpdHksIGJlY2F1c2UgcmVsZWFzZWQgd2VpZ2h0cyBjYW4gbmV2ZXIgYmUgcmVjYWxsZWQuCgojIyBUaGUgcmVhbCByZWFzb24KCkxsYW1hIHdhcyBuZXZlciBhIHZhbHVlLiBJdCB3YXMgY29tbW9kaXRpemUgeW91ciBjb21wbGVtZW50LgoKVGhlIGxvZ2ljIHdvcmtlZCBsaWtlIHRoaXMuIE1ha2UgdGhlIG1vZGVsIGxheWVyIGZyZWUgc28gbm8gcml2YWwgY2FuIG93biBpdCwgaGFydmVzdCB0aGUgdG9vbGluZyBhbmQgdGFsZW50IHRoYXQgYXNzZW1ibGVzIGFyb3VuZCBpdCwgYW5kIHJvdXRlIHRoZSB2YWx1ZSBiYWNrIGludG8gTWV0YSdzIGFkdmVydGlzaW5nIGJ1c2luZXNzLiBUaGUgbW9kZWwgd2FzIGEgY29zdCBvZiBkZW55aW5nIHNvbWVvbmUgZWxzZSBhIG1vYXQuCgpUaGF0IHRyYWRlIHN0b3BzIHBheWluZyB3aGVuIHRoZSBjb21wbGVtZW50IGJlY29tZXMgdGhlIGJ1c2luZXNzLiBBdCAkMTE1QiB0byAkMTM1QiBvZiAyMDI2IGNhcGl0YWwgZXhwZW5kaXR1cmUgYW5kIGJpbGxpb25zIHBlciB0cmFpbmluZyBydW4sIGdpdmluZyBhd2F5IHRoZSBvdXRwdXQgcmVxdWlyZXMgYSByZXR1cm4gdGhhdCBhZC1zdXBwb3J0ZWQgZGlzdHJpYnV0aW9uIG5vIGxvbmdlciBwcm92aWRlcy4gTWV0YSdzIHBpdm90IGRhdGVzIGFsbW9zdCBleGFjdGx5IHRvIHRoYXQgY3Jvc3NvdmVyLgoKV2hpY2ggbWVhbnMgdGhlIHJldmVyc2FsIGlzIG5vdCBoeXBvY3Jpc3kuIEl0IGlzIHRoZSBzYW1lIGNhbGN1bGF0aW9uIHJ1biBhZ2FpbnN0IG5ldyBudW1iZXJzLiBJZiBvcGVuIHdlaWdodHMgd2VyZSBhIHN0cmF0ZWd5IHJhdGhlciB0aGFuIGEgdmFsdWUsIHRoZXkgZW5kIHRoZSBtb21lbnQgdGhlIHN0cmF0ZWd5IHN0b3BzIHBheWluZy4gTWFyayBadWNrZXJiZXJnJ3MgSnVseSAyMDI0IGxpbmUsIHRoYXQgb3BlbiBzb3VyY2UgQUkgaXMgdGhlIHBhdGggZm9yd2FyZCBiZWNhdXNlIGl0IGRpc3RyaWJ1dGVzIHBvd2VyIHJhdGhlciB0aGFuIGNlbnRyYWxpemluZyBpdCwgd2FzIGEgZGVzY3JpcHRpb24gb2YgTWV0YSdzIHBvc2l0aW9uLCBub3QgYSBjb21taXRtZW50LgoKIyMgVGhlIGNvbXBhbnkKCioqV2hvIG93bmVkIHRoZSBkZWNpc2lvbi4qKiBNZXRhIFN1cGVyaW50ZWxsaWdlbmNlIExhYnMsIHRoZSByZW9yZ2FuaXplZCBBSSBncm91cC4gWnVja2VyYmVyZyByZXZlcnNlZCBoaXMgb3duIHN0YXRlZCBwb3NpdGlvbi4gTm8gb3RoZXIgY29tcGFueSBzcGVudCBhcyBtdWNoIHJlcHV0YXRpb25hbCBjYXBpdGFsIGFyZ3VpbmcgdGhlIG9wcG9zaXRlIGNhc2UsIHdoaWNoIGlzIHdoeSB0aGlzIGNsb3N1cmUgY2FycmllcyBtb3JlIHdlaWdodCB0aGFuIGl0cyByZXZlbnVlIGltcGFjdCBzdWdnZXN0cy4KCioqUHJvZHVjdC4qKiBMbGFtYSB3YXMgYSBmYW1pbHkgb2Ygb3Blbi13ZWlnaHQgTExNcywgZG93bmxvYWRhYmxlIGFuZCBmaW5lLXR1bmFibGUsIHRoYXQgYmVjYW1lIHRoZSBkZWZhdWx0IHN1YnN0cmF0ZSBmb3IgbG9jYWwgaW5mZXJlbmNlLCBhY2FkZW1pYyByZXNlYXJjaCBhbmQgbW9zdCBvZiB0aGUgc2VsZi1ob3N0ZWQgQUkgZWNvc3lzdGVtLiBNdXNlIFNwYXJrIGlzIGEgZnJvbnRpZXItY29tcGV0aXRpdmUgcHJvcHJpZXRhcnkgbW9kZWwgc2VydmVkIHRocm91Z2ggYW4gQVBJLiBUaGUgc2FtZSBzaGFwZSBhcyBldmVyeSBsYWIgTWV0YSBwcmV2aW91c2x5IGNyaXRpY2l6ZWQuCgoqKkJ1c2luZXNzIG1vZGVsLioqIExsYW1hIHdhcyBuZXZlciBzb2xkLiBNdXNlIFNwYXJrIGlzOiBBUEkgYWNjZXNzIHBsdXMgTWV0YSdzIG93biBjb25zdW1lciBhbmQgZW50ZXJwcmlzZSBzdXJmYWNlcy4gVGhlIHN0cmF0ZWd5IG1vdmVkIGZyb20gZGVueWluZyByaXZhbHMgYSBtb2F0IHRvIGJ1aWxkaW5nIG9uZS4KCioqRGlzdHJpYnV0aW9uLioqIExsYW1hIHNoaXBwZWQgdGhyb3VnaCBIdWdnaW5nIEZhY2UsIE9sbGFtYSwgbGxhbWEuY3BwIGFuZCBldmVyeSBjbG91ZCBwcm92aWRlcidzIG1vZGVsIGdhcmRlbi4gUm91Z2hseSBhIG1pbGxpb24gZG93bmxvYWRzIGEgZGF5IGF0IHBlYWsuIE5vIG1hcmtldGluZyBidWRnZXQgYnV5cyB0aGF0LiBNdXNlIFNwYXJrIHNoaXBzIHRocm91Z2ggYW4gQVBJIGVuZHBvaW50IGFuZCBNZXRhJ3Mgb3duIHByb2R1Y3RzLiBTbWFsbGVyIHRvcCBvZiBmdW5uZWwgYnkgb3JkZXJzIG9mIG1hZ25pdHVkZSwgdHJhZGVkIGZvciBhIHJldmVudWUgbGluZS4KCiMjIE51bWJlcnMKCnwgTWV0cmljIHwgVmFsdWUgfAp8IC0tLSB8IC0tLSB8CnwgQ3VtdWxhdGl2ZSBMbGFtYSBkb3dubG9hZHMgfCAxLjIgYmlsbGlvbiBieSBlYXJseSAyMDI2IHwKfCBQZWFrIGRvd25sb2FkIHJhdGUgfCB+MSBtaWxsaW9uIHBlciBkYXkgfAp8IEludGVsbGlnZW5jZSBpbmRleCB8IDUyIChNdXNlIFNwYXJrKSB2cyAxOCAoTGxhbWEgNCBNYXZlcmljayksIHJlcG9ydGVkIHwKfCBNZXRhIDIwMjYgY2FwZXggZ3VpZGFuY2UgfCAkMTE1QiB0byAkMTM1QiB8CnwgT3BlbiB3ZWlnaHRzIGVyYSB8IEFib3V0IHRocmVlIHllYXJzLCAyMDIzIHRvIDIwMjYgfAoKIyMgV2hhdCBpdCBjb3N0CgpUaGUgZnJvbnRpZXIgdGllciBpcyBub3cgY2xvc2VkIGFjcm9zcyBldmVyeSBtYWpvciBVUyBsYWIuIFRoZSBvcGVuIGVjb3N5c3RlbSdzIGNlbnRlciBvZiBncmF2aXR5IGhhcyBtb3ZlZCB0byBNaXN0cmFsLCBRd2VuIGFuZCB0aGUgQ2hpbmVzZSBsYWJzLgoKSWYgeW91IGJ1aWxkIG9uIG9wZW4gbW9kZWxzLCBwbGFuIGZvciBwb3J0YWJpbGl0eS4gRG8gbm90IGFzc3VtZSB0aGUgd2VpZ2h0cyB5b3UgZmluZS10dW5lZCBvbiB0aGlzIHllYXIgd2lsbCBoYXZlIGFuIG9wZW4gc3VjY2Vzc29yIG5leHQgeWVhci4gVGhlIGFzc3VtcHRpb24gaGVsZCBmb3IgdGhyZWUgeWVhcnMuIEl0IG5vIGxvbmdlciBkb2VzLgoKIyMgQ2l0YXRpb25zCgoxLiBBSSBOZXdzLCBbRGlkIE1ldGEgU2FjcmlmaWNlIEl0cyBPcGVuLVNvdXJjZSBJZGVudGl0eSBmb3IgYSBDb21wZXRpdGl2ZSBBSSBNb2RlbD9dKGh0dHBzOi8vd3d3LmFydGlmaWNpYWxpbnRlbGxpZ2VuY2UtbmV3cy5jb20vbmV3cy9tZXRhLW11c2Utc3BhcmstYWktbW9kZWwtb3Blbi1zb3VyY2UvKQoyLiBTZWNvbmRhcnkgcmVwb3J0aW5nIG9uIHJlYXNvbnMsIGJlbmNobWFya3MgYW5kIGNhcGV4OiBbUGViYmxvdXNdKGh0dHBzOi8vYmxvZy5wZWJibG91cy5haS9ibG9nL21ldGEtbXVzZS1zcGFyay1jbG9zZWQtc291cmNlL2VuLyksIFtNaXJhZmxvd10oaHR0cHM6Ly9taXJhZmxvdy5haS9ibG9nL21ldGEtY2xvc2VkLXNvdXJjZS1tdXNlLXNwYXJrLWNoYW5nZXMtZXZlcnl0aGluZy1haS0yMDI2KSwgW1RoZSBBZ2VudCBSZXBvcnRdKGh0dHBzOi8vdGhlLWFnZW50LXJlcG9ydC5jb20vMjAyNi8wNi9tZXRhLW11c2Utc3BhcmstbGxhbWEtYWJhbmRvbmVkLykuCjMuIFdpbkJ1enplciwgW01ldGEgUGl2b3RzIGZyb20gTGxhbWEgdG8gQ2xvc2VkIEFJIE1vZGVsc10oaHR0cHM6Ly93aW5idXp6ZXIuY29tLzIwMjUvMTIvMDkvbWV0YS1waXZvdHMtZnJvbS1sbGFtYS10by1jbG9zZWQtYWktbW9kZWxzLWFiYW5kb25pbmctb3Blbi1zb3VyY2Utcm9vdHMteGN4d2JuLyksIERlY2VtYmVyIDksIDIwMjUuIE5vdGUgdGhlIGRhdGUgY29uZmxpY3Qgd2l0aCB0aGUgQXByaWwgMjAyNiByZXBvcnRpbmcgYWJvdmUuCgoqQ29tcGlsZWQgQXVndXN0IDI2LCAyMDI2LioK</script>
+<script>
+  (function () {
+    var src = document.getElementById('memo-src');
+    var raw = '';
+    try {
+      var bin = atob((src.textContent || '').replace(/\s+/g, ''));
+      var bytes = new Uint8Array(bin.length);
+      for (var k = 0; k < bin.length; k++) { bytes[k] = bin.charCodeAt(k); }
+      raw = new TextDecoder('utf-8').decode(bytes);
+    } catch (e) { raw = ''; }
+    var name = document.body.getAttribute('data-slug') + '.md';
+
+    var copy = document.getElementById('btn-copy');
+    copy.addEventListener('click', function () {
+      var done = function () {
+        copy.textContent = 'Copied';
+        copy.classList.add('done');
+        setTimeout(function () {
+          copy.textContent = 'Copy for agents';
+          copy.classList.remove('done');
+        }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(raw).then(done, fallback);
+      } else {
+        fallback();
+      }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = raw;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); } catch (e) { /* no-op */ }
+        document.body.removeChild(ta);
+      }
+    });
+
+    var dl = document.getElementById('btn-download');
+    dl.addEventListener('click', function () {
+      var blob = new Blob([raw], { type: 'text/markdown;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+    });
+  })();
+</script>
+</body>
+</html>

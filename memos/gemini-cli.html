@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google, Gemini CLI | Closing the Source</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  html { background: #ffffff; }
+  body {
+    background: #ffffff;
+    color: #111111;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .page { max-width: 46em; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.6rem;
+    border-bottom: 1px solid #cccccc;
+  }
+  .bar .home {
+    font-size: 0.85rem;
+    margin-right: auto;
+    color: #555555;
+  }
+  button.act {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 0.85rem;
+    background: #f4f4f2;
+    color: #111111;
+    border: 1px solid #999999;
+    border-radius: 2px;
+    padding: 0.32rem 0.8rem;
+    cursor: pointer;
+  }
+  button.act:hover { background: #e8e8e4; }
+  button.act:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  button.act.done { background: #e6efe6; border-color: #4a7a4a; }
+
+  h1, h2, h3, h4 { font-weight: bold; margin: 0; }
+  h1 { font-size: 2rem; line-height: 1.15; }
+  h2 { font-size: 1.4rem; line-height: 1.2; margin-top: 2.4rem; padding-top: 0.9rem; border-top: 2px solid #111111; }
+  h3 { font-size: 1.1rem; margin-top: 1.6rem; }
+  p { margin: 0.75rem 0 0; }
+  ul, ol { margin: 0.7rem 0 0; padding-left: 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: #111111; }
+  a:hover { color: #7a1c14; }
+  a:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  hr { border: 0; border-top: 1px solid #cccccc; margin: 2rem 0 0; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: #f4f4f2;
+    padding: 0.05em 0.3em;
+    border-radius: 2px;
+  }
+  blockquote {
+    margin: 1rem 0 0;
+    padding: 0.1rem 0 0.1rem 1rem;
+    border-left: 3px solid #999999;
+  }
+  blockquote p { margin-top: 0.4rem; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote em.attrib { font-style: normal; font-size: 0.85rem; color: #555555; }
+
+  .tablewrap { overflow-x: auto; margin-top: 1.1rem; border: 1px solid #cccccc; }
+  table { border-collapse: collapse; width: 100%; min-width: 34em; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid #cccccc; vertical-align: top; }
+  thead th { background: #f4f4f2; border-bottom: 1px solid #111111; }
+  tbody tr:last-child td { border-bottom: 0; }
+
+  .foot { margin-top: 3rem; padding-top: 0.9rem; border-top: 3px double #111111; font-size: 0.85rem; color: #555555; }
+</style>
+</head>
+<body data-slug="gemini-cli">
+<div class="page">
+  <div class="bar">
+    <span class="home"><a href="../index.html">Closing the Source</a></span>
+    <button class="act" id="btn-copy" type="button">Copy for agents</button>
+    <button class="act" id="btn-download" type="button">Download .md</button>
+  </div>
+<h1>Google, Gemini CLI to Antigravity CLI</h1>
+<p><strong>Shut down June 18, 2026.</strong> Apache 2.0 TypeScript in public, to a closed Go binary.</p>
+<hr>
+<h2>The move</h2>
+<p>Gemini CLI launched June 2025 as an Apache 2.0 terminal coding agent. In twelve months it took 104,000+ GitHub stars and merged 6,000+ pull requests from outside contributors.</p>
+<p>In May 2026, at I/O, Google announced the successor: Antigravity CLI. On June 18, 2026 the original stopped serving requests. The successor's public repository contains a changelog, a readme and a GIF. No application code.</p>
+<p>Free tier quotas reportedly fell from roughly 1,000 requests a day to about 20. CI pipelines that had pinned the CLI broke on the shutdown date.</p>
+<h2>The insight: the license was never the asset</h2>
+<p>Every one of those 6,000 pull requests was signed under Google's contributor license agreement. That CLA grants Google a perpetual, worldwide, irrevocable right to use the contribution, including inside a proprietary successor.</p>
+<p>So two things were true at once. Apache 2.0 told contributors the code they wrote was theirs to keep. The CLA told Google the work was theirs to move. Both held. No rule was broken.</p>
+<p>That is the transferable lesson. If you are building on a vendor's open agent, read the CLA before you read the LICENSE file. The license governs the copy you have. The CLA governs where your work can end up.</p>
+<h2>The second insight: forking is legal and useless here</h2>
+<p>The Apache 2.0 code still exists. Anyone can fork it. It does almost nothing without model access, and model access was never open.</p>
+<p>The chokepoint was the API key, not the license text. Open sourcing a client for a closed service buys goodwill, not independence. Check whether the tool needs a vendor-hosted backend to function. If it does, the license is decoration.</p>
+<h2>The company</h2>
+<p><strong>Who owned the decision.</strong> Not a founding team, a product org. Gemini CLI came out of Google's Gemini and developer relations effort. Antigravity is the consolidation of Google's agentic coding surfaces under one enterprise brand. Two competing CLIs, one free and community-shaped and one monetizable, were never both surviving a year in which every lab was rationalizing inference spend.</p>
+<p><strong>Product.</strong> An agentic coding assistant in the terminal. Read the repo, edit files, run commands, call tools, with Gemini as the model. The open TypeScript codebase was the differentiator against closed competitors. Teams forked it, embedded it in CI, wrote custom tools against it. Antigravity delivers the same capability with none of that.</p>
+<p><strong>Business model.</strong> The CLI was never the product. It was free top of funnel for Google AI Pro and Ultra subscriptions, Gemini Code Assist enterprise seats, and Vertex and API token consumption underneath. Open source lowered adoption friction and outsourced integration work to volunteers. Once the funnel had done its job the free tier became a cost center and was cut by roughly 98 percent. Enterprise access was never part of the consumer shutdown.</p>
+<p><strong>Distribution.</strong> npm install, a repo that ranked in every "best AI CLI" roundup, I/O keynote air cover, and a free quota generous enough to become a habit. Contributors were themselves a channel: every merged pull request pulled a maintainer's employer closer to the tool. That is exactly the asset this transition spent.</p>
+<h2>Numbers</h2>
+<div class="tablewrap"><table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody>
+<tr><td>GitHub stars at retirement</td><td>104,000+</td></tr>
+<tr><td>External merged pull requests</td><td>6,000+</td></tr>
+<tr><td>Lifespan</td><td>12 months, June 2025 to June 2026</td></tr>
+<tr><td>Free daily quota cut</td><td>~98 percent, roughly 1,000 requests to roughly 20</td></tr>
+<tr><td>Application code in successor repo</td><td>Zero</td></tr>
+</tbody></table></div>
+<h2>What it cost</h2>
+<p>Google gained a single monetizable surface and lost the only thing it could not buy: 6,000 developers who had voluntarily made themselves experts in a Google product.</p>
+<p>The cost lands on the next team at Google that asks developers to invest in something open. That ask is now more expensive, and the price does not reset quickly.</p>
+<h2>Citations</h2>
+<ol><li>TechTimes, <a href="https://www.techtimes.com/articles/317056/20260523/google-accepted-6000-gemini-cli-contributions-then-closed-tool-enterprise-only.htm">Google Accepted 6,000 Gemini CLI Contributions, Then Closed Tool for Enterprise Only</a>, May 23, 2026. Stars, PR count, CLA terms, quota figures, successor repo contents.</li><li>TechTimes, <a href="https://www.techtimes.com/articles/317407/20260529/linux-foundation-tool-spotlighted-furious-developers-accuse-sickening-google-gemini-cli.htm">Furious Developers Accuse Google of a Gemini CLI Bait-and-Switch</a>, May 29, 2026. Contributor reaction.</li><li>The Register, <a href="https://www.theregister.com/ai-ml/2026/05/20/bye-bye-gemini-cli-google-nudges-devs-toward-antigravity/5243605">Bye-bye, Gemini CLI</a>, May 20, 2026. Announcement and shutdown date.</li><li>TechTimes, <a href="https://www.techtimes.com/articles/318660/20260618/gemini-cli-shutdown-takes-effect-ci-cd-pipelines-break-go-based-antigravity-cli-arrives.htm">Gemini CLI Shutdown Takes Effect: CI/CD Pipelines Break</a>, June 18, 2026. Breakage on shutdown.</li></ol>
+<p class="foot"><em>Compiled August 26, 2026.</em></p>
+</div>
+<script type="text/plain" id="memo-src">IyBHb29nbGUsIEdlbWluaSBDTEkgdG8gQW50aWdyYXZpdHkgQ0xJCgoqKlNodXQgZG93biBKdW5lIDE4LCAyMDI2LioqIEFwYWNoZSAyLjAgVHlwZVNjcmlwdCBpbiBwdWJsaWMsIHRvIGEgY2xvc2VkIEdvIGJpbmFyeS4KCi0tLQoKIyMgVGhlIG1vdmUKCkdlbWluaSBDTEkgbGF1bmNoZWQgSnVuZSAyMDI1IGFzIGFuIEFwYWNoZSAyLjAgdGVybWluYWwgY29kaW5nIGFnZW50LiBJbiB0d2VsdmUgbW9udGhzIGl0IHRvb2sgMTA0LDAwMCsgR2l0SHViIHN0YXJzIGFuZCBtZXJnZWQgNiwwMDArIHB1bGwgcmVxdWVzdHMgZnJvbSBvdXRzaWRlIGNvbnRyaWJ1dG9ycy4KCkluIE1heSAyMDI2LCBhdCBJL08sIEdvb2dsZSBhbm5vdW5jZWQgdGhlIHN1Y2Nlc3NvcjogQW50aWdyYXZpdHkgQ0xJLiBPbiBKdW5lIDE4LCAyMDI2IHRoZSBvcmlnaW5hbCBzdG9wcGVkIHNlcnZpbmcgcmVxdWVzdHMuIFRoZSBzdWNjZXNzb3IncyBwdWJsaWMgcmVwb3NpdG9yeSBjb250YWlucyBhIGNoYW5nZWxvZywgYSByZWFkbWUgYW5kIGEgR0lGLiBObyBhcHBsaWNhdGlvbiBjb2RlLgoKRnJlZSB0aWVyIHF1b3RhcyByZXBvcnRlZGx5IGZlbGwgZnJvbSByb3VnaGx5IDEsMDAwIHJlcXVlc3RzIGEgZGF5IHRvIGFib3V0IDIwLiBDSSBwaXBlbGluZXMgdGhhdCBoYWQgcGlubmVkIHRoZSBDTEkgYnJva2Ugb24gdGhlIHNodXRkb3duIGRhdGUuCgojIyBUaGUgaW5zaWdodDogdGhlIGxpY2Vuc2Ugd2FzIG5ldmVyIHRoZSBhc3NldAoKRXZlcnkgb25lIG9mIHRob3NlIDYsMDAwIHB1bGwgcmVxdWVzdHMgd2FzIHNpZ25lZCB1bmRlciBHb29nbGUncyBjb250cmlidXRvciBsaWNlbnNlIGFncmVlbWVudC4gVGhhdCBDTEEgZ3JhbnRzIEdvb2dsZSBhIHBlcnBldHVhbCwgd29ybGR3aWRlLCBpcnJldm9jYWJsZSByaWdodCB0byB1c2UgdGhlIGNvbnRyaWJ1dGlvbiwgaW5jbHVkaW5nIGluc2lkZSBhIHByb3ByaWV0YXJ5IHN1Y2Nlc3Nvci4KClNvIHR3byB0aGluZ3Mgd2VyZSB0cnVlIGF0IG9uY2UuIEFwYWNoZSAyLjAgdG9sZCBjb250cmlidXRvcnMgdGhlIGNvZGUgdGhleSB3cm90ZSB3YXMgdGhlaXJzIHRvIGtlZXAuIFRoZSBDTEEgdG9sZCBHb29nbGUgdGhlIHdvcmsgd2FzIHRoZWlycyB0byBtb3ZlLiBCb3RoIGhlbGQuIE5vIHJ1bGUgd2FzIGJyb2tlbi4KClRoYXQgaXMgdGhlIHRyYW5zZmVyYWJsZSBsZXNzb24uIElmIHlvdSBhcmUgYnVpbGRpbmcgb24gYSB2ZW5kb3IncyBvcGVuIGFnZW50LCByZWFkIHRoZSBDTEEgYmVmb3JlIHlvdSByZWFkIHRoZSBMSUNFTlNFIGZpbGUuIFRoZSBsaWNlbnNlIGdvdmVybnMgdGhlIGNvcHkgeW91IGhhdmUuIFRoZSBDTEEgZ292ZXJucyB3aGVyZSB5b3VyIHdvcmsgY2FuIGVuZCB1cC4KCiMjIFRoZSBzZWNvbmQgaW5zaWdodDogZm9ya2luZyBpcyBsZWdhbCBhbmQgdXNlbGVzcyBoZXJlCgpUaGUgQXBhY2hlIDIuMCBjb2RlIHN0aWxsIGV4aXN0cy4gQW55b25lIGNhbiBmb3JrIGl0LiBJdCBkb2VzIGFsbW9zdCBub3RoaW5nIHdpdGhvdXQgbW9kZWwgYWNjZXNzLCBhbmQgbW9kZWwgYWNjZXNzIHdhcyBuZXZlciBvcGVuLgoKVGhlIGNob2tlcG9pbnQgd2FzIHRoZSBBUEkga2V5LCBub3QgdGhlIGxpY2Vuc2UgdGV4dC4gT3BlbiBzb3VyY2luZyBhIGNsaWVudCBmb3IgYSBjbG9zZWQgc2VydmljZSBidXlzIGdvb2R3aWxsLCBub3QgaW5kZXBlbmRlbmNlLiBDaGVjayB3aGV0aGVyIHRoZSB0b29sIG5lZWRzIGEgdmVuZG9yLWhvc3RlZCBiYWNrZW5kIHRvIGZ1bmN0aW9uLiBJZiBpdCBkb2VzLCB0aGUgbGljZW5zZSBpcyBkZWNvcmF0aW9uLgoKIyMgVGhlIGNvbXBhbnkKCioqV2hvIG93bmVkIHRoZSBkZWNpc2lvbi4qKiBOb3QgYSBmb3VuZGluZyB0ZWFtLCBhIHByb2R1Y3Qgb3JnLiBHZW1pbmkgQ0xJIGNhbWUgb3V0IG9mIEdvb2dsZSdzIEdlbWluaSBhbmQgZGV2ZWxvcGVyIHJlbGF0aW9ucyBlZmZvcnQuIEFudGlncmF2aXR5IGlzIHRoZSBjb25zb2xpZGF0aW9uIG9mIEdvb2dsZSdzIGFnZW50aWMgY29kaW5nIHN1cmZhY2VzIHVuZGVyIG9uZSBlbnRlcnByaXNlIGJyYW5kLiBUd28gY29tcGV0aW5nIENMSXMsIG9uZSBmcmVlIGFuZCBjb21tdW5pdHktc2hhcGVkIGFuZCBvbmUgbW9uZXRpemFibGUsIHdlcmUgbmV2ZXIgYm90aCBzdXJ2aXZpbmcgYSB5ZWFyIGluIHdoaWNoIGV2ZXJ5IGxhYiB3YXMgcmF0aW9uYWxpemluZyBpbmZlcmVuY2Ugc3BlbmQuCgoqKlByb2R1Y3QuKiogQW4gYWdlbnRpYyBjb2RpbmcgYXNzaXN0YW50IGluIHRoZSB0ZXJtaW5hbC4gUmVhZCB0aGUgcmVwbywgZWRpdCBmaWxlcywgcnVuIGNvbW1hbmRzLCBjYWxsIHRvb2xzLCB3aXRoIEdlbWluaSBhcyB0aGUgbW9kZWwuIFRoZSBvcGVuIFR5cGVTY3JpcHQgY29kZWJhc2Ugd2FzIHRoZSBkaWZmZXJlbnRpYXRvciBhZ2FpbnN0IGNsb3NlZCBjb21wZXRpdG9ycy4gVGVhbXMgZm9ya2VkIGl0LCBlbWJlZGRlZCBpdCBpbiBDSSwgd3JvdGUgY3VzdG9tIHRvb2xzIGFnYWluc3QgaXQuIEFudGlncmF2aXR5IGRlbGl2ZXJzIHRoZSBzYW1lIGNhcGFiaWxpdHkgd2l0aCBub25lIG9mIHRoYXQuCgoqKkJ1c2luZXNzIG1vZGVsLioqIFRoZSBDTEkgd2FzIG5ldmVyIHRoZSBwcm9kdWN0LiBJdCB3YXMgZnJlZSB0b3Agb2YgZnVubmVsIGZvciBHb29nbGUgQUkgUHJvIGFuZCBVbHRyYSBzdWJzY3JpcHRpb25zLCBHZW1pbmkgQ29kZSBBc3Npc3QgZW50ZXJwcmlzZSBzZWF0cywgYW5kIFZlcnRleCBhbmQgQVBJIHRva2VuIGNvbnN1bXB0aW9uIHVuZGVybmVhdGguIE9wZW4gc291cmNlIGxvd2VyZWQgYWRvcHRpb24gZnJpY3Rpb24gYW5kIG91dHNvdXJjZWQgaW50ZWdyYXRpb24gd29yayB0byB2b2x1bnRlZXJzLiBPbmNlIHRoZSBmdW5uZWwgaGFkIGRvbmUgaXRzIGpvYiB0aGUgZnJlZSB0aWVyIGJlY2FtZSBhIGNvc3QgY2VudGVyIGFuZCB3YXMgY3V0IGJ5IHJvdWdobHkgOTggcGVyY2VudC4gRW50ZXJwcmlzZSBhY2Nlc3Mgd2FzIG5ldmVyIHBhcnQgb2YgdGhlIGNvbnN1bWVyIHNodXRkb3duLgoKKipEaXN0cmlidXRpb24uKiogbnBtIGluc3RhbGwsIGEgcmVwbyB0aGF0IHJhbmtlZCBpbiBldmVyeSAiYmVzdCBBSSBDTEkiIHJvdW5kdXAsIEkvTyBrZXlub3RlIGFpciBjb3ZlciwgYW5kIGEgZnJlZSBxdW90YSBnZW5lcm91cyBlbm91Z2ggdG8gYmVjb21lIGEgaGFiaXQuIENvbnRyaWJ1dG9ycyB3ZXJlIHRoZW1zZWx2ZXMgYSBjaGFubmVsOiBldmVyeSBtZXJnZWQgcHVsbCByZXF1ZXN0IHB1bGxlZCBhIG1haW50YWluZXIncyBlbXBsb3llciBjbG9zZXIgdG8gdGhlIHRvb2wuIFRoYXQgaXMgZXhhY3RseSB0aGUgYXNzZXQgdGhpcyB0cmFuc2l0aW9uIHNwZW50LgoKIyMgTnVtYmVycwoKfCBNZXRyaWMgfCBWYWx1ZSB8CnwgLS0tIHwgLS0tIHwKfCBHaXRIdWIgc3RhcnMgYXQgcmV0aXJlbWVudCB8IDEwNCwwMDArIHwKfCBFeHRlcm5hbCBtZXJnZWQgcHVsbCByZXF1ZXN0cyB8IDYsMDAwKyB8CnwgTGlmZXNwYW4gfCAxMiBtb250aHMsIEp1bmUgMjAyNSB0byBKdW5lIDIwMjYgfAp8IEZyZWUgZGFpbHkgcXVvdGEgY3V0IHwgfjk4IHBlcmNlbnQsIHJvdWdobHkgMSwwMDAgcmVxdWVzdHMgdG8gcm91Z2hseSAyMCB8CnwgQXBwbGljYXRpb24gY29kZSBpbiBzdWNjZXNzb3IgcmVwbyB8IFplcm8gfAoKIyMgV2hhdCBpdCBjb3N0CgpHb29nbGUgZ2FpbmVkIGEgc2luZ2xlIG1vbmV0aXphYmxlIHN1cmZhY2UgYW5kIGxvc3QgdGhlIG9ubHkgdGhpbmcgaXQgY291bGQgbm90IGJ1eTogNiwwMDAgZGV2ZWxvcGVycyB3aG8gaGFkIHZvbHVudGFyaWx5IG1hZGUgdGhlbXNlbHZlcyBleHBlcnRzIGluIGEgR29vZ2xlIHByb2R1Y3QuCgpUaGUgY29zdCBsYW5kcyBvbiB0aGUgbmV4dCB0ZWFtIGF0IEdvb2dsZSB0aGF0IGFza3MgZGV2ZWxvcGVycyB0byBpbnZlc3QgaW4gc29tZXRoaW5nIG9wZW4uIFRoYXQgYXNrIGlzIG5vdyBtb3JlIGV4cGVuc2l2ZSwgYW5kIHRoZSBwcmljZSBkb2VzIG5vdCByZXNldCBxdWlja2x5LgoKIyMgQ2l0YXRpb25zCgoxLiBUZWNoVGltZXMsIFtHb29nbGUgQWNjZXB0ZWQgNiwwMDAgR2VtaW5pIENMSSBDb250cmlidXRpb25zLCBUaGVuIENsb3NlZCBUb29sIGZvciBFbnRlcnByaXNlIE9ubHldKGh0dHBzOi8vd3d3LnRlY2h0aW1lcy5jb20vYXJ0aWNsZXMvMzE3MDU2LzIwMjYwNTIzL2dvb2dsZS1hY2NlcHRlZC02MDAwLWdlbWluaS1jbGktY29udHJpYnV0aW9ucy10aGVuLWNsb3NlZC10b29sLWVudGVycHJpc2Utb25seS5odG0pLCBNYXkgMjMsIDIwMjYuIFN0YXJzLCBQUiBjb3VudCwgQ0xBIHRlcm1zLCBxdW90YSBmaWd1cmVzLCBzdWNjZXNzb3IgcmVwbyBjb250ZW50cy4KMi4gVGVjaFRpbWVzLCBbRnVyaW91cyBEZXZlbG9wZXJzIEFjY3VzZSBHb29nbGUgb2YgYSBHZW1pbmkgQ0xJIEJhaXQtYW5kLVN3aXRjaF0oaHR0cHM6Ly93d3cudGVjaHRpbWVzLmNvbS9hcnRpY2xlcy8zMTc0MDcvMjAyNjA1MjkvbGludXgtZm91bmRhdGlvbi10b29sLXNwb3RsaWdodGVkLWZ1cmlvdXMtZGV2ZWxvcGVycy1hY2N1c2Utc2lja2VuaW5nLWdvb2dsZS1nZW1pbmktY2xpLmh0bSksIE1heSAyOSwgMjAyNi4gQ29udHJpYnV0b3IgcmVhY3Rpb24uCjMuIFRoZSBSZWdpc3RlciwgW0J5ZS1ieWUsIEdlbWluaSBDTEldKGh0dHBzOi8vd3d3LnRoZXJlZ2lzdGVyLmNvbS9haS1tbC8yMDI2LzA1LzIwL2J5ZS1ieWUtZ2VtaW5pLWNsaS1nb29nbGUtbnVkZ2VzLWRldnMtdG93YXJkLWFudGlncmF2aXR5LzUyNDM2MDUpLCBNYXkgMjAsIDIwMjYuIEFubm91bmNlbWVudCBhbmQgc2h1dGRvd24gZGF0ZS4KNC4gVGVjaFRpbWVzLCBbR2VtaW5pIENMSSBTaHV0ZG93biBUYWtlcyBFZmZlY3Q6IENJL0NEIFBpcGVsaW5lcyBCcmVha10oaHR0cHM6Ly93d3cudGVjaHRpbWVzLmNvbS9hcnRpY2xlcy8zMTg2NjAvMjAyNjA2MTgvZ2VtaW5pLWNsaS1zaHV0ZG93bi10YWtlcy1lZmZlY3QtY2ktY2QtcGlwZWxpbmVzLWJyZWFrLWdvLWJhc2VkLWFudGlncmF2aXR5LWNsaS1hcnJpdmVzLmh0bSksIEp1bmUgMTgsIDIwMjYuIEJyZWFrYWdlIG9uIHNodXRkb3duLgoKKkNvbXBpbGVkIEF1Z3VzdCAyNiwgMjAyNi4qCg==</script>
+<script>
+  (function () {
+    var src = document.getElementById('memo-src');
+    var raw = '';
+    try {
+      var bin = atob((src.textContent || '').replace(/\s+/g, ''));
+      var bytes = new Uint8Array(bin.length);
+      for (var k = 0; k < bin.length; k++) { bytes[k] = bin.charCodeAt(k); }
+      raw = new TextDecoder('utf-8').decode(bytes);
+    } catch (e) { raw = ''; }
+    var name = document.body.getAttribute('data-slug') + '.md';
+
+    var copy = document.getElementById('btn-copy');
+    copy.addEventListener('click', function () {
+      var done = function () {
+        copy.textContent = 'Copied';
+        copy.classList.add('done');
+        setTimeout(function () {
+          copy.textContent = 'Copy for agents';
+          copy.classList.remove('done');
+        }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(raw).then(done, fallback);
+      } else {
+        fallback();
+      }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = raw;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); } catch (e) { /* no-op */ }
+        document.body.removeChild(ta);
+      }
+    });
+
+    var dl = document.getElementById('btn-download');
+    dl.addEventListener('click', function () {
+      var blob = new Blob([raw], { type: 'text/markdown;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+    });
+  })();
+</script>
+</body>
+</html>

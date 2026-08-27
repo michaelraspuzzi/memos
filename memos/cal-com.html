@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cal.com | Closing the Source</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  html { background: #ffffff; }
+  body {
+    background: #ffffff;
+    color: #111111;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .page { max-width: 46em; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.6rem;
+    border-bottom: 1px solid #cccccc;
+  }
+  .bar .home {
+    font-size: 0.85rem;
+    margin-right: auto;
+    color: #555555;
+  }
+  button.act {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 0.85rem;
+    background: #f4f4f2;
+    color: #111111;
+    border: 1px solid #999999;
+    border-radius: 2px;
+    padding: 0.32rem 0.8rem;
+    cursor: pointer;
+  }
+  button.act:hover { background: #e8e8e4; }
+  button.act:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  button.act.done { background: #e6efe6; border-color: #4a7a4a; }
+
+  h1, h2, h3, h4 { font-weight: bold; margin: 0; }
+  h1 { font-size: 2rem; line-height: 1.15; }
+  h2 { font-size: 1.4rem; line-height: 1.2; margin-top: 2.4rem; padding-top: 0.9rem; border-top: 2px solid #111111; }
+  h3 { font-size: 1.1rem; margin-top: 1.6rem; }
+  p { margin: 0.75rem 0 0; }
+  ul, ol { margin: 0.7rem 0 0; padding-left: 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: #111111; }
+  a:hover { color: #7a1c14; }
+  a:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  hr { border: 0; border-top: 1px solid #cccccc; margin: 2rem 0 0; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: #f4f4f2;
+    padding: 0.05em 0.3em;
+    border-radius: 2px;
+  }
+  blockquote {
+    margin: 1rem 0 0;
+    padding: 0.1rem 0 0.1rem 1rem;
+    border-left: 3px solid #999999;
+  }
+  blockquote p { margin-top: 0.4rem; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote em.attrib { font-style: normal; font-size: 0.85rem; color: #555555; }
+
+  .tablewrap { overflow-x: auto; margin-top: 1.1rem; border: 1px solid #cccccc; }
+  table { border-collapse: collapse; width: 100%; min-width: 34em; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid #cccccc; vertical-align: top; }
+  thead th { background: #f4f4f2; border-bottom: 1px solid #111111; }
+  tbody tr:last-child td { border-bottom: 0; }
+
+  .foot { margin-top: 3rem; padding-top: 0.9rem; border-top: 3px double #111111; font-size: 0.85rem; color: #555555; }
+</style>
+</head>
+<body data-slug="cal-com">
+<div class="page">
+  <div class="bar">
+    <span class="home"><a href="../index.html">Closing the Source</a></span>
+    <button class="act" id="btn-copy" type="button">Copy for agents</button>
+    <button class="act" id="btn-download" type="button">Download .md</button>
+  </div>
+<h1>Cal.com</h1>
+<p><strong>Closed April 14, 2026.</strong> AGPL 3.0 public monorepo to a proprietary private repo. The old repo was renamed <code>calcom/cal.diy</code> and relicensed to MIT.</p>
+<hr>
+<h2>The move</h2>
+<p>Cal.com spent five years in public. On April 14, 2026 it moved production code into a private repository under a proprietary license.</p>
+<p>The public repo did not disappear. It was renamed <code>calcom/cal.diy</code> and relicensed from AGPL 3.0 to MIT. That reads like a loosening. It is not. cal.diy keeps the scheduling engine, the app store framework and the booking infrastructure. It drops the commercial features. MIT is cheap to give away once the valuable code is gone.</p>
+<p>Two details tell you how much moved. The private repo carries 62 CI workflows; cal.diy carries 53. And cal.diy is now maintained by former interns.</p>
+<h2>The stated reason</h2>
+<p>Security. The argument is that AI can scan a public codebase for exploitable bugs faster than volunteers can patch them. Cal.com cites AI surfacing a 27-year-old BSD kernel vulnerability with working exploits in hours.</p>
+<blockquote>
+<p>"Open source security always relied on people to find and fix any problems. Now AI attackers are flouting that transparency."</p>
+<p><em class="attrib">Peer Richelsen, co-founder</em></p>
+</blockquote>
+<blockquote>
+<p>"Open source code is basically like handing out the blueprint to a bank vault. And now there are 100 times more hackers studying the blueprint."</p>
+<p><em class="attrib">Bailey Pumfleet, co-founder</em></p>
+</blockquote>
+<p>The company says it hopes to reopen when the threat landscape changes.</p>
+<h2>The real reason</h2>
+<p>Open source was Cal.com's acquisition channel, not its moat. By 2026 the channel had done its job: 32,000+ stars and the top result for "open source Calendly alternative." What it had not done was convert at the scale a $150M valuation implies. Reported ARR was $5.1M in 2024. No Series B has been announced.</p>
+<p>The security argument is real but not load bearing. If AI-assisted attackers were the binding constraint, the fix is audits, bounties and a hardened release process, not a private repo. A private repo protects something else: the platform line, where other companies embed Cal's scheduling through an API and pay on usage. That is the only revenue line where owning the code is worth more than distributing it.</p>
+<h2>The company</h2>
+<p><strong>Founders.</strong> Peer Richelsen and Bailey Pumfleet, co-CEOs. Founded 2020 to 2021 as Calendso. Distribution-native founders: growth came from their own posting cadence plus the repo, not a sales org. Both were the public face of the license decision, which is why the backlash landed on them personally.</p>
+<p><strong>Product.</strong> Scheduling as infrastructure. The visible surface is a Calendly equivalent: booking pages, calendar sync, routing forms, round robin, an app store. The strategic surface is the platform layer, meaning APIs and embeddable components that let other companies ship scheduling without building it.</p>
+<p><strong>Business model.</strong> Four lines. Open core with AGPL self-hosting free. Cloud SaaS per seat, the volume line. Enterprise licenses for self-hosters who cannot accept AGPL. Platform and API deals billed on usage, the highest-leverage line and the one that rewards closing the code.</p>
+<p><strong>Distribution.</strong> The repo was the funnel. Stars and search intent brought developers in, self-hosting converted the serious ones. Behind that: founder-led social, an app store that borrowed distribution from Zoom, Stripe and Google, and infrastructure deals that rent a partner's user base. Closing the repo weakens every one of those except the last.</p>
+<h2>Numbers</h2>
+<div class="tablewrap"><table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody>
+<tr><td>Total raised</td><td>$32.4M across two rounds</td></tr>
+<tr><td>Rounds</td><td>$7.4M seed, Dec 2021. $25M Series A, Apr 2022, led by 776 with Obvious Ventures and OSS Capital</td></tr>
+<tr><td>Valuation</td><td>$150M at the 2022 Series A</td></tr>
+<tr><td>ARR</td><td>$5.1M reported for 2024, up from $1.6M in 2023</td></tr>
+<tr><td>GitHub stars</td><td>32,000+ at closure</td></tr>
+<tr><td>CI workflows</td><td>53 in cal.diy vs 62 in the private repo</td></tr>
+<tr><td>Series B</td><td>None announced as of August 2026</td></tr>
+</tbody></table></div>
+<blockquote>
+<p><strong>Confidence note.</strong> The ARR figure is third party (Latka), two years old, and unconfirmed by the company. Treat the current run rate as unknown.</p>
+</blockquote>
+<h2>What it cost</h2>
+<p>Cal.com traded its cheapest acquisition channel for defensibility on the platform line. That trade pays only if API and embed revenue is already most of the pipeline. If seat revenue still carries the company, they raised the cost of acquiring customers without improving the product.</p>
+<p>Two things to watch. Whether cal.diy stays genuinely maintained, because handing it to former interns is not a durable commitment. And whether a credible AGPL fork of the last open commit appears. A fork is the real price of this decision, and nobody has paid it yet.</p>
+<h2>Citations</h2>
+<ol><li>Cal.com, <a href="https://cal.com/blog/cal-com-goes-closed-source-why">Cal.com Goes Closed Source: Why AI Security Is Forcing Our Decision</a>, April 14, 2026. Primary.</li><li>Cal.com, <a href="https://cal.com/blog/cal-diy-open-source-to-closed-source">Going Closed Source: Technical Changes Behind Cal.diy</a>. Primary.</li><li><a href="https://thenewstack.io/cal-com-codebase-security-ai/">The New Stack</a>, <a href="https://itsfoss.com/news/cal-com-goes-proprietary/">It's FOSS</a>, <a href="https://fossforce.com/2026/04/ai-pushes-cal-com-to-shutter-open-and-go-nonfree/">FOSS Force</a>, <a href="https://yro.slashdot.org/story/26/04/15/1913213/calcom-is-going-closed-source-because-of-ai">Slashdot</a>, <a href="https://alternativeto.net/news/2026/4/cal-com-is-going-closed-source-with-a-major-shift-in-its-license-strategy/">AlternativeTo</a>. Founder quotes and reaction.</li><li><a href="https://www.crunchbase.com/organization/calendso">Crunchbase, Cal.com (Calendso)</a>. Funding.</li><li><a href="https://getlatka.com/companies/calcom">Latka, Cal.com</a>. Revenue and valuation.</li><li><a href="https://github.com/calcom/cal.diy">GitHub, calcom/cal.diy</a>.</li></ol>
+<p class="foot"><em>Compiled August 26, 2026.</em></p>
+</div>
+<script type="text/plain" id="memo-src">IyBDYWwuY29tCgoqKkNsb3NlZCBBcHJpbCAxNCwgMjAyNi4qKiBBR1BMIDMuMCBwdWJsaWMgbW9ub3JlcG8gdG8gYSBwcm9wcmlldGFyeSBwcml2YXRlIHJlcG8uIFRoZSBvbGQgcmVwbyB3YXMgcmVuYW1lZCBgY2FsY29tL2NhbC5kaXlgIGFuZCByZWxpY2Vuc2VkIHRvIE1JVC4KCi0tLQoKIyMgVGhlIG1vdmUKCkNhbC5jb20gc3BlbnQgZml2ZSB5ZWFycyBpbiBwdWJsaWMuIE9uIEFwcmlsIDE0LCAyMDI2IGl0IG1vdmVkIHByb2R1Y3Rpb24gY29kZSBpbnRvIGEgcHJpdmF0ZSByZXBvc2l0b3J5IHVuZGVyIGEgcHJvcHJpZXRhcnkgbGljZW5zZS4KClRoZSBwdWJsaWMgcmVwbyBkaWQgbm90IGRpc2FwcGVhci4gSXQgd2FzIHJlbmFtZWQgYGNhbGNvbS9jYWwuZGl5YCBhbmQgcmVsaWNlbnNlZCBmcm9tIEFHUEwgMy4wIHRvIE1JVC4gVGhhdCByZWFkcyBsaWtlIGEgbG9vc2VuaW5nLiBJdCBpcyBub3QuIGNhbC5kaXkga2VlcHMgdGhlIHNjaGVkdWxpbmcgZW5naW5lLCB0aGUgYXBwIHN0b3JlIGZyYW1ld29yayBhbmQgdGhlIGJvb2tpbmcgaW5mcmFzdHJ1Y3R1cmUuIEl0IGRyb3BzIHRoZSBjb21tZXJjaWFsIGZlYXR1cmVzLiBNSVQgaXMgY2hlYXAgdG8gZ2l2ZSBhd2F5IG9uY2UgdGhlIHZhbHVhYmxlIGNvZGUgaXMgZ29uZS4KClR3byBkZXRhaWxzIHRlbGwgeW91IGhvdyBtdWNoIG1vdmVkLiBUaGUgcHJpdmF0ZSByZXBvIGNhcnJpZXMgNjIgQ0kgd29ya2Zsb3dzOyBjYWwuZGl5IGNhcnJpZXMgNTMuIEFuZCBjYWwuZGl5IGlzIG5vdyBtYWludGFpbmVkIGJ5IGZvcm1lciBpbnRlcm5zLgoKIyMgVGhlIHN0YXRlZCByZWFzb24KClNlY3VyaXR5LiBUaGUgYXJndW1lbnQgaXMgdGhhdCBBSSBjYW4gc2NhbiBhIHB1YmxpYyBjb2RlYmFzZSBmb3IgZXhwbG9pdGFibGUgYnVncyBmYXN0ZXIgdGhhbiB2b2x1bnRlZXJzIGNhbiBwYXRjaCB0aGVtLiBDYWwuY29tIGNpdGVzIEFJIHN1cmZhY2luZyBhIDI3LXllYXItb2xkIEJTRCBrZXJuZWwgdnVsbmVyYWJpbGl0eSB3aXRoIHdvcmtpbmcgZXhwbG9pdHMgaW4gaG91cnMuCgo+ICJPcGVuIHNvdXJjZSBzZWN1cml0eSBhbHdheXMgcmVsaWVkIG9uIHBlb3BsZSB0byBmaW5kIGFuZCBmaXggYW55IHByb2JsZW1zLiBOb3cgQUkgYXR0YWNrZXJzIGFyZSBmbG91dGluZyB0aGF0IHRyYW5zcGFyZW5jeS4iCj4gKlBlZXIgUmljaGVsc2VuLCBjby1mb3VuZGVyKgoKPiAiT3BlbiBzb3VyY2UgY29kZSBpcyBiYXNpY2FsbHkgbGlrZSBoYW5kaW5nIG91dCB0aGUgYmx1ZXByaW50IHRvIGEgYmFuayB2YXVsdC4gQW5kIG5vdyB0aGVyZSBhcmUgMTAwIHRpbWVzIG1vcmUgaGFja2VycyBzdHVkeWluZyB0aGUgYmx1ZXByaW50LiIKPiAqQmFpbGV5IFB1bWZsZWV0LCBjby1mb3VuZGVyKgoKVGhlIGNvbXBhbnkgc2F5cyBpdCBob3BlcyB0byByZW9wZW4gd2hlbiB0aGUgdGhyZWF0IGxhbmRzY2FwZSBjaGFuZ2VzLgoKIyMgVGhlIHJlYWwgcmVhc29uCgpPcGVuIHNvdXJjZSB3YXMgQ2FsLmNvbSdzIGFjcXVpc2l0aW9uIGNoYW5uZWwsIG5vdCBpdHMgbW9hdC4gQnkgMjAyNiB0aGUgY2hhbm5lbCBoYWQgZG9uZSBpdHMgam9iOiAzMiwwMDArIHN0YXJzIGFuZCB0aGUgdG9wIHJlc3VsdCBmb3IgIm9wZW4gc291cmNlIENhbGVuZGx5IGFsdGVybmF0aXZlLiIgV2hhdCBpdCBoYWQgbm90IGRvbmUgd2FzIGNvbnZlcnQgYXQgdGhlIHNjYWxlIGEgJDE1ME0gdmFsdWF0aW9uIGltcGxpZXMuIFJlcG9ydGVkIEFSUiB3YXMgJDUuMU0gaW4gMjAyNC4gTm8gU2VyaWVzIEIgaGFzIGJlZW4gYW5ub3VuY2VkLgoKVGhlIHNlY3VyaXR5IGFyZ3VtZW50IGlzIHJlYWwgYnV0IG5vdCBsb2FkIGJlYXJpbmcuIElmIEFJLWFzc2lzdGVkIGF0dGFja2VycyB3ZXJlIHRoZSBiaW5kaW5nIGNvbnN0cmFpbnQsIHRoZSBmaXggaXMgYXVkaXRzLCBib3VudGllcyBhbmQgYSBoYXJkZW5lZCByZWxlYXNlIHByb2Nlc3MsIG5vdCBhIHByaXZhdGUgcmVwby4gQSBwcml2YXRlIHJlcG8gcHJvdGVjdHMgc29tZXRoaW5nIGVsc2U6IHRoZSBwbGF0Zm9ybSBsaW5lLCB3aGVyZSBvdGhlciBjb21wYW5pZXMgZW1iZWQgQ2FsJ3Mgc2NoZWR1bGluZyB0aHJvdWdoIGFuIEFQSSBhbmQgcGF5IG9uIHVzYWdlLiBUaGF0IGlzIHRoZSBvbmx5IHJldmVudWUgbGluZSB3aGVyZSBvd25pbmcgdGhlIGNvZGUgaXMgd29ydGggbW9yZSB0aGFuIGRpc3RyaWJ1dGluZyBpdC4KCiMjIFRoZSBjb21wYW55CgoqKkZvdW5kZXJzLioqIFBlZXIgUmljaGVsc2VuIGFuZCBCYWlsZXkgUHVtZmxlZXQsIGNvLUNFT3MuIEZvdW5kZWQgMjAyMCB0byAyMDIxIGFzIENhbGVuZHNvLiBEaXN0cmlidXRpb24tbmF0aXZlIGZvdW5kZXJzOiBncm93dGggY2FtZSBmcm9tIHRoZWlyIG93biBwb3N0aW5nIGNhZGVuY2UgcGx1cyB0aGUgcmVwbywgbm90IGEgc2FsZXMgb3JnLiBCb3RoIHdlcmUgdGhlIHB1YmxpYyBmYWNlIG9mIHRoZSBsaWNlbnNlIGRlY2lzaW9uLCB3aGljaCBpcyB3aHkgdGhlIGJhY2tsYXNoIGxhbmRlZCBvbiB0aGVtIHBlcnNvbmFsbHkuCgoqKlByb2R1Y3QuKiogU2NoZWR1bGluZyBhcyBpbmZyYXN0cnVjdHVyZS4gVGhlIHZpc2libGUgc3VyZmFjZSBpcyBhIENhbGVuZGx5IGVxdWl2YWxlbnQ6IGJvb2tpbmcgcGFnZXMsIGNhbGVuZGFyIHN5bmMsIHJvdXRpbmcgZm9ybXMsIHJvdW5kIHJvYmluLCBhbiBhcHAgc3RvcmUuIFRoZSBzdHJhdGVnaWMgc3VyZmFjZSBpcyB0aGUgcGxhdGZvcm0gbGF5ZXIsIG1lYW5pbmcgQVBJcyBhbmQgZW1iZWRkYWJsZSBjb21wb25lbnRzIHRoYXQgbGV0IG90aGVyIGNvbXBhbmllcyBzaGlwIHNjaGVkdWxpbmcgd2l0aG91dCBidWlsZGluZyBpdC4KCioqQnVzaW5lc3MgbW9kZWwuKiogRm91ciBsaW5lcy4gT3BlbiBjb3JlIHdpdGggQUdQTCBzZWxmLWhvc3RpbmcgZnJlZS4gQ2xvdWQgU2FhUyBwZXIgc2VhdCwgdGhlIHZvbHVtZSBsaW5lLiBFbnRlcnByaXNlIGxpY2Vuc2VzIGZvciBzZWxmLWhvc3RlcnMgd2hvIGNhbm5vdCBhY2NlcHQgQUdQTC4gUGxhdGZvcm0gYW5kIEFQSSBkZWFscyBiaWxsZWQgb24gdXNhZ2UsIHRoZSBoaWdoZXN0LWxldmVyYWdlIGxpbmUgYW5kIHRoZSBvbmUgdGhhdCByZXdhcmRzIGNsb3NpbmcgdGhlIGNvZGUuCgoqKkRpc3RyaWJ1dGlvbi4qKiBUaGUgcmVwbyB3YXMgdGhlIGZ1bm5lbC4gU3RhcnMgYW5kIHNlYXJjaCBpbnRlbnQgYnJvdWdodCBkZXZlbG9wZXJzIGluLCBzZWxmLWhvc3RpbmcgY29udmVydGVkIHRoZSBzZXJpb3VzIG9uZXMuIEJlaGluZCB0aGF0OiBmb3VuZGVyLWxlZCBzb2NpYWwsIGFuIGFwcCBzdG9yZSB0aGF0IGJvcnJvd2VkIGRpc3RyaWJ1dGlvbiBmcm9tIFpvb20sIFN0cmlwZSBhbmQgR29vZ2xlLCBhbmQgaW5mcmFzdHJ1Y3R1cmUgZGVhbHMgdGhhdCByZW50IGEgcGFydG5lcidzIHVzZXIgYmFzZS4gQ2xvc2luZyB0aGUgcmVwbyB3ZWFrZW5zIGV2ZXJ5IG9uZSBvZiB0aG9zZSBleGNlcHQgdGhlIGxhc3QuCgojIyBOdW1iZXJzCgp8IE1ldHJpYyB8IFZhbHVlIHwKfCAtLS0gfCAtLS0gfAp8IFRvdGFsIHJhaXNlZCB8ICQzMi40TSBhY3Jvc3MgdHdvIHJvdW5kcyB8CnwgUm91bmRzIHwgJDcuNE0gc2VlZCwgRGVjIDIwMjEuICQyNU0gU2VyaWVzIEEsIEFwciAyMDIyLCBsZWQgYnkgNzc2IHdpdGggT2J2aW91cyBWZW50dXJlcyBhbmQgT1NTIENhcGl0YWwgfAp8IFZhbHVhdGlvbiB8ICQxNTBNIGF0IHRoZSAyMDIyIFNlcmllcyBBIHwKfCBBUlIgfCAkNS4xTSByZXBvcnRlZCBmb3IgMjAyNCwgdXAgZnJvbSAkMS42TSBpbiAyMDIzIHwKfCBHaXRIdWIgc3RhcnMgfCAzMiwwMDArIGF0IGNsb3N1cmUgfAp8IENJIHdvcmtmbG93cyB8IDUzIGluIGNhbC5kaXkgdnMgNjIgaW4gdGhlIHByaXZhdGUgcmVwbyB8CnwgU2VyaWVzIEIgfCBOb25lIGFubm91bmNlZCBhcyBvZiBBdWd1c3QgMjAyNiB8Cgo+ICoqQ29uZmlkZW5jZSBub3RlLioqIFRoZSBBUlIgZmlndXJlIGlzIHRoaXJkIHBhcnR5IChMYXRrYSksIHR3byB5ZWFycyBvbGQsIGFuZCB1bmNvbmZpcm1lZCBieSB0aGUgY29tcGFueS4gVHJlYXQgdGhlIGN1cnJlbnQgcnVuIHJhdGUgYXMgdW5rbm93bi4KCiMjIFdoYXQgaXQgY29zdAoKQ2FsLmNvbSB0cmFkZWQgaXRzIGNoZWFwZXN0IGFjcXVpc2l0aW9uIGNoYW5uZWwgZm9yIGRlZmVuc2liaWxpdHkgb24gdGhlIHBsYXRmb3JtIGxpbmUuIFRoYXQgdHJhZGUgcGF5cyBvbmx5IGlmIEFQSSBhbmQgZW1iZWQgcmV2ZW51ZSBpcyBhbHJlYWR5IG1vc3Qgb2YgdGhlIHBpcGVsaW5lLiBJZiBzZWF0IHJldmVudWUgc3RpbGwgY2FycmllcyB0aGUgY29tcGFueSwgdGhleSByYWlzZWQgdGhlIGNvc3Qgb2YgYWNxdWlyaW5nIGN1c3RvbWVycyB3aXRob3V0IGltcHJvdmluZyB0aGUgcHJvZHVjdC4KClR3byB0aGluZ3MgdG8gd2F0Y2guIFdoZXRoZXIgY2FsLmRpeSBzdGF5cyBnZW51aW5lbHkgbWFpbnRhaW5lZCwgYmVjYXVzZSBoYW5kaW5nIGl0IHRvIGZvcm1lciBpbnRlcm5zIGlzIG5vdCBhIGR1cmFibGUgY29tbWl0bWVudC4gQW5kIHdoZXRoZXIgYSBjcmVkaWJsZSBBR1BMIGZvcmsgb2YgdGhlIGxhc3Qgb3BlbiBjb21taXQgYXBwZWFycy4gQSBmb3JrIGlzIHRoZSByZWFsIHByaWNlIG9mIHRoaXMgZGVjaXNpb24sIGFuZCBub2JvZHkgaGFzIHBhaWQgaXQgeWV0LgoKIyMgQ2l0YXRpb25zCgoxLiBDYWwuY29tLCBbQ2FsLmNvbSBHb2VzIENsb3NlZCBTb3VyY2U6IFdoeSBBSSBTZWN1cml0eSBJcyBGb3JjaW5nIE91ciBEZWNpc2lvbl0oaHR0cHM6Ly9jYWwuY29tL2Jsb2cvY2FsLWNvbS1nb2VzLWNsb3NlZC1zb3VyY2Utd2h5KSwgQXByaWwgMTQsIDIwMjYuIFByaW1hcnkuCjIuIENhbC5jb20sIFtHb2luZyBDbG9zZWQgU291cmNlOiBUZWNobmljYWwgQ2hhbmdlcyBCZWhpbmQgQ2FsLmRpeV0oaHR0cHM6Ly9jYWwuY29tL2Jsb2cvY2FsLWRpeS1vcGVuLXNvdXJjZS10by1jbG9zZWQtc291cmNlKS4gUHJpbWFyeS4KMy4gW1RoZSBOZXcgU3RhY2tdKGh0dHBzOi8vdGhlbmV3c3RhY2suaW8vY2FsLWNvbS1jb2RlYmFzZS1zZWN1cml0eS1haS8pLCBbSXQncyBGT1NTXShodHRwczovL2l0c2Zvc3MuY29tL25ld3MvY2FsLWNvbS1nb2VzLXByb3ByaWV0YXJ5LyksIFtGT1NTIEZvcmNlXShodHRwczovL2Zvc3Nmb3JjZS5jb20vMjAyNi8wNC9haS1wdXNoZXMtY2FsLWNvbS10by1zaHV0dGVyLW9wZW4tYW5kLWdvLW5vbmZyZWUvKSwgW1NsYXNoZG90XShodHRwczovL3lyby5zbGFzaGRvdC5vcmcvc3RvcnkvMjYvMDQvMTUvMTkxMzIxMy9jYWxjb20taXMtZ29pbmctY2xvc2VkLXNvdXJjZS1iZWNhdXNlLW9mLWFpKSwgW0FsdGVybmF0aXZlVG9dKGh0dHBzOi8vYWx0ZXJuYXRpdmV0by5uZXQvbmV3cy8yMDI2LzQvY2FsLWNvbS1pcy1nb2luZy1jbG9zZWQtc291cmNlLXdpdGgtYS1tYWpvci1zaGlmdC1pbi1pdHMtbGljZW5zZS1zdHJhdGVneS8pLiBGb3VuZGVyIHF1b3RlcyBhbmQgcmVhY3Rpb24uCjQuIFtDcnVuY2hiYXNlLCBDYWwuY29tIChDYWxlbmRzbyldKGh0dHBzOi8vd3d3LmNydW5jaGJhc2UuY29tL29yZ2FuaXphdGlvbi9jYWxlbmRzbykuIEZ1bmRpbmcuCjUuIFtMYXRrYSwgQ2FsLmNvbV0oaHR0cHM6Ly9nZXRsYXRrYS5jb20vY29tcGFuaWVzL2NhbGNvbSkuIFJldmVudWUgYW5kIHZhbHVhdGlvbi4KNi4gW0dpdEh1YiwgY2FsY29tL2NhbC5kaXldKGh0dHBzOi8vZ2l0aHViLmNvbS9jYWxjb20vY2FsLmRpeSkuCgoqQ29tcGlsZWQgQXVndXN0IDI2LCAyMDI2LioK</script>
+<script>
+  (function () {
+    var src = document.getElementById('memo-src');
+    var raw = '';
+    try {
+      var bin = atob((src.textContent || '').replace(/\s+/g, ''));
+      var bytes = new Uint8Array(bin.length);
+      for (var k = 0; k < bin.length; k++) { bytes[k] = bin.charCodeAt(k); }
+      raw = new TextDecoder('utf-8').decode(bytes);
+    } catch (e) { raw = ''; }
+    var name = document.body.getAttribute('data-slug') + '.md';
+
+    var copy = document.getElementById('btn-copy');
+    copy.addEventListener('click', function () {
+      var done = function () {
+        copy.textContent = 'Copied';
+        copy.classList.add('done');
+        setTimeout(function () {
+          copy.textContent = 'Copy for agents';
+          copy.classList.remove('done');
+        }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(raw).then(done, fallback);
+      } else {
+        fallback();
+      }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = raw;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); } catch (e) { /* no-op */ }
+        document.body.removeChild(ta);
+      }
+    });
+
+    var dl = document.getElementById('btn-download');
+    dl.addEventListener('click', function () {
+      var blob = new Blob([raw], { type: 'text/markdown;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+    });
+  })();
+</script>
+</body>
+</html>

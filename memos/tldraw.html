@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>tldraw | Closing the Source</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  html { background: #ffffff; }
+  body {
+    background: #ffffff;
+    color: #111111;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .page { max-width: 46em; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.6rem;
+    border-bottom: 1px solid #cccccc;
+  }
+  .bar .home {
+    font-size: 0.85rem;
+    margin-right: auto;
+    color: #555555;
+  }
+  button.act {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 0.85rem;
+    background: #f4f4f2;
+    color: #111111;
+    border: 1px solid #999999;
+    border-radius: 2px;
+    padding: 0.32rem 0.8rem;
+    cursor: pointer;
+  }
+  button.act:hover { background: #e8e8e4; }
+  button.act:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  button.act.done { background: #e6efe6; border-color: #4a7a4a; }
+
+  h1, h2, h3, h4 { font-weight: bold; margin: 0; }
+  h1 { font-size: 2rem; line-height: 1.15; }
+  h2 { font-size: 1.4rem; line-height: 1.2; margin-top: 2.4rem; padding-top: 0.9rem; border-top: 2px solid #111111; }
+  h3 { font-size: 1.1rem; margin-top: 1.6rem; }
+  p { margin: 0.75rem 0 0; }
+  ul, ol { margin: 0.7rem 0 0; padding-left: 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: #111111; }
+  a:hover { color: #7a1c14; }
+  a:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  hr { border: 0; border-top: 1px solid #cccccc; margin: 2rem 0 0; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: #f4f4f2;
+    padding: 0.05em 0.3em;
+    border-radius: 2px;
+  }
+  blockquote {
+    margin: 1rem 0 0;
+    padding: 0.1rem 0 0.1rem 1rem;
+    border-left: 3px solid #999999;
+  }
+  blockquote p { margin-top: 0.4rem; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote em.attrib { font-style: normal; font-size: 0.85rem; color: #555555; }
+
+  .tablewrap { overflow-x: auto; margin-top: 1.1rem; border: 1px solid #cccccc; }
+  table { border-collapse: collapse; width: 100%; min-width: 34em; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid #cccccc; vertical-align: top; }
+  thead th { background: #f4f4f2; border-bottom: 1px solid #111111; }
+  tbody tr:last-child td { border-bottom: 0; }
+
+  .foot { margin-top: 3rem; padding-top: 0.9rem; border-top: 3px double #111111; font-size: 0.85rem; color: #555555; }
+</style>
+</head>
+<body data-slug="tldraw">
+<div class="page">
+  <div class="bar">
+    <span class="home"><a href="../index.html">Closing the Source</a></span>
+    <button class="act" id="btn-copy" type="button">Copy for agents</button>
+    <button class="act" id="btn-download" type="button">Download .md</button>
+  </div>
+<h1>tldraw</h1>
+<p><strong>Enforcement shipped September 18, 2025.</strong> MIT in v1, source-available in v2, runtime license keys in SDK 4.0.</p>
+<hr>
+<h2>Why tldraw is not open source anymore</h2>
+<p>It happened in two moves, twenty-one months apart. The first was legal. The second was technical. The second is the one that hurt.</p>
+<p><strong>Move one: December 20, 2023.</strong> With the v2 beta, tldraw dropped MIT and adopted a license adapted from Scratch's. The company said it plainly:</p>
+<blockquote>
+<p>"It's not Open Source in the strictest sense of being under a fully permissive license."</p>
+</blockquote>
+<p>The reason was not defensive. It was a business model choice, stated directly:</p>
+<blockquote>
+<p>"We want to stay focused on the core product rather than on secondary products or services or upsells."</p>
+</blockquote>
+<p>Read that as: no cloud, no hosting tier, no feature ladder. Sell the component. The rest follows from that one sentence.</p>
+<p><strong>Move two: September 18, 2025, SDK 4.0.</strong> tldraw added enforcement.</p>
+<blockquote>
+<p>"Fate and capital both demand that tldraw be a sustainable project, so these changes are designed to help us commercialize the SDK without cutting off community adoption."</p>
+</blockquote>
+<p>The license now says the SDK is "only permitted to be used in development environments." You may not "use the Software in Production Environments" without a key. You may not "disable, change, or interfere with the Software's License Key enforcement." And the code enforces itself:</p>
+<blockquote>
+<p>"The Software includes technical measures to verify License Key validity, detect deployment environments, enforce usage restrictions based on license type, and ensure proper watermark display."</p>
+</blockquote>
+<p><strong>The insight.</strong> For twenty-one months the SDK behaved like open source and was licensed like it was not. Nothing stopped you shipping it. Most people did. 4.0 closed that gap in a single release, which is why it landed as a rug pull even though the legal terms had barely changed. The rug had been gone since 2023. In 2025 people finally looked down.</p>
+<p>Note also that v1 is still MIT and still on GitHub. The thing people remember as open source is real. It is just not the thing anyone would build on today.</p>
+<h2>The terms</h2>
+<div class="tablewrap"><table><thead><tr><th>Tier</th><th>Cost</th><th>Condition</th></tr></thead><tbody>
+<tr><td>Development</td><td>Free</td><td>Localhost and internal staging only. No key needed.</td></tr>
+<tr><td>Trial</td><td>Free, 100 days</td><td>One per commercial entity. Usage analytics collected during trial.</td></tr>
+<tr><td>Hobby</td><td>Free</td><td>Non-commercial. Mandatory "made with tldraw" watermark on canvas.</td></tr>
+<tr><td>Commercial</td><td>$6,000 per team per year</td><td>Removes the watermark. Startup pricing on request.</td></tr>
+</tbody></table></div>
+<p>Keys validate client side and work offline.</p>
+<h2>The company</h2>
+<p><strong>Founder.</strong> Steve Ruiz, London. Incorporated 2022 out of a canvas side project he had been building in public since 2021. Unusually founder-led: the demos, the API design and the public voice are largely one person's. That is why the community read enforcement as a personal reversal rather than a corporate one.</p>
+<p><strong>Product.</strong> An infinite canvas SDK for React. Shapes, selection, camera, collaboration, undo, export. It is the eighteen months of hard canvas engineering nobody wants to rebuild. tldraw.com is the free flagship whiteboard that proves the SDK and feeds it.</p>
+<p><strong>Business model.</strong> Pure component licensing. A 1990s model applied to a React package. No hosting, no metering, no cloud. Gross margin is close to total. The ceiling is the number of teams in the world building canvas apps.</p>
+<p><strong>Distribution.</strong> Viral demos first, npm second. Make Real, which turned a hand sketch into working code, put tldraw in front of the entire AI tooling audience in a week. After that it is word of mouth and logos as distribution: once Shopify and Autodesk ship on your canvas, the next buyer stops evaluating alternatives. The hobby watermark is the marketing budget.</p>
+<h2>Numbers</h2>
+<div class="tablewrap"><table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody>
+<tr><td>Total raised</td><td>$24.1M across four rounds</td></tr>
+<tr><td>Rounds</td><td>$2.7M seed Nov 2022 (Lux). $2M Nov 2023 (Preston-Werner Ventures). $9.4M Apr 2024. $10M Apr 2025 (Lux, Definition)</td></tr>
+<tr><td>Commercial license</td><td>$6,000 per team per year</td></tr>
+<tr><td>Trial</td><td>100 days</td></tr>
+<tr><td>Named customers</td><td>Shopify, BlackRock, ClickUp, Autodesk, Google, Replit, Runway</td></tr>
+<tr><td>Investors</td><td>Lux Capital, Amplify Partners, Preston-Werner Ventures, Definition</td></tr>
+</tbody></table></div>
+<h2>What it cost</h2>
+<p>This is the cleanest of the four closures in this series. tldraw has no hosting margin to hide revenue in, so licensing is the only line available. 4.0 did not change the deal, it started collecting on it.</p>
+<p>The exposure is at the bottom of the funnel. A $6,000 floor with a 100-day clock prices out exactly the indie and seed-stage builders who made Make Real go viral in the first place. Enterprise logos survive that. The next generation of advocates may not.</p>
+<p>Excalidraw is still MIT, still free to embed commercially, still unencumbered. That is the substitution risk, and it is the only one that matters.</p>
+<h2>Citations</h2>
+<ol><li>tldraw, <a href="https://tldraw.dev/blog/license-update-for-the-tldraw-sdk">License updates for the tldraw SDK</a>, December 20, 2023. Primary. Source of the "not Open Source in the strictest sense" and "stay focused on the core product" quotes.</li><li>tldraw, <a href="https://tldraw.dev/blog/tldraw-sdk-4-0">Announcing tldraw SDK 4.0</a>, September 18, 2025. Primary. Source of the "fate and capital" quote.</li><li><a href="https://github.com/tldraw/tldraw/blob/main/LICENSE.md">tldraw LICENSE.md</a>. Primary. Source of the production environment, key enforcement and watermark clauses.</li><li>tldraw, <a href="https://tldraw.dev/community/license">License documentation</a> and <a href="https://tldraw.dev/sdk-features/license-key">License key docs</a>. Primary. Tiers and trial terms.</li><li><a href="https://github.com/tldraw/tldraw-v1/blob/main/LICENSE.md">tldraw v1 LICENSE.md</a>. MIT.</li><li>tldraw, <a href="https://tldraw.dev/company">About the company</a>. Named customers.</li><li><a href="https://www.crunchbase.com/organization/tldraw">Crunchbase, tldraw</a>. Funding.</li><li><a href="https://biggo.com/news/202509190115_tldraw_SDK_4.0_Licensing_Debate">BigGo</a>, <a href="https://alternativeto.net/news/2025/9/tldraw-sdk-4-0-adds-five-new-starter-kits-cli-tool-and-enforces-licensing-changes/">AlternativeTo</a>. Pricing debate and reaction.</li></ol>
+<p class="foot"><em>Compiled August 26, 2026.</em></p>
+</div>
+<script type="text/plain" id="memo-src">IyB0bGRyYXcKCioqRW5mb3JjZW1lbnQgc2hpcHBlZCBTZXB0ZW1iZXIgMTgsIDIwMjUuKiogTUlUIGluIHYxLCBzb3VyY2UtYXZhaWxhYmxlIGluIHYyLCBydW50aW1lIGxpY2Vuc2Uga2V5cyBpbiBTREsgNC4wLgoKLS0tCgojIyBXaHkgdGxkcmF3IGlzIG5vdCBvcGVuIHNvdXJjZSBhbnltb3JlCgpJdCBoYXBwZW5lZCBpbiB0d28gbW92ZXMsIHR3ZW50eS1vbmUgbW9udGhzIGFwYXJ0LiBUaGUgZmlyc3Qgd2FzIGxlZ2FsLiBUaGUgc2Vjb25kIHdhcyB0ZWNobmljYWwuIFRoZSBzZWNvbmQgaXMgdGhlIG9uZSB0aGF0IGh1cnQuCgoqKk1vdmUgb25lOiBEZWNlbWJlciAyMCwgMjAyMy4qKiBXaXRoIHRoZSB2MiBiZXRhLCB0bGRyYXcgZHJvcHBlZCBNSVQgYW5kIGFkb3B0ZWQgYSBsaWNlbnNlIGFkYXB0ZWQgZnJvbSBTY3JhdGNoJ3MuIFRoZSBjb21wYW55IHNhaWQgaXQgcGxhaW5seToKCj4gIkl0J3Mgbm90IE9wZW4gU291cmNlIGluIHRoZSBzdHJpY3Rlc3Qgc2Vuc2Ugb2YgYmVpbmcgdW5kZXIgYSBmdWxseSBwZXJtaXNzaXZlIGxpY2Vuc2UuIgoKVGhlIHJlYXNvbiB3YXMgbm90IGRlZmVuc2l2ZS4gSXQgd2FzIGEgYnVzaW5lc3MgbW9kZWwgY2hvaWNlLCBzdGF0ZWQgZGlyZWN0bHk6Cgo+ICJXZSB3YW50IHRvIHN0YXkgZm9jdXNlZCBvbiB0aGUgY29yZSBwcm9kdWN0IHJhdGhlciB0aGFuIG9uIHNlY29uZGFyeSBwcm9kdWN0cyBvciBzZXJ2aWNlcyBvciB1cHNlbGxzLiIKClJlYWQgdGhhdCBhczogbm8gY2xvdWQsIG5vIGhvc3RpbmcgdGllciwgbm8gZmVhdHVyZSBsYWRkZXIuIFNlbGwgdGhlIGNvbXBvbmVudC4gVGhlIHJlc3QgZm9sbG93cyBmcm9tIHRoYXQgb25lIHNlbnRlbmNlLgoKKipNb3ZlIHR3bzogU2VwdGVtYmVyIDE4LCAyMDI1LCBTREsgNC4wLioqIHRsZHJhdyBhZGRlZCBlbmZvcmNlbWVudC4KCj4gIkZhdGUgYW5kIGNhcGl0YWwgYm90aCBkZW1hbmQgdGhhdCB0bGRyYXcgYmUgYSBzdXN0YWluYWJsZSBwcm9qZWN0LCBzbyB0aGVzZSBjaGFuZ2VzIGFyZSBkZXNpZ25lZCB0byBoZWxwIHVzIGNvbW1lcmNpYWxpemUgdGhlIFNESyB3aXRob3V0IGN1dHRpbmcgb2ZmIGNvbW11bml0eSBhZG9wdGlvbi4iCgpUaGUgbGljZW5zZSBub3cgc2F5cyB0aGUgU0RLIGlzICJvbmx5IHBlcm1pdHRlZCB0byBiZSB1c2VkIGluIGRldmVsb3BtZW50IGVudmlyb25tZW50cy4iIFlvdSBtYXkgbm90ICJ1c2UgdGhlIFNvZnR3YXJlIGluIFByb2R1Y3Rpb24gRW52aXJvbm1lbnRzIiB3aXRob3V0IGEga2V5LiBZb3UgbWF5IG5vdCAiZGlzYWJsZSwgY2hhbmdlLCBvciBpbnRlcmZlcmUgd2l0aCB0aGUgU29mdHdhcmUncyBMaWNlbnNlIEtleSBlbmZvcmNlbWVudC4iIEFuZCB0aGUgY29kZSBlbmZvcmNlcyBpdHNlbGY6Cgo+ICJUaGUgU29mdHdhcmUgaW5jbHVkZXMgdGVjaG5pY2FsIG1lYXN1cmVzIHRvIHZlcmlmeSBMaWNlbnNlIEtleSB2YWxpZGl0eSwgZGV0ZWN0IGRlcGxveW1lbnQgZW52aXJvbm1lbnRzLCBlbmZvcmNlIHVzYWdlIHJlc3RyaWN0aW9ucyBiYXNlZCBvbiBsaWNlbnNlIHR5cGUsIGFuZCBlbnN1cmUgcHJvcGVyIHdhdGVybWFyayBkaXNwbGF5LiIKCioqVGhlIGluc2lnaHQuKiogRm9yIHR3ZW50eS1vbmUgbW9udGhzIHRoZSBTREsgYmVoYXZlZCBsaWtlIG9wZW4gc291cmNlIGFuZCB3YXMgbGljZW5zZWQgbGlrZSBpdCB3YXMgbm90LiBOb3RoaW5nIHN0b3BwZWQgeW91IHNoaXBwaW5nIGl0LiBNb3N0IHBlb3BsZSBkaWQuIDQuMCBjbG9zZWQgdGhhdCBnYXAgaW4gYSBzaW5nbGUgcmVsZWFzZSwgd2hpY2ggaXMgd2h5IGl0IGxhbmRlZCBhcyBhIHJ1ZyBwdWxsIGV2ZW4gdGhvdWdoIHRoZSBsZWdhbCB0ZXJtcyBoYWQgYmFyZWx5IGNoYW5nZWQuIFRoZSBydWcgaGFkIGJlZW4gZ29uZSBzaW5jZSAyMDIzLiBJbiAyMDI1IHBlb3BsZSBmaW5hbGx5IGxvb2tlZCBkb3duLgoKTm90ZSBhbHNvIHRoYXQgdjEgaXMgc3RpbGwgTUlUIGFuZCBzdGlsbCBvbiBHaXRIdWIuIFRoZSB0aGluZyBwZW9wbGUgcmVtZW1iZXIgYXMgb3BlbiBzb3VyY2UgaXMgcmVhbC4gSXQgaXMganVzdCBub3QgdGhlIHRoaW5nIGFueW9uZSB3b3VsZCBidWlsZCBvbiB0b2RheS4KCiMjIFRoZSB0ZXJtcwoKfCBUaWVyIHwgQ29zdCB8IENvbmRpdGlvbiB8CnwgLS0tIHwgLS0tIHwgLS0tIHwKfCBEZXZlbG9wbWVudCB8IEZyZWUgfCBMb2NhbGhvc3QgYW5kIGludGVybmFsIHN0YWdpbmcgb25seS4gTm8ga2V5IG5lZWRlZC4gfAp8IFRyaWFsIHwgRnJlZSwgMTAwIGRheXMgfCBPbmUgcGVyIGNvbW1lcmNpYWwgZW50aXR5LiBVc2FnZSBhbmFseXRpY3MgY29sbGVjdGVkIGR1cmluZyB0cmlhbC4gfAp8IEhvYmJ5IHwgRnJlZSB8IE5vbi1jb21tZXJjaWFsLiBNYW5kYXRvcnkgIm1hZGUgd2l0aCB0bGRyYXciIHdhdGVybWFyayBvbiBjYW52YXMuIHwKfCBDb21tZXJjaWFsIHwgJDYsMDAwIHBlciB0ZWFtIHBlciB5ZWFyIHwgUmVtb3ZlcyB0aGUgd2F0ZXJtYXJrLiBTdGFydHVwIHByaWNpbmcgb24gcmVxdWVzdC4gfAoKS2V5cyB2YWxpZGF0ZSBjbGllbnQgc2lkZSBhbmQgd29yayBvZmZsaW5lLgoKIyMgVGhlIGNvbXBhbnkKCioqRm91bmRlci4qKiBTdGV2ZSBSdWl6LCBMb25kb24uIEluY29ycG9yYXRlZCAyMDIyIG91dCBvZiBhIGNhbnZhcyBzaWRlIHByb2plY3QgaGUgaGFkIGJlZW4gYnVpbGRpbmcgaW4gcHVibGljIHNpbmNlIDIwMjEuIFVudXN1YWxseSBmb3VuZGVyLWxlZDogdGhlIGRlbW9zLCB0aGUgQVBJIGRlc2lnbiBhbmQgdGhlIHB1YmxpYyB2b2ljZSBhcmUgbGFyZ2VseSBvbmUgcGVyc29uJ3MuIFRoYXQgaXMgd2h5IHRoZSBjb21tdW5pdHkgcmVhZCBlbmZvcmNlbWVudCBhcyBhIHBlcnNvbmFsIHJldmVyc2FsIHJhdGhlciB0aGFuIGEgY29ycG9yYXRlIG9uZS4KCioqUHJvZHVjdC4qKiBBbiBpbmZpbml0ZSBjYW52YXMgU0RLIGZvciBSZWFjdC4gU2hhcGVzLCBzZWxlY3Rpb24sIGNhbWVyYSwgY29sbGFib3JhdGlvbiwgdW5kbywgZXhwb3J0LiBJdCBpcyB0aGUgZWlnaHRlZW4gbW9udGhzIG9mIGhhcmQgY2FudmFzIGVuZ2luZWVyaW5nIG5vYm9keSB3YW50cyB0byByZWJ1aWxkLiB0bGRyYXcuY29tIGlzIHRoZSBmcmVlIGZsYWdzaGlwIHdoaXRlYm9hcmQgdGhhdCBwcm92ZXMgdGhlIFNESyBhbmQgZmVlZHMgaXQuCgoqKkJ1c2luZXNzIG1vZGVsLioqIFB1cmUgY29tcG9uZW50IGxpY2Vuc2luZy4gQSAxOTkwcyBtb2RlbCBhcHBsaWVkIHRvIGEgUmVhY3QgcGFja2FnZS4gTm8gaG9zdGluZywgbm8gbWV0ZXJpbmcsIG5vIGNsb3VkLiBHcm9zcyBtYXJnaW4gaXMgY2xvc2UgdG8gdG90YWwuIFRoZSBjZWlsaW5nIGlzIHRoZSBudW1iZXIgb2YgdGVhbXMgaW4gdGhlIHdvcmxkIGJ1aWxkaW5nIGNhbnZhcyBhcHBzLgoKKipEaXN0cmlidXRpb24uKiogVmlyYWwgZGVtb3MgZmlyc3QsIG5wbSBzZWNvbmQuIE1ha2UgUmVhbCwgd2hpY2ggdHVybmVkIGEgaGFuZCBza2V0Y2ggaW50byB3b3JraW5nIGNvZGUsIHB1dCB0bGRyYXcgaW4gZnJvbnQgb2YgdGhlIGVudGlyZSBBSSB0b29saW5nIGF1ZGllbmNlIGluIGEgd2Vlay4gQWZ0ZXIgdGhhdCBpdCBpcyB3b3JkIG9mIG1vdXRoIGFuZCBsb2dvcyBhcyBkaXN0cmlidXRpb246IG9uY2UgU2hvcGlmeSBhbmQgQXV0b2Rlc2sgc2hpcCBvbiB5b3VyIGNhbnZhcywgdGhlIG5leHQgYnV5ZXIgc3RvcHMgZXZhbHVhdGluZyBhbHRlcm5hdGl2ZXMuIFRoZSBob2JieSB3YXRlcm1hcmsgaXMgdGhlIG1hcmtldGluZyBidWRnZXQuCgojIyBOdW1iZXJzCgp8IE1ldHJpYyB8IFZhbHVlIHwKfCAtLS0gfCAtLS0gfAp8IFRvdGFsIHJhaXNlZCB8ICQyNC4xTSBhY3Jvc3MgZm91ciByb3VuZHMgfAp8IFJvdW5kcyB8ICQyLjdNIHNlZWQgTm92IDIwMjIgKEx1eCkuICQyTSBOb3YgMjAyMyAoUHJlc3Rvbi1XZXJuZXIgVmVudHVyZXMpLiAkOS40TSBBcHIgMjAyNC4gJDEwTSBBcHIgMjAyNSAoTHV4LCBEZWZpbml0aW9uKSB8CnwgQ29tbWVyY2lhbCBsaWNlbnNlIHwgJDYsMDAwIHBlciB0ZWFtIHBlciB5ZWFyIHwKfCBUcmlhbCB8IDEwMCBkYXlzIHwKfCBOYW1lZCBjdXN0b21lcnMgfCBTaG9waWZ5LCBCbGFja1JvY2ssIENsaWNrVXAsIEF1dG9kZXNrLCBHb29nbGUsIFJlcGxpdCwgUnVud2F5IHwKfCBJbnZlc3RvcnMgfCBMdXggQ2FwaXRhbCwgQW1wbGlmeSBQYXJ0bmVycywgUHJlc3Rvbi1XZXJuZXIgVmVudHVyZXMsIERlZmluaXRpb24gfAoKIyMgV2hhdCBpdCBjb3N0CgpUaGlzIGlzIHRoZSBjbGVhbmVzdCBvZiB0aGUgZm91ciBjbG9zdXJlcyBpbiB0aGlzIHNlcmllcy4gdGxkcmF3IGhhcyBubyBob3N0aW5nIG1hcmdpbiB0byBoaWRlIHJldmVudWUgaW4sIHNvIGxpY2Vuc2luZyBpcyB0aGUgb25seSBsaW5lIGF2YWlsYWJsZS4gNC4wIGRpZCBub3QgY2hhbmdlIHRoZSBkZWFsLCBpdCBzdGFydGVkIGNvbGxlY3Rpbmcgb24gaXQuCgpUaGUgZXhwb3N1cmUgaXMgYXQgdGhlIGJvdHRvbSBvZiB0aGUgZnVubmVsLiBBICQ2LDAwMCBmbG9vciB3aXRoIGEgMTAwLWRheSBjbG9jayBwcmljZXMgb3V0IGV4YWN0bHkgdGhlIGluZGllIGFuZCBzZWVkLXN0YWdlIGJ1aWxkZXJzIHdobyBtYWRlIE1ha2UgUmVhbCBnbyB2aXJhbCBpbiB0aGUgZmlyc3QgcGxhY2UuIEVudGVycHJpc2UgbG9nb3Mgc3Vydml2ZSB0aGF0LiBUaGUgbmV4dCBnZW5lcmF0aW9uIG9mIGFkdm9jYXRlcyBtYXkgbm90LgoKRXhjYWxpZHJhdyBpcyBzdGlsbCBNSVQsIHN0aWxsIGZyZWUgdG8gZW1iZWQgY29tbWVyY2lhbGx5LCBzdGlsbCB1bmVuY3VtYmVyZWQuIFRoYXQgaXMgdGhlIHN1YnN0aXR1dGlvbiByaXNrLCBhbmQgaXQgaXMgdGhlIG9ubHkgb25lIHRoYXQgbWF0dGVycy4KCiMjIENpdGF0aW9ucwoKMS4gdGxkcmF3LCBbTGljZW5zZSB1cGRhdGVzIGZvciB0aGUgdGxkcmF3IFNES10oaHR0cHM6Ly90bGRyYXcuZGV2L2Jsb2cvbGljZW5zZS11cGRhdGUtZm9yLXRoZS10bGRyYXctc2RrKSwgRGVjZW1iZXIgMjAsIDIwMjMuIFByaW1hcnkuIFNvdXJjZSBvZiB0aGUgIm5vdCBPcGVuIFNvdXJjZSBpbiB0aGUgc3RyaWN0ZXN0IHNlbnNlIiBhbmQgInN0YXkgZm9jdXNlZCBvbiB0aGUgY29yZSBwcm9kdWN0IiBxdW90ZXMuCjIuIHRsZHJhdywgW0Fubm91bmNpbmcgdGxkcmF3IFNESyA0LjBdKGh0dHBzOi8vdGxkcmF3LmRldi9ibG9nL3RsZHJhdy1zZGstNC0wKSwgU2VwdGVtYmVyIDE4LCAyMDI1LiBQcmltYXJ5LiBTb3VyY2Ugb2YgdGhlICJmYXRlIGFuZCBjYXBpdGFsIiBxdW90ZS4KMy4gW3RsZHJhdyBMSUNFTlNFLm1kXShodHRwczovL2dpdGh1Yi5jb20vdGxkcmF3L3RsZHJhdy9ibG9iL21haW4vTElDRU5TRS5tZCkuIFByaW1hcnkuIFNvdXJjZSBvZiB0aGUgcHJvZHVjdGlvbiBlbnZpcm9ubWVudCwga2V5IGVuZm9yY2VtZW50IGFuZCB3YXRlcm1hcmsgY2xhdXNlcy4KNC4gdGxkcmF3LCBbTGljZW5zZSBkb2N1bWVudGF0aW9uXShodHRwczovL3RsZHJhdy5kZXYvY29tbXVuaXR5L2xpY2Vuc2UpIGFuZCBbTGljZW5zZSBrZXkgZG9jc10oaHR0cHM6Ly90bGRyYXcuZGV2L3Nkay1mZWF0dXJlcy9saWNlbnNlLWtleSkuIFByaW1hcnkuIFRpZXJzIGFuZCB0cmlhbCB0ZXJtcy4KNS4gW3RsZHJhdyB2MSBMSUNFTlNFLm1kXShodHRwczovL2dpdGh1Yi5jb20vdGxkcmF3L3RsZHJhdy12MS9ibG9iL21haW4vTElDRU5TRS5tZCkuIE1JVC4KNi4gdGxkcmF3LCBbQWJvdXQgdGhlIGNvbXBhbnldKGh0dHBzOi8vdGxkcmF3LmRldi9jb21wYW55KS4gTmFtZWQgY3VzdG9tZXJzLgo3LiBbQ3J1bmNoYmFzZSwgdGxkcmF3XShodHRwczovL3d3dy5jcnVuY2hiYXNlLmNvbS9vcmdhbml6YXRpb24vdGxkcmF3KS4gRnVuZGluZy4KOC4gW0JpZ0dvXShodHRwczovL2JpZ2dvLmNvbS9uZXdzLzIwMjUwOTE5MDExNV90bGRyYXdfU0RLXzQuMF9MaWNlbnNpbmdfRGViYXRlKSwgW0FsdGVybmF0aXZlVG9dKGh0dHBzOi8vYWx0ZXJuYXRpdmV0by5uZXQvbmV3cy8yMDI1LzkvdGxkcmF3LXNkay00LTAtYWRkcy1maXZlLW5ldy1zdGFydGVyLWtpdHMtY2xpLXRvb2wtYW5kLWVuZm9yY2VzLWxpY2Vuc2luZy1jaGFuZ2VzLykuIFByaWNpbmcgZGViYXRlIGFuZCByZWFjdGlvbi4KCipDb21waWxlZCBBdWd1c3QgMjYsIDIwMjYuKgo=</script>
+<script>
+  (function () {
+    var src = document.getElementById('memo-src');
+    var raw = '';
+    try {
+      var bin = atob((src.textContent || '').replace(/\s+/g, ''));
+      var bytes = new Uint8Array(bin.length);
+      for (var k = 0; k < bin.length; k++) { bytes[k] = bin.charCodeAt(k); }
+      raw = new TextDecoder('utf-8').decode(bytes);
+    } catch (e) { raw = ''; }
+    var name = document.body.getAttribute('data-slug') + '.md';
+
+    var copy = document.getElementById('btn-copy');
+    copy.addEventListener('click', function () {
+      var done = function () {
+        copy.textContent = 'Copied';
+        copy.classList.add('done');
+        setTimeout(function () {
+          copy.textContent = 'Copy for agents';
+          copy.classList.remove('done');
+        }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(raw).then(done, fallback);
+      } else {
+        fallback();
+      }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = raw;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); } catch (e) { /* no-op */ }
+        document.body.removeChild(ta);
+      }
+    });
+
+    var dl = document.getElementById('btn-download');
+    dl.addEventListener('click', function () {
+      var blob = new Blob([raw], { type: 'text/markdown;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+    });
+  })();
+</script>
+</body>
+</html>
