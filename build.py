@@ -17,6 +17,9 @@ MEMOS = [
     ("bachelors-degree", "The bachelor's degree"),
     ("harvard-hybrid-masters", "Harvard hybrid master's programs"),
     ("bouldering-grades", "Bouldering grades"),
+    ("chess-elo", "Chess ratings"),
+    ("tennis-rankings", "Tennis rankings"),
+    ("esports-rankings", "Esports rankings"),
     # Companies that closed
     ("cal-com", "Cal.com"),
     ("tldraw", "tldraw"),

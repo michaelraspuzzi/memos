@@ -1,10 +1,10 @@
 # Closing the Source
 
-Seven memos on open source as a business decision — four companies that closed their code between September 2025 and June 2026, and three that stayed open and are worth more than all four combined — plus three on credentials and ratings, which are the same problem with a different artifact: who controls the gate, and what the signal is worth once everyone can copy the thing behind it.
+Seven memos on open source as a business decision — four companies that closed their code between September 2025 and June 2026, and three that stayed open and are worth more than all four combined — plus six on credentials and ratings, which are the same problem with a different artifact: who controls the gate, and what the signal is worth once everyone can copy the thing behind it.
 
 **Read on the web: [michaelraspuzzi.github.io/memos](https://michaelraspuzzi.github.io/memos/)**
 
-Compiled August 26, 2026.
+Compiled August 26, 2026. Ratings memos on chess, tennis and esports added August 29, 2026.
 
 ---
 
@@ -32,6 +32,11 @@ Compiled August 26, 2026.
 | **The bachelor's degree** | Why has a million-credential market not displaced one 800-year-old signal? | The degree sells licensure, not learning. Employers who dropped degree requirements changed fewer than 1 in 700 hires. | [Markdown](memos/bachelors-degree.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/bachelors-degree.html) |
 | **Harvard's hybrid master's** | MDE or MS/MBA: Engineering Sciences? | Both cost roughly half a million dollars once forgone salary is counted, and after aid the cheaper-looking one is the more expensive one. | [Markdown](memos/harvard-hybrid-masters.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/harvard-hybrid-masters.html) |
 | **Bouldering grades** | Can a community-negotiated rating ever be a measurement? | Only once the rated thing is reproducible. The LED board fixed the artifact; the ratings followed. | [Markdown](memos/bouldering-grades.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/bouldering-grades.html) |
+| **Chess ratings** | FIDE owns the only chess number that confers a title. Why is it free? | Because it earns 9% of income from it. FIDE waived €2.2M of rating fees to grow the graph, and sells the licence instead. Chess.com has 600× the users on a rating worth nothing. | [Markdown](memos/chess-elo.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/chess-elo.html) |
+| **Tennis rankings** | Why is the ATP ranking worth a five-year Saudi naming deal and the better rating is not? | The ATP ranking scores you zero for not showing up. It is an attendance contract. UTR built the better estimator, lost the official designation in 2023, and now spends $11M a year manufacturing its own matches. | [Markdown](memos/tennis-rankings.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/tennis-rankings.html) |
+| **Esports rankings** | What happens when the rules-maker, the rating-keeper and the tournament are one company? | StarCraft II. GSL prize pools fell from $140K a season to a crowdfunded $15K; 402 players earned prize money in 2019 and 30 did in 2025. The only rating still publishing is run by volunteers. | [Markdown](memos/esports-rankings.md) / [Web](https://michaelraspuzzi.github.io/memos/memos/esports-rankings.html) |
+
+The through-line across the three ratings memos: **a score is only a credential if someone who does not need your permission can verify it.** FIDE gives the rating away and sells the title, because the title is the part it can refuse. The ATP sells attendance and calls it merit. Blizzard owns the rules, the rating and the servers, so a StarCraft career converts into nothing the player can carry. In each case the price of the number is set by the door it opens, and the accuracy of the number is set by the density of the match graph — two assets that almost never sit in the same company.
 
 The through-line with part one: a licence is worth what its issuer can withhold. Open source gives away the artifact and sells the operating burden; a university gives away the lectures and sells admission to practice; a boulder grade is worth nothing until enough people have paid to check it. In all three the asset is the gate, not the thing behind it.
 
