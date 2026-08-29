@@ -20,6 +20,10 @@ MEMOS = [
     ("chess-elo", "Chess ratings"),
     ("tennis-rankings", "Tennis rankings"),
     ("esports-rankings", "Esports rankings"),
+    ("coursera", "Coursera"),
+    ("udacity", "Udacity"),
+    ("michelin-stars", "Michelin stars"),
+    ("human-performance-ratings", "Rating human performance"),
     # Companies that closed
     ("cal-com", "Cal.com"),
     ("tldraw", "tldraw"),
@@ -428,7 +432,7 @@ def main():
         r'[Open memo](memos/\1.html)', raw)
     web = re.sub(r'\(memos/([a-z0-9.-]+)\.md\)', r'(memos/\1.html)', web)
     out = page('Closing the Source', 'closing-the-source', convert(web), raw,
-               'Ten memos on open source, credentials, and what a signal is worth', None)
+               'Seventeen memos on open source, credentials, and what a signal is worth', None)
     with open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(out)
     print('built index.html')
