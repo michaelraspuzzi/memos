@@ -35,6 +35,8 @@ MEMOS = [
     ("n8n", "n8n"),
 ]
 
+MEMO_SLUGS = {slug for slug, _ in MEMOS}
+
 STYLE = """
   :root { color-scheme: light; }
   * { box-sizing: border-box; }
@@ -217,12 +219,25 @@ SCRIPT = r"""
 
 # ---------------------------------------------------------------- inline
 
+def link(m):
+    # Memo bodies link to each other as Markdown, which is right on github.com.
+    # The generated pages must point at the built HTML instead. Only rewrite
+    # paths that name a memo we actually build -- other .md files on disk, such
+    # as the skill definition linked from the README, must be left alone.
+    label, href = m.group(1), m.group(2)
+    if not re.match(r'[a-z][a-z0-9+.-]*:|//|#', href):
+        target = re.match(r'(?:memos/)?([a-z0-9.-]+)\.md(?=$|[#?])', href)
+        if target and target.group(1) in MEMO_SLUGS:
+            href = re.sub(r'\.md(?=$|[#?])', '.html', href)
+    return '<a href="%s">%s</a>' % (href, label)
+
+
 def inline(text):
     text = html.escape(text, quote=False)
     text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
     text = re.sub(r'\[\^([0-9A-Za-z-]+)\]',
                   r'<sup class="fnref"><a href="#fn-\1">\1</a></sup>', text)
-    text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
+    text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', link, text)
     text = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', text)
     text = re.sub(r'(?<!\*)\*([^*]+)\*(?!\*)', r'<em>\1</em>', text)
     return text
