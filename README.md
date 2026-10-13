@@ -23,6 +23,10 @@ Start with the [overview](memos/closing-the-source.md): the pattern across all s
 
 - [Shadow Apprentice Map](https://michaelraspuzzi.github.io/memos/maps/applied-ai-apprentice-map.html): a five-level skill map toward Anthropic's Applied AI Associate role, for a materials engineer drawn to AI for science. October 2026.
 
+## Visual essays
+
+- [Make molecular machinery visible](molecular-machines.html): a ten-second peptoid–membrane demo with three stages, source notes, and copyable Anatomy prompts. October 2026.
+
 ## Editing
 
 Edit the Markdown in `memos/`, run `python3 build.py`, push. Salon pages in `salons/` are standalone HTML. Writing standard: [Founder Memo skill](.codex/skills/founder-memo/SKILL.md).

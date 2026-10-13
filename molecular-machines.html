@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Make molecular machinery visible · Memos</title>
+  <meta name="description" content="A ten-second peptoid–membrane visualization shows how an agent skill can turn a scientific result into an explorable mechanism.">
+  <style>
+    :root { color-scheme: light; --ink:#121512; --muted:#626a63; --rule:#d9dfd9; --paper:#fff; --accent:#315b48; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:18px/1.62 Georgia, "Times New Roman", serif; }
+    main { max-width:760px; margin:auto; padding:24px 24px 88px; }
+    .home { display:inline-block; margin-bottom:28px; color:var(--muted); font:12px/1.4 ui-monospace, Menlo, monospace; letter-spacing:.08em; text-decoration:none; text-transform:uppercase; }
+    .home:hover, a:hover { color:var(--accent); }
+    figure { margin:0 auto 28px; }
+    video { display:block; width:100%; max-width:520px; height:auto; max-height:75vh; margin:auto; background:#0d1711; border-radius:4px; }
+    figcaption { max-width:520px; margin:9px auto 0; color:var(--muted); font:12px/1.45 ui-monospace, Menlo, monospace; }
+    h1 { margin:0 0 12px; font:700 clamp(33px,5vw,48px)/1.08 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:-.035em; }
+    .dek { margin:0 0 28px; color:var(--muted); font:20px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .meta { margin:0 0 28px; padding:10px 0; border-block:1px solid var(--rule); color:var(--muted); font:12px/1.4 ui-monospace, Menlo, monospace; }
+    p { margin:0 0 18px; }
+    h2 { margin:32px 0 10px; font:700 21px/1.3 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    a { color:inherit; text-underline-offset:3px; text-decoration-color:#9eaaa0; }
+    code { padding:2px 5px; border-radius:3px; background:#f2f5f1; font: .84em ui-monospace, Menlo, monospace; overflow-wrap:anywhere; }
+    .prompt-box { margin:0 0 38px; padding:22px; border:1px solid #b9c9bd; border-radius:7px; background:#f5f8f4; }
+    .prompt-box h2 { margin:0 0 5px; }
+    .prompt-box > p { margin:0 0 16px; color:var(--muted); font:14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .prompt-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+    .prompt-card { min-width:0; padding:16px; border:1px solid var(--rule); border-radius:5px; background:#fff; }
+    .prompt-card-head { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px; }
+    .prompt-card h3 { margin:0; font:650 14px/1.3 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .copy { flex:none; border:1px solid #a9bba9; border-radius:4px; background:#f7faf6; color:var(--accent); padding:6px 9px; cursor:pointer; font:600 11px/1 ui-monospace, Menlo, monospace; }
+    .copy:hover, .copy:focus-visible { background:#e8f0e8; outline-offset:2px; }
+    .prompt-card pre { margin:0; white-space:pre-wrap; overflow-wrap:anywhere; font:12px/1.55 ui-monospace, Menlo, monospace; }
+    .stages { margin:10px 0 20px; padding-left:27px; }
+    .stages li { padding:0 0 11px 5px; margin:0 0 10px; border-bottom:1px solid var(--rule); }
+    .stages li::marker { color:var(--accent); font:700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .ref { font:11px ui-monospace, Menlo, monospace; vertical-align:super; line-height:0; }
+    .ref a { text-decoration:none; color:var(--accent); }
+    .footnotes { margin-top:36px; padding-top:14px; border-top:1px solid var(--rule); color:var(--muted); font:13px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .footnotes h2 { margin:0 0 10px; color:var(--ink); font-size:17px; }
+    .footnotes ol { margin:0; padding-left:22px; }
+    .footnotes li { margin-bottom:9px; }
+    .footnotes a { color:var(--ink); }
+    @media (max-width:560px) { main { padding:16px 16px 64px; } .home { margin-bottom:18px; } video { max-height:none; } .prompt-grid { grid-template-columns:1fr; } .prompt-box { padding:16px; } }
+  </style>
+</head>
+<body>
+<main>
+  <a class="home" href="index.html">← Memos</a>
+  <figure>
+    <video controls playsinline preload="metadata" poster="media/peptoid-interaction-poster.jpg" aria-label="Ten-second animation comparing a peptoid at a DPPG monolayer with a simplified mechanical view">
+      <source src="media/peptoid-interaction-walkthrough.mp4" type="video/mp4">
+      <a href="media/peptoid-interaction-walkthrough.mp4">Watch the ten-second demo</a>.
+    </video>
+    <figcaption>The recording sweeps the comparison bar across both views and pauses at contact.</figcaption>
+  </figure>
+
+  <h1>Make molecular machinery visible</h1>
+  <p class="dek">One peptoid, one lipid surface, and a more useful way to see a mechanism.</p>
+  <p class="meta">October 12, 2026 · 10-second demo</p>
+
+  <section class="prompt-box" aria-labelledby="prompt-title">
+    <h2 id="prompt-title">Try Anatomy yourself</h2>
+    <p>Copy a starter prompt into Codex after <a href="https://github.com/wheresryan22/anatomy#install">installing the skill</a>. Each asks for one mechanism and what should move.</p>
+    <div class="prompt-grid">
+      <article class="prompt-card">
+        <div class="prompt-card-head"><h3>01 · Molecular interaction</h3><button class="copy" type="button" data-copy="prompt-channel" aria-label="Copy molecular interaction prompt">Copy prompt</button></div>
+        <pre id="prompt-channel">$anatomy show an ion channel opening and closing in a membrane. Show ion flow; distinguish observed structure from schematic motion.</pre>
+      </article>
+      <article class="prompt-card">
+        <div class="prompt-card-head"><h3>02 · Rate limiter</h3><button class="copy" type="button" data-copy="prompt-limiter" aria-label="Copy rate limiter prompt">Copy prompt</button></div>
+        <pre id="prompt-limiter">$anatomy show how a token-bucket rate limiter refills and rejects bursts. Make the tokens move with a live request counter.</pre>
+      </article>
+    </div>
+  </section>
+
+  <p>A scientific paper can say that a molecule enters a membrane. It is harder to picture what meets, turns, and makes room. The video starts with <em>peptoid 1</em>, a twelve-residue, protein-like helix below a negatively charged DPPG lipid monolayer.<sup class="ref" id="ref-1"><a href="#fn-1" aria-label="Footnote 1">1</a></sup> Gold marks its water-avoiding aromatic side chains; blue marks its positively charged ones. Each lipid has a polar head and two tails.</p>
+
+  <h2>Three stages to watch</h2>
+  <ol class="stages">
+    <li><strong>Attract.</strong> The charged face approaches the lipid heads. The approach illustrates a plausible electrostatic attraction; its path was not recorded.</li>
+    <li><strong>Engage.</strong> Charged groups meet the surface as the helix reorients. The neighboring lipid heads and tails in the mechanical view match those in the molecular view.</li>
+    <li><strong>Insert.</strong> Part of the peptoid passes through the headgroup region toward the tails. X-ray reflectivity supports partial insertion; a roughly 56° tilt is inferred only if the helix stays intact.<sup class="ref" id="ref-2"><a href="#fn-2" aria-label="Footnote 2">2</a></sup></li>
+  </ol>
+  <p>The sweeping divider reveals the same parts in two representations. That mapping turns a static density profile into a question readers can inspect: which groups face water, which meet the heads, and which reach the tails? The exact contact sequence and motion are a teaching model, not measured footage.</p>
+
+  <h2>How the agent skill works</h2>
+  <p>This was made with <a href="https://github.com/wheresryan22/anatomy">Anatomy</a>, an agent skill: instructions, drawing tools, examples, and checks that a coding agent follows. Give the agent a subject, evidence, and the interaction to explain. It builds SVG parts, projects them into a consistent view, ties motion to a small model, and checks the result in a browser.<sup class="ref" id="ref-3"><a href="#fn-3" aria-label="Footnote 3">3</a></sup> Here, both views share geometry and move together. Anatomy guides the illustration; it does not calculate molecular dynamics.</p>
+
+  <p>For more finished figures, see Anatomy’s <a href="https://github.com/wheresryan22/anatomy/tree/main/examples/dial-indicator">dial indicator</a> and <a href="https://github.com/wheresryan22/anatomy/tree/main/examples/ripple-tank">ripple tank</a>.<sup class="ref" id="ref-4"><a href="#fn-3" aria-label="Footnote 3">3</a></sup></p>
+
+  <section class="footnotes" aria-labelledby="sources-title">
+    <h2 id="sources-title">Sources and notes</h2>
+    <ol>
+      <li id="fn-1"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2268539/">Chongsiriwatana et al., <em>PNAS</em> (2008)</a>, peptoid design and Fig. 2. The scene shows a DPPG monolayer, not a complete cell membrane. <a href="#ref-1" aria-label="Back to footnote 1 reference">↩</a></li>
+      <li id="fn-2"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2268539/">Chongsiriwatana et al., Fig. 7 and X-ray reflectivity results</a>. The paper supports penetration into the headgroups and part of the tail region, and conditions its tilt estimate on retained helicity. <a href="#ref-2" aria-label="Back to footnote 2 reference">↩</a></li>
+      <li id="fn-3"><a href="https://github.com/wheresryan22/anatomy">Anatomy skill documentation and example gallery</a>. <a href="#ref-3" aria-label="Back to footnote 3 reference">↩</a></li>
+    </ol>
+  </section>
+</main>
+<script>
+  for (const button of document.querySelectorAll('[data-copy]')) {
+    button.addEventListener('click', async () => {
+      const source = document.getElementById(button.dataset.copy);
+      if (!source) return;
+      const prompt = source.textContent.trim();
+      try {
+        if (!navigator.clipboard?.writeText) throw new Error('Clipboard API unavailable');
+        await navigator.clipboard.writeText(prompt);
+      } catch {
+        const selection = getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(source);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        if (!document.execCommand('copy')) return;
+        selection.removeAllRanges();
+      }
+      button.textContent = 'Copied';
+      setTimeout(() => { button.textContent = 'Copy prompt'; }, 1800);
+    });
+  }
+</script>
+</body>
+</html>
