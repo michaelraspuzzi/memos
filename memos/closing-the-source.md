@@ -1,0 +1,71 @@
+# Closing the Source: what seventeen memos on open source and credentials have in common
+
+Seven memos on open source as a business decision — four companies that closed their code between September 2025 and June 2026, and three that stayed open and are worth more than all four combined — plus ten on credentials and ratings, which are the same problem with a different artifact: who controls the gate, and what the signal is worth once everyone can copy the thing behind it.
+
+Compiled August 26, 2026. Ratings memos on chess, tennis and esports added August 29, 2026. Memos on Coursera, Udacity, Michelin stars and rating human performance added August 29, 2026.
+
+---
+
+The through-line across the ratings memos: **a score is only a credential if someone who does not need your permission can verify it.** FIDE gives the rating away and sells the title, because the title is the part it can refuse. The ATP sells attendance and calls it merit. Blizzard owns the rules, the rating and the servers, so a StarCraft career converts into nothing the player can carry. In each case the price of the number is set by the door it opens, and the accuracy of the number is set by the density of the match graph — two assets that almost never sit in the same company.
+
+The four memos added on August 29 sharpen the same edge from the supply side. Coursera and Udacity are the two ways to fail at credentials — distribute someone else's and end up owning only the traffic, or issue your own and discover that recognition cannot be manufactured, only rented. Michelin is the one clean solution anybody has found: bill a third party whose interest is that the rating exist and be trusted, never the party being rated. And Codeforces is the new failure mode — a capability rating with nothing attached that it can refuse, saturated by a machine in twenty-four months. Together they give the rule a sharper form: **a rating survives if it certifies membership in a population, and dies if it certifies an ability.**
+
+The through-line with part one: a licence is worth what its issuer can withhold. Open source gives away the artifact and sells the operating burden; a university gives away the lectures and sells admission to practice; a boulder grade is worth nothing until enough people have paid to check it. In all three the asset is the gate, not the thing behind it.
+
+Each memo covers the model, the founding team, the product, distribution, current numbers, and what to take from it. Every claim is cited. Confidence is high for Cal.com, tldraw, Gemini CLI, ClickHouse, Supabase and n8n. Medium for Meta, which is flagged in the memo body. Revenue figures sourced from third parties rather than the companies are flagged individually.
+
+---
+
+## The pattern
+
+**The stated reason is rarely the operative one.** Cal.com said security. tldraw said sustainability. Google said consolidation. Meta said safety. In all four the operative variable is the same: the cost of giving the artifact away exceeded the distribution value of giving it away. That crossover is predictable. It arrives when the product is good enough that people would pay, and the free channel has already delivered most of the users it will ever deliver.
+
+**The real question is whether you have an operating burden to sell.** ClickHouse gives away a petabyte-scale database engine and charges $250M a year for not being paged at 3am. Supabase ships a Docker Compose file that stands up its entire stack and is worth $10.5B. Neither needed a restrictive license, because in both cases the download and the product are different goods. tldraw is a React SDK. Nobody gets paged for a canvas library, so there is nothing to sell but the code, so the license had to do the work. Ask which one you are before you ask what license to use.
+
+**The application layer closes. Infrastructure holds.** Nothing in the database or observability tier closed this year. Redis and Elastic went the other way and re-added AGPLv3. Closures cluster where the code is the product and there is no hosting margin underneath it: a canvas SDK, a scheduling app, a CLI, a model.
+
+**If you will eventually need a restriction, add it on day one.** n8n put its Sustainable Use License in place in March 2022, when the company was small and the reputational cost was cheap. It gave up the words "open source" and kept everything else: 188,000 stars, 1.7 million monthly builders, a $5.2B valuation. Cal.com and tldraw paid the same bill four years later, at a much worse exchange rate.
+
+**The fork is the price, and it usually goes unpaid.** OpenTofu after Terraform, Valkey after Redis, OpenSearch after Elasticsearch. Those only happen when large corporate users are dependent enough to fund a fork. Cal.com and tldraw sit below that threshold, which is exactly why they could close. The absence of a fork is not community approval. It is community indifference plus switching cost.
+
+**A new variable: your buyer may be an agent.** Over 60 percent of new databases on Supabase are now launched by an AI tool rather than a human. When a coding agent picks your default, what wins is being the most legible, most copyable, best documented option available. Closing the source protects nothing there and costs you the channel.
+
+---
+
+## Four questions before you build on someone's open repo
+
+1. **Does the vendor have a hosting margin, or is the code the only asset they can sell?** If the code is the only asset, assume it closes.
+2. **Is there a contributor license agreement?** If so, your work can legally become their proprietary product. That is what happened to Gemini CLI's 6,000 contributors.
+3. **Does the tool need a vendor-hosted backend to function?** That is the real chokepoint, not the license text. A fork without model access is worthless.
+4. **Is the last permissively licensed commit forkable and self-sufficient?** If not, you have a dependency, not an option.
+
+These four would have flagged every closure here in advance.
+
+---
+
+## Baseline: the top open source companies
+
+The 2026 rankings that get cited most (TrueUp's 40 Hottest, Seedtable's 287-company index, Tracxn's sector view) converge on roughly the same ten names. Ranking lists do not track license status, so the third column is the one that matters.
+
+| Company | What it is | License status, Aug 2026 |
+| --- | --- | --- |
+| Databricks | Lakehouse; Spark, Delta, MLflow | Core Apache 2.0, platform proprietary. Open core. |
+| Hugging Face | Model and dataset hub | Apache 2.0 libraries, hosted hub. Open. |
+| Mistral AI | Frontier and open-weight models | Apache 2.0 open models plus commercial tier. Open. |
+| ClickHouse | Real-time OLAP database | Apache 2.0. Open. [Memo](memos/clickhouse.md) |
+| Supabase | Postgres application backend | Apache 2.0. Open. [Memo](memos/supabase.md) |
+| n8n | Workflow automation | Fair-code Sustainable Use License. Never OSI approved. [Memo](memos/n8n.md) |
+| Grafana Labs | Observability | AGPLv3 since 2021. Still open source. |
+| GitLab | DevSecOps platform | MIT community edition plus proprietary EE. Open core. |
+| HashiCorp (IBM) | Terraform, Vault, Consul | BUSL 1.1 since Aug 2023. Unchanged after the $6.4B acquisition. |
+| Redis and Elastic | Cache and search | Both re-added AGPLv3. Reversals, not defections. |
+
+Most of the top tier has not closed. RedMonk's March 2026 licensing survey found BUSL and SSPL adoption still does not register at statistically significant levels. These closures are loud, not numerous.
+
+### Checked and not closed, despite rumor
+
+Excalidraw is still MIT. PostHog remains MIT with a proprietary enterprise directory. Sentry has been on the Functional Source License since 2023 and did not move. Discourse published an explicit ["we are not going closed source"](https://blog.discourse.org/2026/04/discourse-is-not-going-closed-source/) post in April 2026, in direct response to Cal.com.
+
+**Baseline sources:** [RedMonk, The State of Open Source Licensing in 2026](https://redmonk.com/sogrady/2026/03/25/open-source-licensing-2026/) / [TrueUp Open Source Report](https://www.trueup.io/open-source/reports) / [Seedtable](https://seedtable.com/best-open-source-startups) / [Tracxn](https://tracxn.com/d/sectors/open-source/__86qzqopfw3B9E1ADrcSHQNkYs66EJskfaNi6oSJHuM0/companies)
+
+---
