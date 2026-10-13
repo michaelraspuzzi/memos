@@ -169,10 +169,10 @@ footer{margin-top:48px;border-top:1.5px solid var(--ink);padding-top:12px;font-f
   <div class="tb-main">
     <div class="eyebrow">Drawing set · Applied AI Associate · Anthropic</div>
     <h1>Shadow <span>Apprentice</span> Map</h1>
-    <p class="thesis">Every public Anthropic science case study is in biology or pharma. Its newest bets point at the physical world: the Model Hardware Standard, Claude Science, and $150M for DOE Genesis. Nobody has yet shown Claude doing materials, climate or hardware well. Calder is a materials and mechanical engineer who has already led Claude adoption at a customer and ships Claude apps. This map is how he becomes the person who fills that gap.</p>
+    <p class="thesis">Every public Anthropic science case study is in biology or pharma. Its newest bets point at the physical world: the Model Hardware Standard, Claude Science, and $150M for DOE Genesis. Nobody has yet shown Claude doing materials, climate or hardware well. Connor is a materials and mechanical engineer who has already led Claude adoption at a customer and ships Claude apps. This map is how he becomes the person who fills that gap.</p>
   </div>
   <div class="tb-meta">
-    <div><b>Drawn for</b>Calder (placeholder name)</div>
+    <div><b>Drawn for</b>Connor</div>
     <div><b>Background</b>MS Mech E · BS Materials Science</div>
     <div><b>Target</b>Applied AI Associate, 6-month rotation</div>
     <div><b>Date</b>2026-10-12</div>
@@ -180,13 +180,15 @@ footer{margin-top:48px;border-top:1.5px solid var(--ink);padding-top:12px;font-f
   </div>
 </header>
 
+<p class="quote">"Anthropic has shown Claude designing proteins. I want to help it discover a material, and I'd start with the iridium bottleneck in green hydrogen, because there verification can be automated and the payoff is decarbonizing heavy industry."</p>
+
 <div class="howto">
   <span><b>Across:</b> five levels, from fundamentals to a decade-scale agent.</span>
   <span><b>Down:</b> six tracks that run through every level.</span>
   <span><b>Click any node</b> to open it. Each one passes three checks:</span>
   <span class="tag">ROLE</span><span>a JD bullet it proves</span>
   <span class="tag">ANTHROPIC</span><span>a product, bet or value</span>
-  <span class="tag">CALDER</span><span>his own history</span>
+  <span class="tag">CONNOR</span><span>his own history</span>
 </div>
 
 <section class="map-wrap" aria-label="Skill map">
@@ -240,12 +242,10 @@ footer{margin-top:48px;border-top:1.5px solid var(--ink);padding-top:12px;font-f
       </ul>
     </div>
   </div>
-  <p class="quote">"Anthropic has shown Claude designing proteins. I want to help it discover a material, and I'd start with the iridium bottleneck in green hydrogen, because there verification can be automated and the payoff is decarbonizing heavy industry."</p>
 </section>
 
 <footer>
   <span>Compiled 2026-10-12 from Anthropic's own pages, docs and engineering blog, plus press where noted</span>
-  <span>Calder is a placeholder name</span>
 </footer>
 
 </div>
@@ -534,7 +534,7 @@ function drawer(key){
   h+='</div><div class="dr-side"><span class="label">Why it matters</span><div class="why">'+
     '<div><span class="tag">ROLE</span><span>'+d.r+'</span></div>'+
     '<div><span class="tag">ANTHROPIC</span><span>'+d.a+'</span></div>'+
-    '<div><span class="tag">CALDER</span><span>'+d.c+'</span></div></div>'+
+    '<div><span class="tag">CONNOR</span><span>'+d.c+'</span></div></div>'+
     '<span class="label">Sources</span><ol class="src">'+d.src.map(function(s,i){return '<li><span>['+(i+1)+']</span><a href="'+s[1]+'" target="_blank" rel="noopener">'+s[0]+'</a></li>';}).join('')+'</ol></div>';
   w.innerHTML=h;
   w.querySelectorAll('[data-go]').forEach(function(btn){btn.addEventListener('click',function(){var g=btn.getAttribute('data-go');if(g){toggle(g,true);}else{var k=open;toggle(open);var c=document.getElementById('c-'+k);if(c)c.focus();}});});
