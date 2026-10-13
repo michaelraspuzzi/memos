@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shadow Apprentice Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an engineering drawing sheet. Title block, then an X/Y skill map (levels across, tracks down); clicking a node opens its detail drawer inside the map. Light only. */
+:root{
+  color-scheme:light;
+  --paper:#f3f5f4;
+  --sheet:#ffffff;
+  --ink:#1b2128;
+  --ink-2:#56616d;
+  --rule:#d6dbd8;
+  --grid:rgba(35,80,184,.055);
+  --cobalt:#2350b8;
+  --cobalt-soft:#e8edf9;
+  --t-build:#2350b8; --t-package:#13808a; --t-verify:#b7791f; --t-customer:#7a4fb0; --t-science:#2f7a52; --t-mission:#b0532b;
+  --display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{background:var(--paper)}
+body{
+  background:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;
+  margin:0;color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;
+}
+.wrap{max-width:1280px;margin:0 auto;padding-inline:20px;padding-block:28px 64px}
+a{color:var(--cobalt);text-underline-offset:2px}
+:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.05}
+p{margin:0}
+code,.mono{font-family:var(--mono);font-size:.88em}
+
+/* Title block */
+.titleblock{background:var(--sheet);border:1.5px solid var(--ink);display:grid;grid-template-columns:minmax(0,1fr) 280px}
+.tb-main{padding:26px 28px 24px;border-right:1.5px solid var(--ink);min-width:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.tb-main h1{font-size:clamp(42px,7vw,80px);font-weight:700;margin-top:6px;text-transform:uppercase}
+.tb-main h1 span{color:var(--cobalt)}
+.thesis{margin-top:14px;max-width:68ch;font-size:16.5px}
+.tb-meta{display:flex;flex-direction:column;font-family:var(--mono);font-size:12.5px}
+.tb-meta div{padding:10px 14px;border-bottom:1px solid var(--rule);display:flex;flex-direction:column;gap:2px;flex:1}
+.tb-meta div:last-child{border-bottom:0}
+.tb-meta b{font-weight:500;color:var(--ink-2);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+
+/* How to read */
+.howto{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:22px;font-size:14px;color:var(--ink-2);align-items:center}
+.howto b{color:var(--ink);font-weight:600}
+.tag{display:inline-flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.05em;padding:2px 7px;border:1px solid var(--ink);color:var(--ink);background:var(--sheet);white-space:nowrap}
+
+/* Map */
+.map-wrap{margin-top:18px;background:var(--sheet);border:1.5px solid var(--ink);padding:14px}
+.map{display:grid;grid-template-columns:132px repeat(5,minmax(0,1fr));gap:8px}
+.arc{grid-column:span 1;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);padding-top:4px}
+.arc.run{grid-column:2 / span 2;border-top:2.5px solid var(--cobalt);color:var(--cobalt)}
+.arc.long{grid-column:4 / span 3;border-top:2.5px dashed var(--ink-2)}
+.corner{font-family:var(--mono);font-size:11px;color:var(--ink-2);display:flex;flex-direction:column;justify-content:flex-end;gap:2px;padding:6px 4px;line-height:1.3}
+.lvl{background:var(--ink);color:var(--sheet);padding:10px 12px;display:flex;flex-direction:column;gap:2px;position:relative}
+.lvl .n{font-family:var(--display);font-size:34px;font-weight:700;line-height:.9}
+.lvl .t{font-family:var(--display);font-size:19px;font-weight:600;text-transform:uppercase;line-height:1.05}
+.lvl .h{font-family:var(--mono);font-size:11px;opacity:.8}
+.lvl.l5{background:var(--cobalt)}
+.track{display:flex;flex-direction:column;justify-content:center;gap:3px;padding:8px 4px 8px 12px;border-left:5px solid var(--tc)}
+.track .tn{font-family:var(--display);font-size:20px;font-weight:700;text-transform:uppercase;color:var(--tc);line-height:1}
+.track .td{font-size:12px;color:var(--ink-2);line-height:1.3}
+
+.cell{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:6px;padding:11px 12px 10px;background:var(--sheet);border:1px solid var(--rule);min-height:128px;min-width:0;position:relative;transition:border-color .12s,background .12s,transform .12s}
+.cell:hover{border-color:var(--tc);transform:translateY(-2px)}
+.cell:focus-visible{outline:2px solid var(--tc);outline-offset:2px}
+.cell .code{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;color:var(--ink-2);letter-spacing:.04em}
+.cell .code i{width:9px;height:9px;background:var(--tc);display:inline-block}
+.cell .ct{font-family:var(--display);font-size:19px;font-weight:600;line-height:1.08;color:var(--ink)}
+.cell .ch{font-size:12.5px;color:var(--ink-2);line-height:1.38}
+.cell .chips{margin-top:auto;display:flex;flex-wrap:wrap;gap:4px}
+.chip{font-family:var(--mono);font-size:10.5px;padding:1px 6px;background:var(--paper);color:var(--ink-2);border:1px solid var(--rule)}
+.chip.star{background:var(--tc);color:#fff;border-color:var(--tc)}
+.cell[aria-expanded="true"]{border:2px solid var(--tc);background:color-mix(in srgb,var(--tc) 7%,white);transform:none}
+.cell[aria-expanded="true"]::after{content:"";position:absolute;left:50%;bottom:-10px;width:14px;height:14px;background:var(--tc);transform:translateX(-50%) rotate(45deg)}
+.lvl.mobile{margin-top:10px}
+
+/* Drawer */
+.drawer{grid-column:1/-1;border:2px solid var(--tc);background:var(--sheet);margin-block:4px 10px;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);animation:open .18s ease-out}
+@keyframes open{from{opacity:.4;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.dr-head{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;padding:14px 18px;border-bottom:1px solid var(--rule);background:color-mix(in srgb,var(--tc) 8%,white)}
+.dr-head .code{font-family:var(--mono);font-size:12px;color:var(--tc);font-weight:500}
+.dr-head h3{font-size:28px;font-weight:700;text-transform:uppercase}
+.dr-head .time{font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+.dr-nav{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.btn{font-family:var(--mono);font-size:12px;padding:6px 10px;border:1px solid var(--ink);background:var(--sheet);color:var(--ink);cursor:pointer}
+.btn:hover{background:var(--ink);color:var(--sheet)}
+.btn[disabled]{opacity:.35;cursor:default;background:var(--sheet);color:var(--ink)}
+.dr-body,.dr-side{padding:16px 18px 18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.dr-side{border-left:1px solid var(--rule);background:#fafbfa}
+.dr-body ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.label{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.out{border:1px dashed var(--tc);padding:10px 12px;font-size:14.5px}
+.out b{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--tc);display:block;margin-bottom:2px;font-weight:500}
+.callout{background:var(--cobalt-soft);border-left:3px solid var(--cobalt);padding:10px 12px;font-size:14.5px}
+.why{display:flex;flex-direction:column;gap:8px}
+.why div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px;align-items:start;font-size:14px;line-height:1.45}
+.src{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:5px;font-size:13.5px;line-height:1.4}
+.src li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:4px}
+.src li span{font-family:var(--mono);font-size:11px;color:var(--ink-2);padding-top:1px}
+.src a{overflow-wrap:anywhere}
+.agents{width:100%;border-collapse:collapse;font-size:13.5px}
+.agents th,.agents td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--rule);vertical-align:top}
+.agents th{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);font-weight:500}
+.agents td:first-child{font-weight:600;white-space:nowrap}
+.scroll{overflow-x:auto}
+
+/* Sections below map */
+.sec{margin-top:48px}
+.sec-head{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;border-bottom:1.5px solid var(--ink);padding-bottom:8px}
+.sec-head h2{font-size:30px;text-transform:uppercase}
+.sec-head .sub{font-family:var(--mono);font-size:12px;color:var(--ink-2);margin-left:auto}
+.sched{width:100%;border-collapse:collapse;margin-top:14px;background:var(--sheet);border:1.5px solid var(--ink);font-size:15px}
+.sched th,.sched td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+.sched th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);font-weight:500}
+.sched td.hr{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.sched td.chk{width:1%}
+.sched tr:last-child td{border-bottom:0}
+.sched tr.done td:not(.chk){color:var(--ink-2);text-decoration:line-through}
+.jump{all:unset;cursor:pointer;font-family:var(--mono);font-size:12px;color:var(--cobalt);text-decoration:underline;text-underline-offset:2px}
+input[type=checkbox]{width:18px;height:18px;accent-color:var(--cobalt);cursor:pointer}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-top:16px}
+.panel{background:var(--sheet);border:1px solid var(--rule);padding:18px}
+.panel h3{font-size:22px;font-weight:600;text-transform:uppercase;margin-bottom:10px}
+.panel ol,.panel ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:15px}
+.ts{font-family:var(--mono);font-size:12px;color:var(--cobalt)}
+.quote{font-family:var(--display);font-size:clamp(22px,3vw,32px);font-weight:500;line-height:1.2;margin-top:16px;padding:20px 24px;background:var(--cobalt);color:#fff;text-wrap:balance}
+footer{margin-top:48px;border-top:1.5px solid var(--ink);padding-top:12px;font-family:var(--mono);font-size:12px;color:var(--ink-2);display:flex;flex-wrap:wrap;gap:6px 18px}
+
+@media (max-width:900px){
+  .titleblock{grid-template-columns:1fr}
+  .tb-main{border-right:0;border-bottom:1.5px solid var(--ink)}
+  .tb-meta{display:grid;grid-template-columns:1fr 1fr}
+  .tb-meta div{border-right:1px solid var(--rule)}
+  .map{grid-template-columns:1fr}
+  .map-wrap{padding:10px}
+  .cell{min-height:0}
+  .cell[aria-expanded="true"]::after{display:none}
+  .drawer{grid-template-columns:1fr}
+  .dr-side{border-left:0;border-top:1px solid var(--rule)}
+  .dr-nav{margin-left:0;width:100%}
+  .two{grid-template-columns:1fr}
+  .sec-head .sub{margin-left:0;width:100%}
+}
+@media (max-width:480px){
+  .why div{grid-template-columns:1fr;gap:3px}
+  .why .tag{justify-self:start}
+  .tb-main{padding:22px 18px}
+}
+@media (prefers-reduced-motion:reduce){.cell,.drawer{transition:none;animation:none}.cell:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="titleblock">
+  <div class="tb-main">
+    <div class="eyebrow">Drawing set · Applied AI Associate · Anthropic</div>
+    <h1>Shadow <span>Apprentice</span> Map</h1>
+    <p class="thesis">Every public Anthropic science case study is in biology or pharma. Its newest bets point at the physical world: the Model Hardware Standard, Claude Science, and $150M for DOE Genesis. Nobody has yet shown Claude doing materials, climate or hardware well. Calder is a materials and mechanical engineer who has already led Claude adoption at a customer and ships Claude apps. This map is how he becomes the person who fills that gap.</p>
+  </div>
+  <div class="tb-meta">
+    <div><b>Drawn for</b>Calder (placeholder name)</div>
+    <div><b>Background</b>MS Mech E · BS Materials Science</div>
+    <div><b>Target</b>Applied AI Associate, 6-month rotation</div>
+    <div><b>Date</b>2026-10-12</div>
+    <div><b>Rev</b>B · map edition</div>
+  </div>
+</header>
+
+<div class="howto">
+  <span><b>Across:</b> five levels, from fundamentals to a decade-scale agent.</span>
+  <span><b>Down:</b> six tracks that run through every level.</span>
+  <span><b>Click any node</b> to open it. Each one passes three checks:</span>
+  <span class="tag">ROLE</span><span>a JD bullet it proves</span>
+  <span class="tag">ANTHROPIC</span><span>a product, bet or value</span>
+  <span class="tag">CALDER</span><span>his own history</span>
+</div>
+
+<section class="map-wrap" aria-label="Skill map">
+  <div class="map" id="map"></div>
+</section>
+
+<section class="sec" aria-labelledby="sched-h">
+  <div class="sec-head"><h2 id="sched-h">The 24-hour speedrun</h2><span class="sub">Tick boxes are saved in this browser only</span></div>
+  <div class="scroll">
+  <table class="sched">
+    <thead><tr><th></th><th>Hours</th><th>Do</th><th>Output</th><th>Nodes</th></tr></thead>
+    <tbody>
+      <tr><td class="chk"><input type="checkbox" id="h1" aria-label="Hours 0–2 done"></td><td class="hr">0–2</td><td>Mission, safety and constitution reading</td><td>One-page "my take," including his position on helpful AI in education</td><td><button class="jump" data-open="1-mission">1 · Mission</button></td></tr>
+      <tr><td class="chk"><input type="checkbox" id="h2" aria-label="Hours 2–6 done"></td><td class="hr">2–6</td><td>Messages API and agent surfaces</td><td>Working scripts in a <code>claude-fluency/</code> repo</td><td><button class="jump" data-open="1-build">1 · Build</button></td></tr>
+      <tr><td class="chk"><input type="checkbox" id="h3" aria-label="Hours 6–9 done"></td><td class="hr">6–9</td><td>MCP and Skills</td><td>One MCP server and one skill, running</td><td><button class="jump" data-open="1-package">1 · Package</button></td></tr>
+      <tr><td class="chk"><input type="checkbox" id="h4" aria-label="Hours 9–10 done"></td><td class="hr">9–10</td><td>Science landscape and customer craft</td><td>A talking-points card</td><td><button class="jump" data-open="1-science">1 · Science</button></td></tr>
+      <tr><td class="chk"><input type="checkbox" id="h5" aria-label="Hours 10–20 done"></td><td class="hr">10–20</td><td>Ship three demos</td><td>3 public repos with READMEs and 60-second videos</td><td><button class="jump" data-open="2-verify">2 · Verify</button> <button class="jump" data-open="2-package">2 · Package</button> <button class="jump" data-open="2-build">2 · Build</button></td></tr>
+      <tr><td class="chk"><input type="checkbox" id="h6" aria-label="Hours 20–23 done"></td><td class="hr">20–23</td><td>Evals on each demo</td><td>An eval table per README: baseline, then improved</td><td><button class="jump" data-open="1-verify">1 · Verify</button></td></tr>
+      <tr><td class="chk"><input type="checkbox" id="h7" aria-label="Hours 23–24 done"></td><td class="hr">23–24</td><td>Narrative</td><td>5-minute demo script plus a one-pager on Levels 3–5</td><td><button class="jump" data-open="2-customer">2 · Customer</button></td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="kit-h">
+  <div class="sec-head"><h2 id="kit-h">Interview kit</h2><span class="sub">What to show, what to ask, what is still open</span></div>
+  <div class="two">
+    <div class="panel">
+      <h3>5-minute demo</h3>
+      <ol>
+        <li><span class="ts">0:00</span> "I've done Applied AI from the customer side. I took Claude to 100% enterprise adoption at a hydrogen startup."</li>
+        <li><span class="ts">0:30</span> Datasheet Detective: citations, Batch on Haiku, cost per document, the eval table.</li>
+        <li><span class="ts">1:30</span> Skills pack: the DFMEA skill catches a seeded flaw; recall with vs without the skill.</li>
+        <li><span class="ts">2:30</span> Instrument agent: a live device, Claude refusing an out-of-limits command, the fault-injection results.</li>
+        <li><span class="ts">4:00</span> Levels 3 to 5 on one slide. "Life sciences has its connectors. Materials and hardware don't yet. I'd like to build them."</li>
+      </ol>
+    </div>
+    <div class="panel">
+      <h3>Questions to ask</h3>
+      <ul>
+        <li>How does Applied AI work with the hardware-standard and Claude Science teams? Any engagements in manufacturing or materials yet?</li>
+        <li>What did the ART reproducibility episode teach you about deploying discovery agents with customers?</li>
+        <li>With $150M going to Genesis, how much of the rotation could touch national-lab deployments?</li>
+        <li>Where does Applied AI's customer feedback most often change the roadmap?</li>
+      </ul>
+      <h3 style="margin-top:18px">Still to settle</h3>
+      <ul>
+        <li>The Verifier's Law talk slides. They should open the demo.</li>
+        <li>Which device the instrument agent runs on.</li>
+        <li>What past employer material he is allowed to show.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="quote">"Anthropic has shown Claude designing proteins. I want to help it discover a material, and I'd start with the iridium bottleneck in green hydrogen, because there verification can be automated and the payoff is decarbonizing heavy industry."</p>
+</section>
+
+<footer>
+  <span>Compiled 2026-10-12 from Anthropic's own pages, docs and engineering blog, plus press where noted</span>
+  <span>Calder is a placeholder name</span>
+</footer>
+
+</div>
+
+<script>
+(function(){
+var TRACKS=[
+  {k:'build',name:'Build',d:'API, SDK, agents',c:'var(--t-build)'},
+  {k:'package',name:'Package',d:'Skills, MCP, connectors',c:'var(--t-package)'},
+  {k:'verify',name:'Verify',d:'Evals and proof',c:'var(--t-verify)'},
+  {k:'customer',name:'Customer',d:'Discovery, scope, adoption',c:'var(--t-customer)'},
+  {k:'science',name:'Science',d:'AI for materials and climate',c:'var(--t-science)'},
+  {k:'mission',name:'Mission',d:'Safety and the constitution',c:'var(--t-mission)'}
+];
+var LEVELS=[
+  {n:1,t:'Fundamentals',h:'hours 0–10'},
+  {n:2,t:'Ship three demos',h:'hours 10–24'},
+  {n:3,t:'Rung 2: one real project',h:'4–8 weeks'},
+  {n:4,t:'Closed Loop: a startup',h:'1–3 years'},
+  {n:5,t:'Iridium-free: the Nobel agent',h:'a decade'}
+];
+var U={
+  models:['Models overview','https://platform.claude.com/docs/en/about-claude/models/overview'],
+  choose:['Choosing a model','https://platform.claude.com/docs/en/about-claude/models/choosing-a-model'],
+  pricing:['Pricing','https://platform.claude.com/docs/en/about-claude/pricing'],
+  effort:['Effort parameter','https://platform.claude.com/docs/en/build-with-claude/effort'],
+  tools:['Tool use overview','https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview'],
+  structured:['Structured outputs','https://platform.claude.com/docs/en/build-with-claude/structured-outputs'],
+  caching:['Prompt caching','https://platform.claude.com/docs/en/build-with-claude/prompt-caching'],
+  batch:['Batch processing','https://platform.claude.com/docs/en/build-with-claude/batch-processing'],
+  files:['Files API','https://platform.claude.com/docs/en/build-with-claude/files'],
+  citations:['Citations','https://platform.claude.com/docs/en/build-with-claude/citations'],
+  sdk:['Agent SDK overview','https://code.claude.com/docs/en/agent-sdk/overview'],
+  managed:['Managed Agents overview','https://platform.claude.com/docs/en/managed-agents/overview'],
+  hooks:['Claude Code hooks guide','https://code.claude.com/docs/en/hooks-guide'],
+  perms:['Permission modes','https://code.claude.com/docs/en/permission-modes'],
+  subagents:['Subagents','https://code.claude.com/docs/en/sub-agents'],
+  plugins:['Plugins overview','https://code.claude.com/docs/en/plugins/overview'],
+  gha:['Claude Code GitHub Actions','https://code.claude.com/docs/en/github-actions'],
+  skills:['Agent Skills overview','https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview'],
+  skillsbp:['Skill authoring best practices','https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices'],
+  skillsrepo:['anthropics/skills on GitHub','https://github.com/anthropics/skills'],
+  mcpbuild:['Build an MCP server','https://modelcontextprotocol.io/docs/develop/build-server'],
+  mcp:['Model Context Protocol','https://modelcontextprotocol.io'],
+  mcpconn:['MCP connector in the API','https://platform.claude.com/docs/en/agents-and-tools/mcp-connector'],
+  e_agents:['Building effective agents','https://www.anthropic.com/engineering/building-effective-agents'],
+  e_managed:['Scaling Managed Agents','https://www.anthropic.com/engineering/managed-agents'],
+  e_skills:['Equipping agents with Agent Skills','https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills'],
+  e_codemcp:['Code execution with MCP','https://www.anthropic.com/engineering/code-execution-with-mcp'],
+  e_evals:['Demystifying evals for AI agents','https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents'],
+  e_noise:['Infrastructure noise in agentic evals','https://www.anthropic.com/engineering/infrastructure-noise'],
+  e_harness:['Effective harnesses for long-running agents','https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents'],
+  e_harness2:['Harness design for long-running apps','https://www.anthropic.com/engineering/harness-design-long-running-apps'],
+  e_multi:['How we built our multi-agent research system','https://www.anthropic.com/engineering/multi-agent-research-system'],
+  e_auto:['How we built Claude Code auto mode','https://www.anthropic.com/engineering/claude-code-auto-mode'],
+  b_hill:['Automating eval design and hillclimbing','https://claude.dev/blog/automating-eval-design-and-hillclimbing/'],
+  b_automations:['Building effective agent automations','https://claude.dev/blog/building-effective-agent-automations/'],
+  tests:['Define success criteria and build tests','https://platform.claude.com/docs/en/test-and-evaluate/develop-tests'],
+  evaltool:['Console evaluation tool','https://platform.claude.com/docs/en/test-and-evaluate/eval-tool'],
+  wei:['Asymmetry of verification and Verifier’s Law (Jason Wei)','https://www.jasonwei.net/blog/asymmetry-of-verification-and-verifiers-law'],
+  careers:['Anthropic careers and values','https://www.anthropic.com/careers'],
+  assoc:['Associate, Applied AI rotational program (job board mirror)','https://jobs.menlovc.com/companies/anthropic/jobs/93482955-associate-applied-ai-rotational-program-london'],
+  benchling:['Benchling customer story','https://www.anthropic.com/customers/benchling'],
+  lifesci:['Claude for Life Sciences','https://www.anthropic.com/news/claude-for-life-sciences'],
+  lsmarket:['Life sciences plugin marketplace (third-party index)','https://www.claudepluginhub.com/marketplaces/anthropics-life-sciences'],
+  csconn:['Claude Science connectors and skills','https://claude.com/docs/claude-science/connectors-and-skills'],
+  cs_mit:['Claude Science launch (MIT Technology Review)','https://www.technologyreview.com/2026/06/30/1139987/claude-science-is-anthropics-newest-flagship-product/'],
+  cs_hpc:['Claude Science workbench (HPCwire)','https://www.hpcwire.com/aiwire/2026/06/30/anthropic-launches-claude-science-ai-workbench-for-scientific-research/'],
+  mhs:['Model Hardware Standard research preview','https://anthropic.com/news/model-hardware-standard-research-preview'],
+  mhs_eu:['Model Hardware Standard and EU machinery rules (TNW)','https://thenextweb.com/news/anthropic-model-hardware-standard-mhs-eu-machinery-regulation-2027'],
+  aisci:['AI for Science program','https://www.anthropic.com/news/ai-for-science-program'],
+  genesis:['$150M Genesis Mission commitment','https://anthropic.com/news/genesis-mission-commitment'],
+  genesis0:['Genesis Mission partnership with DOE','https://anthropic.com/news/genesis-mission-partnership'],
+  llnl:['LLNL expands Claude for Enterprise','https://anthropic.com/news/lawrence-livermore-national-laboratory-expands-claude-for-enterprise-to-empower-scientists-and'],
+  llnl2:['LLNL introduces Claude facility-wide','https://data-science.llnl.gov/llnl-introduces-anthropic-ai-tool-claude-facility-wide-operations'],
+  protein:['Claude accelerates protein design','https://anthropic.com/research/Claude-accelerates-protein-design'],
+  physics:['Vibe physics','https://anthropic.com/research/vibe-physics'],
+  enzyme:['The contested ART enzyme result (TNW)','https://thenextweb.com/news/anthropic-claude-enzyme-system-crispr-like-repeats'],
+  wetlab:['Anthropic sets up a wet lab (Reuters via Star-Advertiser)','https://www.staradvertiser.com/2026/09/18/breaking-news/anthropic-sets-up-wet-lab-as-it-expands-ai-drug-program/'],
+  biosafe:['Improving Fable 5’s biology safeguards','https://anthropic.com/news/improving-fable-5-s-biology-safeguards'],
+  aup:['Usage Policy','https://www.anthropic.com/legal/aup'],
+  constitution:['Claude’s constitution (full text)','https://www.anthropic.com/constitution'],
+  constnews:['Announcing the new constitution','https://www.anthropic.com/news/claude-new-constitution'],
+  coreviews:['Core Views on AI Safety','https://www.anthropic.com/news/core-views-on-ai-safety'],
+  ltbt:['The Long-Term Benefit Trust','https://www.anthropic.com/news/the-long-term-benefit-trust'],
+  rsp:['Responsible Scaling Policy v3','https://www.anthropic.com/news/responsible-scaling-policy-v3'],
+  asl3:['Activating ASL-3 protections','https://www.anthropic.com/news/activating-asl3-protections'],
+  tracing:['Tracing the thoughts of a language model','https://www.anthropic.com/research/tracing-thoughts-language-model'],
+  faking:['Alignment faking','https://www.anthropic.com/research/alignment-faking'],
+  agentic:['Agentic misalignment','https://www.anthropic.com/research/agentic-misalignment'],
+  molg:['Machines of Loving Grace (Dario Amodei)','https://www.darioamodei.com/essay/machines-of-loving-grace'],
+  adol:['The Adolescence of Technology (Dario Amodei)','https://www.darioamodei.com/essay/the-adolescence-of-technology'],
+  edu:['Claude for Education and Learning Mode','https://www.anthropic.com/news/introducing-claude-for-education'],
+  edurep:['How university students use Claude','https://www.anthropic.com/news/anthropic-education-report-how-university-students-use-claude'],
+  learnall:['Learning modes for all users (Engadget)','https://www.engadget.com/ai/anthropic-brings-claudes-learning-mode-to-regular-users-and-devs-170018471.html'],
+  econ:['Anthropic Economic Index','https://www.anthropic.com/economic-index'],
+  mp:['Materials Project API docs','https://docs.materialsproject.org/'],
+  pymatgen:['pymatgen','https://pymatgen.org/'],
+  onshape:['Onshape developer docs','https://onshape-public.github.io/docs/'],
+  calculix:['CalculiX FEA','https://www.calculix.de/'],
+  minke:['Is iridium demand a bottleneck for PEM electrolysis? (2021)','https://doi.org/10.1016/j.ijhydene.2021.04.174'],
+  irperspective:['Current and future iridium demand for PEM electrolysis (2023)','https://doi.org/10.1016/j.cattod.2023.114140'],
+  nobel:['2025 Nobel Prize in Chemistry: metal-organic frameworks','https://www.nobelprize.org/prizes/chemistry/2025/summary/'],
+  alab:['A-Lab autonomous synthesis paper (Nature, 2023)','https://www.nature.com/articles/s41586-023-06734-w'],
+  alabcrit:['Critique of A-Lab claims (PRX Energy, 2024)','https://journals.aps.org/prxenergy/abstract/10.1103/PRXEnergy.3.011002']
+};
+function S(){return Array.prototype.map.call(arguments,function(k){return U[k];});}
+
+var AGENTS='<div class="scroll"><table class="agents"><thead><tr><th>Agent</th><th>Job</th><th>Surface</th></tr></thead><tbody>'+
+'<tr><td>Literature</td><td>Reads 50 years of oxygen-evolution papers, proposes mechanisms and candidate families with citations</td><td>Claude Science, citations</td></tr>'+
+'<tr><td>Screener</td><td>DFT and ML-potential screens for stability and activity, run on HPC</td><td>Materials connector, code execution</td></tr>'+
+'<tr><td>Synthesis planner</td><td>Turns candidates into recipes for a robotic synthesis line</td><td>Skills</td></tr>'+
+'<tr><td>Lab operator</td><td>Drives the robots, XRD and electrochemistry station within safety limits</td><td>Hardware standard, MCP, hooks</td></tr>'+
+'<tr><td>Analyst</td><td>Parses results and updates a Bayesian model of where to look next</td><td>Managed Agents (runs for weeks)</td></tr>'+
+'<tr><td>Skeptical reviewer</td><td>Demands replicates, checks for dissolution and electrode drift</td><td>Reviewer pattern, pass^k</td></tr>'+
+'<tr><td>Human PI</td><td>Approves hypotheses, safety limits and every public claim</td><td>The corrigibility dial</td></tr>'+
+'</tbody></table></div>';
+
+var C={
+'1-build':{t:'The API and four ways to build agents',h:'Messages API depth, then the four agent surfaces',time:'5.5 hrs',
+ body:['Opus 5.5 (<code>claude-opus-5-5</code>) is the default. Depth is set with <code>effort</code>; <code>budget_tokens</code> now errors.','Tool use with parallel calls and <code>is_error</code>. Structured outputs with <code>messages.parse()</code>. Streaming.','Prompt caching (check <code>cache_read_input_tokens &gt; 0</code>), Batch on Haiku 5.5, the Files API with citations, server tools.','Gotchas: forcing a specific tool errors on 5.5 models, and prefill is gone.','Four surfaces: your own loop, the Tool Runner, the Agent SDK (subagents, hooks, MCP, permissions), and Managed Agents (hosted sessions, credential vaults, scheduled runs, $0.08 per session-hour).'],
+ out:'Scripts in a <code>claude-fluency/</code> repo, with materials-flavored practice tools like <code>lookup_material()</code> and <code>compute_stress()</code>.',
+ r:'"Build production-ready agents and solutions using the Claude SDK and API"',a:'The core platform every customer touches',c:'He already ships a production Claude app. The gap is the raw API underneath it.',
+ src:S('models','effort','tools','structured','caching','citations','sdk','managed','e_agents','e_managed')},
+'1-package':{t:'Skills and MCP',h:'How expertise and tools get packaged for Claude',time:'1.5 hrs',
+ body:['The SKILL.md format loads in stages: metadata, then the body, then bundled files. Tune when it triggers with skill-creator.','Skills work in the API (with code execution), in Claude Code and in claude.ai.','MCP spec 2026-07-28. The Python server class is <code>MCPServer</code>; older tutorials say <code>FastMCP</code>. The API connector calls tools on remote servers only.','Code execution with MCP: one example went from about 150K tokens to 2K.'],
+ out:'One MCP server with two tools, connected to Claude Code, plus one custom skill.',
+ r:'"Build... Claude Skills"',a:'Life Sciences launched with connectors and skills. Materials and hardware have none yet.',c:'His open-source Claude Code template for hardware teams is a skill pack waiting to be extracted.',
+ src:S('skills','skillsbp','skillsrepo','e_skills','mcpbuild','mcpconn','e_codemcp')},
+'1-verify':{t:'Evals',h:'The skill that sets him apart',time:'woven through',star:'Key skill',
+ body:['Task, trial, grader, outcome. pass@k means any of k tries succeeds; pass^k means all k do.','Code graders, LLM judges, human graders. Start with 20–50 tasks taken from real failures.','Hill-climb on a train split. Keep a change only if the held-out split improves too.','Measure infrastructure noise before trusting a small score difference.','Tools: <code>/claude-api build-eval</code>, <code>/claude-api hillclimb</code>, the Console eval tool.'],
+ call:'His newsletter essay on benchmarks already is an eval design. Rung 1: can the model operate CAD. Rung 2: can it judge its own design. Rung 3: can it verify the part after it is made.',
+ r:'"Develop evaluation frameworks for their AI implementations"',a:'Anthropic publishes its eval methods and expects Applied AI to bring them to customers.',c:'His benchmarks-as-ladder-rungs essay.',
+ src:S('e_evals','b_hill','e_noise','tests','evaltool','wei')},
+'1-customer':{t:'Customer craft',h:'Discovery calls, POC scoping, cost math',time:'30 min',
+ body:['Discovery: current workflow, pain, success criteria, data access, security and retention needs, who decides.','Cost a POC: tokens per task × model × effort, minus caching and batch savings.','Know the program: six months, starting with shadowing and ending in a placement in Applied AI Architecture or Engineering.'],
+ call:'His best interview story: at a hydrogen startup he took Claude to 100% enterprise adoption, co-wrote the AI policy and built an agentic inventory system. Tell it as a case study with numbers.',
+ r:'"Conduct technical discovery calls" and "synthesize technical feedback"',a:'Applied AI is Anthropic’s forward-deployed engineering arm.',c:'He has already been the champion on the customer side.',
+ src:S('pricing','choose','e_multi','assoc','careers')},
+'1-science':{t:'The AI-for-science landscape',h:'Where Anthropic’s science bets are heading',time:'30 min',
+ body:['Oct 2025: Claude for Life Sciences (Benchling, 10x and PubMed connectors; an scRNA-QC skill).','Jun 2026: Claude Science, a multi-agent research workbench with a reviewer agent.','Aug 2026: Model Hardware Standard. It blocked 6 of 6 induced faults in CMU’s tests.','Aug–Sep 2026: protein binders for 14 of 15 targets; the ART enzyme result, which 0 of 10 reruns reproduced; an Anthropic wet lab.','Oct 8, 2026: $150M to DOE Genesis. AI for Science credits go up to $20K.','Dual-use biology is routed to a weaker model. Materials and climate work avoids that friction.'],
+ r:'"Genuine enthusiasm for AI," with substance',a:'Every public case study is in bio or pharma, so the materials gap is open.',c:'Autonomous R&amp;D for climate and health is his stated first focus.',
+ src:S('lifesci','cs_mit','mhs','protein','enzyme','wetlab','genesis','aisci','biosafe')},
+'1-mission':{t:'Mission, safety and the constitution',h:'The why behind every product decision',time:'2 hrs',
+ body:['Core Views on AI Safety, the Long-Term Benefit Trust, and the seven company values.','Responsible Scaling Policy v3 (Feb 2026) and ASL-3 activation (May 2025).','Tracing the thoughts, Alignment faking, Agentic misalignment.','Dario’s <em>Machines of Loving Grace</em> and <em>The Adolescence of Technology</em>.','The constitution: broadly safe, then broadly ethical, then guidelines, then genuinely helpful. Seven hard constraints. The corrigibility dial. The "brilliant friend." Epistemic autonomy.'],
+ call:'His essay on tutoring argues that unrestrained helpful, honest, harmless AI erodes learning. The constitution partly answers this (wellbeing over engagement, epistemic autonomy), and Learning Mode is the product version. Prepare a three-minute position: where it agrees, where it falls short, what he would measure.',
+ r:'"Carry and represent Anthropic’s mission"',a:'The constitution is the final authority on how Claude behaves.',c:'AI’s effect on human learning is one of his four focus areas.',
+ src:S('constitution','constnews','coreviews','ltbt','rsp','asl3','tracing','faking','agentic','molg','adol','edu','careers')},
+
+'2-build':{t:'Instrument agent',h:'Claude runs a real device inside hard safety limits',time:'≈4 hrs',star:'Demo · showstopper',
+ body:['A Python MCP server for a device he owns: his algae bioreactor (pH, temperature, light, pump), a 3D printer, or a Raspberry Pi rig.','A plain-language device reference file, as the hardware standard specifies: what it measures, what can be adjusted, its safety limits.','An Agent SDK <code>PreToolUse</code> hook enforces the limits before anything moves. A human approves irreversible actions.','Fault-injection tests in the style of CMU’s 6-of-6 result.'],
+ out:'Demo: "Keep the culture at pH 7.2 overnight and tell me if growth stalls." Then Claude refuses an out-of-limits command and explains why.',
+ r:'"Create demo environments and technical proof-of-concepts"',a:'The Model Hardware Standard is Anthropic’s newest physical-world bet; Raspberry Pi is a named early adopter.',c:'Hardware plus software is his rare combination, and the bioreactor makes it memorable.',
+ src:S('mhs','sdk','hooks','perms','mcpbuild')},
+'2-package':{t:'Hardware Skills pack',h:'His team template, split into installable skills',time:'≈3 hrs',star:'Demo',
+ body:['Package as a Claude Code plugin: <code>dfmea</code>, <code>gdt-drawing-review</code>, <code>fea-sanity-check</code>, <code>materials-selection</code>, <code>eng-log</code>.','The agent may never mark a source as verified on its own. Only a human can.'],
+ out:'Eval: 15 seeded design flaws. Recall with the skills vs without them.',
+ r:'"Build... Claude Skills"',a:'The hardware counterpart of the life-sciences skills.',c:'Built from real device work at a surgical-device startup and a hydrogen startup.',
+ src:S('skills','skillsbp','plugins','skillsrepo','csconn','lsmarket')},
+'2-verify':{t:'Datasheet Detective',h:'Cited properties out of messy datasheets',time:'≈3 hrs',star:'Demo · ship first',
+ body:['Drop in material and component datasheets. Claude extracts structured properties with citations to the page.','It flags what each datasheet leaves out or contradicts.','The bulk run uses Batch on Haiku 5.5. Hard cases go to Opus 5.5.'],
+ out:'Eval: 30 hand-labeled sheets. Field accuracy, citation validity, invented-value rate, cost per document by model.',
+ r:'"Production-ready solutions," with API depth and cost math',a:'The constitution’s calibrated honesty, turned into a product feature.',c:'He has written about what datasheets leave out.',
+ src:S('files','citations','structured','batch','tests')},
+'2-customer':{t:'Architecture memo',h:'A one-page recommendation for a plausible account',time:'≈1.5 hrs',
+ body:['Pick a plausible account, such as a robot-arm maker piloting the hardware standard.','Which surface (API loop, Tool Runner, Agent SDK, Managed Agents) and why. Hosting, data retention, time to POC.','A cost table: cost per task on Haiku, Sonnet and Opus at two effort levels, with caching.','A two-week POC plan with success criteria agreed up front.'],
+ r:'"Help customers design scalable architectures"',a:'Mirrors how Applied AI scopes work alongside Solutions Architects.',c:'He has made this exact decision from the buyer’s side.',
+ src:S('managed','sdk','pricing','choose','e_managed')},
+'2-science':{t:'Claude for Materials connector',h:'Materials Project as an MCP server plus a skill',time:'≈3 hrs',star:'Backup demo',
+ body:['An MCP server wrapping the Materials Project API with pymatgen: the materials version of the ChEMBL and Open Targets connectors.','A paired skill screens candidates under constraints, cites every value, and labels each one computed or recalled.','Demo query: earth-abundant oxides for oxygen evolution, stable in acid, with band gap and energy above hull.'],
+ out:'Eval: 20 questions with known answers. Exact-value accuracy and hallucination rate.',
+ r:'A connector a customer could use the same day',a:'Fills the materials gap and feeds the Genesis national-lab story.',c:'BS in Materials Science and a battery pilot-plant internship. It sets up Level 5.',
+ src:S('mp','pymatgen','csconn','lifesci','genesis0')},
+'2-mission':{t:'Learning-harness eval',h:'Does the tutor give the answer away?',time:'≈2 hrs',star:'Optional',
+ body:['Measure answer leakage when Claude tutors thermodynamics.','Compare default prompting, Learning Mode-style prompting, and his own tutor app’s harness.','Metrics: leakage rate, whether the student’s next attempt improves, turns until frustration.'],
+ r:'Eval design',a:'Learning Mode, epistemic autonomy, and the Economic Index’s augmentation-vs-automation lens.',c:'Turns his critique into data, which is how to disagree well at Anthropic.',
+ src:S('edu','edurep','learnall','econ','constitution')},
+
+'3-build':{t:'The design-review agent',h:'Reviews real parts before they reach EVT',time:'4–8 weeks',
+ body:['A Claude Code plugin that also runs as a Managed Agent.','Inputs: Onshape models through its REST API, drawings, BOMs, requirements and a risk register.','Tools: the Level 2 skills, quick FEA in CalculiX, the materials connector.','A reviewer subagent checks every report before a human sees it.'],
+ r:'"Build production-ready agents"',a:'The generator-plus-evaluator harness Anthropic uses for long-running work.',c:'Rung 2 of his own ladder: judging whether a design is right.',
+ src:S('managed','subagents','e_harness2','onshape','calculix')},
+'3-package':{t:'Open-source plugin and skills',h:'Assets other teams can install',
+ body:['Publish the plugin, the skills and an example project.','CI with Claude Code GitHub Actions. A changelog driven by misses users report.'],
+ r:'"Develop scalable internal and customer-facing technical assets"',a:'Skills and plugins are how Anthropic expects expertise to spread.',c:'Extends his existing open-source template.',
+ src:S('plugins','skills','gha','skillsrepo')},
+'3-verify':{t:'An eval built from real failures',h:'Every reported miss becomes a test',star:'Key proof',
+ body:['Each miss becomes a test case: the crack, the tolerance stack, the undercut that can’t be molded.','Report pass@k and pass^k on train and held-out splits.','Track cost per review across models and effort levels.'],
+ r:'"Develop evaluation frameworks"',a:'<em>Demystifying evals</em>: start from real failures.',c:'Turns his benchmark thesis into a working benchmark.',
+ src:S('e_evals','b_hill','e_noise')},
+'3-customer':{t:'5–10 design-partner teams',h:'A full Applied AI engagement, end to end',
+ body:['Recruit from his newsletter’s ~20k readers, his university founder-fellows network, and a computational-design conference he helps run. A surgical-device startup he works with is the first partner.','A discovery call with each team, then a weekly feedback loop with a log of every miss.','Adoption metrics: reviews per week, share of flagged issues accepted, issues caught before EVT.'],
+ r:'"Conduct technical discovery calls" and "provide technical troubleshooting"',a:'The same arc as a real customer engagement and write-up.',c:'Distribution he already has.',
+ src:S('benchling','b_automations')},
+'3-science':{t:'Publish the results',h:'"Can Claude climb Rung 2?"',
+ body:['A newsletter essay: six weeks of design reviews with 8 hardware teams, failures included.','Written the way Anthropic writes up its own science work, with the limits stated as plainly as the wins.'],
+ r:'"Document and share best practices"',a:'Matches Anthropic’s own science write-ups.',c:'His newsletter, with real data behind it.',
+ src:S('physics','protein')},
+'3-mission':{t:'Humans verify, Anthropic hears back',h:'Guardrails, plus a feedback memo',
+ body:['Only a human can mark a requirement verified. Every claim is labeled computed, cited or judgment.','A product-feedback memo to Anthropic: where 3D reasoning fails, which connectors are missing, what the hardware standard needs for shop equipment.'],
+ r:'"Synthesize technical feedback to inform the product roadmap"',a:'The constitution’s honesty and oversight principles, in a product.',c:'The no-self-verification rule already in his template.',
+ src:S('constitution','e_auto','mhs')},
+
+'4-build':{t:'Design, simulate, fabricate, test',h:'One agentic loop for engineering teams',time:'1–3 years',
+ body:['Claude proposes design variants through CAD APIs.','FEA and CFD are set up and checked automatically.','Print and CNC jobs go to the shop’s own machines. Instrumented rigs report results back.','Runs for days as a Managed Agent, with credentials in a vault.'],
+ r:'Architecture judgment at product scale',a:'A flagship customer story for Managed Agents and the hardware standard.',c:'Design, prototyping and reliability testing are his day job.',
+ src:S('e_managed','e_harness','mhs')},
+'4-package':{t:'Drivers for the shop floor',h:'Modernize the shops that already exist',
+ body:['Hardware-standard drivers and reference files for common machines: printers, small CNC, load frames, thermal chambers.','Upgrade existing high-mix machine shops rather than build new automated factories.'],
+ r:'"Develop scalable technical assets"',a:'Anthropic plans to open-source the standard after the preview, and EU machinery rules arrive in 2027.',c:'His newsletter thesis that factories need a modernization layer.',
+ src:S('mhs','mhs_eu','mcp')},
+'4-verify':{t:'The moat is verification data',h:'His Verifier’s Law, made into a company',star:'Core insight',
+ body:['AI automates whatever is cheap to verify. In software, verification is nearly free. In hardware it is the bottleneck.','Every loop pairs a design with what happened when it was built and tested. Frontier labs lack this data.'],
+ r:'Shows the product judgment the program grooms associates for',a:'Physical-world evals for Rung 3 are something Anthropic does not yet have.',c:'His Verifier’s Law talk.',
+ src:S('wei','e_evals')},
+'4-customer':{t:'Beachhead and risks',h:'Medical devices first, then climate hardware',
+ body:['Start with medical-device startups, where regulators already require verification records. Then climate hardware.','Risks: CAD vendors building it themselves, slow hardware sales cycles, liability for verification claims.'],
+ r:'Customer judgment',a:'National labs already use Claude on additive-manufacturing data.',c:'He has worked inside both beachhead markets.',
+ src:S('llnl','llnl2')},
+'4-science':{t:'Alternate bets',h:'Two other companies on the same path',
+ body:['A shared representation across mesh, B-Rep and implicit geometry, so CAD, simulation and ML stop translating between formats.','A tutor for junior engineers that trains them instead of replacing them.'],
+ r:'Novel ideation, per the JD’s builder-mindset bullet',a:'Augmentation over automation, as the Economic Index frames it.',c:'His essays on design spaces and on learning.',
+ src:S('econ')},
+'4-mission':{t:'Sign-off, not certification',h:'A named engineer stays accountable',
+ body:['The product never certifies a part. A named engineer signs off, with a full audit trail of what the agent did and why.','Agents get staged autonomy, widening as their track record grows.'],
+ r:'Represent the mission with customers',a:'The corrigibility dial, and research on agents under goal conflict.',c:'Regulated medical-device work taught him why this matters.',
+ src:S('constitution','agentic','e_auto')},
+
+'5-build':{t:'A seven-agent discovery system',h:'Literature to lab bench, with a skeptic built in',time:'a decade',
+ body:['Seven agents, one human PI. Each agent maps to a Claude surface that exists today.'],extra:AGENTS,
+ r:'Agent architecture at the frontier',a:'Claude Science’s reviewer agent and Anthropic’s multi-agent research pattern.',c:'The same loop as Level 4, pointed at chemistry.',
+ src:S('e_multi','cs_mit','managed')},
+'5-package':{t:'Claude Science + hardware standard + a national lab',h:'The full Anthropic stack on one problem',
+ body:['Claude Science runs analysis on an HPC login node. The hardware standard drives synthesis robots, XRD and an electrochemistry station.','Genesis is funding exactly this kind of lab-scale AI work across 15+ agencies.'],
+ r:'Partner with Field Development Engineers at national-lab scale',a:'Genesis, Claude Science and the hardware standard together.',c:'LLNL already uses Claude on materials and additive-manufacturing data.',
+ src:S('genesis','genesis0','cs_hpc','mhs','llnl')},
+'5-verify':{t:'Reproduce before announcing',h:'Overpotential and stability are machine-measurable',
+ body:['Activity (overpotential at 10 mA/cm²) and stability (hundreds of hours) can be measured by machine. The Verifier’s Law holds.','No claim without independent reruns. Anthropic’s ART result failed 0 of 10 reruns, and LBNL’s 2023 A-Lab claims of 41 new materials were disputed.','A skeptical reviewer agent checks for artifacts such as catalyst dissolution or reference-electrode drift.'],
+ r:'Strong debugging and problem solving',a:'Honesty and calibration, applied to discovery claims.',c:'Reliability testing is his trade.',
+ src:S('enzyme','alab','alabcrit','wei')},
+'5-customer':{t:'Partners and first compute',h:'Who to call first',
+ body:['LBNL and SLAC, close to his alma mater. A Genesis project. AI for Science credits (up to $20K) for the first runs.'],
+ r:'Build relationships across customers and research',a:'The AI for Science program and Genesis are both open doors.',c:'His university network and lab history.',
+ src:S('aisci','genesis','llnl')},
+'5-science':{t:'The iridium bottleneck',h:'An earth-abundant catalyst for acid oxygen evolution',star:'The target',
+ body:['PEM electrolyzers depend on iridium, one of the rarest elements on Earth. That caps green hydrogen, and with it green steel and ammonia.','A durable, earth-abundant replacement would be prize-class. The 2025 Chemistry Nobel went to metal-organic frameworks, a materials discovery.'],
+ r:'Think at the scale of the mission',a:'Climate and materials are the gap in Anthropic’s science story.',c:'Hydrogen startup experience, and decarbonization is a stated focus.',
+ src:S('minke','irperspective','nobel','molg')},
+'5-mission':{t:'Safety envelope, low dual-use',h:'Why this is the cleanest frontier showcase',
+ body:['Hard limits on temperature, potential and gas flow. Human sign-off for any new hazardous chemistry.','Every result labeled measured, simulated or hypothesized.','Catalysis sits far from the areas that trigger the biosecurity classifiers.'],
+ r:'Represent the mission',a:'The Usage Policy, ASL-3 safeguards and the constitution’s hard constraints.',c:'Physical safety design from years of hardware work.',
+ src:S('biosafe','aup','constitution','mhs')}
+};
+
+var mapEl=document.getElementById('map');
+var open=null;
+var mq=window.matchMedia('(max-width:900px)');
+function tr(k){for(var i=0;i<TRACKS.length;i++)if(TRACKS[i].k===k)return TRACKS[i];}
+function el(tag,cls,html){var e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;}
+
+function cell(l,t){
+  var key=l.n+'-'+t.k,d=C[key];
+  var b=el('button','cell');
+  b.style.setProperty('--tc',t.c);
+  b.id='c-'+key;
+  b.setAttribute('aria-expanded',open===key?'true':'false');
+  b.setAttribute('aria-controls','drawer');
+  var chips='';
+  if(d.star)chips+='<span class="chip star">'+d.star+'</span>';
+  if(d.time)chips+='<span class="chip">'+d.time+'</span>';
+  b.innerHTML='<span class="code"><i></i>L'+l.n+' · '+t.name.toUpperCase()+'</span><span class="ct">'+d.t+'</span><span class="ch">'+d.h+'</span>'+(chips?'<span class="chips">'+chips+'</span>':'');
+  b.addEventListener('click',function(){toggle(key);});
+  return b;
+}
+function drawer(key){
+  var parts=key.split('-'),n=+parts[0],t=tr(parts[1]),d=C[key];
+  var w=el('div','drawer');w.id='drawer';w.style.setProperty('--tc',t.c);
+  w.setAttribute('role','region');w.setAttribute('aria-label',d.t);
+  var prev=n>1?(n-1)+'-'+t.k:null,next=n<5?(n+1)+'-'+t.k:null;
+  var h='<div class="dr-head"><span class="code">L'+n+' · '+t.name.toUpperCase()+' · '+LEVELS[n-1].t.toUpperCase()+'</span><h3>'+d.t+'</h3>'+(d.time?'<span class="time">'+d.time+'</span>':'')+
+    '<span class="dr-nav"><button class="btn" data-go="'+(prev||'')+'"'+(prev?'':' disabled')+'>← L'+(n-1>0?n-1:'')+' '+t.name+'</button><button class="btn" data-go="'+(next||'')+'"'+(next?'':' disabled')+'>Next on this track: L'+(n<5?n+1:'')+' →</button><button class="btn" data-go="">Close ✕</button></span></div>';
+  h+='<div class="dr-body"><span class="label">What to do</span><ul>'+d.body.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';
+  if(d.extra)h+=d.extra;
+  if(d.out)h+='<div class="out"><b>Deliverable</b>'+d.out+'</div>';
+  if(d.call)h+='<div class="callout">'+d.call+'</div>';
+  h+='</div><div class="dr-side"><span class="label">Why it matters</span><div class="why">'+
+    '<div><span class="tag">ROLE</span><span>'+d.r+'</span></div>'+
+    '<div><span class="tag">ANTHROPIC</span><span>'+d.a+'</span></div>'+
+    '<div><span class="tag">CALDER</span><span>'+d.c+'</span></div></div>'+
+    '<span class="label">Sources</span><ol class="src">'+d.src.map(function(s,i){return '<li><span>['+(i+1)+']</span><a href="'+s[1]+'" target="_blank" rel="noopener">'+s[0]+'</a></li>';}).join('')+'</ol></div>';
+  w.innerHTML=h;
+  w.querySelectorAll('[data-go]').forEach(function(btn){btn.addEventListener('click',function(){var g=btn.getAttribute('data-go');if(g){toggle(g,true);}else{var k=open;toggle(open);var c=document.getElementById('c-'+k);if(c)c.focus();}});});
+  return w;
+}
+function render(){
+  mapEl.innerHTML='';
+  var narrow=mq.matches;
+  if(!narrow){
+    mapEl.appendChild(el('div','arc',''));
+    mapEl.appendChild(el('div','arc run','The 24-hour speedrun'));
+    mapEl.appendChild(el('div','arc long','The long arc'));
+    mapEl.appendChild(el('div','corner','<span>TRACK ↓</span><span>LEVEL →</span>'));
+    LEVELS.forEach(function(l){mapEl.appendChild(el('div','lvl'+(l.n===5?' l5':''),'<span class="n">'+l.n+'</span><span class="t">'+l.t+'</span><span class="h">'+l.h+'</span>'));});
+    TRACKS.forEach(function(t){
+      var lab=el('div','track','<span class="tn">'+t.name+'</span><span class="td">'+t.d+'</span>');lab.style.setProperty('--tc',t.c);mapEl.appendChild(lab);
+      LEVELS.forEach(function(l){mapEl.appendChild(cell(l,t));});
+      if(open&&open.split('-')[1]===t.k)mapEl.appendChild(drawer(open));
+    });
+  }else{
+    LEVELS.forEach(function(l){
+      mapEl.appendChild(el('div','lvl mobile'+(l.n===5?' l5':''),'<span class="n">'+l.n+'</span><span class="t">'+l.t+'</span><span class="h">'+l.h+'</span>'));
+      TRACKS.forEach(function(t){mapEl.appendChild(cell(l,t));if(open===l.n+'-'+t.k)mapEl.appendChild(drawer(open));});
+    });
+  }
+}
+function toggle(key,focusDrawer){
+  open=(open===key)?null:key;
+  render();
+  if(open){
+    try{history.replaceState(null,'','#c-'+open);}catch(e){}
+    var d=document.getElementById('drawer');
+    if(d){
+      var c=document.getElementById('c-'+open);
+      (focusDrawer?d:(c||d)).scrollIntoView({block:'nearest',behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});
+      if(focusDrawer){var nb=d.querySelector('.btn');if(nb)nb.focus({preventScroll:true});}
+    }
+  }else{try{history.replaceState(null,'',location.pathname+location.search);}catch(e){}}
+}
+var h=(location.hash||'').replace('#c-','');
+if(C[h])open=h;
+render();
+if(mq.addEventListener)mq.addEventListener('change',render);else if(mq.addListener)mq.addListener(render);
+
+document.querySelectorAll('.jump').forEach(function(b){b.addEventListener('click',function(){var k=b.getAttribute('data-open');open=null;toggle(k);var c=document.getElementById('c-'+k);if(c)c.scrollIntoView({block:'center'});});});
+
+var KEY='sam-speedrun-v1',state={};
+try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){state={};}
+document.querySelectorAll('.sched input[type=checkbox]').forEach(function(cb){
+  var row=cb.closest('tr');
+  if(state[cb.id]){cb.checked=true;row.classList.add('done');}
+  cb.addEventListener('change',function(){state[cb.id]=cb.checked;row.classList.toggle('done',cb.checked);try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}});
+});
+})();
+</script>
+</body>
+</html>

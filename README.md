@@ -19,6 +19,10 @@ Start with the [overview](memos/closing-the-source.md): the pattern across all s
 - [Humans vs. Cancer](https://michaelraspuzzi.github.io/memos/salons/ai-cancer-salon.html): why hasn't AI cured cancer yet? With Dr. eMalick Njie of Ecotone AI, October 2026.
 - [The Unbundled PhD](https://michaelraspuzzi.github.io/memos/salons/ai-credentials-salon.html): how do credentials shift in science in the age of AI? Hosted with BioKEA and Claude Community, September 2026.
 
+## Maps
+
+- [Shadow Apprentice Map](https://michaelraspuzzi.github.io/memos/maps/applied-ai-apprentice-map.html): a five-level skill map toward Anthropic's Applied AI Associate role, for a materials engineer drawn to AI for science. October 2026.
+
 ## Editing
 
 Edit the Markdown in `memos/`, run `python3 build.py`, push. Salon pages in `salons/` are standalone HTML. Writing standard: [Founder Memo skill](.codex/skills/founder-memo/SKILL.md).
