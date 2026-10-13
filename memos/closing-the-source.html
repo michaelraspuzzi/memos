@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overview | Memos</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  html { background: #ffffff; }
+  body {
+    background: #ffffff;
+    color: #111111;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .page { max-width: 46em; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.6rem;
+    border-bottom: 1px solid #cccccc;
+  }
+  .bar .home {
+    font-size: 0.85rem;
+    margin-right: auto;
+    color: #555555;
+  }
+  button.act {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 0.85rem;
+    background: #f4f4f2;
+    color: #111111;
+    border: 1px solid #999999;
+    border-radius: 2px;
+    padding: 0.32rem 0.8rem;
+    cursor: pointer;
+  }
+  button.act:hover { background: #e8e8e4; }
+  button.act:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  button.act.done { background: #e6efe6; border-color: #4a7a4a; }
+
+  h1, h2, h3, h4 { font-weight: bold; margin: 0; }
+  h1 { font-size: 2rem; line-height: 1.15; }
+  h2 { font-size: 1.4rem; line-height: 1.2; margin-top: 2.4rem; padding-top: 0.9rem; border-top: 2px solid #111111; }
+  h3 { font-size: 1.1rem; margin-top: 1.6rem; }
+  p { margin: 0.75rem 0 0; }
+  ul, ol { margin: 0.7rem 0 0; padding-left: 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: #111111; }
+  a:hover { color: #7a1c14; }
+  a:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  hr { border: 0; border-top: 1px solid #cccccc; margin: 2rem 0 0; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: #f4f4f2;
+    padding: 0.05em 0.3em;
+    border-radius: 2px;
+  }
+  pre {
+    margin: 1rem 0 0;
+    padding: 1rem;
+    overflow-x: auto;
+    background: #f4f4f2;
+    border: 1px solid #cccccc;
+    line-height: 1.45;
+  }
+  pre code { padding: 0; background: transparent; font-size: 0.78rem; }
+  blockquote {
+    margin: 1rem 0 0;
+    padding: 0.1rem 0 0.1rem 1rem;
+    border-left: 3px solid #999999;
+  }
+  blockquote p { margin-top: 0.4rem; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote em.attrib { font-style: normal; font-size: 0.85rem; color: #555555; }
+
+  figure { margin: 1.35rem 0 0; }
+  figure img { display: block; width: 100%; height: auto; border: 1px solid #cccccc; }
+  figcaption { margin-top: 0.45rem; color: #555555; font-size: 0.82rem; line-height: 1.35; }
+
+  .tablewrap { overflow-x: auto; margin-top: 1.1rem; border: 1px solid #cccccc; }
+  table { border-collapse: collapse; width: 100%; min-width: 34em; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid #cccccc; vertical-align: top; }
+  thead th { background: #f4f4f2; border-bottom: 1px solid #111111; }
+  tbody tr:last-child td { border-bottom: 0; }
+
+  sup.fnref { font-size: 0.68em; line-height: 0; vertical-align: super; }
+  sup.fnref a { text-decoration: none; padding: 0 0.06em; }
+  ol.footnotes { list-style: none; padding-left: 0; margin-top: 1.1rem; font-size: 0.92rem; }
+  ol.footnotes li { position: relative; padding-left: 2.3em; margin-bottom: 0.75rem; }
+  ol.footnotes li .fnnum { position: absolute; left: 0; width: 2em; text-align: right; color: #555555; }
+  ol.footnotes li:target { background: #f4f4f2; }
+
+  .foot { margin-top: 3rem; padding-top: 0.9rem; border-top: 3px double #111111; font-size: 0.85rem; color: #555555; }
+</style>
+</head>
+<body data-slug="closing-the-source">
+<div class="page">
+  <div class="bar">
+    <span class="home"><a href="../index.html">Memos</a></span>
+    <button class="act" id="btn-copy" type="button">Copy for agents</button>
+    <button class="act" id="btn-download" type="button">Download .md</button>
+  </div>
+<h1>Closing the Source: what seventeen memos on open source and credentials have in common</h1>
+<p>Seven memos on open source as a business decision — four companies that closed their code between September 2025 and June 2026, and three that stayed open and are worth more than all four combined — plus ten on credentials and ratings, which are the same problem with a different artifact: who controls the gate, and what the signal is worth once everyone can copy the thing behind it.</p>
+<p>Compiled August 26, 2026. Ratings memos on chess, tennis and esports added August 29, 2026. Memos on Coursera, Udacity, Michelin stars and rating human performance added August 29, 2026.</p>
+<hr>
+<p>The through-line across the ratings memos: <strong>a score is only a credential if someone who does not need your permission can verify it.</strong> FIDE gives the rating away and sells the title, because the title is the part it can refuse. The ATP sells attendance and calls it merit. Blizzard owns the rules, the rating and the servers, so a StarCraft career converts into nothing the player can carry. In each case the price of the number is set by the door it opens, and the accuracy of the number is set by the density of the match graph — two assets that almost never sit in the same company.</p>
+<p>The four memos added on August 29 sharpen the same edge from the supply side. Coursera and Udacity are the two ways to fail at credentials — distribute someone else's and end up owning only the traffic, or issue your own and discover that recognition cannot be manufactured, only rented. Michelin is the one clean solution anybody has found: bill a third party whose interest is that the rating exist and be trusted, never the party being rated. And Codeforces is the new failure mode — a capability rating with nothing attached that it can refuse, saturated by a machine in twenty-four months. Together they give the rule a sharper form: <strong>a rating survives if it certifies membership in a population, and dies if it certifies an ability.</strong></p>
+<p>The through-line with part one: a licence is worth what its issuer can withhold. Open source gives away the artifact and sells the operating burden; a university gives away the lectures and sells admission to practice; a boulder grade is worth nothing until enough people have paid to check it. In all three the asset is the gate, not the thing behind it.</p>
+<p>Each memo covers the model, the founding team, the product, distribution, current numbers, and what to take from it. Every claim is cited. Confidence is high for Cal.com, tldraw, Gemini CLI, ClickHouse, Supabase and n8n. Medium for Meta, which is flagged in the memo body. Revenue figures sourced from third parties rather than the companies are flagged individually.</p>
+<hr>
+<h2>The pattern</h2>
+<p><strong>The stated reason is rarely the operative one.</strong> Cal.com said security. tldraw said sustainability. Google said consolidation. Meta said safety. In all four the operative variable is the same: the cost of giving the artifact away exceeded the distribution value of giving it away. That crossover is predictable. It arrives when the product is good enough that people would pay, and the free channel has already delivered most of the users it will ever deliver.</p>
+<p><strong>The real question is whether you have an operating burden to sell.</strong> ClickHouse gives away a petabyte-scale database engine and charges $250M a year for not being paged at 3am. Supabase ships a Docker Compose file that stands up its entire stack and is worth $10.5B. Neither needed a restrictive license, because in both cases the download and the product are different goods. tldraw is a React SDK. Nobody gets paged for a canvas library, so there is nothing to sell but the code, so the license had to do the work. Ask which one you are before you ask what license to use.</p>
+<p><strong>The application layer closes. Infrastructure holds.</strong> Nothing in the database or observability tier closed this year. Redis and Elastic went the other way and re-added AGPLv3. Closures cluster where the code is the product and there is no hosting margin underneath it: a canvas SDK, a scheduling app, a CLI, a model.</p>
+<p><strong>If you will eventually need a restriction, add it on day one.</strong> n8n put its Sustainable Use License in place in March 2022, when the company was small and the reputational cost was cheap. It gave up the words "open source" and kept everything else: 188,000 stars, 1.7 million monthly builders, a $5.2B valuation. Cal.com and tldraw paid the same bill four years later, at a much worse exchange rate.</p>
+<p><strong>The fork is the price, and it usually goes unpaid.</strong> OpenTofu after Terraform, Valkey after Redis, OpenSearch after Elasticsearch. Those only happen when large corporate users are dependent enough to fund a fork. Cal.com and tldraw sit below that threshold, which is exactly why they could close. The absence of a fork is not community approval. It is community indifference plus switching cost.</p>
+<p><strong>A new variable: your buyer may be an agent.</strong> Over 60 percent of new databases on Supabase are now launched by an AI tool rather than a human. When a coding agent picks your default, what wins is being the most legible, most copyable, best documented option available. Closing the source protects nothing there and costs you the channel.</p>
+<hr>
+<h2>Four questions before you build on someone's open repo</h2>
+<ol><li><strong>Does the vendor have a hosting margin, or is the code the only asset they can sell?</strong> If the code is the only asset, assume it closes.</li><li><strong>Is there a contributor license agreement?</strong> If so, your work can legally become their proprietary product. That is what happened to Gemini CLI's 6,000 contributors.</li><li><strong>Does the tool need a vendor-hosted backend to function?</strong> That is the real chokepoint, not the license text. A fork without model access is worthless.</li><li><strong>Is the last permissively licensed commit forkable and self-sufficient?</strong> If not, you have a dependency, not an option.</li></ol>
+<p>These four would have flagged every closure here in advance.</p>
+<hr>
+<h2>Baseline: the top open source companies</h2>
+<p>The 2026 rankings that get cited most (TrueUp's 40 Hottest, Seedtable's 287-company index, Tracxn's sector view) converge on roughly the same ten names. Ranking lists do not track license status, so the third column is the one that matters.</p>
+<div class="tablewrap"><table><thead><tr><th>Company</th><th>What it is</th><th>License status, Aug 2026</th></tr></thead><tbody>
+<tr><td>Databricks</td><td>Lakehouse; Spark, Delta, MLflow</td><td>Core Apache 2.0, platform proprietary. Open core.</td></tr>
+<tr><td>Hugging Face</td><td>Model and dataset hub</td><td>Apache 2.0 libraries, hosted hub. Open.</td></tr>
+<tr><td>Mistral AI</td><td>Frontier and open-weight models</td><td>Apache 2.0 open models plus commercial tier. Open.</td></tr>
+<tr><td>ClickHouse</td><td>Real-time OLAP database</td><td>Apache 2.0. Open. <a href="memos/clickhouse.html">Memo</a></td></tr>
+<tr><td>Supabase</td><td>Postgres application backend</td><td>Apache 2.0. Open. <a href="memos/supabase.html">Memo</a></td></tr>
+<tr><td>n8n</td><td>Workflow automation</td><td>Fair-code Sustainable Use License. Never OSI approved. <a href="memos/n8n.html">Memo</a></td></tr>
+<tr><td>Grafana Labs</td><td>Observability</td><td>AGPLv3 since 2021. Still open source.</td></tr>
+<tr><td>GitLab</td><td>DevSecOps platform</td><td>MIT community edition plus proprietary EE. Open core.</td></tr>
+<tr><td>HashiCorp (IBM)</td><td>Terraform, Vault, Consul</td><td>BUSL 1.1 since Aug 2023. Unchanged after the $6.4B acquisition.</td></tr>
+<tr><td>Redis and Elastic</td><td>Cache and search</td><td>Both re-added AGPLv3. Reversals, not defections.</td></tr>
+</tbody></table></div>
+<p>Most of the top tier has not closed. RedMonk's March 2026 licensing survey found BUSL and SSPL adoption still does not register at statistically significant levels. These closures are loud, not numerous.</p>
+<h3>Checked and not closed, despite rumor</h3>
+<p>Excalidraw is still MIT. PostHog remains MIT with a proprietary enterprise directory. Sentry has been on the Functional Source License since 2023 and did not move. Discourse published an explicit <a href="https://blog.discourse.org/2026/04/discourse-is-not-going-closed-source/">"we are not going closed source"</a> post in April 2026, in direct response to Cal.com.</p>
+<p><strong>Baseline sources:</strong> <a href="https://redmonk.com/sogrady/2026/03/25/open-source-licensing-2026/">RedMonk, The State of Open Source Licensing in 2026</a> / <a href="https://www.trueup.io/open-source/reports">TrueUp Open Source Report</a> / <a href="https://seedtable.com/best-open-source-startups">Seedtable</a> / <a href="https://tracxn.com/d/sectors/open-source/__86qzqopfw3B9E1ADrcSHQNkYs66EJskfaNi6oSJHuM0/companies">Tracxn</a></p>
+<hr>
+</div>
+<script type="text/plain" id="memo-src">IyBDbG9zaW5nIHRoZSBTb3VyY2U6IHdoYXQgc2V2ZW50ZWVuIG1lbW9zIG9uIG9wZW4gc291cmNlIGFuZCBjcmVkZW50aWFscyBoYXZlIGluIGNvbW1vbgoKU2V2ZW4gbWVtb3Mgb24gb3BlbiBzb3VyY2UgYXMgYSBidXNpbmVzcyBkZWNpc2lvbiDigJQgZm91ciBjb21wYW5pZXMgdGhhdCBjbG9zZWQgdGhlaXIgY29kZSBiZXR3ZWVuIFNlcHRlbWJlciAyMDI1IGFuZCBKdW5lIDIwMjYsIGFuZCB0aHJlZSB0aGF0IHN0YXllZCBvcGVuIGFuZCBhcmUgd29ydGggbW9yZSB0aGFuIGFsbCBmb3VyIGNvbWJpbmVkIOKAlCBwbHVzIHRlbiBvbiBjcmVkZW50aWFscyBhbmQgcmF0aW5ncywgd2hpY2ggYXJlIHRoZSBzYW1lIHByb2JsZW0gd2l0aCBhIGRpZmZlcmVudCBhcnRpZmFjdDogd2hvIGNvbnRyb2xzIHRoZSBnYXRlLCBhbmQgd2hhdCB0aGUgc2lnbmFsIGlzIHdvcnRoIG9uY2UgZXZlcnlvbmUgY2FuIGNvcHkgdGhlIHRoaW5nIGJlaGluZCBpdC4KCkNvbXBpbGVkIEF1Z3VzdCAyNiwgMjAyNi4gUmF0aW5ncyBtZW1vcyBvbiBjaGVzcywgdGVubmlzIGFuZCBlc3BvcnRzIGFkZGVkIEF1Z3VzdCAyOSwgMjAyNi4gTWVtb3Mgb24gQ291cnNlcmEsIFVkYWNpdHksIE1pY2hlbGluIHN0YXJzIGFuZCByYXRpbmcgaHVtYW4gcGVyZm9ybWFuY2UgYWRkZWQgQXVndXN0IDI5LCAyMDI2LgoKLS0tCgpUaGUgdGhyb3VnaC1saW5lIGFjcm9zcyB0aGUgcmF0aW5ncyBtZW1vczogKiphIHNjb3JlIGlzIG9ubHkgYSBjcmVkZW50aWFsIGlmIHNvbWVvbmUgd2hvIGRvZXMgbm90IG5lZWQgeW91ciBwZXJtaXNzaW9uIGNhbiB2ZXJpZnkgaXQuKiogRklERSBnaXZlcyB0aGUgcmF0aW5nIGF3YXkgYW5kIHNlbGxzIHRoZSB0aXRsZSwgYmVjYXVzZSB0aGUgdGl0bGUgaXMgdGhlIHBhcnQgaXQgY2FuIHJlZnVzZS4gVGhlIEFUUCBzZWxscyBhdHRlbmRhbmNlIGFuZCBjYWxscyBpdCBtZXJpdC4gQmxpenphcmQgb3ducyB0aGUgcnVsZXMsIHRoZSByYXRpbmcgYW5kIHRoZSBzZXJ2ZXJzLCBzbyBhIFN0YXJDcmFmdCBjYXJlZXIgY29udmVydHMgaW50byBub3RoaW5nIHRoZSBwbGF5ZXIgY2FuIGNhcnJ5LiBJbiBlYWNoIGNhc2UgdGhlIHByaWNlIG9mIHRoZSBudW1iZXIgaXMgc2V0IGJ5IHRoZSBkb29yIGl0IG9wZW5zLCBhbmQgdGhlIGFjY3VyYWN5IG9mIHRoZSBudW1iZXIgaXMgc2V0IGJ5IHRoZSBkZW5zaXR5IG9mIHRoZSBtYXRjaCBncmFwaCDigJQgdHdvIGFzc2V0cyB0aGF0IGFsbW9zdCBuZXZlciBzaXQgaW4gdGhlIHNhbWUgY29tcGFueS4KClRoZSBmb3VyIG1lbW9zIGFkZGVkIG9uIEF1Z3VzdCAyOSBzaGFycGVuIHRoZSBzYW1lIGVkZ2UgZnJvbSB0aGUgc3VwcGx5IHNpZGUuIENvdXJzZXJhIGFuZCBVZGFjaXR5IGFyZSB0aGUgdHdvIHdheXMgdG8gZmFpbCBhdCBjcmVkZW50aWFscyDigJQgZGlzdHJpYnV0ZSBzb21lb25lIGVsc2UncyBhbmQgZW5kIHVwIG93bmluZyBvbmx5IHRoZSB0cmFmZmljLCBvciBpc3N1ZSB5b3VyIG93biBhbmQgZGlzY292ZXIgdGhhdCByZWNvZ25pdGlvbiBjYW5ub3QgYmUgbWFudWZhY3R1cmVkLCBvbmx5IHJlbnRlZC4gTWljaGVsaW4gaXMgdGhlIG9uZSBjbGVhbiBzb2x1dGlvbiBhbnlib2R5IGhhcyBmb3VuZDogYmlsbCBhIHRoaXJkIHBhcnR5IHdob3NlIGludGVyZXN0IGlzIHRoYXQgdGhlIHJhdGluZyBleGlzdCBhbmQgYmUgdHJ1c3RlZCwgbmV2ZXIgdGhlIHBhcnR5IGJlaW5nIHJhdGVkLiBBbmQgQ29kZWZvcmNlcyBpcyB0aGUgbmV3IGZhaWx1cmUgbW9kZSDigJQgYSBjYXBhYmlsaXR5IHJhdGluZyB3aXRoIG5vdGhpbmcgYXR0YWNoZWQgdGhhdCBpdCBjYW4gcmVmdXNlLCBzYXR1cmF0ZWQgYnkgYSBtYWNoaW5lIGluIHR3ZW50eS1mb3VyIG1vbnRocy4gVG9nZXRoZXIgdGhleSBnaXZlIHRoZSBydWxlIGEgc2hhcnBlciBmb3JtOiAqKmEgcmF0aW5nIHN1cnZpdmVzIGlmIGl0IGNlcnRpZmllcyBtZW1iZXJzaGlwIGluIGEgcG9wdWxhdGlvbiwgYW5kIGRpZXMgaWYgaXQgY2VydGlmaWVzIGFuIGFiaWxpdHkuKioKClRoZSB0aHJvdWdoLWxpbmUgd2l0aCBwYXJ0IG9uZTogYSBsaWNlbmNlIGlzIHdvcnRoIHdoYXQgaXRzIGlzc3VlciBjYW4gd2l0aGhvbGQuIE9wZW4gc291cmNlIGdpdmVzIGF3YXkgdGhlIGFydGlmYWN0IGFuZCBzZWxscyB0aGUgb3BlcmF0aW5nIGJ1cmRlbjsgYSB1bml2ZXJzaXR5IGdpdmVzIGF3YXkgdGhlIGxlY3R1cmVzIGFuZCBzZWxscyBhZG1pc3Npb24gdG8gcHJhY3RpY2U7IGEgYm91bGRlciBncmFkZSBpcyB3b3J0aCBub3RoaW5nIHVudGlsIGVub3VnaCBwZW9wbGUgaGF2ZSBwYWlkIHRvIGNoZWNrIGl0LiBJbiBhbGwgdGhyZWUgdGhlIGFzc2V0IGlzIHRoZSBnYXRlLCBub3QgdGhlIHRoaW5nIGJlaGluZCBpdC4KCkVhY2ggbWVtbyBjb3ZlcnMgdGhlIG1vZGVsLCB0aGUgZm91bmRpbmcgdGVhbSwgdGhlIHByb2R1Y3QsIGRpc3RyaWJ1dGlvbiwgY3VycmVudCBudW1iZXJzLCBhbmQgd2hhdCB0byB0YWtlIGZyb20gaXQuIEV2ZXJ5IGNsYWltIGlzIGNpdGVkLiBDb25maWRlbmNlIGlzIGhpZ2ggZm9yIENhbC5jb20sIHRsZHJhdywgR2VtaW5pIENMSSwgQ2xpY2tIb3VzZSwgU3VwYWJhc2UgYW5kIG44bi4gTWVkaXVtIGZvciBNZXRhLCB3aGljaCBpcyBmbGFnZ2VkIGluIHRoZSBtZW1vIGJvZHkuIFJldmVudWUgZmlndXJlcyBzb3VyY2VkIGZyb20gdGhpcmQgcGFydGllcyByYXRoZXIgdGhhbiB0aGUgY29tcGFuaWVzIGFyZSBmbGFnZ2VkIGluZGl2aWR1YWxseS4KCi0tLQoKIyMgVGhlIHBhdHRlcm4KCioqVGhlIHN0YXRlZCByZWFzb24gaXMgcmFyZWx5IHRoZSBvcGVyYXRpdmUgb25lLioqIENhbC5jb20gc2FpZCBzZWN1cml0eS4gdGxkcmF3IHNhaWQgc3VzdGFpbmFiaWxpdHkuIEdvb2dsZSBzYWlkIGNvbnNvbGlkYXRpb24uIE1ldGEgc2FpZCBzYWZldHkuIEluIGFsbCBmb3VyIHRoZSBvcGVyYXRpdmUgdmFyaWFibGUgaXMgdGhlIHNhbWU6IHRoZSBjb3N0IG9mIGdpdmluZyB0aGUgYXJ0aWZhY3QgYXdheSBleGNlZWRlZCB0aGUgZGlzdHJpYnV0aW9uIHZhbHVlIG9mIGdpdmluZyBpdCBhd2F5LiBUaGF0IGNyb3Nzb3ZlciBpcyBwcmVkaWN0YWJsZS4gSXQgYXJyaXZlcyB3aGVuIHRoZSBwcm9kdWN0IGlzIGdvb2QgZW5vdWdoIHRoYXQgcGVvcGxlIHdvdWxkIHBheSwgYW5kIHRoZSBmcmVlIGNoYW5uZWwgaGFzIGFscmVhZHkgZGVsaXZlcmVkIG1vc3Qgb2YgdGhlIHVzZXJzIGl0IHdpbGwgZXZlciBkZWxpdmVyLgoKKipUaGUgcmVhbCBxdWVzdGlvbiBpcyB3aGV0aGVyIHlvdSBoYXZlIGFuIG9wZXJhdGluZyBidXJkZW4gdG8gc2VsbC4qKiBDbGlja0hvdXNlIGdpdmVzIGF3YXkgYSBwZXRhYnl0ZS1zY2FsZSBkYXRhYmFzZSBlbmdpbmUgYW5kIGNoYXJnZXMgJDI1ME0gYSB5ZWFyIGZvciBub3QgYmVpbmcgcGFnZWQgYXQgM2FtLiBTdXBhYmFzZSBzaGlwcyBhIERvY2tlciBDb21wb3NlIGZpbGUgdGhhdCBzdGFuZHMgdXAgaXRzIGVudGlyZSBzdGFjayBhbmQgaXMgd29ydGggJDEwLjVCLiBOZWl0aGVyIG5lZWRlZCBhIHJlc3RyaWN0aXZlIGxpY2Vuc2UsIGJlY2F1c2UgaW4gYm90aCBjYXNlcyB0aGUgZG93bmxvYWQgYW5kIHRoZSBwcm9kdWN0IGFyZSBkaWZmZXJlbnQgZ29vZHMuIHRsZHJhdyBpcyBhIFJlYWN0IFNESy4gTm9ib2R5IGdldHMgcGFnZWQgZm9yIGEgY2FudmFzIGxpYnJhcnksIHNvIHRoZXJlIGlzIG5vdGhpbmcgdG8gc2VsbCBidXQgdGhlIGNvZGUsIHNvIHRoZSBsaWNlbnNlIGhhZCB0byBkbyB0aGUgd29yay4gQXNrIHdoaWNoIG9uZSB5b3UgYXJlIGJlZm9yZSB5b3UgYXNrIHdoYXQgbGljZW5zZSB0byB1c2UuCgoqKlRoZSBhcHBsaWNhdGlvbiBsYXllciBjbG9zZXMuIEluZnJhc3RydWN0dXJlIGhvbGRzLioqIE5vdGhpbmcgaW4gdGhlIGRhdGFiYXNlIG9yIG9ic2VydmFiaWxpdHkgdGllciBjbG9zZWQgdGhpcyB5ZWFyLiBSZWRpcyBhbmQgRWxhc3RpYyB3ZW50IHRoZSBvdGhlciB3YXkgYW5kIHJlLWFkZGVkIEFHUEx2My4gQ2xvc3VyZXMgY2x1c3RlciB3aGVyZSB0aGUgY29kZSBpcyB0aGUgcHJvZHVjdCBhbmQgdGhlcmUgaXMgbm8gaG9zdGluZyBtYXJnaW4gdW5kZXJuZWF0aCBpdDogYSBjYW52YXMgU0RLLCBhIHNjaGVkdWxpbmcgYXBwLCBhIENMSSwgYSBtb2RlbC4KCioqSWYgeW91IHdpbGwgZXZlbnR1YWxseSBuZWVkIGEgcmVzdHJpY3Rpb24sIGFkZCBpdCBvbiBkYXkgb25lLioqIG44biBwdXQgaXRzIFN1c3RhaW5hYmxlIFVzZSBMaWNlbnNlIGluIHBsYWNlIGluIE1hcmNoIDIwMjIsIHdoZW4gdGhlIGNvbXBhbnkgd2FzIHNtYWxsIGFuZCB0aGUgcmVwdXRhdGlvbmFsIGNvc3Qgd2FzIGNoZWFwLiBJdCBnYXZlIHVwIHRoZSB3b3JkcyAib3BlbiBzb3VyY2UiIGFuZCBrZXB0IGV2ZXJ5dGhpbmcgZWxzZTogMTg4LDAwMCBzdGFycywgMS43IG1pbGxpb24gbW9udGhseSBidWlsZGVycywgYSAkNS4yQiB2YWx1YXRpb24uIENhbC5jb20gYW5kIHRsZHJhdyBwYWlkIHRoZSBzYW1lIGJpbGwgZm91ciB5ZWFycyBsYXRlciwgYXQgYSBtdWNoIHdvcnNlIGV4Y2hhbmdlIHJhdGUuCgoqKlRoZSBmb3JrIGlzIHRoZSBwcmljZSwgYW5kIGl0IHVzdWFsbHkgZ29lcyB1bnBhaWQuKiogT3BlblRvZnUgYWZ0ZXIgVGVycmFmb3JtLCBWYWxrZXkgYWZ0ZXIgUmVkaXMsIE9wZW5TZWFyY2ggYWZ0ZXIgRWxhc3RpY3NlYXJjaC4gVGhvc2Ugb25seSBoYXBwZW4gd2hlbiBsYXJnZSBjb3Jwb3JhdGUgdXNlcnMgYXJlIGRlcGVuZGVudCBlbm91Z2ggdG8gZnVuZCBhIGZvcmsuIENhbC5jb20gYW5kIHRsZHJhdyBzaXQgYmVsb3cgdGhhdCB0aHJlc2hvbGQsIHdoaWNoIGlzIGV4YWN0bHkgd2h5IHRoZXkgY291bGQgY2xvc2UuIFRoZSBhYnNlbmNlIG9mIGEgZm9yayBpcyBub3QgY29tbXVuaXR5IGFwcHJvdmFsLiBJdCBpcyBjb21tdW5pdHkgaW5kaWZmZXJlbmNlIHBsdXMgc3dpdGNoaW5nIGNvc3QuCgoqKkEgbmV3IHZhcmlhYmxlOiB5b3VyIGJ1eWVyIG1heSBiZSBhbiBhZ2VudC4qKiBPdmVyIDYwIHBlcmNlbnQgb2YgbmV3IGRhdGFiYXNlcyBvbiBTdXBhYmFzZSBhcmUgbm93IGxhdW5jaGVkIGJ5IGFuIEFJIHRvb2wgcmF0aGVyIHRoYW4gYSBodW1hbi4gV2hlbiBhIGNvZGluZyBhZ2VudCBwaWNrcyB5b3VyIGRlZmF1bHQsIHdoYXQgd2lucyBpcyBiZWluZyB0aGUgbW9zdCBsZWdpYmxlLCBtb3N0IGNvcHlhYmxlLCBiZXN0IGRvY3VtZW50ZWQgb3B0aW9uIGF2YWlsYWJsZS4gQ2xvc2luZyB0aGUgc291cmNlIHByb3RlY3RzIG5vdGhpbmcgdGhlcmUgYW5kIGNvc3RzIHlvdSB0aGUgY2hhbm5lbC4KCi0tLQoKIyMgRm91ciBxdWVzdGlvbnMgYmVmb3JlIHlvdSBidWlsZCBvbiBzb21lb25lJ3Mgb3BlbiByZXBvCgoxLiAqKkRvZXMgdGhlIHZlbmRvciBoYXZlIGEgaG9zdGluZyBtYXJnaW4sIG9yIGlzIHRoZSBjb2RlIHRoZSBvbmx5IGFzc2V0IHRoZXkgY2FuIHNlbGw/KiogSWYgdGhlIGNvZGUgaXMgdGhlIG9ubHkgYXNzZXQsIGFzc3VtZSBpdCBjbG9zZXMuCjIuICoqSXMgdGhlcmUgYSBjb250cmlidXRvciBsaWNlbnNlIGFncmVlbWVudD8qKiBJZiBzbywgeW91ciB3b3JrIGNhbiBsZWdhbGx5IGJlY29tZSB0aGVpciBwcm9wcmlldGFyeSBwcm9kdWN0LiBUaGF0IGlzIHdoYXQgaGFwcGVuZWQgdG8gR2VtaW5pIENMSSdzIDYsMDAwIGNvbnRyaWJ1dG9ycy4KMy4gKipEb2VzIHRoZSB0b29sIG5lZWQgYSB2ZW5kb3ItaG9zdGVkIGJhY2tlbmQgdG8gZnVuY3Rpb24/KiogVGhhdCBpcyB0aGUgcmVhbCBjaG9rZXBvaW50LCBub3QgdGhlIGxpY2Vuc2UgdGV4dC4gQSBmb3JrIHdpdGhvdXQgbW9kZWwgYWNjZXNzIGlzIHdvcnRobGVzcy4KNC4gKipJcyB0aGUgbGFzdCBwZXJtaXNzaXZlbHkgbGljZW5zZWQgY29tbWl0IGZvcmthYmxlIGFuZCBzZWxmLXN1ZmZpY2llbnQ/KiogSWYgbm90LCB5b3UgaGF2ZSBhIGRlcGVuZGVuY3ksIG5vdCBhbiBvcHRpb24uCgpUaGVzZSBmb3VyIHdvdWxkIGhhdmUgZmxhZ2dlZCBldmVyeSBjbG9zdXJlIGhlcmUgaW4gYWR2YW5jZS4KCi0tLQoKIyMgQmFzZWxpbmU6IHRoZSB0b3Agb3BlbiBzb3VyY2UgY29tcGFuaWVzCgpUaGUgMjAyNiByYW5raW5ncyB0aGF0IGdldCBjaXRlZCBtb3N0IChUcnVlVXAncyA0MCBIb3R0ZXN0LCBTZWVkdGFibGUncyAyODctY29tcGFueSBpbmRleCwgVHJhY3huJ3Mgc2VjdG9yIHZpZXcpIGNvbnZlcmdlIG9uIHJvdWdobHkgdGhlIHNhbWUgdGVuIG5hbWVzLiBSYW5raW5nIGxpc3RzIGRvIG5vdCB0cmFjayBsaWNlbnNlIHN0YXR1cywgc28gdGhlIHRoaXJkIGNvbHVtbiBpcyB0aGUgb25lIHRoYXQgbWF0dGVycy4KCnwgQ29tcGFueSB8IFdoYXQgaXQgaXMgfCBMaWNlbnNlIHN0YXR1cywgQXVnIDIwMjYgfAp8IC0tLSB8IC0tLSB8IC0tLSB8CnwgRGF0YWJyaWNrcyB8IExha2Vob3VzZTsgU3BhcmssIERlbHRhLCBNTGZsb3cgfCBDb3JlIEFwYWNoZSAyLjAsIHBsYXRmb3JtIHByb3ByaWV0YXJ5LiBPcGVuIGNvcmUuIHwKfCBIdWdnaW5nIEZhY2UgfCBNb2RlbCBhbmQgZGF0YXNldCBodWIgfCBBcGFjaGUgMi4wIGxpYnJhcmllcywgaG9zdGVkIGh1Yi4gT3Blbi4gfAp8IE1pc3RyYWwgQUkgfCBGcm9udGllciBhbmQgb3Blbi13ZWlnaHQgbW9kZWxzIHwgQXBhY2hlIDIuMCBvcGVuIG1vZGVscyBwbHVzIGNvbW1lcmNpYWwgdGllci4gT3Blbi4gfAp8IENsaWNrSG91c2UgfCBSZWFsLXRpbWUgT0xBUCBkYXRhYmFzZSB8IEFwYWNoZSAyLjAuIE9wZW4uIFtNZW1vXShtZW1vcy9jbGlja2hvdXNlLm1kKSB8CnwgU3VwYWJhc2UgfCBQb3N0Z3JlcyBhcHBsaWNhdGlvbiBiYWNrZW5kIHwgQXBhY2hlIDIuMC4gT3Blbi4gW01lbW9dKG1lbW9zL3N1cGFiYXNlLm1kKSB8CnwgbjhuIHwgV29ya2Zsb3cgYXV0b21hdGlvbiB8IEZhaXItY29kZSBTdXN0YWluYWJsZSBVc2UgTGljZW5zZS4gTmV2ZXIgT1NJIGFwcHJvdmVkLiBbTWVtb10obWVtb3MvbjhuLm1kKSB8CnwgR3JhZmFuYSBMYWJzIHwgT2JzZXJ2YWJpbGl0eSB8IEFHUEx2MyBzaW5jZSAyMDIxLiBTdGlsbCBvcGVuIHNvdXJjZS4gfAp8IEdpdExhYiB8IERldlNlY09wcyBwbGF0Zm9ybSB8IE1JVCBjb21tdW5pdHkgZWRpdGlvbiBwbHVzIHByb3ByaWV0YXJ5IEVFLiBPcGVuIGNvcmUuIHwKfCBIYXNoaUNvcnAgKElCTSkgfCBUZXJyYWZvcm0sIFZhdWx0LCBDb25zdWwgfCBCVVNMIDEuMSBzaW5jZSBBdWcgMjAyMy4gVW5jaGFuZ2VkIGFmdGVyIHRoZSAkNi40QiBhY3F1aXNpdGlvbi4gfAp8IFJlZGlzIGFuZCBFbGFzdGljIHwgQ2FjaGUgYW5kIHNlYXJjaCB8IEJvdGggcmUtYWRkZWQgQUdQTHYzLiBSZXZlcnNhbHMsIG5vdCBkZWZlY3Rpb25zLiB8CgpNb3N0IG9mIHRoZSB0b3AgdGllciBoYXMgbm90IGNsb3NlZC4gUmVkTW9uaydzIE1hcmNoIDIwMjYgbGljZW5zaW5nIHN1cnZleSBmb3VuZCBCVVNMIGFuZCBTU1BMIGFkb3B0aW9uIHN0aWxsIGRvZXMgbm90IHJlZ2lzdGVyIGF0IHN0YXRpc3RpY2FsbHkgc2lnbmlmaWNhbnQgbGV2ZWxzLiBUaGVzZSBjbG9zdXJlcyBhcmUgbG91ZCwgbm90IG51bWVyb3VzLgoKIyMjIENoZWNrZWQgYW5kIG5vdCBjbG9zZWQsIGRlc3BpdGUgcnVtb3IKCkV4Y2FsaWRyYXcgaXMgc3RpbGwgTUlULiBQb3N0SG9nIHJlbWFpbnMgTUlUIHdpdGggYSBwcm9wcmlldGFyeSBlbnRlcnByaXNlIGRpcmVjdG9yeS4gU2VudHJ5IGhhcyBiZWVuIG9uIHRoZSBGdW5jdGlvbmFsIFNvdXJjZSBMaWNlbnNlIHNpbmNlIDIwMjMgYW5kIGRpZCBub3QgbW92ZS4gRGlzY291cnNlIHB1Ymxpc2hlZCBhbiBleHBsaWNpdCBbIndlIGFyZSBub3QgZ29pbmcgY2xvc2VkIHNvdXJjZSJdKGh0dHBzOi8vYmxvZy5kaXNjb3Vyc2Uub3JnLzIwMjYvMDQvZGlzY291cnNlLWlzLW5vdC1nb2luZy1jbG9zZWQtc291cmNlLykgcG9zdCBpbiBBcHJpbCAyMDI2LCBpbiBkaXJlY3QgcmVzcG9uc2UgdG8gQ2FsLmNvbS4KCioqQmFzZWxpbmUgc291cmNlczoqKiBbUmVkTW9uaywgVGhlIFN0YXRlIG9mIE9wZW4gU291cmNlIExpY2Vuc2luZyBpbiAyMDI2XShodHRwczovL3JlZG1vbmsuY29tL3NvZ3JhZHkvMjAyNi8wMy8yNS9vcGVuLXNvdXJjZS1saWNlbnNpbmctMjAyNi8pIC8gW1RydWVVcCBPcGVuIFNvdXJjZSBSZXBvcnRdKGh0dHBzOi8vd3d3LnRydWV1cC5pby9vcGVuLXNvdXJjZS9yZXBvcnRzKSAvIFtTZWVkdGFibGVdKGh0dHBzOi8vc2VlZHRhYmxlLmNvbS9iZXN0LW9wZW4tc291cmNlLXN0YXJ0dXBzKSAvIFtUcmFjeG5dKGh0dHBzOi8vdHJhY3huLmNvbS9kL3NlY3RvcnMvb3Blbi1zb3VyY2UvX184NnF6cW9wZnczQjlFMUFEcmNTSFFOa1lzNjZFSnNrZmFOaTZvU0pIdU0wL2NvbXBhbmllcykKCi0tLQo=</script>
+<script>
+  (function () {
+    var src = document.getElementById('memo-src');
+    var raw = '';
+    try {
+      var bin = atob((src.textContent || '').replace(/\s+/g, ''));
+      var bytes = new Uint8Array(bin.length);
+      for (var k = 0; k < bin.length; k++) { bytes[k] = bin.charCodeAt(k); }
+      raw = new TextDecoder('utf-8').decode(bytes);
+    } catch (e) { raw = ''; }
+    var name = document.body.getAttribute('data-slug') + '.md';
+
+    var copy = document.getElementById('btn-copy');
+    copy.addEventListener('click', function () {
+      var done = function () {
+        copy.textContent = 'Copied';
+        copy.classList.add('done');
+        setTimeout(function () {
+          copy.textContent = 'Copy for agents';
+          copy.classList.remove('done');
+        }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(raw).then(done, fallback);
+      } else {
+        fallback();
+      }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = raw;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); } catch (e) { /* no-op */ }
+        document.body.removeChild(ta);
+      }
+    });
+
+    var dl = document.getElementById('btn-download');
+
+    function flash(label) {
+      var was = dl.textContent;
+      dl.textContent = label;
+      dl.classList.add('done');
+      setTimeout(function () {
+        dl.textContent = was;
+        dl.classList.remove('done');
+      }, 1600);
+    }
+
+    function blobSave() {
+      var blob = new Blob([raw], { type: 'text/markdown;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+    }
+
+    dl.addEventListener('click', function () {
+      // On claude.ai the host mediates saves; on GitHub Pages a blob link works.
+      if (window.claude && typeof window.claude.use === 'function') {
+        window.claude.use('downloads').then(function (d) {
+          if (!d) { blobSave(); return; }
+          d.save({ filename: name, data: raw }).then(
+            function () { flash('Saved'); },
+            function (e) { if (!e || e.code !== 'declined') { blobSave(); } }
+          );
+        }, blobSave);
+        return;
+      }
+      blobSave();
+    });
+  })();
+</script>
+</body>
+</html>

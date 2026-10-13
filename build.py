@@ -14,6 +14,7 @@ import re
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
 MEMOS = [
+    ("closing-the-source", "Overview"),
     ("bachelors-degree", "The bachelor's degree"),
     ("harvard-hybrid-masters", "Harvard hybrid master's programs"),
     ("bouldering-grades", "Bouldering grades"),
@@ -431,8 +432,8 @@ def main():
         md_path = os.path.join(ROOT, 'memos', slug + '.md')
         with open(md_path, encoding='utf-8') as f:
             raw = f.read()
-        out = page('%s | Closing the Source' % name, slug, convert(raw), raw,
-                   'Closing the Source', '../index.html')
+        out = page('%s | Memos' % name, slug, convert(raw), raw,
+                   'Memos', '../index.html')
         with open(os.path.join(ROOT, 'memos', slug + '.html'), 'w', encoding='utf-8') as f:
             f.write(out)
         print('built memos/%s.html' % slug)
@@ -446,8 +447,10 @@ def main():
         r'\[Web\]\(https://[^)]+\)',
         r'[Open memo](memos/\1.html)', raw)
     web = re.sub(r'\(memos/([a-z0-9.-]+)\.md\)', r'(memos/\1.html)', web)
-    out = page('Closing the Source', 'closing-the-source', convert(web), raw,
-               'Seventeen memos on open source, credentials, and what a signal is worth', None)
+    # Salon pages are standalone HTML; on the web index, link them relatively.
+    web = web.replace('https://michaelraspuzzi.github.io/memos/salons/', 'salons/')
+    out = page('Memos', 'index', convert(web), raw,
+               'Memos by Michael Raspuzzi', None)
     with open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(out)
     print('built index.html')
