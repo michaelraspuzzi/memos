@@ -17,7 +17,7 @@ Start with the [overview](memos/closing-the-source.md): the pattern across all s
 ## Salon pre-reads
 
 - [Humans vs. Cancer](https://michaelraspuzzi.github.io/memos/salons/ai-cancer-salon.html): why hasn't AI cured cancer yet? With Dr. eMalick Njie of Ecotone AI, October 2026.
-- [Humans vs. the PhD](https://michaelraspuzzi.github.io/memos/salons/ai-credentials-salon.html): how do credentials shift in science? With intros from Mukundh, Di and Austin, September 2026.
+- [Should I Get a PhD?](https://michaelraspuzzi.github.io/memos/salons/ai-credentials-salon.html): how do credentials shift in science? Hosted with BioKEA and Claude Community, September 2026.
 
 ## Editing
 
