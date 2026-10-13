@@ -25,10 +25,13 @@
     .prompt-box { margin:0 0 38px; padding:22px; border:1px solid #b9c9bd; border-radius:7px; background:#f5f8f4; }
     .prompt-box h2 { margin:0 0 5px; }
     .prompt-box > p { margin:0 0 16px; color:var(--muted); font:14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .install-card { margin:0 0 12px; padding:16px; border:1px solid #b5c7b8; border-radius:5px; background:#eaf1e9; }
+    .install-card pre { margin:0; white-space:pre-wrap; overflow-wrap:anywhere; font:13px/1.55 ui-monospace, Menlo, monospace; }
+    .syntax-note { margin:12px 0 0 !important; }
     .prompt-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
     .prompt-card { min-width:0; padding:16px; border:1px solid var(--rule); border-radius:5px; background:#fff; }
     .prompt-card-head { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px; }
-    .prompt-card h3 { margin:0; font:650 14px/1.3 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .prompt-card h3, .install-card h3 { margin:0; font:650 14px/1.3 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
     .copy { flex:none; border:1px solid #a9bba9; border-radius:4px; background:#f7faf6; color:var(--accent); padding:6px 9px; cursor:pointer; font:600 11px/1 ui-monospace, Menlo, monospace; }
     .copy:hover, .copy:focus-visible { background:#e8f0e8; outline-offset:2px; }
     .prompt-card pre { margin:0; white-space:pre-wrap; overflow-wrap:anywhere; font:12px/1.55 ui-monospace, Menlo, monospace; }
@@ -42,6 +45,8 @@
     .footnotes ol { margin:0; padding-left:22px; }
     .footnotes li { margin-bottom:9px; }
     .footnotes a { color:var(--ink); }
+    .comparison { margin-top:46px; padding-top:25px; border-top:2px solid var(--rule); }
+    .comparison h2 { margin:0 0 18px; }
     @media (max-width:560px) { main { padding:16px 16px 64px; } .home { margin-bottom:18px; } video { max-height:none; } .prompt-grid { grid-template-columns:1fr; } .prompt-box { padding:16px; } }
   </style>
 </head>
@@ -53,7 +58,7 @@
       <source src="media/peptoid-interaction-walkthrough.mp4" type="video/mp4">
       <a href="media/peptoid-interaction-walkthrough.mp4">Watch the ten-second demo</a>.
     </video>
-    <figcaption>The recording sweeps the comparison bar across both views and pauses at contact.</figcaption>
+    <figcaption>Made with Astra as Fable was guardrailed for bio visual. Peptoid 1 approaches, contacts, and partly inserts into a DPPG monolayer as the divider reveals matching molecular and mechanical views.</figcaption>
   </figure>
 
   <h1>Make molecular machinery visible</h1>
@@ -62,17 +67,22 @@
 
   <section class="prompt-box" aria-labelledby="prompt-title">
     <h2 id="prompt-title">Try Anatomy yourself</h2>
-    <p>Copy a starter prompt into Codex after <a href="https://github.com/wheresryan22/anatomy#install">installing the skill</a>. Each asks for one mechanism and what should move.</p>
+    <p>Run the install command in your Codex project, then copy a prompt. Each prompt names one mechanism and what should move.</p>
+    <div class="install-card">
+      <div class="prompt-card-head"><h3>Install Anatomy for Codex</h3><button class="copy" type="button" data-copy="install-command" aria-label="Copy Anatomy install command">Copy command</button></div>
+      <pre id="install-command">npx skills add wheresryan22/anatomy -a codex</pre>
+    </div>
     <div class="prompt-grid">
       <article class="prompt-card">
         <div class="prompt-card-head"><h3>01 · Molecular interaction</h3><button class="copy" type="button" data-copy="prompt-channel" aria-label="Copy molecular interaction prompt">Copy prompt</button></div>
-        <pre id="prompt-channel">$anatomy show an ion channel opening and closing in a membrane. Show ion flow; distinguish observed structure from schematic motion.</pre>
+        <pre id="prompt-channel">Use the Anatomy skill to show an ion channel opening and closing in a membrane. Show ion flow; distinguish observed structure from schematic motion.</pre>
       </article>
       <article class="prompt-card">
         <div class="prompt-card-head"><h3>02 · Rate limiter</h3><button class="copy" type="button" data-copy="prompt-limiter" aria-label="Copy rate limiter prompt">Copy prompt</button></div>
-        <pre id="prompt-limiter">$anatomy show how a token-bucket rate limiter refills and rejects bursts. Make the tokens move with a live request counter.</pre>
+        <pre id="prompt-limiter">Use the Anatomy skill to show how a token-bucket rate limiter refills and rejects bursts. Make the tokens move with a live request counter.</pre>
       </article>
     </div>
+    <p class="syntax-note">For explicit invocation, ChatGPT uses <code>@anatomy</code> and Codex uses <code>$anatomy</code>. The cards name Anatomy in plain language for either app once the skill is available.<sup class="ref" id="ref-5"><a href="#fn-4" aria-label="Footnote 4">4</a></sup></p>
   </section>
 
   <p>A scientific paper can say that a molecule enters a membrane. It is harder to picture what meets, turns, and makes room. The video starts with <em>peptoid 1</em>, a twelve-residue, protein-like helix below a negatively charged DPPG lipid monolayer.<sup class="ref" id="ref-1"><a href="#fn-1" aria-label="Footnote 1">1</a></sup> Gold marks its water-avoiding aromatic side chains; blue marks its positively charged ones. Each lipid has a polar head and two tails.</p>
@@ -96,7 +106,18 @@
       <li id="fn-1"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2268539/">Chongsiriwatana et al., <em>PNAS</em> (2008)</a>, peptoid design and Fig. 2. The scene shows a DPPG monolayer, not a complete cell membrane. <a href="#ref-1" aria-label="Back to footnote 1 reference">↩</a></li>
       <li id="fn-2"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2268539/">Chongsiriwatana et al., Fig. 7 and X-ray reflectivity results</a>. The paper supports penetration into the headgroups and part of the tail region, and conditions its tilt estimate on retained helicity. <a href="#ref-2" aria-label="Back to footnote 2 reference">↩</a></li>
       <li id="fn-3"><a href="https://github.com/wheresryan22/anatomy">Anatomy skill documentation and example gallery</a>. <a href="#ref-3" aria-label="Back to footnote 3 reference">↩</a></li>
+      <li id="fn-4"><a href="https://developers.openai.com/plugins/build/skills">OpenAI Docs, Build skills</a>, documents <code>@skill-name</code> in ChatGPT and <code>$skill-name</code> in Codex; <a href="https://github.com/wheresryan22/anatomy#install">Anatomy’s install guide</a> supplies the Codex command. <a href="#ref-5" aria-label="Back to footnote 4 reference">↩</a></li>
     </ol>
+  </section>
+  <section class="comparison" aria-labelledby="sonnet-title">
+    <h2 id="sonnet-title">The Sonnet 5.5 version</h2>
+    <figure>
+      <video controls playsinline preload="metadata" poster="media/sonnet-peptoid-1-poster.jpg" aria-label="Ten-second Sonnet 5.5 animation comparing peptoid 1 at anionic PG and neutral PC membrane surfaces">
+        <source src="media/sonnet-peptoid-1-demo.mp4" type="video/mp4">
+        <a href="media/sonnet-peptoid-1-demo.mp4">Watch the Sonnet 5.5 demo</a>.
+      </video>
+      <figcaption>Made by Sonnet 5.5. This schematic contrasts charged peptoid groups anchoring at an anionic PG surface with a neutral PC surface; Astra instead follows partial insertion into one DPPG monolayer.</figcaption>
+    </figure>
   </section>
 </main>
 <script>
@@ -117,8 +138,10 @@
         if (!document.execCommand('copy')) return;
         selection.removeAllRanges();
       }
+      const original = button.dataset.originalLabel || button.textContent;
+      button.dataset.originalLabel = original;
       button.textContent = 'Copied';
-      setTimeout(() => { button.textContent = 'Copy prompt'; }, 1800);
+      setTimeout(() => { button.textContent = original; }, 1800);
     });
   }
 </script>
