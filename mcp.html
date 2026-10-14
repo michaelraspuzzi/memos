@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MCP in Three Films</title>
+<style>
+  :root { --bg: #fff; --ink: #111; --muted: #6b6b6b; --line: #eaeaea; --inset: #f5f5f5; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #0b0b0b; --ink: #ededed; --muted: #8f8f8f; --line: #262626; --inset: #161616; } }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 64px 20px 96px; }
+  .mono, .kicker, .meta, figcaption, .footnotes, h2 .n, table.data th, .films span { font-family: ui-monospace, "SF Mono", Menlo, monospace; }
+  .kicker { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 16px; }
+  .kicker a { text-decoration: none; }
+  h1 { font-size: 40px; line-height: 1.12; letter-spacing: -.02em; margin: 0 0 12px; font-weight: 700; }
+  .subtitle { font-size: 20px; line-height: 1.4; color: var(--muted); margin: 0 0 20px; }
+  .meta { font-size: 12px; color: var(--muted); padding: 12px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 0 32px; }
+  .films { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0 0 32px; }
+  .films figure { margin: 0; }
+  .films .frame { position: relative; aspect-ratio: 9 / 16; background: var(--inset); border: 1px solid var(--line); overflow: hidden; }
+  .films iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .films figcaption { font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.4; }
+  .films span { display: block; color: var(--ink); font-weight: 600; letter-spacing: .06em; }
+  .point, .bottom { background: var(--inset); border: 1px solid var(--line); padding: 20px 24px; margin: 0 0 40px; }
+  .point h2, .bottom h2 { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 8px; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-weight: 600; }
+  .point p, .bottom p { margin: 0; }
+  .bottom p + p { margin-top: 10px; }
+  section { margin: 0 0 40px; }
+  h2 { font-size: 22px; line-height: 1.3; letter-spacing: -.01em; margin: 0 0 12px; }
+  h2 .n { font-size: 13px; font-weight: 500; color: var(--muted); margin-right: 12px; vertical-align: 2px; }
+  p { margin: 0 0 14px; }
+  code { font: 14px ui-monospace, "SF Mono", Menlo, monospace; background: var(--inset); padding: 1px 4px; }
+  .implication { font-weight: 600; }
+  a { color: inherit; text-decoration-color: var(--muted); text-underline-offset: 2px; }
+  sup a { text-decoration: none; font-size: 11px; padding: 0 1px; font-family: ui-monospace, "SF Mono", Menlo, monospace; }
+  table.data { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 15px; }
+  table.data th, table.data td { text-align: left; padding: 8px 10px 8px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.data th { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+  .tablewrap { overflow-x: auto; }
+  .summary ul { margin: 6px 0 0; padding-left: 18px; }
+  .summary li { margin: 0 0 8px; }
+  .footnotes { font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 20px; margin-top: 48px; }
+  .footnotes ol, .footnotes ul { padding-left: 20px; margin: 0; }
+  .footnotes ul { margin-top: 8px; }
+  .footnotes li { margin: 0 0 6px; word-break: break-word; }
+  @media (max-width: 520px) { main { padding: 40px 16px 72px; } h1 { font-size: 30px; } body { font-size: 16px; } table.data { font-size: 13px; } .films { gap: 8px; } .films figcaption { font-size: 10px; } }
+</style>
+</head>
+<body>
+<main>
+  <p class="kicker"><a href="./">← Memos</a> · Visual explainers</p>
+  <h1>MCP gave AI a socket. The hard part is deciding what to plug in.</h1>
+  <p class="subtitle">Three three-minute films on the Model Context Protocol: what it is, how to build a server worth using, and whether your company should have one at all</p>
+  <p class="meta">October 14, 2026 · Michael Raspuzzi · 4 min read · 9 min of film</p>
+
+  <div class="films">
+    <figure>
+      <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/PF795MbnLi4" title="MCP, part 1: the socket" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <figcaption><span>01 · The socket</span>What MCP is</figcaption>
+    </figure>
+    <figure>
+      <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/BmjkKRYSWuk" title="MCP, part 2: the plug" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <figcaption><span>02 · The plug</span>How to design a server</figcaption>
+    </figure>
+    <figure>
+      <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/OlIRb3y5Ktc" title="MCP, part 3: the strategy" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <figcaption><span>03 · The strategy</span>Whether to ship one</figcaption>
+    </figure>
+  </div>
+
+  <div class="point summary">
+    <h2>The CEO Summary</h2>
+    <ul>
+      <li><b>MCP is a socket, not a smarter model.</b> It turns M×N custom integrations into M+N, and OpenAI, Google and Microsoft adopted it within six months.</li>
+      <li><b>The code is 20 lines. The design is the job.</b> 97% of real tool descriptions have a flaw. Build for the task, not your API.</li>
+      <li><b>Strategy comes before servers.</b> If your product is a verb, ship wide. If it's a noun, open a narrow window.</li>
+    </ul>
+  </div>
+
+  <section>
+    <h2><span class="n">01</span>The brain in a jar got a socket</h2>
+    <p>The smartest AI in the world can write you a sonnet, but ask whether you need an umbrella and it has no idea. It's a brain in a jar.</p>
+    <p>The old fix was custom wiring: three apps and four tools meant twelve integrations. That's how you end up with a drawer full of chargers.</p>
+    <p>Anthropic proposed MCP in November 2024: a USB-C port for AI, so M×N becomes M+N.<sup><a href="#fn1" id="r1">1</a></sup> A host, like Claude or your code editor, talks to servers: small programs that wrap a tool. The conversation is almost boring. "What can you do?" "<code>get_weather</code>, give me a location." "London." "Rain by noon." Take the umbrella.</p>
+    <p>A year in: 10,000+ public servers, 97M monthly SDK downloads, and a handoff to the Linux Foundation.<sup><a href="#fn2" id="r2">2</a></sup> Two catches. On a benchmark of real MCP tasks, GPT-5 finished under 44%.<sup><a href="#fn3" id="r3">3</a></sup> And a tool's description is text the model trusts, so 5.5% of 1,899 servers studied were poisoned.<sup><a href="#fn4" id="r4">4</a></sup></p>
+    <p class="implication">MCP solved the wiring. It didn't solve judgment, and it gave attackers a new front door.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">02</span>Twenty lines of code, a hundred decisions</h2>
+    <p>Building a server is almost insultingly easy. Put <code>@mcp.tool</code> on a Python function: the type hints become the schema, the docstring becomes what the model reads. Then most people ruin it by mirroring their API (<code>list_users</code>, <code>list_events</code>), and the model burns thousands of tokens to find one free half hour. A study of 856 real tools found flaws in 97% of their descriptions.<sup><a href="#fn5" id="r5">5</a></sup></p>
+    <p>The fixes read like advice for onboarding a new hire:<sup><a href="#fn6" id="r6">6</a></sup></p>
+    <div class="tablewrap"><table class="data">
+      <tr><th>Rule</th><th>In practice</th></tr>
+      <tr><td>Design for the task</td><td>One <code>schedule_event</code> beats three endpoints</td></tr>
+      <tr><td>Names are prompts</td><td><code>calendar_search</code>, never just <code>search</code></td></tr>
+      <tr><td>Return what a human would read</td><td>Anthropic's Slack example: 206 tokens down to 72</td></tr>
+      <tr><td>Fail helpfully</td><td>"Start time must be in the future" lets the model retry</td></tr>
+      <tr><td>Label what's dangerous</td><td>Mark "cancel" destructive, so the app asks you first</td></tr>
+      <tr><td>Keep the menu short</td><td>One setup loaded 150,000 tokens of tools before doing anything</td></tr>
+    </table></div>
+    <p class="implication">A good server isn't a mirror of your API. It's a tool you'd hand a new colleague, with instructions they can't misread.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">03</span>Is your product a verb or a noun?</h2>
+    <p>800M people use ChatGPT weekly, and apps now live inside it, built on MCP. Awkward question for every founder: what happens when the user never opens your app?</p>
+    <p>Figma and Canva went wide. Figma hands coding agents the real design, so every agent makes Figma more of the source of truth. Canva makes the poster inside the chat. Both sell the making of things, and being where making starts is distribution.<sup><a href="#fn7" id="r7">7</a></sup></p>
+    <p>Substack opened a crack. It sells the writing, so an AI summarizing every post for free is a leak, not a channel. Its server is for writers only. The stats go out to your AI. The writing stays home.<sup><a href="#fn8" id="r8">8</a></sup></p>
+    <p class="implication">Verbs (design, book, send, pay) gain value when agents can do them. Nouns (the article, the community, data only you have) are worth guarding.</p>
+  </section>
+
+  <div class="bottom">
+    <h2>The Bottom Line</h2>
+    <p>MCP doesn't decide what kind of company you are. It just makes you answer sooner. Before writing server code, ask: Who still sees the user once your app becomes a back end? What could an attacker make your server do? And does all that agent usage ever turn into revenue?</p>
+  </div>
+
+  <div class="footnotes">
+    <ol>
+      <li id="fn1">Anthropic, <a href="https://www.anthropic.com/news/model-context-protocol">"Introducing the Model Context Protocol"</a>, Nov 25 2024; <a href="https://modelcontextprotocol.io">modelcontextprotocol.io</a> for the USB-C framing, architecture and the <code>get_weather</code> example. OpenAI adoption via TechCrunch, Mar 26 2025. <a href="#r1">↩</a></li>
+      <li id="fn2">Anthropic, Dec 9 2025: MCP donated to the Agentic AI Foundation (Linux Foundation), co-founded with Block and OpenAI. <a href="#r2">↩</a></li>
+      <li id="fn3">Luo et al., <a href="https://arxiv.org/abs/2508.14704">"MCP-Universe"</a>, arXiv, 2025. GPT-5 scored 43.72% across 6 domains and 11 servers. <a href="#r3">↩</a></li>
+      <li id="fn4">Hasan et al., <a href="https://arxiv.org/abs/2506.13538">arXiv 2506.13538</a>, 2025; Invariant Labs on tool-poisoning attacks, Apr 2025. <a href="#r4">↩</a></li>
+      <li id="fn5">Hasan et al., <a href="https://arxiv.org/abs/2602.14878">"MCP Tool Descriptions Are Smelly!"</a>, arXiv, 2026. Better descriptions raised median success about 6 points but took 67% more steps. <a href="#r5">↩</a></li>
+      <li id="fn6">Anthropic, <a href="https://www.anthropic.com/engineering/writing-tools-for-agents">"Writing effective tools for agents"</a>, Sep 11 2025; <a href="https://www.anthropic.com/engineering/code-execution-with-mcp">"Code execution with MCP"</a>, Nov 4 2025. The calendar example is illustrative. <a href="#r6">↩</a></li>
+      <li id="fn7">Kris Rasmussen, "Design context, everywhere you build", Figma blog, Sep 23 2025; Canva MCP server announcement, Jun 26 2025; OpenAI DevDay, Oct 6 2025. <a href="#r7">↩</a></li>
+      <li id="fn8">Substack Help Center, "How to connect Substack to your AI Assistant"; Substack, Mar 2025 (5M paid subscriptions, 10% fee). <a href="#r8">↩</a></li>
+    </ol>
+  </div>
+
+  <div class="footnotes">
+    <p><b>Go deeper.</b> Ready to build one?</p>
+    <ul>
+      <li>Hugging Face, <a href="https://huggingface.co/learn/mcp-course">MCP Course</a>. Free, hands-on, from the protocol basics to shipping your own server.</li>
+    </ul>
+  </div>
+</main>
+</body>
+</html>

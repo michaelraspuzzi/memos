@@ -26,6 +26,7 @@ Start with the [overview](memos/closing-the-source.md): the pattern across all s
 ## Visual essays
 
 - [Make molecular machinery visible](molecular-machines.html): a ten-second peptoid–membrane demo with three stages, source notes, and copyable Anatomy prompts. October 2026.
+- [MCP in three films](mcp.html): what the Model Context Protocol is, how to design a server worth using, and whether your company should ship one. Three short videos plus a memo. October 2026.
 
 ## Editing
 
