@@ -27,6 +27,7 @@ Start with the [overview](memos/closing-the-source.md): the pattern across all s
 
 - [Make molecular machinery visible](molecular-machines.html): a ten-second peptoid–membrane demo with three stages, source notes, and copyable Anatomy prompts. October 2026.
 - [MCP in three films](mcp.html): what the Model Context Protocol is, how to design a server worth using, and whether your company should ship one. Three short videos plus a memo. October 2026.
+- [Chunklab: chunking textbooks for hypothesis testing](https://youtu.be/Kz41lx-swic): a three-minute film on three ways to cut 594 pages of open textbooks into claims and evidence, scored on 30 hypotheses. Code and eval at [github.com/michaelraspuzzi/chunklab](https://github.com/michaelraspuzzi/chunklab). October 2026.
 
 ## Editing
 
