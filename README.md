@@ -22,6 +22,7 @@ Start with the [overview](memos/closing-the-source.md): the pattern across all s
 ## Maps
 
 - [Shadow Apprentice Map](https://michaelraspuzzi.github.io/memos/maps/applied-ai-apprentice-map.html): a five-level skill map toward Anthropic's Applied AI Associate role, for a materials engineer drawn to AI for science. October 2026.
+- [The Third Door Is an Apprenticeship](https://michaelraspuzzi.github.io/memos/third-door.html): why the best way to apply for a job is to start doing it, the prompt that draws a Shadow Apprentice Map, and the map above as a worked example. October 2026.
 
 ## Visual essays
 

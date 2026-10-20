@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Third Door Is an Apprenticeship</title>
+<meta name="description" content="Don't wait in line for the job. Start doing it before anyone says yes. A Shadow Apprentice Map, the prompt behind it, and one worked example.">
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Nunito:ital,wght@0,400;0,600;0,800;1,400&family=Patrick+Hand&display=swap");
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --ink: #26262b;
+  --muted: #6e6e78;
+  --line: #e4e4ea;
+  --accent: #2348d4;
+  --blue-bg: #eaf3fc;
+  --blue-edge: #3d86d1;
+  --blue-ink: #1d4f82;
+  --aside-bg: #f7f7f9;
+  --chart-a: #2348d4;
+  --chart-b: #93a9d6;
+  --chart-c: #9a9aa6;
+  --hand: #33333a;
+  --bar-bg: rgba(255,255,255,.94);
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 72px; }
+h1, h2, h3, .part, .tldr h2, .dek, b, strong, .big, .tk, summary, figcaption b, .menubar, .btn { font-family: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 18px/1.7 "Nunito", "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+/* Menu bar */
+.menubar { position: sticky; top: 0; z-index: 20; background: var(--bar-bg); backdrop-filter: saturate(1.4) blur(8px); -webkit-backdrop-filter: saturate(1.4) blur(8px); border-bottom: 1px solid var(--line); }
+.menubar .in { max-width: 980px; margin: 0 auto; padding: 10px 20px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 14px; }
+.menubar .home { font-weight: 800; text-decoration: none; color: var(--ink); margin-right: auto; letter-spacing: -.01em; }
+.menubar .home span { color: var(--muted); font-weight: 600; }
+.btn { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 700; color: var(--ink); background: var(--bg); border: 1.5px solid var(--line); border-radius: 8px; padding: 6px 11px; text-decoration: none; cursor: pointer; line-height: 1.2; }
+.btn:hover { border-color: var(--ink); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn:focus-visible, .menubar summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.menubar details { position: relative; }
+.menubar summary { list-style: none; }
+.menubar summary::-webkit-details-marker { display: none; }
+.menubar .drop { position: absolute; left: 0; top: calc(100% + 6px); background: var(--bg); border: 1.5px solid var(--line); border-radius: 10px; padding: 8px; min-width: 250px; box-shadow: 0 10px 30px rgba(0,0,0,.08); }
+.menubar .drop a { display: block; padding: 6px 10px; border-radius: 6px; color: var(--ink); text-decoration: none; font-weight: 600; font-size: 14px; }
+.menubar .drop a:hover { background: var(--aside-bg); }
+.progress { position: absolute; left: 0; bottom: -1px; height: 2px; background: var(--accent); width: 0; }
+
+main { max-width: 700px; margin: 0 auto; padding: 48px 20px 96px; }
+h1 { font-size: 46px; line-height: 1.08; font-weight: 800; letter-spacing: -.02em; margin: 0 0 14px; }
+.dek { font-size: 20px; line-height: 1.45; color: var(--muted); margin: 0 0 28px; font-weight: 600; }
+.hero { margin: 0 -60px 32px; }
+.hero img { width: 100%; height: auto; display: block; border: 1.5px solid var(--line); border-radius: 10px; }
+.hero figcaption { padding: 0 60px; }
+.prenote { font-style: italic; color: var(--muted); border-left: 3px solid var(--line); padding: 2px 0 2px 16px; margin: 0 0 32px; }
+.prenote p { margin: 0 0 10px; }
+.prenote p:last-child { margin: 0; }
+.tldr { background: var(--aside-bg); border: 2px solid var(--line); border-radius: 10px; padding: 18px 22px; margin: 0 0 24px; }
+.tldr h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .12em; margin: 0 0 8px; color: var(--accent); }
+.tldr ul { margin: 0; padding-left: 20px; }
+.tldr li { margin: 0 0 8px; }
+.tldr li:last-child { margin: 0; }
+.toc { border: 2px solid var(--line); border-radius: 10px; padding: 18px 22px; margin: 0 0 48px; }
+.toc h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .12em; margin: 0 0 8px; color: var(--muted); }
+.toc ol { margin: 0; padding-left: 22px; }
+.toc li { margin: 2px 0; }
+.toc a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
+.part { font-size: 13px; text-transform: uppercase; letter-spacing: .14em; color: var(--accent); font-weight: 800; margin: 64px 0 2px; }
+h2.sec { font-size: 30px; line-height: 1.2; font-weight: 800; margin: 0 0 18px; letter-spacing: -.01em; }
+p { margin: 0 0 18px; }
+a { color: inherit; text-underline-offset: 3px; }
+sup a { color: var(--accent); text-decoration: none; font-size: 12px; font-weight: 800; padding: 0 1px; }
+.big { font-size: 22px; line-height: 1.45; font-weight: 700; letter-spacing: -.005em; margin: 26px 0; }
+b.tk { font-weight: 700; }
+.tldr b { font-weight: 700; }
+.blue { background: var(--blue-bg); border-left: 5px solid var(--blue-edge); border-radius: 0 10px 10px 0; color: var(--ink); padding: 18px 22px; margin: 28px 0; font-size: 16.5px; }
+.blue h3 { margin: 0 0 8px; font-size: 14px; letter-spacing: .1em; text-transform: uppercase; color: var(--blue-ink); }
+.blue p { margin: 0 0 10px; }
+.blue p:last-child { margin: 0; }
+.aside { background: var(--aside-bg); border-radius: 10px; padding: 14px 18px; margin: 22px 0; font-size: 16px; color: var(--muted); }
+.aside p { margin: 0; }
+figure { margin: 32px 0; }
+figure svg { display: block; width: 100%; max-width: 100%; height: auto; }
+figcaption { font-size: 14.5px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
+.hand { font-family: "Patrick Hand", "Comic Sans MS", "Chalkboard SE", cursive; }
+.video { position: relative; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; background: #000; }
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.prompt { border: 2px solid var(--ink); border-radius: 10px; margin: 24px 0; overflow: hidden; }
+.prompt .ph { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 14px; background: var(--ink); color: #fff; }
+.prompt .ph span { font-family: "Archivo", sans-serif; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; }
+.prompt .ph .btn { background: #fff; border-color: #fff; padding: 4px 10px; font-size: 12.5px; }
+.prompt pre { margin: 0; padding: 16px 18px; white-space: pre-wrap; font: 15px/1.6 ui-monospace, "SF Mono", Menlo, monospace; background: var(--aside-bg); }
+.levels { list-style: none; padding: 0; margin: 24px 0; display: grid; gap: 10px; }
+.levels li { border: 2px solid var(--line); border-radius: 10px; padding: 14px 18px; display: grid; grid-template-columns: 44px 1fr; gap: 6px 12px; }
+.levels .n { font-family: "Archivo", sans-serif; font-weight: 800; font-size: 30px; line-height: 1; color: var(--accent); }
+.levels h3 { font-size: 18px; margin: 0 0 4px; }
+.levels p { margin: 0; font-size: 16.5px; }
+.levels li.l5 { border-color: var(--accent); background: var(--blue-bg); }
+.quote { font-family: "Archivo", sans-serif; font-weight: 700; font-size: 22px; line-height: 1.4; margin: 28px 0; padding: 22px 24px; background: var(--accent); color: #fff; border-radius: 10px; }
+.questions { background: var(--aside-bg); border-radius: 12px; padding: 20px 24px; margin: 28px 0; }
+.questions ol { margin: 0; padding-left: 22px; }
+.questions li { margin: 0 0 10px; }
+.questions li:last-child { margin: 0; }
+.notes { font-size: 14px; color: var(--muted); border-top: 2px solid var(--line); margin-top: 56px; padding-top: 18px; }
+.notes h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .12em; margin: 0 0 10px; }
+.notes ol { padding-left: 22px; margin: 0; }
+.notes li { margin: 0 0 14px; word-break: break-word; }
+.notes a { color: var(--muted); }
+.fnsum { display: block; color: var(--ink); font-size: 14.5px; line-height: 1.55; margin: 4px 0 6px; }
+
+/* Comments */
+.comments { border-top: 2px solid var(--line); margin-top: 56px; padding-top: 18px; }
+.comments h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .12em; margin: 0 0 10px; color: var(--muted); }
+.comments .lead { font-size: 16px; color: var(--muted); }
+.comments .row { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 18px; }
+.clist { display: grid; gap: 12px; }
+.c { border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 16px; font-size: 16px; }
+.c .meta { font-size: 13px; color: var(--muted); margin-bottom: 4px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.c .meta img { width: 20px; height: 20px; border-radius: 50%; }
+.c .meta b { color: var(--ink); font-size: 13.5px; }
+.c blockquote { margin: 6px 0; padding: 2px 0 2px 12px; border-left: 3px solid var(--blue-edge); color: var(--muted); font-style: italic; }
+.c p { margin: 0 0 6px; white-space: pre-wrap; }
+.c .reply { display: inline-block; margin-top: 4px; font-size: 13.5px; color: var(--accent); font-weight: 700; text-decoration: none; }
+.empty { color: var(--muted); font-size: 15px; font-style: italic; }
+#selcomment { position: absolute; z-index: 30; display: none; }
+.toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 8px 14px; border-radius: 8px; font: 700 14px "Archivo", sans-serif; opacity: 0; transition: opacity .2s; pointer-events: none; }
+.toast.on { opacity: 1; }
+
+@media (max-width: 820px) {
+  .hero { margin-inline: 0; }
+  .hero figcaption { padding: 0; }
+}
+@media (max-width: 520px) {
+  body { font-size: 16.5px; }
+  main { padding: 32px 16px 80px; }
+  .menubar .in { padding: 8px 16px; }
+  .menubar .hide-sm { display: none; }
+  h1 { font-size: 36px; }
+  .dek { font-size: 18px; }
+  h2.sec { font-size: 25px; }
+  .big, .quote { font-size: 19px; }
+  .blue { padding: 16px; }
+}
+@media print { .menubar, .comments, #selcomment { display: none; } }
+</style>
+</head>
+<body>
+
+<nav class="menubar" aria-label="Page menu">
+  <div class="in">
+    <a class="home" href="./">Memos <span>/ The Third Door</span></a>
+    <details>
+      <summary class="btn" aria-label="Contents">☰ Contents</summary>
+      <div class="drop">
+        <a href="#p1">1. The Front Door</a>
+        <a href="#p2">2. The Third Door</a>
+        <a href="#p3">3. Meet the Shadow Apprentice</a>
+        <a href="#p4">4. The Prompt</a>
+        <a href="#p5">5. How the Map Gets Made</a>
+        <a href="#p6">6. Connor's Map</a>
+        <a href="#p7">7. So, Which Door?</a>
+        <a href="#notes">Footnotes</a>
+        <a href="#comments">Comments</a>
+      </div>
+    </details>
+    <a class="btn" href="#comments" id="commentBtn">💬 Comment</a>
+    <a class="btn hide-sm" id="editBtn" href="https://github.com/michaelraspuzzi/memos/edit/credentials/third-door.html" target="_blank" rel="noopener">✎ Write</a>
+    <button class="btn hide-sm" id="copyBtn" type="button">Copy for agents</button>
+    <a class="btn primary" href="https://michaelraspuzzi.github.io/memos/maps/applied-ai-apprentice-map.html">Open the map →</a>
+  </div>
+  <div class="progress" id="progress"></div>
+</nav>
+
+<main id="article">
+  <h1>The Third Door Is an Apprenticeship</h1>
+  <p class="dek">Don't wait in line for the job. Start doing it before anyone says yes. Here's a map for how, the prompt that draws it, and one worked example.</p>
+
+  <figure class="hero">
+    <a href="https://michaelraspuzzi.github.io/memos/maps/applied-ai-apprentice-map.html"><img src="maps/assets/shadow-apprentice-grid.jpg" alt="A grid of 30 cards. Five levels run across the top: Fundamentals, Ship three demos, One real project, A startup, and The Nobel agent. Six tracks run down the side: Build, Package, Verify, Customer, Science and Mission." width="1600" height="1465"></a>
+    <figcaption>A Shadow Apprentice Map for Anthropic's Applied AI Associate role. Five levels across, six tracks down, and every card earns its place three ways. <a href="https://michaelraspuzzi.github.io/memos/maps/applied-ai-apprentice-map.html">Open the interactive version.</a></figcaption>
+  </figure>
+
+  <div class="prenote">
+    <p>This is about a different way to go after a job you want: start apprenticing yourself to it before you apply. I call the plan for that a Shadow Apprentice Map.</p>
+    <p>It's about a 10-minute read. The prompt is in Part 4 if you just want to make one.</p>
+  </div>
+
+  <div class="tldr">
+    <h2>TL;DR</h2>
+    <ul>
+      <li><b>The front door is crowded.</b> Polishing a résumé and reading about the role is what everyone in line is doing.</li>
+      <li><b>There's always a third door.</b> Alex Banayan's idea: skip the line and find the side entrance. For a job, the side entrance is doing a small version of the work before anyone asks you to.</li>
+      <li><b>A Shadow Apprentice Map is that plan, written down.</b> Five levels, from 10 hours of fundamentals to a decade-long moonshot, and every card has to fit the role, the company and you.</li>
+      <li><b>It changes your odds.</b> You arrive with shipped work instead of enthusiasm, and the shipping itself makes luck: people see it, share it and open doors.</li>
+      <li><b>One prompt draws the map.</b> It's below, along with the map I made for a friend aiming at Anthropic's Applied AI team.</li>
+    </ul>
+  </div>
+
+  <nav class="toc" aria-label="Contents">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#p1">The Front Door</a></li>
+      <li><a href="#p2">The Third Door</a></li>
+      <li><a href="#p3">Meet the Shadow Apprentice</a></li>
+      <li><a href="#p4">The Prompt</a></li>
+      <li><a href="#p5">How the Map Gets Made</a></li>
+      <li><a href="#p6">Connor's Map</a></li>
+      <li><a href="#p7">So, Which Door?</a></li>
+    </ol>
+  </nav>
+
+  <p class="part" id="p1">Part 1</p>
+  <h2 class="sec">The Front Door</h2>
+
+  <p>Here's how most people apply for a job they really want.</p>
+  <p>They find the posting. They read it four times. They rewrite their résumé so the words "cross-functional" appear in it. They read the company blog, maybe watch a podcast with the CEO at 1.5x speed. They hit submit, refresh their inbox for two weeks, and if they get an interview, they spend the night before memorizing talking points about why they're "passionate about the mission."</p>
+  <p>Nothing about this is wrong. It's just what you're told to do. And that's the problem: <b class="tk">it's exactly what you're told to do, so it's exactly what everyone else is doing too.</b></p>
+  <p>Picture the line outside a popular club. Everyone has the same outfit on. Everyone is holding the same résumé. The bouncer has about six seconds per person, so he's mostly looking for reasons to say no.</p>
+
+  <figure>
+    <svg viewBox="0 0 640 250" role="img" aria-labelledby="doorsT doorsD">
+      <title id="doorsT">Three doors</title>
+      <desc id="doorsD">A sketch of a building. A long queue of stick figures waits at the front door. A short velvet rope guards a VIP door. Around the side, one figure climbs into a small door marked Third Door.</desc>
+      <g fill="none" stroke="var(--hand)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M224 40 L520 38 L522 210 L222 212 Z"/>
+        <path d="M244 210 L244 130 L298 130 L298 210"/>
+        <path d="M380 210 L380 140 L424 140 L424 210"/>
+        <path d="M520 150 L566 152 L566 212 L522 210"/>
+        <path d="M540 212 L540 172 L560 172 L560 212"/>
+        <path d="M4 212 L636 214"/>
+        <path d="M362 196 L362 176 M442 196 L442 176 M362 180 Q402 192 442 180"/>
+      </g>
+      <g stroke="var(--chart-c)" stroke-width="2" fill="none" stroke-linecap="round">
+        <circle cx="210" cy="168" r="6"/><path d="M210 174 v18 M210 192 l-6 14 M210 192 l6 14 M202 182 h16"/>
+        <circle cx="186" cy="168" r="6"/><path d="M186 174 v18 M186 192 l-6 14 M186 192 l6 14 M178 182 h16"/>
+        <circle cx="162" cy="168" r="6"/><path d="M162 174 v18 M162 192 l-6 14 M162 192 l6 14 M154 182 h16"/>
+        <circle cx="138" cy="168" r="6"/><path d="M138 174 v18 M138 192 l-6 14 M138 192 l6 14 M130 182 h16"/>
+        <circle cx="114" cy="168" r="6"/><path d="M114 174 v18 M114 192 l-6 14 M114 192 l6 14 M106 182 h16"/>
+        <circle cx="90" cy="168" r="6"/><path d="M90 174 v18 M90 192 l-6 14 M90 192 l6 14 M82 182 h16"/>
+        <circle cx="66" cy="168" r="6"/><path d="M66 174 v18 M66 192 l-6 14 M66 192 l6 14 M58 182 h16"/>
+        <circle cx="42" cy="168" r="6"/><path d="M42 174 v18 M42 192 l-6 14 M42 192 l6 14 M34 182 h16"/>
+        <circle cx="18" cy="168" r="6"/><path d="M18 174 v18 M18 192 l-6 14 M18 192 l6 14 M10 182 h16"/>
+      </g>
+      <g stroke="var(--chart-a)" stroke-width="2.4" fill="none" stroke-linecap="round">
+        <circle cx="590" cy="150" r="6.5"/><path d="M588 157 l-14 16 M574 173 l-10 -6 M574 173 l-2 18 M584 162 l-16 -4 M584 162 l-26 8"/>
+      </g>
+      <g class="hand" fill="var(--hand)" font-size="18" text-anchor="middle">
+        <text x="271" y="122">Front Door</text>
+        <text x="402" y="132">VIP</text>
+        <text x="110" y="236" font-size="16" fill="var(--muted)">the line (everyone)</text>
+        <text x="402" y="236" font-size="16" fill="var(--muted)">(already famous)</text>
+        <text x="575" y="236" fill="var(--chart-a)">Third Door</text>
+      </g>
+    </svg>
+    <figcaption>Three ways into the club. A sketch.</figcaption>
+  </figure>
+
+  <p>If you're lucky, you're already famous and you walk through the VIP entrance. Most of us aren't. So we wait in line and hope.</p>
+
+  <p class="part" id="p2">Part 2</p>
+  <h2 class="sec">The Third Door</h2>
+
+  <p>Alex Banayan spent years as a college student trying to interview people like Bill Gates and Lady Gaga, which is not the kind of thing you get by standing in line. What he found is that a lot of them got started the same way. They didn't wait at the front door, and they didn't have the VIP pass. They went around the side.<sup><a href="#n1" id="r1">1</a></sup></p>
+  <p>His version: there's always a third door. You jump out of line, run down the alley, knock on the kitchen door a hundred times, climb through a window. It's less dignified and much less crowded.</p>
+
+  <figure>
+    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/pqIoTo1NdYw" title="The Third Door | Alex Banayan | Talks at Google" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+    <figcaption>Alex Banayan explains the Third Door at Talks at Google.<sup><a href="#n1">1</a></sup></figcaption>
+  </figure>
+
+  <p>So what's the third door for a job?</p>
+  <p>It isn't a clever cold email, although those help. It's this: <b class="tk">start doing the job before you have it.</b> Not pretending you have it. Doing a small, honest, public version of it. Ship the demo the team would ship. Write the memo they'd write. Build the eval they'd want. Then show up with that.</p>
+  <p>This does two things at once, and the second one is sneaky.</p>
+  <p>First, it's a <em>try-out for you</em>. You find out whether you actually like the work before you've uprooted your life for it. A lot of dream jobs are dream jobs mostly from the outside.</p>
+  <p>Second, it makes luck. The entrepreneur Jason Roberts has a nice formula for this: your "luck surface area" is how much you <em>do</em> times how many people you <em>tell</em>.<sup><a href="#n2" id="r2">2</a></sup> Someone in line has done nothing new and told nobody. Someone who has shipped three small projects in public has given the universe a lot more places to grab them: a recruiter sees a repo, an engineer on the team shares a demo, a stranger forwards the write-up.</p>
+
+  <figure>
+    <svg viewBox="0 0 640 260" role="img" aria-labelledby="luckT luckD">
+      <title id="luckT">Luck surface area</title>
+      <desc id="luckD">Two rectangles. A thin sliver labeled front door: did a little, told nobody. A large square labeled third door: shipped three demos, told everyone. Doing is on the horizontal axis and telling on the vertical axis.</desc>
+      <g stroke="var(--hand)" stroke-width="2" fill="none" stroke-linecap="round">
+        <path d="M60 220 L600 222"/><path d="M60 220 L58 20"/>
+        <path d="M592 214 l10 8 l-10 8"/><path d="M50 28 l8 -10 l8 10"/>
+      </g>
+      <rect x="62" y="196" width="70" height="22" fill="var(--chart-c)" opacity=".55"/>
+      <rect x="62" y="56" width="400" height="162" fill="var(--chart-a)" opacity=".18" stroke="var(--chart-a)" stroke-width="2"/>
+      <g class="hand" font-size="18" fill="var(--hand)">
+        <text x="140" y="212">front door</text>
+        <text x="260" y="130" text-anchor="middle" fill="var(--chart-a)" font-size="22">third door</text>
+        <text x="260" y="154" text-anchor="middle" font-size="16" fill="var(--muted)">shipped 3 demos, told people</text>
+        <text x="600" y="246" text-anchor="end" font-size="16" fill="var(--muted)">doing →</text>
+        <text x="70" y="16" font-size="16" fill="var(--muted)">telling ↑</text>
+      </g>
+    </svg>
+    <figcaption>Luck surface area is doing times telling.<sup><a href="#n2">2</a></sup> Same person, two strategies. A sketch, not to scale.</figcaption>
+  </figure>
+
+  <p>Momentum compounds, too. The first demo is hard. The second one borrows half its code from the first. By the third, you're talking about the role in the past tense: "When I built X, I found Y."</p>
+  <p class="big">The third door for a job is doing the job, in public, before anyone gives it to you.</p>
+  <p>Which raises a practical question: <em>which</em> version of the job? For which company? Starting where? That's what the map is for.</p>
+
+  <p class="part" id="p3">Part 3</p>
+  <h2 class="sec">Meet the Shadow Apprentice</h2>
+
+  <p>For most of history, this is just how people got jobs. You didn't apply to be a blacksmith. You hung around a blacksmith, swept up, held things, and slowly got trusted with hotter metal. Apprenticeship was the front door.</p>
+  <p>Modern hiring swapped that for a document and an interview. Which is efficient, but it means most people now walk into the job having never done any of it.</p>
+  <p>A <b class="tk">shadow apprentice</b> brings the old way back, without asking permission. You pick the role. You apprentice yourself to it in the open: learn what that team has to know, then build what that team would build. Nobody's supervising you, so you have to be your own master craftsman. That's the "shadow" part.</p>
+
+  <div class="blue">
+    <h3>Blue Box: What's a Shadow Apprentice Map?</h3>
+    <p>A one-page plan that turns three inputs (a job description, a person and a company) into five levels of work.</p>
+    <p><b>Levels 1 and 2</b> are a 24-hour speedrun: the fundamentals, then three small demos. <b>Level 3</b> is one real project with real users, over a few weeks. <b>Levels 4 and 5</b> are the long arc: a startup-sized product and a decade-sized moonshot.</p>
+    <p>The rule that makes it work: every card has to be relevant to the <b>role</b>, to the <b>company</b> and to the <b>person</b>. Miss one and it's cut.</p>
+  </div>
+
+  <p>Why bother with Levels 4 and 5 if the job is Level 1? Because the interview is partly a test of how big you think, and "here's the decade-long project I'd point your product at" is a much better answer to "where do you see yourself?" than "in a senior role." Also, frankly, because it's fun.</p>
+  <p>Why three checks? Because without them you get a generic "Learn AI in 30 Days" syllabus, which is just a fancier way to stand in line. The checks force the map to be about <em>this</em> role at <em>this</em> company for <em>this</em> human.</p>
+
+  <p class="part" id="p4">Part 4</p>
+  <h2 class="sec">The Prompt</h2>
+
+  <p>I built the first one for a friend I'll call Connor. Here's the prompt, lightly cleaned up so you can reuse it. Give your agent the job description and the person's profile (LinkedIn, portfolio, writing) first.</p>
+
+  <div class="prompt">
+    <div class="ph"><span>The prompt</span><button class="btn" type="button" data-copy="p1">Copy</button></div>
+<pre id="p1">Given the role, and given [name] is interested in [their focus], make me a "shadow apprentice map."
+
+Level 1: fundamentals they should know, from technical (SDK, API) to foundational (ethics, the company's constitution or values).
+Level 2: initial projects to ship, and why.
+Level 3: one robust project that gets real user feedback.
+Level 4: a product that could be a startup.
+Level 5: an agent that could win a Nobel Prize.
+
+Every branch must be relevant to the role, relevant to the company, and relevant to the person. If you need to, do deep research on the company and its work first, and save it as reference files. Make this legit: help them speedrun the role in 24 hours, with great projects to demo.</pre>
+  </div>
+
+  <p>Then one round of edits, to make it something a person would actually use:</p>
+
+  <div class="prompt">
+    <div class="ph"><span>The follow-up</span><button class="btn" type="button" data-copy="p2">Copy</button></div>
+<pre id="p2">Make it more visual. Put levels across and tracks down, so each skill is its own card. Make the cards open one at a time. Include citations I can click. Keep it light mode. Replace the person's real name with a made-up one.</pre>
+  </div>
+
+  <p>That's it. Two messages.</p>
+
+  <p class="part" id="p5">Part 5</p>
+  <h2 class="sec">How the Map Gets Made</h2>
+
+  <p>The prompt is short, but the agent does a lot behind it. Three moves matter.</p>
+  <p><b class="tk">Move 1: research before writing.</b> The agent sent out four sub-agents in parallel. One read Anthropic's mission, safety and constitution pages. One read the developer docs. One mapped Anthropic's AI-for-science work. One read everything Connor had published. Each saved a reference file, and the map was written from those files, not from the model's memory. This matters more than it sounds: model names, products and funding announcements had all changed in the past few months, and a map built on stale facts is worse than none.</p>
+  <p><b class="tk">Move 2: three checks on every card.</b> Every card names the job-description line it proves, the company product or bet it connects to, and the part of the person's history it builds on.</p>
+
+  <figure>
+    <svg viewBox="0 0 640 300" role="img" aria-labelledby="vennT vennD">
+      <title id="vennT">The three checks</title>
+      <desc id="vennD">Three overlapping circles labeled Role, Company and You. Only the center, where all three overlap, is labeled a card on the map.</desc>
+      <g fill-opacity=".12" stroke-width="2.2">
+        <circle cx="250" cy="120" r="95" fill="var(--chart-a)" stroke="var(--chart-a)"/>
+        <circle cx="390" cy="120" r="95" fill="var(--chart-b)" stroke="var(--chart-b)"/>
+        <circle cx="320" cy="200" r="95" fill="var(--chart-c)" stroke="var(--chart-c)"/>
+      </g>
+      <g class="hand" font-size="20" text-anchor="middle" fill="var(--hand)">
+        <text x="215" y="90">Role</text>
+        <text x="215" y="112" font-size="14" fill="var(--muted)">a JD line it proves</text>
+        <text x="425" y="90">Company</text>
+        <text x="425" y="112" font-size="14" fill="var(--muted)">a product or bet</text>
+        <text x="320" y="262">You</text>
+        <text x="320" y="282" font-size="14" fill="var(--muted)">your own history</text>
+        <text x="320" y="150" fill="var(--chart-a)" font-size="17" font-weight="700">a card</text>
+      </g>
+    </svg>
+    <figcaption>Only ideas in the middle make it onto the map.</figcaption>
+  </figure>
+
+  <p>Here's what that looks like on one card. Connor's Level 2 "Instrument agent" has Claude run a real lab device behind hard safety limits.</p>
+  <ul>
+    <li><b>Role:</b> the job asks for demo environments and proofs of concept.</li>
+    <li><b>Company:</b> Anthropic's Model Hardware Standard, its newest bet on Claude driving physical machines.<sup><a href="#n3" id="r3">3</a></sup></li>
+    <li><b>Connor:</b> he has an algae bioreactor at home with automated control. Nobody else in the interview pool has that demo.</li>
+  </ul>
+
+  <p><b class="tk">Move 3: find the gap, then aim at it.</b> Good research turns up a thesis, not just facts. For Connor it was this: every public Anthropic science case study was in biology or pharma, while its newest bets (the hardware standard, the Claude Science workbench and $150M for the Department of Energy's Genesis Mission) point at the physical world.<sup><a href="#n3">3</a></sup><sup><a href="#n4" id="r4">4</a></sup><sup><a href="#n5" id="r5">5</a></sup> Nobody had publicly shown Claude doing materials or hardware well. Connor is a materials and mechanical engineer. So the whole map points him at that hole.</p>
+
+  <div class="aside"><p>A map should make one argument. If yours reads like a list of things to learn, the research didn't find the gap yet. Go back and ask the agent: "What is this company betting on that nobody has shown working yet, and why is this person suited to it?"</p></div>
+
+  <p class="part" id="p6">Part 6</p>
+  <h2 class="sec">Connor's Map</h2>
+
+  <p>Here's the map in five stops. The <a href="https://michaelraspuzzi.github.io/memos/maps/applied-ai-apprentice-map.html">interactive version</a> has every card, the hour-by-hour schedule and the sources.</p>
+
+  <ol class="levels">
+    <li><span class="n">1</span><div><h3>Fundamentals · hours 0–10</h3><p>The API in depth, four ways to build agents, Skills and MCP, evals, customer discovery and cost math, and a close read of Claude's constitution. The best card: Connor once wrote an essay arguing that unrestrained "helpful, honest, harmless" AI hurts learning. The map has him prep a three-minute take on where the constitution answers that, and where it doesn't.</p></div></li>
+    <li><span class="n">2</span><div><h3>Ship three demos · hours 10–24</h3><p><em>Datasheet Detective</em> pulls cited properties out of messy material datasheets. A <em>Hardware Skills pack</em> turns his engineering templates into installable skills. The <em>Instrument agent</em> runs his bioreactor and refuses an out-of-limits command on camera. Each ships with a README, a 60-second video and an eval table.</p></div></li>
+    <li><span class="n">3</span><div><h3>One real project · 4–8 weeks</h3><p>A design-review agent for small hardware teams, tested with 5 to 10 design partners. Every miss becomes an eval case. It ends with a product-feedback memo to Anthropic, which happens to be a line in the job description.</p></div></li>
+    <li><span class="n">4</span><div><h3>A startup · 1–3 years</h3><p>"Closed Loop": design, simulate, fabricate and test as one agent loop. The moat is verification data. AI automates what's cheap to check, and in hardware, checking is the expensive part.</p></div></li>
+    <li class="l5"><span class="n">5</span><div><h3>The Nobel agent · a decade</h3><p>Seven agents and one human scientist, hunting for an iridium-free catalyst for green hydrogen. Iridium is one of the rarest metals on Earth, and the property that matters can be measured by a machine. A skeptical reviewer agent blocks any result that hasn't been reproduced.</p></div></li>
+  </ol>
+
+  <p>That last level handed Connor his opening line. It's now the first thing on the map:</p>
+  <p class="quote">"Anthropic has shown Claude designing proteins. I want to help it discover a material, and I'd start with the iridium bottleneck in green hydrogen, because there verification can be automated and the payoff is decarbonizing heavy industry."</p>
+  <p>Compare that to "I'm passionate about the mission." One of these people is standing in line.</p>
+
+  <p class="part" id="p7">Part 7</p>
+  <h2 class="sec">So, Which Door?</h2>
+
+  <p>The front door still works sometimes. But it asks you to be judged on a description of yourself. The third door lets you be judged on the work.</p>
+  <p>The Shadow Apprentice Map is just the third door with directions. Pick a role. Feed in the job description and yourself. Hold every card to the three checks. Then do the part most people skip: <b class="tk">ship Level 2 before you apply.</b> Twenty-four hours of focused work gets you three public demos and a story told in the past tense.</p>
+  <p>And if you mentor or hire people, run it the other way. Hand someone a map for <em>your</em> team. It's the clearest way I know to say "here's what great looks like here, for you specifically."</p>
+  <p>Worst case, you spend a day building things and find out you don't love the job. Best case, someone on the inside sees the work before they ever see your résumé.</p>
+
+  <div class="questions">
+    <p><b>Before you draw your map, ask:</b></p>
+    <ol>
+      <li>What is this company betting on that nobody has shown working yet?</li>
+      <li>What's the strangest thing in my background that fits that bet? (Connor's was a bioreactor.)</li>
+      <li>Which of my three Level 2 demos could a team member forward to their boss tomorrow?</li>
+      <li>Who am I going to tell, and where?</li>
+    </ol>
+  </div>
+
+  <div class="notes" id="notes">
+    <h2>Footnotes</h2>
+    <ol>
+      <li id="n1">Alex Banayan, <a href="https://www.youtube.com/watch?v=pqIoTo1NdYw">"The Third Door"</a>, Talks at Google. Also his book <em>The Third Door</em> (Currency, 2018). <a href="#r1">↩</a><span class="fnsum">Banayan set out as a student to learn how famous people got their start, and found the same pattern: they skipped the main line and the VIP line and found a side entrance through persistence and odd angles.</span></li>
+      <li id="n2">Jason C. Roberts, <a href="https://www.codusoperandi.com/posts/increasing-your-luck-surface-area">"Increasing Your Luck Surface Area"</a>, Codus Operandi. <a href="#r2">↩</a><span class="fnsum">Luck isn't random if you widen the target: the amount of serendipity you get is roughly what you do times how many people you tell about it.</span></li>
+      <li id="n3">Anthropic, <a href="https://anthropic.com/news/model-hardware-standard-research-preview">"Model Hardware Standard research preview"</a>, Aug 2026. <a href="#r3">↩</a><span class="fnsum">A standard for letting Claude drive lab and industrial devices through drivers, plain-language device descriptions and enforced safety limits.</span></li>
+      <li id="n4">MIT Technology Review, <a href="https://www.technologyreview.com/2026/06/30/1139987/claude-science-is-anthropics-newest-flagship-product/">"Claude Science is Anthropic's newest flagship product"</a>, Jun 30 2026. <a href="#r4">↩</a><span class="fnsum">Anthropic's multi-agent research workbench for scientists, with a built-in reviewer agent.</span></li>
+      <li id="n5">Anthropic, <a href="https://anthropic.com/news/genesis-mission-commitment">"$150M Genesis Mission commitment"</a>, Oct 2026. <a href="#r5">↩</a><span class="fnsum">Anthropic's commitment to the US Department of Energy's Genesis Mission for AI-driven science at national labs.</span></li>
+      <li id="n6">The full map: <a href="https://michaelraspuzzi.github.io/memos/maps/applied-ai-apprentice-map.html">Shadow Apprentice Map: Applied AI Associate</a>, Oct 2026. Every card cites its sources.<span class="fnsum">Thirty cards across five levels and six tracks, plus a 24-hour schedule and an interview kit. Connor is a made-up name.</span></li>
+    </ol>
+  </div>
+
+  <section class="comments" id="comments" aria-labelledby="commentsH">
+    <h2 id="commentsH">Comments</h2>
+    <p class="lead">Comments are saved as GitHub issues on the <a href="https://github.com/michaelraspuzzi/memos/issues">memos repo</a>, so they stay public and I can read them. Highlight any passage to comment on it directly.</p>
+    <div class="row">
+      <a class="btn primary" id="newComment" href="#" target="_blank" rel="noopener">💬 Leave a comment</a>
+      <a class="btn" id="allComments" href="#" target="_blank" rel="noopener">See all on GitHub</a>
+    </div>
+    <div class="clist" id="clist"><p class="empty">Loading comments…</p></div>
+  </section>
+</main>
+
+<a class="btn primary" id="selcomment" href="#" target="_blank" rel="noopener">💬 Comment on this</a>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var REPO = "michaelraspuzzi/memos";
+  var TAG = "[third-door]";
+  var PAGE = "https://michaelraspuzzi.github.io/memos/third-door.html";
+
+  function toast(msg){ var t=document.getElementById("toast"); t.textContent=msg; t.classList.add("on"); setTimeout(function(){t.classList.remove("on");},1600); }
+  function copy(text, msg){
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(function(){toast(msg||"Copied");}, function(){
+      var ta=document.createElement("textarea"); ta.value=text; document.body.appendChild(ta); ta.select();
+      try{document.execCommand("copy"); toast(msg||"Copied");}catch(e){toast("Copy failed");} ta.remove();
+    });
+  }
+  function issueUrl(quote){
+    var body = (quote ? "> " + quote.replace(/\n+/g," ").slice(0,600) + "\n\n" : "") + "<!-- Write your comment above this line. -->\n\nPage: " + PAGE;
+    return "https://github.com/" + REPO + "/issues/new?title=" + encodeURIComponent(TAG + " ") + "&body=" + encodeURIComponent(body);
+  }
+
+  document.querySelectorAll("[data-copy]").forEach(function(b){
+    b.addEventListener("click", function(){ copy(document.getElementById(b.dataset.copy).textContent, "Prompt copied"); });
+  });
+  document.getElementById("copyBtn").addEventListener("click", function(){
+    var main=document.getElementById("article").cloneNode(true);
+    main.querySelectorAll(".comments,svg,iframe").forEach(function(n){n.remove();});
+    copy(document.title + "\n" + PAGE + "\n\n" + main.innerText.trim(), "Page copied for agents");
+  });
+
+  document.getElementById("newComment").href = issueUrl("");
+  document.getElementById("allComments").href = "https://github.com/" + REPO + "/issues?q=" + encodeURIComponent('is:issue in:title "' + TAG + '"');
+  document.querySelectorAll(".menubar details .drop a").forEach(function(a){ a.addEventListener("click", function(){ a.closest("details").open=false; }); });
+
+  // Comment on a highlighted passage
+  var sel = document.getElementById("selcomment");
+  document.addEventListener("mouseup", function(e){
+    if (e.target === sel) return;
+    setTimeout(function(){
+      var s = window.getSelection(), text = s ? s.toString().trim() : "";
+      if (!text || text.length < 3 || !s.rangeCount || !document.getElementById("article").contains(s.anchorNode) || document.getElementById("comments").contains(s.anchorNode)) { sel.style.display="none"; return; }
+      var r = s.getRangeAt(0).getBoundingClientRect();
+      sel.href = issueUrl(text);
+      sel.style.display = "inline-flex";
+      sel.style.top = (window.scrollY + r.top - 44) + "px";
+      sel.style.left = Math.max(8, Math.min(window.scrollX + r.left + r.width/2 - 80, document.documentElement.clientWidth - 180)) + "px";
+    }, 10);
+  });
+  sel.addEventListener("click", function(){ setTimeout(function(){ sel.style.display="none"; }, 100); });
+
+  // Reading progress
+  var prog = document.getElementById("progress");
+  window.addEventListener("scroll", function(){
+    var h = document.documentElement.scrollHeight - innerHeight;
+    prog.style.width = (h > 0 ? Math.min(100, scrollY / h * 100) : 0) + "%";
+  }, {passive:true});
+
+  // Load comments from GitHub issues
+  function el(tag, cls, text){ var n=document.createElement(tag); if(cls) n.className=cls; if(text!=null) n.textContent=text; return n; }
+  function render(issues){
+    var list = document.getElementById("clist"); list.innerHTML = "";
+    if (!issues.length){ list.appendChild(el("p","empty","No comments yet. Be the first.")); return; }
+    issues.forEach(function(it){
+      var c = el("article","c"), meta = el("div","meta");
+      var img = document.createElement("img"); img.src = it.user.avatar_url + "&s=40"; img.alt = ""; meta.appendChild(img);
+      meta.appendChild(el("b",null,it.user.login));
+      meta.appendChild(el("span",null,new Date(it.created_at).toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"})));
+      if (it.comments) meta.appendChild(el("span",null,"· " + it.comments + (it.comments===1?" reply":" replies")));
+      c.appendChild(meta);
+      var body = (it.body||"").split("<!--")[0].trim();
+      var t = it.title.replace(TAG,"").trim(); if (t) c.appendChild(el("p",null,t)).style.fontWeight="700";
+      body.split(/\n{2,}/).forEach(function(par){
+        if (/^>/.test(par)) c.appendChild(el("blockquote",null,par.replace(/^>\s?/gm,"")));
+        else if (par.trim()) c.appendChild(el("p",null,par));
+      });
+      var a = el("a","reply","Reply on GitHub →"); a.href = it.html_url; a.target="_blank"; a.rel="noopener"; c.appendChild(a);
+      list.appendChild(c);
+    });
+  }
+  fetch("https://api.github.com/repos/" + REPO + "/issues?state=all&per_page=100&sort=created&direction=asc", {headers:{Accept:"application/vnd.github+json"}})
+    .then(function(r){ if(!r.ok) throw r.status; return r.json(); })
+    .then(function(all){ render(all.filter(function(i){ return !i.pull_request && i.title.indexOf(TAG) === 0; })); })
+    .catch(function(){ var l=document.getElementById("clist"); l.innerHTML=""; l.appendChild(el("p","empty","Couldn't load comments right now. They're all on GitHub.")); });
+})();
+</script>
+</body>
+</html>
