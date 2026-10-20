@@ -102,6 +102,8 @@ figcaption { font-size: 14.5px; color: var(--muted); margin-top: 8px; line-heigh
 .levels .n { font-family: "Archivo", sans-serif; font-weight: 800; font-size: 30px; line-height: 1; color: var(--accent); }
 .levels h3 { font-size: 18px; margin: 0 0 4px; }
 .levels p { margin: 0; font-size: 16.5px; }
+.ins { padding-left: 20px; margin: 0 0 18px; }
+.ins li { margin: 0 0 8px; }
 .levels li.l5 { border-color: var(--accent); background: var(--blue-bg); }
 .quote { font-family: "Archivo", sans-serif; font-weight: 700; font-size: 22px; line-height: 1.4; margin: 28px 0; padding: 22px 24px; background: var(--accent); color: #fff; border-radius: 10px; }
 .questions { background: var(--aside-bg); border-radius: 12px; padding: 20px 24px; margin: 28px 0; }
@@ -165,7 +167,7 @@ figcaption { font-size: 14.5px; color: var(--muted); margin-top: 8px; line-heigh
         <a href="#p4">4. The Prompt</a>
         <a href="#p5">5. How the Map Gets Made</a>
         <a href="#p6">6. Connor's Map</a>
-        <a href="#p7">7. So, Which Door?</a>
+        <a href="#p7">7. Even If You Don't Get the Job</a>
         <a href="#notes">Footnotes</a>
         <a href="#comments">Comments</a>
       </div>
@@ -184,12 +186,12 @@ figcaption { font-size: 14.5px; color: var(--muted); margin-top: 8px; line-heigh
 
   <figure class="hero">
     <a href="https://michaelraspuzzi.github.io/memos/maps/applied-ai-apprentice-map.html"><img src="maps/assets/shadow-apprentice-map.gif" alt="A screen recording of the map: the cursor clicks the Instrument agent card and its details open front and center, then it zooms back out and opens the seven-agent discovery system card." width="960" height="600"></a>
-    <figcaption>A Shadow Apprentice Map for Anthropic's Applied AI Associate role. Five levels across, six tracks down, and every card earns its place three ways. <a href="https://michaelraspuzzi.github.io/memos/maps/applied-ai-apprentice-map.html">Open the interactive version.</a></figcaption>
+    <figcaption>A Shadow Apprentice Map for Anthropic's Applied AI Associate role. Five levels across, six tracks down, 30 cards. <a href="https://michaelraspuzzi.github.io/memos/maps/applied-ai-apprentice-map.html">Open the interactive version.</a></figcaption>
   </figure>
 
   <div class="prenote">
     <p>This is about a different way to go after a job you want: start apprenticing yourself to it before you apply. I call the plan for that a Shadow Apprentice Map.</p>
-    <p>It's about a 10-minute read. The prompt is in Part 4 if you just want to make one.</p>
+    <p>It's about a 12-minute read. The prompt is in Part 4 if you just want to make one.</p>
   </div>
 
   <div class="tldr">
@@ -198,8 +200,8 @@ figcaption { font-size: 14.5px; color: var(--muted); margin-top: 8px; line-heigh
       <li><b>The front door is crowded.</b> Polishing a résumé and reading about the role is what everyone in line is doing.</li>
       <li><b>There's always a third door.</b> Alex Banayan's idea: skip the line and find the side entrance. For a job, one way in is doing a small version of the work before anyone asks you to, which AI now makes possible in a day.</li>
       <li><b>A Shadow Apprentice Map is that plan, written down.</b> Five levels, from 10 hours of fundamentals to a decade-long moonshot, and every card has to fit the role, the company and you.</li>
-      <li><b>It changes your odds.</b> You arrive with shipped work instead of enthusiasm, and the shipping itself makes luck: people see it, share it and open doors.</li>
-      <li><b>One prompt draws the map.</b> It's below, along with the map I made for a friend aiming at Anthropic's Applied AI team.</li>
+      <li><b>One prompt draws it.</b> Behind it, four research agents worked through about 560,000 tokens in under five minutes and boiled them down to 30 cards with 83 sources.</li>
+      <li><b>It's never sunk cost.</b> Even if you don't get the job, you keep the skills, the public work and the people who saw it.</li>
     </ul>
   </div>
 
@@ -212,7 +214,7 @@ figcaption { font-size: 14.5px; color: var(--muted); margin-top: 8px; line-heigh
       <li><a href="#p4">The Prompt</a></li>
       <li><a href="#p5">How the Map Gets Made</a></li>
       <li><a href="#p6">Connor's Map</a></li>
-      <li><a href="#p7">So, Which Door?</a></li>
+      <li><a href="#p7">Even If You Don't Get the Job</a></li>
     </ol>
   </nav>
 
@@ -222,44 +224,53 @@ figcaption { font-size: 14.5px; color: var(--muted); margin-top: 8px; line-heigh
   <p>Here's how most people apply for a job they really want.</p>
   <p>They find the posting. They read it four times. They rewrite their résumé so the words "cross-functional" appear in it. They read the company blog, maybe watch a podcast with the CEO at 1.5x speed. They hit submit, refresh their inbox for two weeks, and if they get an interview, they spend the night before memorizing talking points about why they're "passionate about the mission."</p>
   <p>Nothing about this is wrong. It's just what you're told to do. And that's the problem: <b class="tk">it's exactly what you're told to do, so it's exactly what everyone else is doing too.</b></p>
-  <p>Picture the line outside a popular club. Everyone has the same outfit on. Everyone is holding the same résumé. The bouncer has about six seconds per person, so he's mostly looking for reasons to say no.</p>
+  <p>Picture the line outside a popular club. Everyone has the same outfit on. Everyone is holding the same résumé. The bouncer has a few seconds per person, so he's mostly looking for reasons to say no.</p>
 
   <figure>
-    <svg viewBox="0 0 640 250" role="img" aria-labelledby="doorsT doorsD">
-      <title id="doorsT">Three doors</title>
-      <desc id="doorsD">A sketch of a building. A long queue of stick figures waits at the front door. A short velvet rope guards a VIP door. Around the side, one figure climbs into a small door marked Third Door.</desc>
-      <g fill="none" stroke="var(--hand)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M224 40 L520 38 L522 210 L222 212 Z"/>
-        <path d="M244 210 L244 130 L298 130 L298 210"/>
-        <path d="M380 210 L380 140 L424 140 L424 210"/>
-        <path d="M520 150 L566 152 L566 212 L522 210"/>
-        <path d="M540 212 L540 172 L560 172 L560 212"/>
-        <path d="M4 212 L636 214"/>
-        <path d="M362 196 L362 176 M442 196 L442 176 M362 180 Q402 192 442 180"/>
+    <svg viewBox="0 0 900 380" role="img" aria-labelledby="f1t f1d">
+      <title id="f1t">Three doors into the club</title>
+      <desc id="f1d">A building with three entrances. A long line of identical people waits at the front door. A velvet rope guards an empty VIP door. Around the side, one person climbs in through a small open door labeled Third door, which leads straight to the work inside.</desc>
+      <rect width="900" height="380" fill="#f7f5f0"/>
+      <rect x="0" y="318" width="900" height="62" fill="#e6e1d6"/>
+      <rect x="250" y="70" width="560" height="248" fill="#ffffff" stroke="#26262b" stroke-width="3"/>
+      <rect x="250" y="70" width="560" height="34" fill="#26262b"/>
+      <text x="530" y="93" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="15" letter-spacing="3" fill="#ffffff">THE COMPANY</text>
+      <!-- front door -->
+      <rect x="290" y="186" width="84" height="132" fill="#d9d9e0" stroke="#26262b" stroke-width="3"/>
+      <circle cx="362" cy="256" r="4" fill="#26262b"/>
+      <text x="332" y="174" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="13" letter-spacing="1.5" fill="#26262b">FRONT DOOR</text>
+      <!-- vip door -->
+      <rect x="480" y="186" width="84" height="132" fill="#2a2a30" stroke="#26262b" stroke-width="3"/>
+      <text x="522" y="174" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="13" letter-spacing="1.5" fill="#26262b">VIP</text>
+      <g stroke="#b8862b" stroke-width="3" fill="none"><path d="M456 318 V272 M588 318 V272"/><path d="M456 278 Q522 300 588 278" stroke="#b02a3a" stroke-width="5"/></g>
+      <circle cx="456" cy="270" r="6" fill="#b8862b"/><circle cx="588" cy="270" r="6" fill="#b8862b"/>
+      <!-- third door, side -->
+      <rect x="810" y="190" width="60" height="128" fill="#ffffff" stroke="#26262b" stroke-width="3"/>
+      <path d="M810 190 L842 202 L842 330 L810 318 Z" fill="#2348d4"/>
+      <rect x="814" y="218" width="52" height="96" fill="#fff6d8"/>
+      <text x="840" y="176" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="13" letter-spacing="1.5" fill="#2348d4">THIRD DOOR</text>
+      <!-- the line -->
+      <g fill="#b9b9c2">
+        <circle cx="258" cy="262" r="9"/><path d="M247 276 Q258 270 269 276 L271 314 H245 Z"/>
+        <circle cx="222" cy="262" r="9"/><path d="M211 276 Q222 270 233 276 L235 314 H209 Z"/>
+        <circle cx="186" cy="262" r="9"/><path d="M175 276 Q186 270 197 276 L199 314 H173 Z"/>
+        <circle cx="150" cy="262" r="9"/><path d="M139 276 Q150 270 161 276 L163 314 H137 Z"/>
+        <circle cx="114" cy="262" r="9"/><path d="M103 276 Q114 270 125 276 L127 314 H101 Z"/>
+        <circle cx="78" cy="262" r="9"/><path d="M67 276 Q78 270 89 276 L91 314 H65 Z"/>
+        <circle cx="42" cy="262" r="9"/><path d="M31 276 Q42 270 53 276 L55 314 H29 Z"/>
       </g>
-      <g stroke="var(--chart-c)" stroke-width="2" fill="none" stroke-linecap="round">
-        <circle cx="210" cy="168" r="6"/><path d="M210 174 v18 M210 192 l-6 14 M210 192 l6 14 M202 182 h16"/>
-        <circle cx="186" cy="168" r="6"/><path d="M186 174 v18 M186 192 l-6 14 M186 192 l6 14 M178 182 h16"/>
-        <circle cx="162" cy="168" r="6"/><path d="M162 174 v18 M162 192 l-6 14 M162 192 l6 14 M154 182 h16"/>
-        <circle cx="138" cy="168" r="6"/><path d="M138 174 v18 M138 192 l-6 14 M138 192 l6 14 M130 182 h16"/>
-        <circle cx="114" cy="168" r="6"/><path d="M114 174 v18 M114 192 l-6 14 M114 192 l6 14 M106 182 h16"/>
-        <circle cx="90" cy="168" r="6"/><path d="M90 174 v18 M90 192 l-6 14 M90 192 l6 14 M82 182 h16"/>
-        <circle cx="66" cy="168" r="6"/><path d="M66 174 v18 M66 192 l-6 14 M66 192 l6 14 M58 182 h16"/>
-        <circle cx="42" cy="168" r="6"/><path d="M42 174 v18 M42 192 l-6 14 M42 192 l6 14 M34 182 h16"/>
-        <circle cx="18" cy="168" r="6"/><path d="M18 174 v18 M18 192 l-6 14 M18 192 l6 14 M10 182 h16"/>
-      </g>
-      <g stroke="var(--chart-a)" stroke-width="2.4" fill="none" stroke-linecap="round">
-        <circle cx="590" cy="150" r="6.5"/><path d="M588 157 l-14 16 M574 173 l-10 -6 M574 173 l-2 18 M584 162 l-16 -4 M584 162 l-26 8"/>
-      </g>
-      <g class="hand" fill="var(--hand)" font-size="18" text-anchor="middle">
-        <text x="271" y="122">Front Door</text>
-        <text x="402" y="132">VIP</text>
-        <text x="110" y="236" font-size="16" fill="var(--muted)">the line (everyone)</text>
-        <text x="402" y="236" font-size="16" fill="var(--muted)">(already famous)</text>
-        <text x="575" y="236" fill="var(--chart-a)">Third Door</text>
+      <g fill="#ffffff" stroke="#b9b9c2" stroke-width="1.5"><rect x="250" y="286" width="14" height="18" rx="1"/><rect x="214" y="286" width="14" height="18" rx="1"/><rect x="178" y="286" width="14" height="18" rx="1"/><rect x="142" y="286" width="14" height="18" rx="1"/><rect x="106" y="286" width="14" height="18" rx="1"/><rect x="70" y="286" width="14" height="18" rx="1"/><rect x="34" y="286" width="14" height="18" rx="1"/></g>
+      <!-- climber -->
+      <circle cx="850" cy="232" r="10" fill="#2348d4"/>
+      <path d="M838 248 Q850 242 862 248 L864 288 H836 Z" fill="#2348d4"/>
+      <rect x="846" y="262" width="26" height="18" rx="2" fill="#26262b"/>
+      <g font-family="Archivo" font-weight="700" font-size="14">
+        <text x="148" y="350" text-anchor="middle" fill="#6e6e78">everyone, same résumé</text>
+        <text x="522" y="350" text-anchor="middle" fill="#6e6e78">already famous</text>
+        <text x="840" y="350" text-anchor="middle" fill="#2348d4">already working</text>
       </g>
     </svg>
-    <figcaption>Three ways into the club. A sketch.</figcaption>
+    <figcaption>Three ways in. Most people wait at the front, a few walk through the VIP door, and almost nobody looks around the side.</figcaption>
   </figure>
 
   <p>If you're lucky, you're already famous and you walk through the VIP entrance. Most of us aren't. So we wait in line and hope.</p>
@@ -269,35 +280,68 @@ figcaption { font-size: 14.5px; color: var(--muted); margin-top: 8px; line-heigh
 
   <p>Alex Banayan spent years as a college student trying to interview people like Bill Gates and Lady Gaga, which is not the kind of thing you get by standing in line. What he found is that a lot of them got started the same way. They didn't wait at the front door, and they didn't have the VIP pass. They went around the side.<sup><a href="#n1" id="r1">1</a></sup></p>
   <p>His version: there's always a third door. You jump out of line, run down the alley, knock on the kitchen door a hundred times, climb through a window. It's harder to find, and almost nobody else is using it. He tells the whole story in <a href="https://www.youtube.com/watch?v=pqIoTo1NdYw">his talk at Google</a>.</p>
-
   <p>How do we make that interesting idea actionable in the age of AI?</p>
-  <p>Start with how people used to get jobs. For most of history, nobody applied to be a blacksmith. You hung around a blacksmith, swept up, held things, and slowly got trusted with hotter metal. By the time anyone called it a job, you'd already been doing it for years. Apprenticeship <em>was</em> the front door.</p>
+  <p>Start with how people used to get jobs. For most of history, nobody applied to be a blacksmith. You hung around a blacksmith, swept up, held things, and slowly got trusted with hotter metal. In England, the law set a minimum: seven years bound to a master before you could practice a trade on your own.<sup><a href="#n2" id="r2">2</a></sup> By the time anyone called it a job, you'd been doing it for years. Apprenticeship <em>was</em> the front door.</p>
   <p>Modern hiring swapped that for a document and an interview. That's efficient, but it means most people now walk into a job having never done any of it, and the person hiring them has to guess.</p>
-  <p>The hard part of apprenticing yourself was always the master. Someone had to tell you what was worth learning and check whether you'd done it right. That's the part AI just made cheap. An agent can read a company's docs, blog and job posting in an hour, tell you what the team actually builds, and help you build a small version of it by tonight. The apprenticeship that used to take years can start this week.</p>
+  <p>The hard part of apprenticing yourself was always the master. Someone had to tell you what was worth learning and check whether you'd done it right. That's the part AI just made cheap. An agent can read a company's docs, blog and job posting in minutes, tell you what the team actually builds, and help you build a small version of it by tonight.</p>
+
+  <figure>
+    <svg viewBox="0 0 900 300" role="img" aria-labelledby="f2t f2d">
+      <title id="f2t">Apprenticeship then and now</title>
+      <desc id="f2d">Two timelines. In 1563, an apprentice is bound to a master for seven years before practicing a trade. In 2026, a shadow apprentice starts with an agent as a first teacher: 10 hours of fundamentals, 24 hours to three shipped demos, then weeks with real users.</desc>
+      <rect width="900" height="300" fill="#f7f5f0"/>
+      <g font-family="Archivo">
+        <text x="40" y="58" font-weight="800" font-size="13" letter-spacing="2" fill="#6e6e78">1563 · APPRENTICE</text>
+        <rect x="40" y="74" width="820" height="40" rx="8" fill="#e3ddd0"/>
+        <rect x="40" y="74" width="820" height="40" rx="8" fill="#8a7a5c"/>
+        <text x="58" y="100" font-weight="700" font-size="15" fill="#ffffff">7 years bound to one master</text>
+        <text x="842" y="100" text-anchor="end" font-weight="700" font-size="15" fill="#ffffff">then you may practice</text>
+        <text x="40" y="168" font-weight="800" font-size="13" letter-spacing="2" fill="#2348d4">2026 · SHADOW APPRENTICE</text>
+        <rect x="40" y="184" width="820" height="40" rx="8" fill="#e8eefc"/>
+        <rect x="40" y="184" width="14" height="40" rx="4" fill="#2348d4"/>
+        <rect x="58" y="184" width="22" height="40" rx="4" fill="#4c6fe0"/>
+        <rect x="84" y="184" width="150" height="40" rx="4" fill="#9fb4ec"/>
+        <text x="40" y="254" font-weight="700" font-size="13.5" fill="#2348d4">10 hrs: fundamentals  ·  24 hrs: three demos shipped</text>
+        <text x="244" y="210" font-weight="700" font-size="13" fill="#2348d4">4–8 weeks: real users</text>
+        <text x="846" y="210" text-anchor="end" font-weight="700" font-size="14" fill="#26262b">an agent is your first teacher</text>
+      </g>
+    </svg>
+    <figcaption>Not to scale, on purpose: the 2026 line would be invisible if it were. The point isn't that seven years shrink to a day. It's that the first real work can start today.<sup><a href="#n2">2</a></sup></figcaption>
+  </figure>
+
   <p>So here's the side entrance: <b class="tk">start doing the job before you have it.</b> Not pretending you have it. Doing a small, honest, public version of it. Ship the demo the team would ship. Write the memo they'd write. Build the eval they'd want. Then show up with that.</p>
   <p>This does two things at once, and the second one is sneaky.</p>
   <p>First, it's a <em>try-out for you</em>. You find out whether you actually like the work before you've uprooted your life for it. A lot of dream jobs are dream jobs mostly from the outside.</p>
-  <p>Second, it makes luck. The entrepreneur Jason Roberts has a nice formula for this: your "luck surface area" is how much you <em>do</em> times how many people you <em>tell</em>.<sup><a href="#n2" id="r2">2</a></sup> Someone in line has done nothing new and told nobody. Someone who has shipped three small projects in public has given the universe a lot more places to grab them: a recruiter sees a repo, an engineer on the team shares a demo, a stranger forwards the write-up.</p>
+  <p>Second, it makes luck. The entrepreneur Jason Roberts has a nice formula for this: your "luck surface area" is how much you <em>do</em> times how many people you <em>tell</em>.<sup><a href="#n3" id="r3">3</a></sup> Call it build times tell.</p>
 
   <figure>
-    <svg viewBox="0 0 640 260" role="img" aria-labelledby="luckT luckD">
-      <title id="luckT">Luck surface area</title>
-      <desc id="luckD">Two rectangles. A thin sliver labeled front door: did a little, told nobody. A large square labeled third door: shipped three demos, told everyone. Doing is on the horizontal axis and telling on the vertical axis.</desc>
-      <g stroke="var(--hand)" stroke-width="2" fill="none" stroke-linecap="round">
-        <path d="M60 220 L600 222"/><path d="M60 220 L58 20"/>
-        <path d="M592 214 l10 8 l-10 8"/><path d="M50 28 l8 -10 l8 10"/>
-      </g>
-      <rect x="62" y="196" width="70" height="22" fill="var(--chart-c)" opacity=".55"/>
-      <rect x="62" y="56" width="400" height="162" fill="var(--chart-a)" opacity=".18" stroke="var(--chart-a)" stroke-width="2"/>
-      <g class="hand" font-size="18" fill="var(--hand)">
-        <text x="140" y="212">front door</text>
-        <text x="260" y="130" text-anchor="middle" fill="var(--chart-a)" font-size="22">third door</text>
-        <text x="260" y="154" text-anchor="middle" font-size="16" fill="var(--muted)">shipped 3 demos, told people</text>
-        <text x="600" y="246" text-anchor="end" font-size="16" fill="var(--muted)">doing →</text>
-        <text x="70" y="16" font-size="16" fill="var(--muted)">telling ↑</text>
+    <svg viewBox="0 0 900 470" role="img" aria-labelledby="f3t f3d">
+      <title id="f3t">Luck equals build times tell</title>
+      <desc id="f3d">A chart with Build on the horizontal axis and Tell on the vertical axis. Luck is the area of the rectangle. The front door, a résumé seen by one recruiter, is a tiny sliver. Building in private makes a long, flat rectangle. Telling without building makes a tall, thin one. The third door, three shipped demos shared publicly, is a large rectangle.</desc>
+      <rect width="900" height="470" fill="#f7f5f0"/>
+      <g stroke="#e0dccf" stroke-width="1"><path d="M110 80 H840 M110 160 H840 M110 240 H840 M110 320 H840"/><path d="M290 60 V392 M470 60 V392 M650 60 V392 M830 60 V392"/></g>
+      <rect x="110" y="330" width="560" height="62" fill="#9a9aa6" fill-opacity=".18" stroke="#9a9aa6" stroke-width="2" stroke-dasharray="6 5"/>
+      <rect x="110" y="96" width="60" height="296" fill="#9a9aa6" fill-opacity=".18" stroke="#9a9aa6" stroke-width="2" stroke-dasharray="6 5"/>
+      <rect x="110" y="140" width="540" height="252" fill="#dfe6f8" stroke="#2348d4" stroke-width="2.5"/>
+      <rect x="110" y="370" width="40" height="22" fill="#d4691c"/>
+      <path d="M110 392 H850 M110 392 V50" stroke="#26262b" stroke-width="2.5" fill="none"/>
+      <path d="M842 384 l10 8 l-10 8 M102 58 l8 -10 l8 10" stroke="#26262b" stroke-width="2.5" fill="none"/>
+      <g font-family="Archivo">
+        <text x="850" y="426" text-anchor="end" font-weight="800" font-size="15" fill="#26262b">BUILD →</text>
+        <text x="850" y="446" text-anchor="end" font-family="Nunito" font-size="13" fill="#6e6e78">things you've shipped</text>
+        <text x="40" y="44" font-weight="800" font-size="15" fill="#26262b">↑ TELL</text>
+        <text x="96" y="44" font-family="Nunito" font-size="13" fill="#6e6e78">people who see it</text>
+        <text x="380" y="250" text-anchor="middle" font-weight="800" font-size="24" fill="#2348d4">Third door</text>
+        <text x="380" y="276" text-anchor="middle" font-family="Nunito" font-size="15" fill="#26262b">3 demos, shared in public</text>
+        <text x="380" y="298" text-anchor="middle" font-family="Nunito" font-size="15" fill="#26262b">a recruiter, a team engineer, a stranger who forwards it</text>
+        <text x="690" y="360" font-weight="700" font-size="14" fill="#6e6e78">building in private</text>
+        <text x="180" y="112" font-weight="700" font-size="14" fill="#6e6e78">talking, no building</text>
+        <text x="160" y="388" font-weight="800" font-size="13" fill="#d4691c">front door: one résumé, one recruiter</text>
+        <rect x="640" y="70" width="210" height="52" rx="8" fill="#26262b"/>
+        <text x="745" y="103" text-anchor="middle" font-weight="800" font-size="18" fill="#ffffff">Luck ≈ Build × Tell</text>
       </g>
     </svg>
-    <figcaption>Luck surface area is doing times telling.<sup><a href="#n2">2</a></sup> Same person, two strategies. A sketch, not to scale.</figcaption>
+    <figcaption>Luck surface area is the area of the rectangle.<sup><a href="#n3">3</a></sup> Building without telling stays flat. Telling without building stays thin. You need both. Illustrative, not measured.</figcaption>
   </figure>
 
   <p>Momentum compounds, too. The first demo is hard. The second one borrows half its code from the first. By the third, you're talking about the role in the past tense: "When I built X, I found Y."</p>
@@ -307,7 +351,7 @@ figcaption { font-size: 14.5px; color: var(--muted); margin-top: 8px; line-heigh
   <p class="part" id="p3">Part 3</p>
   <h2 class="sec">Meet the Shadow Apprentice</h2>
 
-  <p>A <b class="tk">shadow apprentice</b> brings the old way back, without asking permission. You pick the role. You apprentice yourself to it in the open: learn what that team has to know, then build what that team would build. Nobody's supervising you, so you have to be your own master craftsman. That's the "shadow" part.</p>
+  <p>A <b class="tk">shadow apprentice</b> brings the old way back, without asking permission. You pick the role. You apprentice yourself to it in the open: learn what that team has to know, then build what that team would build. Nobody's supervising you, so the agent becomes your first teacher and real users become your second. That's the "shadow" part: you're shadowing a job nobody gave you.</p>
 
   <div class="blue">
     <h3>Blue Box: What's a Shadow Apprentice Map?</h3>
@@ -316,13 +360,12 @@ figcaption { font-size: 14.5px; color: var(--muted); margin-top: 8px; line-heigh
     <p>The rule that makes it work: every card has to be relevant to the <b>role</b>, to the <b>company</b> and to the <b>person</b>. Miss one and it's cut.</p>
   </div>
 
-  <p>Why bother with Levels 4 and 5 if the job is Level 1? Because the interview is partly a test of how big you think, and "here's the decade-long project I'd point your product at" is a much better answer to "where do you see yourself?" than "in a senior role." Also, frankly, because it's fun.</p>
-  <p>Why three checks? Because without them you get a generic "Learn AI in 30 Days" syllabus, which is just a fancier way to stand in line. The checks force the map to be about <em>this</em> role at <em>this</em> company for <em>this</em> human.</p>
+  <p>Why bother with Levels 4 and 5 if the job is Level 1? Because the interview is partly a test of how big you think, and "here's the decade-long project I'd point your product at" is a much better answer to "where do you see yourself?" than "in a senior role."</p>
 
   <p class="part" id="p4">Part 4</p>
   <h2 class="sec">The Prompt</h2>
 
-  <p>I built the first one for a friend I'll call Connor. Here's the prompt, lightly cleaned up so you can reuse it. Give your agent the job description and the person's profile (LinkedIn, portfolio, writing) first.</p>
+  <p>I built the first one for a friend I'll call Connor. Here's the prompt. Give your agent the job description and the person's profile (LinkedIn, portfolio, writing) first, then paste this.</p>
 
   <div class="prompt">
     <div class="ph"><span>The prompt</span><button class="btn" type="button" data-copy="p1">Copy</button></div>
@@ -334,89 +377,155 @@ Level 3: one robust project that gets real user feedback.
 Level 4: a product that could be a startup.
 Level 5: an agent that could win a Nobel Prize.
 
-Every branch must be relevant to the role, relevant to the company, and relevant to the person. If you need to, do deep research on the company and its work first, and save it as reference files. Make this legit: help them speedrun the role in 24 hours, with great projects to demo.</pre>
+Every card must be relevant to the role, relevant to the company, and relevant to the person. Before writing, do deep research on the company and its recent work, and save it as reference files. Make this legit: help them speedrun the role in 24 hours, with great projects to demo.
+
+Visual notes:
+- Make it an interactive HTML page.
+- Put levels across and tracks down, so each skill is its own card.
+- Cards open one at a time, with the detail front and center.
+- Every card cites its sources with links I can click.
+- Light mode only.
+- Replace the person's real name with a made-up one.</pre>
   </div>
-
-  <p>Then one round of edits, to make it something a person would actually use:</p>
-
-  <div class="prompt">
-    <div class="ph"><span>The follow-up</span><button class="btn" type="button" data-copy="p2">Copy</button></div>
-<pre id="p2">Make it more visual. Put levels across and tracks down, so each skill is its own card. Make the cards open one at a time. Include citations I can click. Keep it light mode. Replace the person's real name with a made-up one.</pre>
-  </div>
-
-  <p>That's it. Two messages.</p>
 
   <p class="part" id="p5">Part 5</p>
   <h2 class="sec">How the Map Gets Made</h2>
 
-  <p>The prompt is short, but the agent does a lot behind it. Three moves matter.</p>
-  <p><b class="tk">Move 1: research before writing.</b> The agent sent out four sub-agents in parallel. One read Anthropic's mission, safety and constitution pages. One read the developer docs. One mapped Anthropic's AI-for-science work. One read everything Connor had published. Each saved a reference file, and the map was written from those files, not from the model's memory. This matters more than it sounds: model names, products and funding announcements had all changed in the past few months, and a map built on stale facts is worse than none.</p>
-  <p><b class="tk">Move 2: three checks on every card.</b> Every card names the job-description line it proves, the company product or bet it connects to, and the part of the person's history it builds on.</p>
+  <p>The prompt is about 180 words. What it sets off is a lot bigger, and the gap between the two is the whole trick.</p>
+  <p><b class="tk">Step one: read everything, fast.</b> The agent split the research four ways and ran it in parallel: one agent on Anthropic's mission, safety work and constitution, one on the developer docs, one on Anthropic's AI-for-science work, and one on everything Connor had ever published. Between them they made 134 tool calls and worked through about 562,000 tokens, roughly five novels' worth, in under five minutes.<sup><a href="#n4" id="r4">4</a></sup></p>
+  <p>Then they threw almost all of it away. Five novels became 12,883 words of reference notes, about 3% of what was read. That compression is where the judgment happens.</p>
+  <p>Why not just ask the model what it knows? Because the facts that mattered most were the newest. The fact the whole map hinges on, Anthropic's $150M commitment to the Department of Energy's Genesis Mission, was four days old when the map was built.<sup><a href="#n5" id="r5">5</a></sup> It wasn't in any model's training data. A map built from memory would have pointed Connor at last year's company.</p>
 
   <figure>
-    <svg viewBox="0 0 640 300" role="img" aria-labelledby="vennT vennD">
-      <title id="vennT">The three checks</title>
-      <desc id="vennD">Three overlapping circles labeled Role, Company and You. Only the center, where all three overlap, is labeled a card on the map.</desc>
-      <g fill-opacity=".12" stroke-width="2.2">
-        <circle cx="250" cy="120" r="95" fill="var(--chart-a)" stroke="var(--chart-a)"/>
-        <circle cx="390" cy="120" r="95" fill="var(--chart-b)" stroke="var(--chart-b)"/>
-        <circle cx="320" cy="200" r="95" fill="var(--chart-c)" stroke="var(--chart-c)"/>
-      </g>
-      <g class="hand" font-size="20" text-anchor="middle" fill="var(--hand)">
-        <text x="215" y="90">Role</text>
-        <text x="215" y="112" font-size="14" fill="var(--muted)">a JD line it proves</text>
-        <text x="425" y="90">Company</text>
-        <text x="425" y="112" font-size="14" fill="var(--muted)">a product or bet</text>
-        <text x="320" y="262">You</text>
-        <text x="320" y="282" font-size="14" fill="var(--muted)">your own history</text>
-        <text x="320" y="150" fill="var(--chart-a)" font-size="17" font-weight="700">a card</text>
+    <svg viewBox="0 0 900 420" role="img" aria-labelledby="f4t f4d">
+      <title id="f4t">From 562,000 tokens to one sentence</title>
+      <desc id="f4d">A funnel with five stages. 4 agents read about 562,000 tokens with 134 tool calls in under 5 minutes. That becomes 12,883 words of notes, about 3 percent. Then 30 cards, each passing 3 checks, for 90 checks. Then 83 cited sources. At the bottom, 1 opening line for the interview.</desc>
+      <rect width="900" height="420" fill="#f7f5f0"/>
+      <g font-family="Archivo">
+        <path d="M60 40 H840 L760 110 H140 Z" fill="#2348d4" fill-opacity=".14" stroke="#2348d4" stroke-width="2"/>
+        <path d="M140 116 H760 L690 186 H210 Z" fill="#2348d4" fill-opacity=".24" stroke="#2348d4" stroke-width="2"/>
+        <path d="M210 192 H690 L620 262 H280 Z" fill="#2348d4" fill-opacity=".38" stroke="#2348d4" stroke-width="2"/>
+        <path d="M280 268 H620 L560 330 H340 Z" fill="#2348d4" fill-opacity=".58" stroke="#2348d4" stroke-width="2"/>
+        <path d="M340 336 H560 L520 396 H380 Z" fill="#2348d4" stroke="#2348d4" stroke-width="2"/>
+        <text x="450" y="74" text-anchor="middle" font-weight="800" font-size="24" fill="#1a2f73">~562,000 tokens processed</text>
+        <text x="450" y="98" text-anchor="middle" font-family="Nunito" font-size="14" fill="#26262b">4 agents · 134 tool calls · under 5 minutes</text>
+        <text x="450" y="150" text-anchor="middle" font-weight="800" font-size="22" fill="#1a2f73">12,883 words of notes</text>
+        <text x="450" y="172" text-anchor="middle" font-family="Nunito" font-size="14" fill="#26262b">about 3% kept</text>
+        <text x="450" y="226" text-anchor="middle" font-weight="800" font-size="21" fill="#ffffff">30 cards · 90 checks</text>
+        <text x="450" y="248" text-anchor="middle" font-family="Nunito" font-size="14" fill="#ffffff">role × company × person</text>
+        <text x="450" y="306" text-anchor="middle" font-weight="800" font-size="20" fill="#ffffff">83 cited sources</text>
+        <text x="450" y="372" text-anchor="middle" font-weight="800" font-size="17" fill="#ffffff">1 opening line</text>
       </g>
     </svg>
-    <figcaption>Only ideas in the middle make it onto the map.</figcaption>
+    <figcaption>What one prompt set off for Connor's map. Counts are from the session that built it.<sup><a href="#n4">4</a></sup></figcaption>
   </figure>
 
-  <p>Here's what that looks like on one card. Connor's Level 2 "Instrument agent" has Claude run a real lab device behind hard safety limits.</p>
-  <ul>
-    <li><b>Role:</b> the job asks for demo environments and proofs of concept.</li>
-    <li><b>Company:</b> Anthropic's Model Hardware Standard, its newest bet on Claude driving physical machines.<sup><a href="#n3" id="r3">3</a></sup></li>
-    <li><b>Connor:</b> he has an algae bioreactor at home with automated control. Nobody else in the interview pool has that demo.</li>
-  </ul>
+  <p><b class="tk">Step two: make every card earn its place.</b> Each of the 30 cards has to name the job-description line it proves, the company product or bet it connects to, and the part of Connor's history it builds on. That's 90 checks. Anything that could sit on anyone's list gets cut, which is how you avoid ending up with "Learn AI in 30 Days" with a logo on it.</p>
 
-  <p><b class="tk">Move 3: find the gap, then aim at it.</b> Good research turns up a thesis, not just facts. For Connor it was this: every public Anthropic science case study was in biology or pharma, while its newest bets (the hardware standard, the Claude Science workbench and $150M for the Department of Energy's Genesis Mission) point at the physical world.<sup><a href="#n3">3</a></sup><sup><a href="#n4" id="r4">4</a></sup><sup><a href="#n5" id="r5">5</a></sup> Nobody had publicly shown Claude doing materials or hardware well. Connor is a materials and mechanical engineer. So the whole map points him at that hole.</p>
+  <figure>
+    <svg viewBox="0 0 900 380" role="img" aria-labelledby="f5t f5d">
+      <title id="f5t">The three checks</title>
+      <desc id="f5d">Three overlapping circles: Role, a job-description line the card proves; Company, a product or bet it connects to; and You, your own history. Only the center, where all three overlap, becomes a card. An example card, Instrument agent, sits in the center.</desc>
+      <rect width="900" height="380" fill="#f7f5f0"/>
+      <circle cx="380" cy="150" r="120" fill="#2348d4" fill-opacity=".13" stroke="#2348d4" stroke-width="2.5"/>
+      <circle cx="520" cy="150" r="120" fill="#13808a" fill-opacity=".13" stroke="#13808a" stroke-width="2.5"/>
+      <circle cx="450" cy="250" r="120" fill="#d4691c" fill-opacity=".13" stroke="#d4691c" stroke-width="2.5"/>
+      <g font-family="Archivo" text-anchor="middle">
+        <text x="330" y="108" font-weight="800" font-size="18" fill="#2348d4">ROLE</text>
+        <text x="330" y="130" font-family="Nunito" font-size="13.5" fill="#26262b">"create demo</text>
+        <text x="330" y="148" font-family="Nunito" font-size="13.5" fill="#26262b">environments"</text>
+        <text x="572" y="108" font-weight="800" font-size="18" fill="#13808a">COMPANY</text>
+        <text x="572" y="130" font-family="Nunito" font-size="13.5" fill="#26262b">Model Hardware</text>
+        <text x="572" y="148" font-family="Nunito" font-size="13.5" fill="#26262b">Standard</text>
+        <text x="450" y="330" font-weight="800" font-size="18" fill="#d4691c">CONNOR</text>
+        <text x="450" y="352" font-family="Nunito" font-size="13.5" fill="#26262b">a home algae bioreactor</text>
+        <rect x="392" y="170" width="116" height="44" rx="8" fill="#26262b"/>
+        <text x="450" y="190" font-weight="800" font-size="13" fill="#ffffff">INSTRUMENT</text>
+        <text x="450" y="206" font-weight="800" font-size="13" fill="#ffffff">AGENT</text>
+      </g>
+      <g font-family="Archivo" font-size="14" font-weight="700" fill="#6e6e78">
+        <text x="40" y="60">Cut:</text>
+        <text x="40" y="84" font-family="Nunito" font-weight="400">"learn Python"</text>
+        <text x="40" y="104" font-family="Nunito" font-weight="400">(fits anyone)</text>
+        <text x="860" y="60" text-anchor="end">Kept:</text>
+        <text x="860" y="84" text-anchor="end" font-family="Nunito" font-weight="400">only the middle</text>
+      </g>
+    </svg>
+    <figcaption>One real card from the map. It proves a line in the job description, rides Anthropic's newest physical-world bet, and uses a demo nobody else in the pool has.</figcaption>
+  </figure>
 
-  <div class="aside"><p>A map should make one argument. If yours reads like a list of things to learn, the research didn't find the gap yet. Go back and ask the agent: "What is this company betting on that nobody has shown working yet, and why is this person suited to it?"</p></div>
+  <p><b class="tk">Step three: find the gap, then aim everything at it.</b> Good research turns up an argument, not just facts. For Connor it was this: every public Anthropic science case study was in biology or pharma, while its newest bets (the Model Hardware Standard, the Claude Science workbench and the Genesis commitment) point at the physical world.<sup><a href="#n6" id="r6">6</a></sup><sup><a href="#n7" id="r7">7</a></sup><sup><a href="#n5">5</a></sup> Nobody had publicly shown Claude doing materials or hardware well. Connor is a materials and mechanical engineer. So all 30 cards point at that hole.</p>
+  <p>From first prompt to published map took under an hour of my time. The agents did the reading. I did the edits.</p>
+
+  <div class="aside"><p>A map should make one argument. If yours reads like a list of things to learn, the research hasn't found the gap yet. Ask the agent: "What is this company betting on that nobody has shown working yet, and why is this person suited to it?"</p></div>
 
   <p class="part" id="p6">Part 6</p>
   <h2 class="sec">Connor's Map</h2>
 
-  <p>Here's the map in five stops. The <a href="https://michaelraspuzzi.github.io/memos/maps/applied-ai-apprentice-map.html">interactive version</a> has every card, the hour-by-hour schedule and the sources.</p>
+  <p>Three insights set up the whole map, one for each input:</p>
+  <ul class="ins">
+    <li><b>The role:</b> Applied AI Associates are Anthropic's builders on customer engagements: agents, skills, evals and demos, plus discovery calls.</li>
+    <li><b>The person:</b> Connor is a materials and mechanical engineer who already rolled Claude out at a hydrogen startup, and he runs an algae bioreactor at home.</li>
+    <li><b>The company:</b> Anthropic's public science wins are all in biology, but its newest bets are in the physical world.</li>
+  </ul>
+  <p>Put those together and the projects almost write themselves. Here are three, from a day to a decade:</p>
 
   <ol class="levels">
-    <li><span class="n">1</span><div><h3>Fundamentals · hours 0–10</h3><p>The API in depth, four ways to build agents, Skills and MCP, evals, customer discovery and cost math, and a close read of Claude's constitution. The best card: Connor once wrote an essay arguing that unrestrained "helpful, honest, harmless" AI hurts learning. The map has him prep a three-minute take on where the constitution answers that, and where it doesn't.</p></div></li>
-    <li><span class="n">2</span><div><h3>Ship three demos · hours 10–24</h3><p><em>Datasheet Detective</em> pulls cited properties out of messy material datasheets. A <em>Hardware Skills pack</em> turns his engineering templates into installable skills. The <em>Instrument agent</em> runs his bioreactor and refuses an out-of-limits command on camera. Each ships with a README, a 60-second video and an eval table.</p></div></li>
-    <li><span class="n">3</span><div><h3>One real project · 4–8 weeks</h3><p>A design-review agent for small hardware teams, tested with 5 to 10 design partners. Every miss becomes an eval case. It ends with a product-feedback memo to Anthropic, which happens to be a line in the job description.</p></div></li>
-    <li><span class="n">4</span><div><h3>A startup · 1–3 years</h3><p>"Closed Loop": design, simulate, fabricate and test as one agent loop. The moat is verification data. AI automates what's cheap to check, and in hardware, checking is the expensive part.</p></div></li>
-    <li class="l5"><span class="n">5</span><div><h3>The Nobel agent · a decade</h3><p>Seven agents and one human scientist, hunting for an iridium-free catalyst for green hydrogen. Iridium is one of the rarest metals on Earth, and the property that matters can be measured by a machine. A skeptical reviewer agent blocks any result that hasn't been reproduced.</p></div></li>
+    <li><span class="n">2</span><div><h3>Instrument agent · one day</h3><p>Claude runs his bioreactor through an MCP server, with hard safety limits enforced in code. The demo ends with Claude refusing an out-of-limits command on camera and explaining why. It proves the job's "demo environments" line using Anthropic's newest hardware bet and a device only he owns.</p></div></li>
+    <li><span class="n">3</span><div><h3>Design-review agent · 4 to 8 weeks</h3><p>An agent that reviews real parts for 5 to 10 small hardware teams before they hit expensive testing. Every miss becomes an eval case. It ends with a product-feedback memo to Anthropic, which is literally a line in the job description.</p></div></li>
+    <li class="l5"><span class="n">5</span><div><h3>The Nobel agent · a decade</h3><p>Seven agents and one human scientist hunting for an iridium-free catalyst for green hydrogen. Iridium is one of the rarest metals on Earth, and the property that matters can be measured by a machine, so an agent can check its own work. A skeptical reviewer agent blocks any result that hasn't been reproduced.</p></div></li>
   </ol>
 
-  <p>That last level handed Connor his opening line. It's now the first thing on the map:</p>
+  <p>That last one handed Connor his opening line. It's now the first thing on the map:</p>
   <p class="quote">"Anthropic has shown Claude designing proteins. I want to help it discover a material, and I'd start with the iridium bottleneck in green hydrogen, because there verification can be automated and the payoff is decarbonizing heavy industry."</p>
   <p>Compare that to "I'm passionate about the mission." One of these people is standing in line.</p>
 
   <p class="part" id="p7">Part 7</p>
-  <h2 class="sec">So, Which Door?</h2>
+  <h2 class="sec">Even If You Don't Get the Job</h2>
 
-  <p>The front door still works sometimes. But it asks you to be judged on a description of yourself. The third door lets you be judged on the work.</p>
-  <p>The Shadow Apprentice Map is just the third door with directions. Pick a role. Feed in the job description and yourself. Hold every card to the three checks. Then do the part most people skip: <b class="tk">ship Level 2 before you apply.</b> Twenty-four hours of focused work gets you three public demos and a story told in the past tense.</p>
-  <p>And if you mentor or hire people, run it the other way. Hand someone a map for <em>your</em> team. It's the clearest way I know to say "here's what great looks like here, for you specifically."</p>
-  <p>Worst case, you spend a day building things and find out you don't love the job. Best case, someone on the inside sees the work before they ever see your résumé.</p>
+  <p>Here's the part I like most. A résumé you tailored for one company is worth nothing if they say no. A map isn't like that.</p>
+  <p>Every card you finish is a skill you keep. Every demo you ship stays public, keeps collecting views and keeps doing its build-times-tell math long after the job closes. The people who saw it still saw it. And the next map you draw, for the next role, starts at Level 2 instead of zero, because half the fundamentals carry over. <b class="tk">It's not sunk cost. It's compound interest on competence.</b></p>
+  <p>Which brings up the real tension in this whole idea.</p>
+  <p>Connor's map has 30 cards. With agents doing the reading and the scaffolding, you could rush through first drafts of all 30 in a day. You could also spend two years on them. Level 5 could take a lifetime. All three are true, and the trick is knowing which speed each card needs.</p>
+
+  <figure>
+    <svg viewBox="0 0 900 360" role="img" aria-labelledby="f6t f6d">
+      <title id="f6t">Agent speed and human speed</title>
+      <desc id="f6d">A horizontal scale from one day to a lifetime. At agent speed, one day: reading, first drafts, scaffolding code, writing evals. From weeks to two years: real users, trust, taste. At a lifetime: judgment and discovery. Levels 1 and 2 sit at agent speed, Levels 3 and 4 in the middle, Level 5 toward a lifetime.</desc>
+      <rect width="900" height="360" fill="#f7f5f0"/>
+      <defs><linearGradient id="spd" x1="0" x2="1"><stop offset="0" stop-color="#2348d4"/><stop offset="1" stop-color="#d4691c"/></linearGradient></defs>
+      <rect x="60" y="150" width="780" height="14" rx="7" fill="url(#spd)"/>
+      <g fill="#ffffff" stroke-width="4"><circle cx="70" cy="157" r="14" stroke="#2348d4"/><circle cx="450" cy="157" r="14" stroke="#8a5e9a"/><circle cx="830" cy="157" r="14" stroke="#d4691c"/></g>
+      <g font-family="Archivo">
+        <text x="60" y="58" font-weight="800" font-size="20" fill="#2348d4">AGENT SPEED</text>
+        <text x="840" y="58" text-anchor="end" font-weight="800" font-size="20" fill="#d4691c">HUMAN SPEED</text>
+        <text x="70" y="124" font-weight="800" font-size="16" fill="#26262b">1 day</text>
+        <text x="450" y="124" text-anchor="middle" font-weight="800" font-size="16" fill="#26262b">weeks to 2 years</text>
+        <text x="830" y="124" text-anchor="end" font-weight="800" font-size="16" fill="#26262b">a lifetime</text>
+        <g font-family="Nunito" font-size="14.5" fill="#26262b">
+          <text x="60" y="206">reading the field</text><text x="60" y="228">first drafts</text><text x="60" y="250">scaffolding code</text><text x="60" y="272">writing evals</text>
+          <text x="450" y="206" text-anchor="middle">real users</text><text x="450" y="228" text-anchor="middle">trust</text><text x="450" y="250" text-anchor="middle">taste</text>
+          <text x="840" y="206" text-anchor="end">judgment</text><text x="840" y="228" text-anchor="end">discovery</text><text x="840" y="250" text-anchor="end">a body of work</text>
+        </g>
+        <rect x="60" y="300" width="150" height="30" rx="15" fill="#2348d4"/><text x="135" y="320" text-anchor="middle" font-weight="700" font-size="13" fill="#fff">Levels 1–2</text>
+        <rect x="375" y="300" width="150" height="30" rx="15" fill="#8a5e9a"/><text x="450" y="320" text-anchor="middle" font-weight="700" font-size="13" fill="#fff">Levels 3–4</text>
+        <rect x="690" y="300" width="150" height="30" rx="15" fill="#d4691c"/><text x="765" y="320" text-anchor="middle" font-weight="700" font-size="13" fill="#fff">Level 5</text>
+      </g>
+    </svg>
+    <figcaption>Use agent speed to get started. Spend human time where only humans can earn it.</figcaption>
+  </figure>
+
+  <p>Agents are fast at the left side of that line: reading a field, drafting, scaffolding, checking. They can't speed up the right side. Real users take weeks to trust you. Taste comes from shipping things and watching them break. A real discovery takes as long as the world takes to answer.</p>
+  <p>So don't pick one speed. Use agent speed to get to the starting line today, and spend your human hours where only a human can earn them.</p>
+  <p>For most of history, trying out a job meant years of your life. Right now, for the first time, you can try at something close to the speed of agents. That's worth a shot. Pick a role. Draw the map tonight. Ship Level 2 this weekend.</p>
+  <p>Worst case, you end the week more capable, with three public projects and a sharper sense of what you want. Best case, someone on the inside sees the work before they ever see your résumé.</p>
 
   <div class="questions">
     <p><b>Before you draw your map, ask:</b></p>
     <ol>
       <li>What is this company betting on that nobody has shown working yet?</li>
       <li>What's the strangest thing in my background that fits that bet? (Connor's was a bioreactor.)</li>
-      <li>Which of my three Level 2 demos could a team member forward to their boss tomorrow?</li>
+      <li>Which of my Level 2 demos could a team member forward to their boss tomorrow?</li>
       <li>Who am I going to tell, and where?</li>
     </ol>
   </div>
@@ -425,11 +534,13 @@ Every branch must be relevant to the role, relevant to the company, and relevant
     <h2>Footnotes</h2>
     <ol>
       <li id="n1">Alex Banayan, <a href="https://www.youtube.com/watch?v=pqIoTo1NdYw">"The Third Door"</a>, Talks at Google. Also his book <em>The Third Door</em> (Currency, 2018). <a href="#r1">↩</a><span class="fnsum">Banayan set out as a student to learn how famous people got their start, and found the same pattern: they skipped the main line and the VIP line and found a side entrance through persistence and odd angles.</span></li>
-      <li id="n2">Jason C. Roberts, <a href="https://www.codusoperandi.com/posts/increasing-your-luck-surface-area">"Increasing Your Luck Surface Area"</a>, Codus Operandi. <a href="#r2">↩</a><span class="fnsum">Luck isn't random if you widen the target: the amount of serendipity you get is roughly what you do times how many people you tell about it.</span></li>
-      <li id="n3">Anthropic, <a href="https://anthropic.com/news/model-hardware-standard-research-preview">"Model Hardware Standard research preview"</a>, Aug 2026. <a href="#r3">↩</a><span class="fnsum">A standard for letting Claude drive lab and industrial devices through drivers, plain-language device descriptions and enforced safety limits.</span></li>
-      <li id="n4">MIT Technology Review, <a href="https://www.technologyreview.com/2026/06/30/1139987/claude-science-is-anthropics-newest-flagship-product/">"Claude Science is Anthropic's newest flagship product"</a>, Jun 30 2026. <a href="#r4">↩</a><span class="fnsum">Anthropic's multi-agent research workbench for scientists, with a built-in reviewer agent.</span></li>
-      <li id="n5">Anthropic, <a href="https://anthropic.com/news/genesis-mission-commitment">"$150M Genesis Mission commitment"</a>, Oct 2026. <a href="#r5">↩</a><span class="fnsum">Anthropic's commitment to the US Department of Energy's Genesis Mission for AI-driven science at national labs.</span></li>
-      <li id="n6">The full map: <a href="https://michaelraspuzzi.github.io/memos/maps/applied-ai-apprentice-map.html">Shadow Apprentice Map: Applied AI Associate</a>, Oct 2026. Every card cites its sources.<span class="fnsum">Thirty cards across five levels and six tracks, plus a 24-hour schedule and an interview kit. Connor is a made-up name.</span></li>
+      <li id="n2"><a href="https://en.wikipedia.org/wiki/Statute_of_Artificers_1563">Statute of Artificers 1563</a>, Wikipedia. <a href="#r2">↩</a><span class="fnsum">The English law that, among other things, required a seven-year apprenticeship before someone could practice most trades.</span></li>
+      <li id="n3">Jason C. Roberts, <a href="https://www.codusoperandi.com/posts/increasing-your-luck-surface-area">"Increasing Your Luck Surface Area"</a>, Codus Operandi. <a href="#r3">↩</a><span class="fnsum">Luck isn't random if you widen the target: the serendipity you get is roughly what you do times how many people you tell about it.</span></li>
+      <li id="n4">Counts from the agent session that built the map, Oct 12, 2026: four research agents (98k, 124k, 132k and 208k tokens; 23, 29, 43 and 39 tool calls; each finished in under five minutes, running in parallel), four reference files totaling 12,883 words, and 83 cited sources in the published map. "Five novels" assumes about 0.75 words per token and 80,000 words per novel. <a href="#r4">↩</a></li>
+      <li id="n5">Anthropic, <a href="https://anthropic.com/news/genesis-mission-commitment">"$150M Genesis Mission commitment"</a>, Oct 8, 2026. <a href="#r5">↩</a><span class="fnsum">Anthropic's commitment to the US Department of Energy's Genesis Mission for AI-driven science at national labs.</span></li>
+      <li id="n6">Anthropic, <a href="https://anthropic.com/news/model-hardware-standard-research-preview">"Model Hardware Standard research preview"</a>, Aug 2026. <a href="#r6">↩</a><span class="fnsum">A standard for letting Claude drive lab and industrial devices through drivers, plain-language device descriptions and enforced safety limits.</span></li>
+      <li id="n7">MIT Technology Review, <a href="https://www.technologyreview.com/2026/06/30/1139987/claude-science-is-anthropics-newest-flagship-product/">"Claude Science is Anthropic's newest flagship product"</a>, Jun 30, 2026. <a href="#r7">↩</a><span class="fnsum">Anthropic's multi-agent research workbench for scientists, with a built-in reviewer agent.</span></li>
+      <li id="n8">The full map: <a href="https://michaelraspuzzi.github.io/memos/maps/applied-ai-apprentice-map.html">Shadow Apprentice Map: Applied AI Associate</a>, Oct 2026.<span class="fnsum">Thirty cards across five levels and six tracks, plus a 24-hour schedule and an interview kit. Connor is a made-up name.</span></li>
     </ol>
   </div>
 
