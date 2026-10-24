@@ -16,7 +16,7 @@ Start with the [overview](memos/closing-the-source.md): the pattern across all s
 
 ## Diligence
 
-- [TrainLoop](memos/trainloop.md): a YC W25 post-training lab for biopharma and banking. Traction, founder signal, and why local inference isn't the threat (platforms and services are). October 2026.
+- [TrainLoop](memos/trainloop.md): a YC W25 post-training lab for biopharma and finance. Traction, founder pedigree, durability, and why someone would (or wouldn't) work there. October 2026.
 
 ## Salon pre-reads
 

@@ -1,0 +1,11 @@
+flowchart LR
+    A["Open base model<br/>(MedGemma, Nemotron, Qwen)"] --> B["Customer data + expert rubric<br/>(e.g. 2M labeled skin images)"]
+    B --> C["RL post-training<br/>GRPO, OAPL, LoRA"]
+    C --> D["Customer-owned weights<br/>(full model or adapter)"]
+    D --> E1["Customer cloud / on-prem"]
+    D --> E2["GPU cloud API"]
+    D --> E3["Local chip:<br/>base frozen in silicon,<br/>adapter swappable"]
+    E1 -. "production traces<br/>(continual training)" .-> B
+    style C fill:#fde68a,stroke:#b45309
+    style D fill:#bbf7d0,stroke:#15803d
+    style E3 fill:#dbeafe,stroke:#1d4ed8

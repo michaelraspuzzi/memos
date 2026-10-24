@@ -1,0 +1,12 @@
+flowchart LR
+    subgraph W25["W25: self-serve SDK"]
+        direction TB
+        S1["3-line SDK<br/>captures usage signals"] --> S2["Reward model<br/>learns your preferences"] --> S3["Auto-deploy<br/>behind a standard API"]
+    end
+    subgraph Y26["2026: research lab"]
+        direction TB
+        L1["Domain experts<br/>(clinicians, bankers)"] --> L2["Research team designs<br/>rewards, evals, harness"] --> L3["Owned expert model<br/>+ continual training"]
+    end
+    W25 == "SDK quiet after mid-2025;<br/>moved upmarket" ==> Y26
+    style W25 fill:#f1f5f9,stroke:#64748b
+    style Y26 fill:#ecfdf5,stroke:#15803d

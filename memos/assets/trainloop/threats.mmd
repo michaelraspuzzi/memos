@@ -1,0 +1,16 @@
+flowchart LR
+    Q{{"What decides whether<br/>TrainLoop is around in 2-3 years?"}}
+    Q --> T["Tailwind: local inference<br/>frozen bases need adapters;<br/>cheaper rollouts = cheaper RL"]
+    Q --> H1["High: frontier-lab fine-tuning<br/>(OpenAI RFT, Tinker GA)"]
+    Q --> H2["High: commodity trainers<br/>(TRL, NeMo RL, ART, OAPL)"]
+    Q --> M1["Medium: better base models<br/>shrink the gap, force retrains"]
+    Q --> M2["Medium: services economics<br/>revenue scales with headcount"]
+    Q --> M3["Medium: consolidation<br/>OpenPipe → CoreWeave, Predibase → Rubrik"]
+    H1 & H2 & M1 & M2 --> MOAT["Possible moat: expert reward + eval design<br/>and each customer's data loop"]
+    style T fill:#bbf7d0,stroke:#15803d
+    style H1 fill:#fecaca,stroke:#b91c1c
+    style H2 fill:#fecaca,stroke:#b91c1c
+    style M1 fill:#fde68a,stroke:#b45309
+    style M2 fill:#fde68a,stroke:#b45309
+    style M3 fill:#fde68a,stroke:#b45309
+    style MOAT fill:#e0e7ff,stroke:#4338ca
