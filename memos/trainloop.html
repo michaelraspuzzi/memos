@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TrainLoop | Memos</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  html { background: #ffffff; }
+  body {
+    background: #ffffff;
+    color: #111111;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .page { max-width: 46em; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.6rem;
+    border-bottom: 1px solid #cccccc;
+  }
+  .bar .home {
+    font-size: 0.85rem;
+    margin-right: auto;
+    color: #555555;
+  }
+  button.act {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 0.85rem;
+    background: #f4f4f2;
+    color: #111111;
+    border: 1px solid #999999;
+    border-radius: 2px;
+    padding: 0.32rem 0.8rem;
+    cursor: pointer;
+  }
+  button.act:hover { background: #e8e8e4; }
+  button.act:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  button.act.done { background: #e6efe6; border-color: #4a7a4a; }
+
+  h1, h2, h3, h4 { font-weight: bold; margin: 0; }
+  h1 { font-size: 2rem; line-height: 1.15; }
+  h2 { font-size: 1.4rem; line-height: 1.2; margin-top: 2.4rem; padding-top: 0.9rem; border-top: 2px solid #111111; }
+  h3 { font-size: 1.1rem; margin-top: 1.6rem; }
+  p { margin: 0.75rem 0 0; }
+  ul, ol { margin: 0.7rem 0 0; padding-left: 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: #111111; }
+  a:hover { color: #7a1c14; }
+  a:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  hr { border: 0; border-top: 1px solid #cccccc; margin: 2rem 0 0; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: #f4f4f2;
+    padding: 0.05em 0.3em;
+    border-radius: 2px;
+  }
+  pre {
+    margin: 1rem 0 0;
+    padding: 1rem;
+    overflow-x: auto;
+    background: #f4f4f2;
+    border: 1px solid #cccccc;
+    line-height: 1.45;
+  }
+  pre code { padding: 0; background: transparent; font-size: 0.78rem; }
+  blockquote {
+    margin: 1rem 0 0;
+    padding: 0.1rem 0 0.1rem 1rem;
+    border-left: 3px solid #999999;
+  }
+  blockquote p { margin-top: 0.4rem; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote em.attrib { font-style: normal; font-size: 0.85rem; color: #555555; }
+
+  figure { margin: 1.35rem 0 0; }
+  figure img { display: block; width: 100%; height: auto; border: 1px solid #cccccc; }
+  figcaption { margin-top: 0.45rem; color: #555555; font-size: 0.82rem; line-height: 1.35; }
+
+  .tablewrap { overflow-x: auto; margin-top: 1.1rem; border: 1px solid #cccccc; }
+  table { border-collapse: collapse; width: 100%; min-width: 34em; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid #cccccc; vertical-align: top; }
+  thead th { background: #f4f4f2; border-bottom: 1px solid #111111; }
+  tbody tr:last-child td { border-bottom: 0; }
+
+  sup.fnref { font-size: 0.68em; line-height: 0; vertical-align: super; }
+  sup.fnref a { text-decoration: none; padding: 0 0.06em; }
+  ol.footnotes { list-style: none; padding-left: 0; margin-top: 1.1rem; font-size: 0.92rem; }
+  ol.footnotes li { position: relative; padding-left: 2.3em; margin-bottom: 0.75rem; }
+  ol.footnotes li .fnnum { position: absolute; left: 0; width: 2em; text-align: right; color: #555555; }
+  ol.footnotes li:target { background: #f4f4f2; }
+
+  .foot { margin-top: 3rem; padding-top: 0.9rem; border-top: 3px double #111111; font-size: 0.85rem; color: #555555; }
+</style>
+</head>
+<body data-slug="trainloop">
+<div class="page">
+  <div class="bar">
+    <span class="home"><a href="../index.html">Memos</a></span>
+    <button class="act" id="btn-copy" type="button">Copy for agents</button>
+    <button class="act" id="btn-download" type="button">Download .md</button>
+  </div>
+<h1>TrainLoop: a strong engineer, a pivot to services, and a survival question that isn't about chips</h1>
+<p><strong>TrainLoop is a YC W25 post-training lab. It started as a three-line developer SDK and is now a forward-deployed team that trains custom models for biopharma, banking and logistics. The founder signal is real but narrower than "ex-AlphaFold" suggests. Traction is early: one public partner result and no disclosed revenue. Local inference is not the threat. Post-training produces weights, and weights run anywhere, including on a chip. The real threat is frontier labs and GPU clouds selling post-training as a self-serve feature. CoreWeave buying OpenPipe in 2025 shows both that threat and the likely exit: an acqui-hire is the floor and a product is the upside. Get the round terms first. The floor only protects a low entry price.</strong></p>
+<h2>Five facts</h2>
+<ol><li><strong>Raised about $500K.</strong> Aggregators put it at roughly $500K in early 2025 from YC and Pioneer Fund, consistent with the standard YC deal. No priced round is public (<a href="https://tracxn.com/d/companies/trainloop/__YMaFpIi_ijl13__7P4C0oH50ff4PS5YQZyUVGr7s9e4">Tracxn</a>, <a href="https://www.preqin.com/data/profile/asset/trainloop/739036">Preqin</a>).</li><li><strong>The pitch changed.</strong> At YC the product was an SDK that "gathers training signals from actual usage," a reward model, and auto-deployed inference (<a href="https://www.ycombinator.com/companies/trainloop">YC profile</a>). The site now says "We train expert models for long horizon tasks," using a research team and "a deployment team" that works with domain experts (<a href="https://www.trainloop.ai/">trainloop.ai</a>).</li><li><strong>The open-source SDK went quiet.</strong> The <code>sdk</code> repo was last pushed in April 2025 and <code>evals</code> (62 stars) in July 2025 (<a href="https://github.com/TrainLoop">GitHub</a>).</li><li><strong>One public proof point.</strong> On October 15, 2026, NVIDIA wrote that TrainLoop "post-trained" Nemotron 3.5 Super VL on dermatology data from Nolla (<a href="https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/">NVIDIA</a>). Nine days earlier, Utah let Nolla Health's app issue initial acne prescriptions in a 12-month regulatory sandbox, with physician oversight (<a href="https://www.utahbusiness.com/industry/2026/10/06/utah-becomes-first-state-to-authorize-ai-to-issue-initial-prescriptions/">Utah Business</a>). NVIDIA gives no performance numbers.</li><li><strong>Six people, hiring a Head of Enterprise.</strong> YC lists six employees and open roles for a Head of Enterprise and research staff (<a href="https://www.ycombinator.com/companies/trainloop/jobs">YC jobs</a>). Hiring enterprise sales before a second public customer confirms the move to services.</li></ol>
+<h2>What TrainLoop sells</h2>
+<pre class="mermaid">flowchart LR
+    A["Open base model&lt;br/&gt;(Nemotron, Qwen, Llama)"] --&gt; B["Expert data + reward&lt;br/&gt;(customer's domain experts)"]
+    B --&gt; C["Post-training&lt;br/&gt;SFT, DPO, GRPO-style RL,&lt;br/&gt;on-policy distillation"]
+    C --&gt; D["Customer weights&lt;br/&gt;(full model or LoRA adapter)"]
+    D --&gt; E1["Customer cloud / VPC"]
+    D --&gt; E2["GPU cloud API"]
+    D --&gt; E3["Local chip:&lt;br/&gt;base frozen in silicon,&lt;br/&gt;adapter swappable"]
+    E1 -. "production feedback" .-&gt; B
+    style C fill:#fde68a,stroke:#b45309
+    style D fill:#bbf7d0,stroke:#15803d
+    style E3 fill:#dbeafe,stroke:#1d4ed8</pre>
+<p><em>Every deployment target, local included, runs post-training's output. On a hardwired chip it is the only part that can change.</em></p>
+<p>The techniques are public. DeepSeek showed that RL with verifiable rewards (GRPO) produces reasoning behavior (<a href="https://arxiv.org/abs/2501.12948">DeepSeek-R1</a>). Thinking Machines showed that LoRA matches full fine-tuning for RL even at small ranks (<a href="https://thinkingmachines.ai/blog/lora/">LoRA Without Regret</a>). The moat is the expert data, the reward design and the eval.</p>
+<p>The wedge is delivery. The customer gets an open base model, weights assigned to it, deployment in its own VPC, and a team that sits with its clinicians or bankers. Self-serve platforms offer the first three. They don't offer the team. The buyer's alternatives are a frontier API with prompting, or hiring two ML engineers at roughly $600K a year fully loaded (my estimate). TrainLoop's price has to land below that and above its own GPU cost.</p>
+<h2>Your three lenses</h2>
+<h3>1. Traction: biopharma first makes sense, but sales are slow</h3>
+<pre class="mermaid">quadrantChart
+    title Where an owned, post-trained model wins
+    x-axis "Data can leave" --&gt; "Data must stay in-house"
+    y-axis "Reward is fuzzy" --&gt; "Reward is checkable"
+    quadrant-1 "TrainLoop's market"
+    quadrant-2 "Frontier labs win"
+    quadrant-3 "Prompting is enough"
+    quadrant-4 "Tune later"
+    "Dermatology diagnosis": [0.85, 0.82]
+    "Banking analysis": [0.78, 0.7]
+    "Logistics agents": [0.6, 0.66]
+    "Coding": [0.25, 0.85]
+    "Consumer chat": [0.15, 0.2]
+    "Legal drafting": [0.72, 0.3]</pre>
+<p><em>Author's judgment, not data: regulated work with checkable answers sits top right.</em></p>
+<p>Biopharma and banking are where owning a model matters most. Patient images and deal books can't leave the building. A diagnosis can be confirmed and a reconciliation audited, which gives RL a reward to train on. When one error is a misdiagnosis or a mispriced trade, a few points of accuracy pay for the work. Coding is bigger, but the frontier labs already own it.</p>
+<p>Your concern holds in one way: sales cycles. Regulated buyers move slowly, which probably explains the thin record 18 months after YC (my inference). The site lists three partners (NollaMD, Mercor, Pathos). There is one public result, no revenue figure and no disclosed renewal.</p>
+<h3>2. Founder pedigree: check what "Gemini and AlphaFold" means</h3>
+<p>YC says Jackson Stokes worked on "Google Gemini and AlphaFold <strong>performance</strong>" (<a href="https://www.ycombinator.com/companies/trainloop">YC</a>). That reads as systems and accelerator optimization, and the company's <code>jax2torch</code> repo fits. It matters, because post-training margins depend on GPU efficiency. It is not research leadership in RL or biology. YC's bio says CTO Mason Pierce led engineering at Second (YC W23), where he "hit the limits of off-the-shelf models." Nothing beyond YC confirms either bio. Call references and ask Stokes which systems he owned end to end.</p>
+<h3>3. Durability: local inference is the wrong threat</h3>
+<p>Fine-tuning is one part of post-training. Post-training also covers preference tuning, RL and distillation. Local inference changes where a model runs, not whether it needs tuning. It may raise demand: a 0.6B or 8B model needs post-training to compete, and TrainLoop forked the code of a step-wise distillation paper aimed at that case (<a href="https://arxiv.org/abs/2605.07725">SOD, arXiv 2605.07725</a>). Taalas's HC1 hardwires Llama 3.1 8B into silicon and reportedly still accepts LoRA adapters (<a href="https://kaitchup.substack.com/p/taalas-hc1-absurdly-fast-per-user">Kaitchup</a>). Apple customizes its on-device model the same way (<a href="https://developer.apple.com/apple-intelligence/foundation-models-adapter">Apple</a>).</p>
+<p>The real threats are elsewhere:</p>
+<ul><li><strong>Platforms.</strong> OpenAI sells reinforcement fine-tuning off the shelf (<a href="https://platform.openai.com/docs/guides/reinforcement-fine-tuning">docs</a>). Thinking Machines' Tinker runs RL and lets teams download the weights (<a href="https://tinker-docs.thinkingmachines.ai/">Tinker docs</a>). OpenPipe raised a $6.7M seed in 2024 (<a href="https://vcnewsdaily.com/openpipe/venture-capital-funding/cxjyjdmqhh">VC News Daily</a>), and CoreWeave bought it in September 2025 on undisclosed terms (<a href="https://investors.coreweave.com/news/news-details/2025/CoreWeave-to-Acquire-OpenPipe-Leader-in-Reinforcement-Learning/default.aspx">CoreWeave</a>). That deal is the clearest public signal of what a small RL team is worth to a GPU cloud.</li><li><strong>Services gravity.</strong> A six-person team can run two or three deployments at once. Revenue grows with headcount until the second deployment reuses the first one's data pipeline, reward models and evals.</li></ul>
+<h2>What to ask</h2>
+<div class="tablewrap"><table><thead><tr><th>Question</th><th>Good answer</th><th>Red flag</th></tr></thead><tbody>
+<tr><td>Round size and valuation</td><td>Priced near what an acqui-hire would pay</td><td>Priced as if the product already exists</td></tr>
+<tr><td>Paid contracts vs. pilots, and contract size</td><td>Two or more paid six-figure contracts, one renewal</td><td>All pilots, or paid only in compute credits</td></tr>
+<tr><td>Nolla result</td><td>A measured gain vs. the base model and a frontier API</td><td>"State of the art" with no number</td></tr>
+<tr><td>What carries over to customer two</td><td>Shared reward and eval tooling, faster second deployment</td><td>Each engagement starts from zero</td></tr>
+<tr><td>Who owns what</td><td>Weights assigned to the customer; TrainLoop keeps rights to its reward and eval tooling</td><td>Unclear IP terms, or TrainLoop keeps nothing reusable</td></tr>
+<tr><td>Why the SDK stopped</td><td>A deliberate move to where the money is</td><td>Developers didn't adopt it</td></tr>
+<tr><td>Gross margin</td><td>Above 60% at steady state</td><td>Engineers are the product</td></tr>
+</tbody></table></div>
+<h2>My read</h2>
+<p>Back it if Nolla's number is real, a second regulated customer has paid, and the second deployment took half the time of the first. Pass if every contract is bespoke. In that case compute efficiency only makes TrainLoop a cheaper consultancy, and a cloud or frontier lab ships the product.</p>
+<div class="foot">Sources linked inline. Funding figures come from aggregators, not a company announcement. Founder bios come from YC only. Taalas adapter details come from secondary reviews. Written October 23, 2026.</div>
+</div>
+<script type="text/plain" id="memo-src">IyBUcmFpbkxvb3A6IGEgc3Ryb25nIGVuZ2luZWVyLCBhIHBpdm90IHRvIHNlcnZpY2VzLCBhbmQgYSBzdXJ2aXZhbCBxdWVzdGlvbiB0aGF0IGlzbid0IGFib3V0IGNoaXBzCgoqKlRyYWluTG9vcCBpcyBhIFlDIFcyNSBwb3N0LXRyYWluaW5nIGxhYi4gSXQgc3RhcnRlZCBhcyBhIHRocmVlLWxpbmUgZGV2ZWxvcGVyIFNESyBhbmQgaXMgbm93IGEgZm9yd2FyZC1kZXBsb3llZCB0ZWFtIHRoYXQgdHJhaW5zIGN1c3RvbSBtb2RlbHMgZm9yIGJpb3BoYXJtYSwgYmFua2luZyBhbmQgbG9naXN0aWNzLiBUaGUgZm91bmRlciBzaWduYWwgaXMgcmVhbCBidXQgbmFycm93ZXIgdGhhbiAiZXgtQWxwaGFGb2xkIiBzdWdnZXN0cy4gVHJhY3Rpb24gaXMgZWFybHk6IG9uZSBwdWJsaWMgcGFydG5lciByZXN1bHQgYW5kIG5vIGRpc2Nsb3NlZCByZXZlbnVlLiBMb2NhbCBpbmZlcmVuY2UgaXMgbm90IHRoZSB0aHJlYXQuIFBvc3QtdHJhaW5pbmcgcHJvZHVjZXMgd2VpZ2h0cywgYW5kIHdlaWdodHMgcnVuIGFueXdoZXJlLCBpbmNsdWRpbmcgb24gYSBjaGlwLiBUaGUgcmVhbCB0aHJlYXQgaXMgZnJvbnRpZXIgbGFicyBhbmQgR1BVIGNsb3VkcyBzZWxsaW5nIHBvc3QtdHJhaW5pbmcgYXMgYSBzZWxmLXNlcnZlIGZlYXR1cmUuIENvcmVXZWF2ZSBidXlpbmcgT3BlblBpcGUgaW4gMjAyNSBzaG93cyBib3RoIHRoYXQgdGhyZWF0IGFuZCB0aGUgbGlrZWx5IGV4aXQ6IGFuIGFjcXVpLWhpcmUgaXMgdGhlIGZsb29yIGFuZCBhIHByb2R1Y3QgaXMgdGhlIHVwc2lkZS4gR2V0IHRoZSByb3VuZCB0ZXJtcyBmaXJzdC4gVGhlIGZsb29yIG9ubHkgcHJvdGVjdHMgYSBsb3cgZW50cnkgcHJpY2UuKioKCiMjIEZpdmUgZmFjdHMKCjEuICoqUmFpc2VkIGFib3V0ICQ1MDBLLioqIEFnZ3JlZ2F0b3JzIHB1dCBpdCBhdCByb3VnaGx5ICQ1MDBLIGluIGVhcmx5IDIwMjUgZnJvbSBZQyBhbmQgUGlvbmVlciBGdW5kLCBjb25zaXN0ZW50IHdpdGggdGhlIHN0YW5kYXJkIFlDIGRlYWwuIE5vIHByaWNlZCByb3VuZCBpcyBwdWJsaWMgKFtUcmFjeG5dKGh0dHBzOi8vdHJhY3huLmNvbS9kL2NvbXBhbmllcy90cmFpbmxvb3AvX19ZTWFGcElpX2lqbDEzX183UDRDMG9INTBmZjRQUzVZUVp5VVZHcjdzOWU0KSwgW1ByZXFpbl0oaHR0cHM6Ly93d3cucHJlcWluLmNvbS9kYXRhL3Byb2ZpbGUvYXNzZXQvdHJhaW5sb29wLzczOTAzNikpLgoyLiAqKlRoZSBwaXRjaCBjaGFuZ2VkLioqIEF0IFlDIHRoZSBwcm9kdWN0IHdhcyBhbiBTREsgdGhhdCAiZ2F0aGVycyB0cmFpbmluZyBzaWduYWxzIGZyb20gYWN0dWFsIHVzYWdlLCIgYSByZXdhcmQgbW9kZWwsIGFuZCBhdXRvLWRlcGxveWVkIGluZmVyZW5jZSAoW1lDIHByb2ZpbGVdKGh0dHBzOi8vd3d3Lnljb21iaW5hdG9yLmNvbS9jb21wYW5pZXMvdHJhaW5sb29wKSkuIFRoZSBzaXRlIG5vdyBzYXlzICJXZSB0cmFpbiBleHBlcnQgbW9kZWxzIGZvciBsb25nIGhvcml6b24gdGFza3MsIiB1c2luZyBhIHJlc2VhcmNoIHRlYW0gYW5kICJhIGRlcGxveW1lbnQgdGVhbSIgdGhhdCB3b3JrcyB3aXRoIGRvbWFpbiBleHBlcnRzIChbdHJhaW5sb29wLmFpXShodHRwczovL3d3dy50cmFpbmxvb3AuYWkvKSkuCjMuICoqVGhlIG9wZW4tc291cmNlIFNESyB3ZW50IHF1aWV0LioqIFRoZSBgc2RrYCByZXBvIHdhcyBsYXN0IHB1c2hlZCBpbiBBcHJpbCAyMDI1IGFuZCBgZXZhbHNgICg2MiBzdGFycykgaW4gSnVseSAyMDI1IChbR2l0SHViXShodHRwczovL2dpdGh1Yi5jb20vVHJhaW5Mb29wKSkuCjQuICoqT25lIHB1YmxpYyBwcm9vZiBwb2ludC4qKiBPbiBPY3RvYmVyIDE1LCAyMDI2LCBOVklESUEgd3JvdGUgdGhhdCBUcmFpbkxvb3AgInBvc3QtdHJhaW5lZCIgTmVtb3Ryb24gMy41IFN1cGVyIFZMIG9uIGRlcm1hdG9sb2d5IGRhdGEgZnJvbSBOb2xsYSAoW05WSURJQV0oaHR0cHM6Ly9ibG9ncy5udmlkaWEuY29tL2Jsb2cvbmVtb3Ryb24tMy01LXN1cGVyLXZsLykpLiBOaW5lIGRheXMgZWFybGllciwgVXRhaCBsZXQgTm9sbGEgSGVhbHRoJ3MgYXBwIGlzc3VlIGluaXRpYWwgYWNuZSBwcmVzY3JpcHRpb25zIGluIGEgMTItbW9udGggcmVndWxhdG9yeSBzYW5kYm94LCB3aXRoIHBoeXNpY2lhbiBvdmVyc2lnaHQgKFtVdGFoIEJ1c2luZXNzXShodHRwczovL3d3dy51dGFoYnVzaW5lc3MuY29tL2luZHVzdHJ5LzIwMjYvMTAvMDYvdXRhaC1iZWNvbWVzLWZpcnN0LXN0YXRlLXRvLWF1dGhvcml6ZS1haS10by1pc3N1ZS1pbml0aWFsLXByZXNjcmlwdGlvbnMvKSkuIE5WSURJQSBnaXZlcyBubyBwZXJmb3JtYW5jZSBudW1iZXJzLgo1LiAqKlNpeCBwZW9wbGUsIGhpcmluZyBhIEhlYWQgb2YgRW50ZXJwcmlzZS4qKiBZQyBsaXN0cyBzaXggZW1wbG95ZWVzIGFuZCBvcGVuIHJvbGVzIGZvciBhIEhlYWQgb2YgRW50ZXJwcmlzZSBhbmQgcmVzZWFyY2ggc3RhZmYgKFtZQyBqb2JzXShodHRwczovL3d3dy55Y29tYmluYXRvci5jb20vY29tcGFuaWVzL3RyYWlubG9vcC9qb2JzKSkuIEhpcmluZyBlbnRlcnByaXNlIHNhbGVzIGJlZm9yZSBhIHNlY29uZCBwdWJsaWMgY3VzdG9tZXIgY29uZmlybXMgdGhlIG1vdmUgdG8gc2VydmljZXMuCgojIyBXaGF0IFRyYWluTG9vcCBzZWxscwoKYGBgbWVybWFpZApmbG93Y2hhcnQgTFIKICAgIEFbIk9wZW4gYmFzZSBtb2RlbDxici8+KE5lbW90cm9uLCBRd2VuLCBMbGFtYSkiXSAtLT4gQlsiRXhwZXJ0IGRhdGEgKyByZXdhcmQ8YnIvPihjdXN0b21lcidzIGRvbWFpbiBleHBlcnRzKSJdCiAgICBCIC0tPiBDWyJQb3N0LXRyYWluaW5nPGJyLz5TRlQsIERQTywgR1JQTy1zdHlsZSBSTCw8YnIvPm9uLXBvbGljeSBkaXN0aWxsYXRpb24iXQogICAgQyAtLT4gRFsiQ3VzdG9tZXIgd2VpZ2h0czxici8+KGZ1bGwgbW9kZWwgb3IgTG9SQSBhZGFwdGVyKSJdCiAgICBEIC0tPiBFMVsiQ3VzdG9tZXIgY2xvdWQgLyBWUEMiXQogICAgRCAtLT4gRTJbIkdQVSBjbG91ZCBBUEkiXQogICAgRCAtLT4gRTNbIkxvY2FsIGNoaXA6PGJyLz5iYXNlIGZyb3plbiBpbiBzaWxpY29uLDxici8+YWRhcHRlciBzd2FwcGFibGUiXQogICAgRTEgLS4gInByb2R1Y3Rpb24gZmVlZGJhY2siIC4tPiBCCiAgICBzdHlsZSBDIGZpbGw6I2ZkZTY4YSxzdHJva2U6I2I0NTMwOQogICAgc3R5bGUgRCBmaWxsOiNiYmY3ZDAsc3Ryb2tlOiMxNTgwM2QKICAgIHN0eWxlIEUzIGZpbGw6I2RiZWFmZSxzdHJva2U6IzFkNGVkOApgYGAKCipFdmVyeSBkZXBsb3ltZW50IHRhcmdldCwgbG9jYWwgaW5jbHVkZWQsIHJ1bnMgcG9zdC10cmFpbmluZydzIG91dHB1dC4gT24gYSBoYXJkd2lyZWQgY2hpcCBpdCBpcyB0aGUgb25seSBwYXJ0IHRoYXQgY2FuIGNoYW5nZS4qCgpUaGUgdGVjaG5pcXVlcyBhcmUgcHVibGljLiBEZWVwU2VlayBzaG93ZWQgdGhhdCBSTCB3aXRoIHZlcmlmaWFibGUgcmV3YXJkcyAoR1JQTykgcHJvZHVjZXMgcmVhc29uaW5nIGJlaGF2aW9yIChbRGVlcFNlZWstUjFdKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNTAxLjEyOTQ4KSkuIFRoaW5raW5nIE1hY2hpbmVzIHNob3dlZCB0aGF0IExvUkEgbWF0Y2hlcyBmdWxsIGZpbmUtdHVuaW5nIGZvciBSTCBldmVuIGF0IHNtYWxsIHJhbmtzIChbTG9SQSBXaXRob3V0IFJlZ3JldF0oaHR0cHM6Ly90aGlua2luZ21hY2hpbmVzLmFpL2Jsb2cvbG9yYS8pKS4gVGhlIG1vYXQgaXMgdGhlIGV4cGVydCBkYXRhLCB0aGUgcmV3YXJkIGRlc2lnbiBhbmQgdGhlIGV2YWwuCgpUaGUgd2VkZ2UgaXMgZGVsaXZlcnkuIFRoZSBjdXN0b21lciBnZXRzIGFuIG9wZW4gYmFzZSBtb2RlbCwgd2VpZ2h0cyBhc3NpZ25lZCB0byBpdCwgZGVwbG95bWVudCBpbiBpdHMgb3duIFZQQywgYW5kIGEgdGVhbSB0aGF0IHNpdHMgd2l0aCBpdHMgY2xpbmljaWFucyBvciBiYW5rZXJzLiBTZWxmLXNlcnZlIHBsYXRmb3JtcyBvZmZlciB0aGUgZmlyc3QgdGhyZWUuIFRoZXkgZG9uJ3Qgb2ZmZXIgdGhlIHRlYW0uIFRoZSBidXllcidzIGFsdGVybmF0aXZlcyBhcmUgYSBmcm9udGllciBBUEkgd2l0aCBwcm9tcHRpbmcsIG9yIGhpcmluZyB0d28gTUwgZW5naW5lZXJzIGF0IHJvdWdobHkgJDYwMEsgYSB5ZWFyIGZ1bGx5IGxvYWRlZCAobXkgZXN0aW1hdGUpLiBUcmFpbkxvb3AncyBwcmljZSBoYXMgdG8gbGFuZCBiZWxvdyB0aGF0IGFuZCBhYm92ZSBpdHMgb3duIEdQVSBjb3N0LgoKIyMgWW91ciB0aHJlZSBsZW5zZXMKCiMjIyAxLiBUcmFjdGlvbjogYmlvcGhhcm1hIGZpcnN0IG1ha2VzIHNlbnNlLCBidXQgc2FsZXMgYXJlIHNsb3cKCmBgYG1lcm1haWQKcXVhZHJhbnRDaGFydAogICAgdGl0bGUgV2hlcmUgYW4gb3duZWQsIHBvc3QtdHJhaW5lZCBtb2RlbCB3aW5zCiAgICB4LWF4aXMgIkRhdGEgY2FuIGxlYXZlIiAtLT4gIkRhdGEgbXVzdCBzdGF5IGluLWhvdXNlIgogICAgeS1heGlzICJSZXdhcmQgaXMgZnV6enkiIC0tPiAiUmV3YXJkIGlzIGNoZWNrYWJsZSIKICAgIHF1YWRyYW50LTEgIlRyYWluTG9vcCdzIG1hcmtldCIKICAgIHF1YWRyYW50LTIgIkZyb250aWVyIGxhYnMgd2luIgogICAgcXVhZHJhbnQtMyAiUHJvbXB0aW5nIGlzIGVub3VnaCIKICAgIHF1YWRyYW50LTQgIlR1bmUgbGF0ZXIiCiAgICAiRGVybWF0b2xvZ3kgZGlhZ25vc2lzIjogWzAuODUsIDAuODJdCiAgICAiQmFua2luZyBhbmFseXNpcyI6IFswLjc4LCAwLjddCiAgICAiTG9naXN0aWNzIGFnZW50cyI6IFswLjYsIDAuNjZdCiAgICAiQ29kaW5nIjogWzAuMjUsIDAuODVdCiAgICAiQ29uc3VtZXIgY2hhdCI6IFswLjE1LCAwLjJdCiAgICAiTGVnYWwgZHJhZnRpbmciOiBbMC43MiwgMC4zXQpgYGAKCipBdXRob3IncyBqdWRnbWVudCwgbm90IGRhdGE6IHJlZ3VsYXRlZCB3b3JrIHdpdGggY2hlY2thYmxlIGFuc3dlcnMgc2l0cyB0b3AgcmlnaHQuKgoKQmlvcGhhcm1hIGFuZCBiYW5raW5nIGFyZSB3aGVyZSBvd25pbmcgYSBtb2RlbCBtYXR0ZXJzIG1vc3QuIFBhdGllbnQgaW1hZ2VzIGFuZCBkZWFsIGJvb2tzIGNhbid0IGxlYXZlIHRoZSBidWlsZGluZy4gQSBkaWFnbm9zaXMgY2FuIGJlIGNvbmZpcm1lZCBhbmQgYSByZWNvbmNpbGlhdGlvbiBhdWRpdGVkLCB3aGljaCBnaXZlcyBSTCBhIHJld2FyZCB0byB0cmFpbiBvbi4gV2hlbiBvbmUgZXJyb3IgaXMgYSBtaXNkaWFnbm9zaXMgb3IgYSBtaXNwcmljZWQgdHJhZGUsIGEgZmV3IHBvaW50cyBvZiBhY2N1cmFjeSBwYXkgZm9yIHRoZSB3b3JrLiBDb2RpbmcgaXMgYmlnZ2VyLCBidXQgdGhlIGZyb250aWVyIGxhYnMgYWxyZWFkeSBvd24gaXQuCgpZb3VyIGNvbmNlcm4gaG9sZHMgaW4gb25lIHdheTogc2FsZXMgY3ljbGVzLiBSZWd1bGF0ZWQgYnV5ZXJzIG1vdmUgc2xvd2x5LCB3aGljaCBwcm9iYWJseSBleHBsYWlucyB0aGUgdGhpbiByZWNvcmQgMTggbW9udGhzIGFmdGVyIFlDIChteSBpbmZlcmVuY2UpLiBUaGUgc2l0ZSBsaXN0cyB0aHJlZSBwYXJ0bmVycyAoTm9sbGFNRCwgTWVyY29yLCBQYXRob3MpLiBUaGVyZSBpcyBvbmUgcHVibGljIHJlc3VsdCwgbm8gcmV2ZW51ZSBmaWd1cmUgYW5kIG5vIGRpc2Nsb3NlZCByZW5ld2FsLgoKIyMjIDIuIEZvdW5kZXIgcGVkaWdyZWU6IGNoZWNrIHdoYXQgIkdlbWluaSBhbmQgQWxwaGFGb2xkIiBtZWFucwoKWUMgc2F5cyBKYWNrc29uIFN0b2tlcyB3b3JrZWQgb24gIkdvb2dsZSBHZW1pbmkgYW5kIEFscGhhRm9sZCAqKnBlcmZvcm1hbmNlKioiIChbWUNdKGh0dHBzOi8vd3d3Lnljb21iaW5hdG9yLmNvbS9jb21wYW5pZXMvdHJhaW5sb29wKSkuIFRoYXQgcmVhZHMgYXMgc3lzdGVtcyBhbmQgYWNjZWxlcmF0b3Igb3B0aW1pemF0aW9uLCBhbmQgdGhlIGNvbXBhbnkncyBgamF4MnRvcmNoYCByZXBvIGZpdHMuIEl0IG1hdHRlcnMsIGJlY2F1c2UgcG9zdC10cmFpbmluZyBtYXJnaW5zIGRlcGVuZCBvbiBHUFUgZWZmaWNpZW5jeS4gSXQgaXMgbm90IHJlc2VhcmNoIGxlYWRlcnNoaXAgaW4gUkwgb3IgYmlvbG9neS4gWUMncyBiaW8gc2F5cyBDVE8gTWFzb24gUGllcmNlIGxlZCBlbmdpbmVlcmluZyBhdCBTZWNvbmQgKFlDIFcyMyksIHdoZXJlIGhlICJoaXQgdGhlIGxpbWl0cyBvZiBvZmYtdGhlLXNoZWxmIG1vZGVscy4iIE5vdGhpbmcgYmV5b25kIFlDIGNvbmZpcm1zIGVpdGhlciBiaW8uIENhbGwgcmVmZXJlbmNlcyBhbmQgYXNrIFN0b2tlcyB3aGljaCBzeXN0ZW1zIGhlIG93bmVkIGVuZCB0byBlbmQuCgojIyMgMy4gRHVyYWJpbGl0eTogbG9jYWwgaW5mZXJlbmNlIGlzIHRoZSB3cm9uZyB0aHJlYXQKCkZpbmUtdHVuaW5nIGlzIG9uZSBwYXJ0IG9mIHBvc3QtdHJhaW5pbmcuIFBvc3QtdHJhaW5pbmcgYWxzbyBjb3ZlcnMgcHJlZmVyZW5jZSB0dW5pbmcsIFJMIGFuZCBkaXN0aWxsYXRpb24uIExvY2FsIGluZmVyZW5jZSBjaGFuZ2VzIHdoZXJlIGEgbW9kZWwgcnVucywgbm90IHdoZXRoZXIgaXQgbmVlZHMgdHVuaW5nLiBJdCBtYXkgcmFpc2UgZGVtYW5kOiBhIDAuNkIgb3IgOEIgbW9kZWwgbmVlZHMgcG9zdC10cmFpbmluZyB0byBjb21wZXRlLCBhbmQgVHJhaW5Mb29wIGZvcmtlZCB0aGUgY29kZSBvZiBhIHN0ZXAtd2lzZSBkaXN0aWxsYXRpb24gcGFwZXIgYWltZWQgYXQgdGhhdCBjYXNlIChbU09ELCBhclhpdiAyNjA1LjA3NzI1XShodHRwczovL2FyeGl2Lm9yZy9hYnMvMjYwNS4wNzcyNSkpLiBUYWFsYXMncyBIQzEgaGFyZHdpcmVzIExsYW1hIDMuMSA4QiBpbnRvIHNpbGljb24gYW5kIHJlcG9ydGVkbHkgc3RpbGwgYWNjZXB0cyBMb1JBIGFkYXB0ZXJzIChbS2FpdGNodXBdKGh0dHBzOi8va2FpdGNodXAuc3Vic3RhY2suY29tL3AvdGFhbGFzLWhjMS1hYnN1cmRseS1mYXN0LXBlci11c2VyKSkuIEFwcGxlIGN1c3RvbWl6ZXMgaXRzIG9uLWRldmljZSBtb2RlbCB0aGUgc2FtZSB3YXkgKFtBcHBsZV0oaHR0cHM6Ly9kZXZlbG9wZXIuYXBwbGUuY29tL2FwcGxlLWludGVsbGlnZW5jZS9mb3VuZGF0aW9uLW1vZGVscy1hZGFwdGVyKSkuCgpUaGUgcmVhbCB0aHJlYXRzIGFyZSBlbHNld2hlcmU6CgotICoqUGxhdGZvcm1zLioqIE9wZW5BSSBzZWxscyByZWluZm9yY2VtZW50IGZpbmUtdHVuaW5nIG9mZiB0aGUgc2hlbGYgKFtkb2NzXShodHRwczovL3BsYXRmb3JtLm9wZW5haS5jb20vZG9jcy9ndWlkZXMvcmVpbmZvcmNlbWVudC1maW5lLXR1bmluZykpLiBUaGlua2luZyBNYWNoaW5lcycgVGlua2VyIHJ1bnMgUkwgYW5kIGxldHMgdGVhbXMgZG93bmxvYWQgdGhlIHdlaWdodHMgKFtUaW5rZXIgZG9jc10oaHR0cHM6Ly90aW5rZXItZG9jcy50aGlua2luZ21hY2hpbmVzLmFpLykpLiBPcGVuUGlwZSByYWlzZWQgYSAkNi43TSBzZWVkIGluIDIwMjQgKFtWQyBOZXdzIERhaWx5XShodHRwczovL3ZjbmV3c2RhaWx5LmNvbS9vcGVucGlwZS92ZW50dXJlLWNhcGl0YWwtZnVuZGluZy9jeGp5amRtcWhoKSksIGFuZCBDb3JlV2VhdmUgYm91Z2h0IGl0IGluIFNlcHRlbWJlciAyMDI1IG9uIHVuZGlzY2xvc2VkIHRlcm1zIChbQ29yZVdlYXZlXShodHRwczovL2ludmVzdG9ycy5jb3Jld2VhdmUuY29tL25ld3MvbmV3cy1kZXRhaWxzLzIwMjUvQ29yZVdlYXZlLXRvLUFjcXVpcmUtT3BlblBpcGUtTGVhZGVyLWluLVJlaW5mb3JjZW1lbnQtTGVhcm5pbmcvZGVmYXVsdC5hc3B4KSkuIFRoYXQgZGVhbCBpcyB0aGUgY2xlYXJlc3QgcHVibGljIHNpZ25hbCBvZiB3aGF0IGEgc21hbGwgUkwgdGVhbSBpcyB3b3J0aCB0byBhIEdQVSBjbG91ZC4KLSAqKlNlcnZpY2VzIGdyYXZpdHkuKiogQSBzaXgtcGVyc29uIHRlYW0gY2FuIHJ1biB0d28gb3IgdGhyZWUgZGVwbG95bWVudHMgYXQgb25jZS4gUmV2ZW51ZSBncm93cyB3aXRoIGhlYWRjb3VudCB1bnRpbCB0aGUgc2Vjb25kIGRlcGxveW1lbnQgcmV1c2VzIHRoZSBmaXJzdCBvbmUncyBkYXRhIHBpcGVsaW5lLCByZXdhcmQgbW9kZWxzIGFuZCBldmFscy4KCiMjIFdoYXQgdG8gYXNrCgp8IFF1ZXN0aW9uIHwgR29vZCBhbnN3ZXIgfCBSZWQgZmxhZyB8CnwgLS0tIHwgLS0tIHwgLS0tIHwKfCBSb3VuZCBzaXplIGFuZCB2YWx1YXRpb24gfCBQcmljZWQgbmVhciB3aGF0IGFuIGFjcXVpLWhpcmUgd291bGQgcGF5IHwgUHJpY2VkIGFzIGlmIHRoZSBwcm9kdWN0IGFscmVhZHkgZXhpc3RzIHwKfCBQYWlkIGNvbnRyYWN0cyB2cy4gcGlsb3RzLCBhbmQgY29udHJhY3Qgc2l6ZSB8IFR3byBvciBtb3JlIHBhaWQgc2l4LWZpZ3VyZSBjb250cmFjdHMsIG9uZSByZW5ld2FsIHwgQWxsIHBpbG90cywgb3IgcGFpZCBvbmx5IGluIGNvbXB1dGUgY3JlZGl0cyB8CnwgTm9sbGEgcmVzdWx0IHwgQSBtZWFzdXJlZCBnYWluIHZzLiB0aGUgYmFzZSBtb2RlbCBhbmQgYSBmcm9udGllciBBUEkgfCAiU3RhdGUgb2YgdGhlIGFydCIgd2l0aCBubyBudW1iZXIgfAp8IFdoYXQgY2FycmllcyBvdmVyIHRvIGN1c3RvbWVyIHR3byB8IFNoYXJlZCByZXdhcmQgYW5kIGV2YWwgdG9vbGluZywgZmFzdGVyIHNlY29uZCBkZXBsb3ltZW50IHwgRWFjaCBlbmdhZ2VtZW50IHN0YXJ0cyBmcm9tIHplcm8gfAp8IFdobyBvd25zIHdoYXQgfCBXZWlnaHRzIGFzc2lnbmVkIHRvIHRoZSBjdXN0b21lcjsgVHJhaW5Mb29wIGtlZXBzIHJpZ2h0cyB0byBpdHMgcmV3YXJkIGFuZCBldmFsIHRvb2xpbmcgfCBVbmNsZWFyIElQIHRlcm1zLCBvciBUcmFpbkxvb3Aga2VlcHMgbm90aGluZyByZXVzYWJsZSB8CnwgV2h5IHRoZSBTREsgc3RvcHBlZCB8IEEgZGVsaWJlcmF0ZSBtb3ZlIHRvIHdoZXJlIHRoZSBtb25leSBpcyB8IERldmVsb3BlcnMgZGlkbid0IGFkb3B0IGl0IHwKfCBHcm9zcyBtYXJnaW4gfCBBYm92ZSA2MCUgYXQgc3RlYWR5IHN0YXRlIHwgRW5naW5lZXJzIGFyZSB0aGUgcHJvZHVjdCB8CgojIyBNeSByZWFkCgpCYWNrIGl0IGlmIE5vbGxhJ3MgbnVtYmVyIGlzIHJlYWwsIGEgc2Vjb25kIHJlZ3VsYXRlZCBjdXN0b21lciBoYXMgcGFpZCwgYW5kIHRoZSBzZWNvbmQgZGVwbG95bWVudCB0b29rIGhhbGYgdGhlIHRpbWUgb2YgdGhlIGZpcnN0LiBQYXNzIGlmIGV2ZXJ5IGNvbnRyYWN0IGlzIGJlc3Bva2UuIEluIHRoYXQgY2FzZSBjb21wdXRlIGVmZmljaWVuY3kgb25seSBtYWtlcyBUcmFpbkxvb3AgYSBjaGVhcGVyIGNvbnN1bHRhbmN5LCBhbmQgYSBjbG91ZCBvciBmcm9udGllciBsYWIgc2hpcHMgdGhlIHByb2R1Y3QuCgo8Zm9vdGVyPlNvdXJjZXMgbGlua2VkIGlubGluZS4gRnVuZGluZyBmaWd1cmVzIGNvbWUgZnJvbSBhZ2dyZWdhdG9ycywgbm90IGEgY29tcGFueSBhbm5vdW5jZW1lbnQuIEZvdW5kZXIgYmlvcyBjb21lIGZyb20gWUMgb25seS4gVGFhbGFzIGFkYXB0ZXIgZGV0YWlscyBjb21lIGZyb20gc2Vjb25kYXJ5IHJldmlld3MuIFdyaXR0ZW4gT2N0b2JlciAyMywgMjAyNi48L2Zvb3Rlcj4K</script>
+<script>
+  (function () {
+    var src = document.getElementById('memo-src');
+    var raw = '';
+    try {
+      var bin = atob((src.textContent || '').replace(/\s+/g, ''));
+      var bytes = new Uint8Array(bin.length);
+      for (var k = 0; k < bin.length; k++) { bytes[k] = bin.charCodeAt(k); }
+      raw = new TextDecoder('utf-8').decode(bytes);
+    } catch (e) { raw = ''; }
+    var name = document.body.getAttribute('data-slug') + '.md';
+
+    var copy = document.getElementById('btn-copy');
+    copy.addEventListener('click', function () {
+      var done = function () {
+        copy.textContent = 'Copied';
+        copy.classList.add('done');
+        setTimeout(function () {
+          copy.textContent = 'Copy for agents';
+          copy.classList.remove('done');
+        }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(raw).then(done, fallback);
+      } else {
+        fallback();
+      }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = raw;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); } catch (e) { /* no-op */ }
+        document.body.removeChild(ta);
+      }
+    });
+
+    var dl = document.getElementById('btn-download');
+
+    function flash(label) {
+      var was = dl.textContent;
+      dl.textContent = label;
+      dl.classList.add('done');
+      setTimeout(function () {
+        dl.textContent = was;
+        dl.classList.remove('done');
+      }, 1600);
+    }
+
+    function blobSave() {
+      var blob = new Blob([raw], { type: 'text/markdown;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+    }
+
+    dl.addEventListener('click', function () {
+      // On claude.ai the host mediates saves; on GitHub Pages a blob link works.
+      if (window.claude && typeof window.claude.use === 'function') {
+        window.claude.use('downloads').then(function (d) {
+          if (!d) { blobSave(); return; }
+          d.save({ filename: name, data: raw }).then(
+            function () { flash('Saved'); },
+            function (e) { if (!e || e.code !== 'declined') { blobSave(); } }
+          );
+        }, blobSave);
+        return;
+      }
+      blobSave();
+    });
+  })();
+</script>
+<script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs";mermaid.initialize({startOnLoad: true});</script>
+</body>
+</html>

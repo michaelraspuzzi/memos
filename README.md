@@ -14,6 +14,10 @@ Start with the [overview](memos/closing-the-source.md): the pattern across all s
 - **Degrees:** [The bachelor's degree](memos/bachelors-degree.md) · [Harvard's hybrid master's](memos/harvard-hybrid-masters.md) · [Coursera](memos/coursera.md) · [Udacity](memos/udacity.md)
 - **Ratings:** [Chess](memos/chess-elo.md) · [Tennis](memos/tennis-rankings.md) · [Esports](memos/esports-rankings.md) · [Bouldering](memos/bouldering-grades.md) · [Michelin stars](memos/michelin-stars.md) · [Rating human performance](memos/human-performance-ratings.md)
 
+## Diligence
+
+- [TrainLoop](memos/trainloop.md): a YC W25 post-training lab for biopharma and banking. Traction, founder signal, and why local inference isn't the threat (platforms and services are). October 2026.
+
 ## Salon pre-reads
 
 - [Humans vs. Cancer](https://michaelraspuzzi.github.io/memos/salons/ai-cancer-salon.html): why hasn't AI cured cancer yet? With Dr. eMalick Njie of Ecotone AI, October 2026.

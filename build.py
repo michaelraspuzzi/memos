@@ -34,6 +34,8 @@ MEMOS = [
     ("clickhouse", "ClickHouse"),
     ("supabase", "Supabase"),
     ("n8n", "n8n"),
+    # Diligence
+    ("trainloop", "TrainLoop"),
 ]
 
 MEMO_SLUGS = {slug for slug, _ in MEMOS}
@@ -287,6 +289,11 @@ def convert(md):
                 i += 1
             if i < n:
                 i += 1
+            # Mermaid diagrams render client-side; GitHub renders the same fence.
+            if lang == 'mermaid':
+                out.append('<pre class="mermaid">%s</pre>' %
+                           html.escape('\n'.join(code_lines), quote=False))
+                continue
             cls = ' class="language-%s"' % html.escape(lang, quote=True) if lang else ''
             out.append('<pre><code%s>%s</code></pre>' %
                        (cls, html.escape('\n'.join(code_lines), quote=False)))
@@ -403,6 +410,11 @@ def page(title, slug, body_html, raw_md, home_label, home_href):
     payload = base64.b64encode(raw_md.encode('utf-8')).decode('ascii')
     home = ('<span class="home"><a href="%s">%s</a></span>' % (home_href, home_label)
             if home_href else '<span class="home">%s</span>' % home_label)
+    mermaid = ''
+    if 'class="mermaid"' in body_html:
+        mermaid = ('\n<script type="module">import mermaid from '
+                   '"https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs";'
+                   'mermaid.initialize({startOnLoad: true});</script>')
     return """<!doctype html>
 <html lang="en">
 <head>
@@ -421,10 +433,10 @@ def page(title, slug, body_html, raw_md, home_label, home_href):
 %s
 </div>
 <script type="text/plain" id="memo-src">%s</script>
-<script>%s</script>
+<script>%s</script>%s
 </body>
 </html>
-""" % (html.escape(title), STYLE, slug, home, body_html, payload, SCRIPT)
+""" % (html.escape(title), STYLE, slug, home, body_html, payload, SCRIPT, mermaid)
 
 
 def main():
