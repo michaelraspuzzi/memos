@@ -18,6 +18,10 @@ Start with the [overview](memos/closing-the-source.md): the pattern across all s
 
 - [TrainLoop](memos/trainloop.md): a YC W25 post-training lab for biopharma and finance. Traction, founder pedigree, durability, and why someone would (or wouldn't) work there. October 2026.
 
+## Open source
+
+- [Open Relay](https://michaelraspuzzi.github.io/memos/open-relay.html): a decision interface for your agents, one glass card per connector on your Mac, and the [code](https://github.com/michaelraspuzzi/open-relay) to build your own. October 2026.
+
 ## Salon pre-reads
 
 - [Humans vs. Cancer](https://michaelraspuzzi.github.io/memos/salons/ai-cancer-salon.html): why hasn't AI cured cancer yet? With Dr. eMalick Njie of Ecotone AI, October 2026.
