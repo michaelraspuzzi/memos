@@ -173,7 +173,7 @@ h3.card-h { font-size: 22px; margin: 40px 0 10px; letter-spacing: -.01em; }
     <details>
       <summary class="btn" aria-label="Contents">☰ Contents</summary>
       <div class="drop">
-        <a href="#p1">1. Chat Is the Wrong Shape</a>
+        <a href="#p1">1. A Different Shape than Chat Threads</a>
         <a href="#p2">2. One Card per World</a>
         <a href="#p3">3. Moving Between Cards</a>
         <a href="#p4">4. The Custom Cards</a>
@@ -208,18 +208,16 @@ h3.card-h { font-size: 22px; margin: 40px 0 10px; letter-spacing: -.01em; }
   <div class="tldr">
     <h2>TL;DR</h2>
     <ul>
-      <li><b>Agents do the work now. Your job is deciding.</b> A chat window makes you read a wall of text to find the decision. A decision interface hands you the decision: a draft with a Send button, a diff to approve, a list with Do it on each line.</li>
-      <li><b>Relay gives every connector its own card.</b> Gmail, Calendar, Slack, Notion, a code folder. One composer at the bottom talks to whichever card is in front, so context comes from where you are, not what you type.</li>
-      <li><b>The best cards aren't connectors.</b> Meeting Prep, Follow-ups, Ideas and Discover each do one job across your tools and end in something you can act on.</li>
-      <li><b>It runs on the Claude you already have.</b> No API key: a Bun sidecar drives your installed, logged-in <code>claude</code> through the Agent SDK, and every card is a normal Claude Code session.</li>
-      <li><b>Open Relay is the cleaned-up version.</b> MIT licensed, about 11,600 lines of Swift and TypeScript, at <a href="https://github.com/michaelraspuzzi/open-relay">github.com/michaelraspuzzi/open-relay</a>.</li>
+      <li><b>Agents do the work now. What's left for you is the decision.</b> A chat thread buries it in paragraph three. A decision interface puts it in front of you: a draft with Send, a diff to approve, a brief with Join.</li>
+      <li><b>Relay is one card per tool and one box to type in.</b> Gmail, Calendar, Notion, your code: each is its own card, and you talk to whichever one is in front. Swipe, decide, move on.</li>
+      <li><b>It's open source.</b> It runs on the Claude Code you're already logged into, no API key. Grab it at <a href="https://github.com/michaelraspuzzi/open-relay">github.com/michaelraspuzzi/open-relay</a> and add your own cards.</li>
     </ul>
   </div>
 
   <nav class="toc" aria-label="Contents">
     <h2>Contents</h2>
     <ol>
-      <li><a href="#p1">Chat Is the Wrong Shape</a></li>
+      <li><a href="#p1">A Different Shape than Chat Threads</a></li>
       <li><a href="#p2">One Card per World</a></li>
       <li><a href="#p3">Moving Between Cards</a></li>
       <li><a href="#p4">The Custom Cards</a></li>
@@ -229,7 +227,7 @@ h3.card-h { font-size: 22px; margin: 40px 0 10px; letter-spacing: -.01em; }
   </nav>
 
   <p class="part" id="p1">Part 1</p>
-  <h2 class="sec">Chat Is the Wrong Shape</h2>
+  <h2 class="sec">A Different Shape than Chat Threads</h2>
 
   <p>Here's how most of us work with agents today. You open a chat. You type what you want. The agent goes off, calls six tools, and comes back with four paragraphs. Somewhere in paragraph three is the thing it needs from you: "Want me to send this?"</p>
   <p>That was fine when the model was answering questions. It's the wrong shape now that the model is doing the work. <b class="tk">When the agent does the work, the only part left for you is the decision.</b> Send or don't. Approve the change or push back. Do this first, or that.</p>
