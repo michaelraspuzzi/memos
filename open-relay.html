@@ -200,17 +200,22 @@ h3.card-h { font-size: 22px; margin: 40px 0 10px; letter-spacing: -.01em; }
     <blockquote class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">I built the multi-agent interface I wanted.</p>&mdash; Felix Haas (@felixhhaas) <a href="https://x.com/felixhhaas/status/2095202955918008622">September 2, 2026</a></blockquote>
   </div>
 
+  <p class="big">For two weeks in October, my agents did 335 things for me: searched my inbox, read threads, checked my calendar, searched the web. Out of all that, they needed me 66 times.</p>
+  <p>That ratio is what working with agents looks like now. They do about five things for every one that needs you, and the one that needs you is the only slow part left. The work got cheap. <b class="tk">Your attention is the bottleneck, and the interface decides how much of it each decision costs.</b></p>
+  <p>Chat charges full price. It hands back all five things as prose, and you read the whole thing to find the one line that's yours. So I built a different shape, where the agent's work arrives as the decision itself, and I've open sourced it.</p>
+
   <div class="prenote">
-    <p>A month ago Felix Haas posted 44 silent seconds of an interface I couldn't stop thinking about. I wanted to use it, so I spent two weeks building it on top of Claude Code. This is what came out, why I think it matters, and the code, which is now open source.</p>
-    <p>It's about an 8-minute read. The repo is in Part 6 if you just want to run it.</p>
+    <p>It started with 44 silent seconds of video from Felix Haas.<sup><a href="#n1" id="r1">1</a></sup> I wanted to use what he showed, so I built it on top of Claude Code and used it for two weeks. The numbers here come from those sessions. About an 8-minute read; the repo is in Part 6.</p>
   </div>
 
   <div class="tldr">
     <h2>TL;DR</h2>
     <ul>
-      <li><b>Agents do the work now. What's left for you is the decision.</b> A chat thread buries it in paragraph three. A decision interface puts it in front of you: a draft with Send, a diff to approve, a brief with Join.</li>
-      <li><b>Relay is one card per tool and one box to type in.</b> Gmail, Calendar, Notion, your code: each is its own card, and you talk to whichever one is in front. Swipe, decide, move on.</li>
-      <li><b>It's open source.</b> It runs on the Claude Code you're already logged into, no API key. Grab it at <a href="https://github.com/michaelraspuzzi/open-relay">github.com/michaelraspuzzi/open-relay</a> and add your own cards.</li>
+      <li><b>Count decisions, not tokens.</b> In 150 real turns my agents averaged 4.4 tool calls before they needed me. One Gmail turn ran 29 inbox calls to hand me six drafts. If you're judging an agent setup, ask how much reading each decision costs you.</li>
+      <li><b>Design the output as the decision.</b> Not "I drafted a reply," but the draft with a Send button. Not a summary of a change, but the diff. Not "a few people are waiting," but the list with a button on every line.</li>
+      <li><b>Make every job end in a tool, not a paragraph.</b> If you build agents, give each job a <code>show_*</code> tool it has to finish with. That tool is the contract for what you'll decide on, and it's what turns a chatbot into an interface.</li>
+      <li><b>Let place carry context.</b> One card per tool and one box to type in. Where you're standing is the first line of the prompt, so you never type "in my calendar…" again.</li>
+      <li><b>Take it and make it yours.</b> <a href="https://github.com/michaelraspuzzi/open-relay">Open Relay</a> is MIT licensed and runs on the Claude Code you're already logged into. The best card to add is the decision you make every day.</li>
     </ul>
   </div>
 
@@ -229,13 +234,29 @@ h3.card-h { font-size: 22px; margin: 40px 0 10px; letter-spacing: -.01em; }
   <p class="part" id="p1">Part 1</p>
   <h2 class="sec">A Different Shape than Chat Threads</h2>
 
-  <p>Here's how most of us work with agents today. You open a chat. You type what you want. The agent goes off, calls six tools, and comes back with four paragraphs. Somewhere in paragraph three is the thing it needs from you: "Want me to send this?"</p>
-  <p>That was fine when the model was answering questions. It's the wrong shape now that the model is doing the work. <b class="tk">When the agent does the work, the only part left for you is the decision.</b> Send or don't. Approve the change or push back. Do this first, or that.</p>
-  <p>So the interface should be built around the decision. The agent's output shouldn't be prose about an email; it should be the email, with To, Subject and a Send button. Not a description of a code change, but the diff. Not "you have a few people waiting on you," but the list, with a button on each line that drafts the reply.</p>
+  <p>Here's how most of us work with agents today. You open a chat and type what you want. The agent goes off, calls a dozen tools, and comes back with four paragraphs. Somewhere near the end is the thing it needs from you: "Want me to draft replies?"</p>
+  <p>That shape made sense when the model was answering questions, because the answer <em>was</em> the text. It's the wrong shape now that the model is doing the work. <b class="tk">When the agent does the work, the only part left for you is the decision.</b> Send or don't. Approve the change or push back. This first, or that.</p>
+
+  <figure class="shot wide">
+    <img src="assets/open-relay/limits-of-chat.png" alt="Two panels. Left, a chat thread: the question Who's waiting on me, six tool-call chips, then a long paragraph, with the actual question, Want me to draft replies, at the very end. Right, a decision interface: the same question answered with a Follow-ups card listing four people, each with a Draft button." width="1500" height="920" loading="lazy">
+    <figcaption><b>Same work, different shape.</b> On the left you read a paragraph to find the decision. On the right the decision is the interface: one click per person.</figcaption>
+  </figure>
+
+  <p>Chat has three limits that get worse the more an agent does:</p>
+  <ul class="ins">
+    <li><b>It buries the decision.</b> The more tools the agent called, the longer the summary, and the further down the one question for you ends up.</li>
+    <li><b>It describes instead of showing.</b> "I drafted a reply to Lena" makes you trust the agent or go check. The draft itself, with To, Subject and Send, lets you judge it in two seconds.</li>
+    <li><b>It's one long thread.</b> Your inbox, your calendar and your code all scroll past each other, so you keep re-explaining where you are.</li>
+  </ul>
 
   <div class="quote">A decision interface shows you what the agent did as something you can approve, edit or redirect in one move.</div>
 
-  <p>Felix's video was the clearest picture of that I'd seen.<sup><a href="#n1" id="r1">1</a></sup> Every app is a card. Every card is its own little chat. And what comes back isn't text, it's a calendar day with "Focus held" on it, a draft, a board. You glance, you decide, you swipe to the next one.</p>
+  <div class="blue">
+    <h3>From the logs</h3>
+    <p>Across 150 real Relay turns, 59 ended in a decision block instead of a paragraph. The most common were email drafts (16), lists of ideas with a Do it button (13) and calendar days (7). When a turn ended in a block, the text reply was a median of 44 words: a caption for the decision, not the decision itself.</p>
+  </div>
+
+  <p>Felix's video was the clearest picture of the alternative I'd seen. Every app is a card. Every card is its own little chat. And what comes back isn't text, it's a calendar day with "Focus held" on it, a draft, a board. You glance, you decide, you swipe to the next one.</p>
 
   <p class="part" id="p2">Part 2</p>
   <h2 class="sec">One Card per World</h2>
@@ -389,6 +410,13 @@ h3.card-h { font-size: 22px; margin: 40px 0 10px; letter-spacing: -.01em; }
     <li><b>Asking first is built in.</b> Anything that sends, posts, deletes or declines goes through an approval (⌘↩ to approve, ⌘⌫ to deny), and parallel approvals queue instead of overwriting each other.</li>
     <li><b>One card can't hang the rest.</b> A stuck tool call gets stopped after 90 seconds and the card carries on.</li>
   </ul>
+
+  <div class="blue">
+    <h3>What two weeks of use changed</h3>
+    <p><b>Handoffs lost detail.</b> When Ideas started a task in another card, the short title made it there and the instructions didn't. Now every handoff carries the full brief behind its title.</p>
+    <p><b>Silence looked like success.</b> An expired login came back as a blank reply. Now cards show the error, so "done" means done.</p>
+    <p><b>One stuck call froze a card.</b> Now a hung tool call is stopped after 90 seconds and the card carries on.</p>
+  </div>
 
   <p class="part" id="p6">Part 6</p>
   <h2 class="sec">Open Relay</h2>
