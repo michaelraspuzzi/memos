@@ -238,8 +238,8 @@ h3.card-h { font-size: 22px; margin: 40px 0 10px; letter-spacing: -.01em; }
   <p>That shape made sense when the model was answering questions, because the answer <em>was</em> the text. It's the wrong shape now that the model is doing the work. <b class="tk">When the agent does the work, the only part left for you is the decision.</b> Send or don't. Approve the change or push back. This first, or that.</p>
 
   <figure class="shot wide">
-    <img src="assets/open-relay/limits-of-chat.png" alt="Two panels. Left, a chat thread: the question Who's waiting on me, six tool-call chips, then a long paragraph, with the actual question, Want me to draft replies, at the very end. Right, a decision interface: the same question answered with a Follow-ups card listing four people, each with a Draft button." width="1500" height="920" loading="lazy">
-    <figcaption><b>Same work, different shape.</b> On the left you read a paragraph to find the decision. On the right the decision is the interface: one click per person.</figcaption>
+    <img src="assets/open-relay/chat-vs-decision.png" alt="Two sides. Left, one chat thread: four requests to Gmail, Calendar, Claude Code and Gmail plus Slack, each answered with grey lines of text and a yellow question buried at the end, such as Want me to send it and Apply this change. Right, four separate cards: Gmail with an email draft and Send, Calendar with a day view and Accept, Claude Code with a diff and Approve, and Follow-ups with a Draft button per person." width="1500" height="1060" loading="lazy">
+    <figcaption><b>Split it up.</b> In one thread, every tool's work scrolls past and each decision is a question in prose. Give each tool its own card and each decision its own widget, and four decisions become four clicks.</figcaption>
   </figure>
 
   <p>Chat has three limits that get worse the more an agent does:</p>
