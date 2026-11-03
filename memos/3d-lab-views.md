@@ -1,77 +1,87 @@
-# Lab robots are black boxes. So I took 17 apart.
+# I gave Claude my X bookmarks. It built 17 lab machines in 3D.
 
 ![3D Lab Views in 30 seconds](assets/3d-lab-views/hype.mp4)
-*30 seconds through the site: the slideshow of all 17 machines, the Opentrons Flex running DNA prep, then Liverpool's robot chemist and the parts inside it.*
 
-*Nov 3, 2026. Draft for an X article. It introduces [3D Lab Views](https://michaelraspuzzi.github.io/labautomationin3d/): 17 lab automation systems taken apart in 3D, from a desktop pipetting robot to a room-sized cell factory. Every number below is from a card on the site, and each card links its sources.*
+We just hosted our seventh AI for Science hack in SF, [Physical AI for Life Science](https://sfaisciencestudio.substack.com/p/physical-ai-for-life-science-hack). One of the wilder builds was Lab Sentry: a live digital twin of the Opentrons Flex deck, where a camera watches the deck and blocks the run from starting until reality matches the protocol.
 
-## Summary
+That got me curious. If a team can build that in a weekend, what could Claude do if I handed it the lab automation posts sitting in my X bookmarks? So I let it loose. It watched demo videos, read release notes and changelogs, worked through papers and patents, and built 3D mockups of each machine in JavaScript.
 
-- **The problem:** Lab robots are sold as brochures and quotes. You rarely see what science a machine actually runs, what software drives it, or what's inside.
-- **What I built:** 17 machines in four sizes (benchtop, workstation, work cell, lab and room). Each film covers five layers: the science, the models, the software, the hardware and the components.
-- **What I found:** The arms and pipettes are mostly solved. The hard part is the hand-off: a tool swap, a plate passed between instruments, a grasp nobody checks.
-- **The gap:** Almost nobody publishes how often those hand-offs fail. Every card ends with the one log that would settle it.
+The goal wasn't pretty renders. It was to understand the full stack, all the things that have to come together for better or new lab infrastructure: the labware, the science protocol, the ML, the software and the hardware, down to the parts.
 
-> **Bottom line:** If you want to know where lab automation is stuck, don't look at the robot. Look at the moment it hands something off, and ask for the log.
+**A caveat up front:** this is me letting Claude cook. It isn't fully accurate, and some of it is inferred where nothing public exists. Every card says which facts are cited and which are guesses. I'm sharing it because I'm curious what this could or should become as a learning resource for people building in the lab.
 
-## Every lab robot ships as a black box
+**See it here:** [michaelraspuzzi.github.io/labautomationin3d](https://michaelraspuzzi.github.io/labautomationin3d/)
 
-If you've ever tried to buy, use or just understand a lab robot, you know how it goes. There's a product page, a spec sheet, a sales call. What you don't get is the thing you actually want to know: what happens inside when it runs.
+## Five layers, top to bottom
 
-So I took 17 of them apart, in 3D. Some are the robots you'd find in any biology lab, like the Opentrons Flex, a Hamilton STAR or a Tecan Fluent. Some are whole rooms: Berkeley's A-Lab, Multiply Labs' cell therapy towers, Cellares. And one is a robot that walks around a chemistry lab on wheels.
+Every machine is one long scroll through the same five layers:
 
-Each machine gets the same five layers, top to bottom:
+1. **Science:** what it actually runs, played step by step on the model. When the protocol isn't public, Claude infers one from papers and demos and marks it as simulated.
+2. **ML:** the models that pick what to try next, where there are any.
+3. **Software:** what plans the run, schedules it and talks to the instruments.
+4. **Hardware:** the arms, grippers, decks, rails and enclosures.
+5. **Components:** one level further down, cut open, such as a pipette's pressure sensor or a robot joint's gearbox.
 
-1. **Science:** what it actually runs, played step by step on the 3D model.
-2. **Models:** the machine learning that picks what to try next, where there is any.
-3. **Software:** what schedules the run and talks to the instruments.
-4. **Hardware:** the arms, grippers, decks and tracks.
-5. **Components:** one level further down, cut open, such as a gripper lock, a torque sensor or a six-touch calibration routine.
+![The Opentrons Flex, scrolled from the science layer down to its components](assets/3d-lab-views/five-layers.jpg)
+*One machine, top to bottom: Illumina DNA Prep (science), a Bayesian optimizer tuning enzyme reactions (ML), Protocol Designer (software), the frame and enclosure (hardware), and the two sensors in every pipette tip (components).*
 
-## Three machines, three scales
+The 17 machines run from smallest to largest: benchtop robots (OLA, Trilobio, Opentrons, Andrew+, Chemspeed), workstations (OpenShelf, Hamilton, Tecan Fluent, Medra), work cells (Automata, Maholo, Ginkgo, HighRes) and whole labs (Liverpool's robot chemist, Berkeley's A-Lab, Multiply Labs, Cellares).
 
-**Opentrons Flex, the benchtop.** It's an 87 cm steel-and-aluminium box with one gantry. The science card plays Illumina DNA Prep for 48 samples: tagmentation, washes, PCR and a bead cleanup, with the gripper moving the plate between the thermocycler and the magnetic block by itself. Here's the catch. A person screws each pipette onto the gantry by hand. Changing a pipette stops the run, and Opentrons publishes no time for it.
+## Three examples
 
-**Liverpool's mobile robot chemist, the whole lab.** Andy Cooper's group put a KUKA arm on a mobile base and let it run a lab built for people. It drives to the solid dispenser, the liquid station, the light box and the gas chromatograph, then back to its charger. It ran 688 experiments in 8 days and found a catalyst mix six times more active than where it started. But the robot never checks its grasps. When a station fails, a person watching CCTV restarts the run, often remotely.
+**Opentrons Flex, the benchtop.** An 87 cm steel-and-aluminium box with one gantry. Its science card plays Illumina DNA Prep for 48 samples: tagmentation, washes, PCR and a bead cleanup. The gripper moves the plate between the thermocycler and the magnetic block by itself. A person still screws each pipette onto the gantry by hand, though, and changing one stops the run.
 
-**Inside the parts.** The Liverpool robot finds each station by touch. Six taps on a black cube tell it exactly where it is, to within 0.12 mm. Its gripper fingers open outward to lock into a rack. Each of the arm's seven joints has a torque sensor, which is how the arm feels the cube at all.
+![The Opentrons Flex running Illumina DNA Prep](assets/3d-lab-views/opentrons-run.gif)
 
-## The hard part is the hand-off
+**Liverpool's mobile robot chemist, the whole lab.** Andy Cooper's group put a KUKA arm on a mobile base and let it run a lab built for people. It drives to the solid dispenser, the liquid station, the light box and the gas chromatograph, then back to its charger. It ran 688 experiments in 8 days and found a catalyst mix six times more active.
 
-Once you lay 17 machines side by side, the same thing shows up in nearly every one. The robot can move. What breaks is the moment it hands something off.
+![Liverpool's robot chemist driving one batch through the lab](assets/3d-lab-views/liverpool-chemist.gif)
 
-| Machine | What's known | The log that would settle it |
-|---|---|---|
-| Berkeley A-Lab | Over 1.5 years, 3.9% of 2,455 samples hit an exception, 89% of them mechanical | How each exception was cleared |
-| Maholo LabDroid | Over 185 days, 25 of 28 stoppages needed a person; 11 were tips that failed to load or eject | A force check on every tip pickup |
-| Liverpool chemist | Grasps are never checked; a person on CCTV restarts failed runs | Grasp checks and a self-restart |
-| Opentrons Flex | A pipette change stops the run | A dock that changes pipettes mid-run |
-| Chemspeed | 57 tools listed, no swap time, no failure rate | One unedited log of tool swaps |
-| Tecan Fluent | 8 to 10 s for a 384-head adapter swap; nothing for a finger swap | 100 finger swaps, unedited |
-| Multiply Labs | Every bag, syringe and vial gets a snap-on adapter by hand first | Human touches per batch |
+**Inside the parts.** Scroll down and the same robot comes apart. It finds each station by touch: six taps on a black cube give it its position to within 0.12 mm. Its gripper fingers open outward to lock into a rack. Each of the arm's seven joints has a torque sensor, which is how it feels the cube at all.
 
-The few numbers that do exist come from academic labs (A-Lab, Maholo, Liverpool), because papers have to report them. The companies mostly don't. That's the real black box: not the hardware, but the failure rate.
+![Zooming from the whole lab into the six-tap calibration](assets/3d-lab-views/liverpool-six-taps.gif)
 
-## How it's built
+## How I built it
 
-I built it with Claude, working through papers, patents, firmware, manuals and videos, one machine at a time. A few rules kept it honest:
+I ran one main Claude Code session as the art director and spun off a side session for each machine. The main session wrote each one a brief, the side session researched and built its machine, and they messaged back when they were done or stuck. Over five days that came to 21 sessions, about 83 prompts from me and about 99 research subagents. Between them they made about 1,300 web searches, 1,300 page reads, 76 YouTube demos and 470 paper links.
 
-- **Every card carries its sources.** A mark on each card shows how a fact is known: verified by a third party, shown in docs or video, or claimed by the company.
-- **Simulated means simulated.** Component cutaways are drawn from firmware and docs, not a teardown, and each says so. The shapes are ours and the numbers are cited.
-- **Stand-ins are labelled.** A photo marked "stand-in" shows the same kind of machine, not the company's own.
+![One main session and twenty side sessions, by day](assets/3d-lab-views/sessions.jpg)
+*Each card is a side session; each dot is a research subagent it spun up.*
 
-The whole thing is one static HTML page with three.js. You can link straight to one machine, for example [#liverpool-mobile-chemist](https://michaelraspuzzi.github.io/labautomationin3d/#liverpool-mobile-chemist).
+The inputs were whatever was public:
 
-## The ask
+- **X posts:** Medra's demo photos and videos.
+- **Demo videos:** company channels for Trilobio, Multiply Labs, OpenShelf and Open Lab Automata.
+- **Release notes and changelogs:** the Opentrons app, Trilobio's tcode API and Andrew+ OneLab.
+- **Papers, patents and press releases:** for example the Liverpool, A-Lab and iBioFAB papers, Trilobio's tool-changer patent, and Medra's and BigHat's funding news.
 
-If you run one of these machines, the most useful thing you could share is one unedited log: every tool swap, plate hand-off and grasp in a real run, including the ones that failed and who fixed them. One log like that would tell the field more than another spec sheet.
+A few prompts that steered it, lightly cleaned up:
+
+> "Spin up a research agent for Trilobio and work on a simulated pipeline. You'll have to watch demo videos or take information online and infer what's actually happening. Pretend to be the best mechanical-electrical reverse engineer in the world, and share assumptions where needed."
+
+> "Maybe let's assume it's a stack: [science] [ML] [software] [hardware systems] [hardware components]. Take the Opentrons Flex and do research online to figure out 5 workflows, 5 ML algorithms, 5 software things like PyLabRobot."
+
+> "For the components, start making schematics so we can explode even parts of the Flex more. You'll have to design them if you don't have the specs, and mark them simulated."
+
+> "For the science layers, we should see how assets and protocols work with the whole system. You'll need to infer some examples, but base them on public work like their papers, and reverse engineer. This is 2/10 right now, we need 11/10."
+
+> "Can you do an audit of 1) technical accuracy of cards 2) flow when scrolling 3) quality of each card for that system, and note gaps."
+
+Two habits mattered most. First, a separate critic: I had Claude review its own front end "as a senior UX designer who works at Apple" and audit the cards for accuracy. Second, every card shows its evidence: a mark for verified by a third party, shown in docs or video, or claimed by the company, plus a "simulated" tag wherever the shapes are Claude's own design.
+
+## So what?
+
+Most of the talk right now is about **self-driving labs**, where the lab runs experiments and picks the next one. This points at a second axis alongside it: **self-building labs**, where you work out the setup and design in simulation before anyone bolts anything to a bench. Which machines, which hand-offs, which protocol on which deck, and where it will break. The Acceleration Consortium in Toronto just put a name to this with [Self-Building Labs](https://arxiv.org/abs/2610.23826) (Aspuru-Guzik's group, October 2026): given a science goal, the system designs the lab layout, a digital twin, the robot skills and the workflow from equipment that already exists.
+
+It's also cross-functional. A scientist can scroll down into the hardware and see why a pipette swap stops the run. An automation engineer can scroll up into the science and see what the run is for. Today those people mostly meet in a requirements doc.
+
+This is a first proof of concept for seeing all of it in one place. It's rough, and the ramifications are bigger than the page: if a few days of prompting gets this far, digital twins of whole labs, built from public information and checked against reality, are close.
+
+## TL;DR
+
+- **Built:** Claude watched demos, read papers and release notes, and modelled 17 lab automation systems in 3D, from a $1,000 open-source pipetting kit to a room-sized cell therapy factory.
+- **Structure:** five layers per machine: science, ML, software, hardware and components.
+- **Method:** one main session directing 20 side sessions over five days, with every card showing its sources and marking what's simulated.
+- **Why it matters:** alongside self-driving labs, self-building labs let you design the setup in simulation first, and give scientists and automation engineers one shared picture.
 
 **Open the box:** [michaelraspuzzi.github.io/labautomationin3d](https://michaelraspuzzi.github.io/labautomationin3d/)
-
----
-
-*Draft notes (cut before posting):*
-
-- *For X: lead with the video, then the first two sections. The hand-off table is the part people will share; consider turning it into an image.*
-- *Check the A-Lab exception figure and the Maholo eLife figures against their papers before posting. Both come from the sources linked on their cards.*
-- *The catalyst figure is from Burger et al., Nature 2020.*

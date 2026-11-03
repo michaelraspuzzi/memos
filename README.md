@@ -34,7 +34,7 @@ Start with the [overview](memos/closing-the-source.md): the pattern across all s
 
 ## Visual essays
 
-- [Lab robots are black boxes. So I took 17 apart.](memos/3d-lab-views.md): an introduction to [3D Lab Views](https://michaelraspuzzi.github.io/labautomationin3d/), 17 lab machines taken apart in 3D, and why the hand-off is the hard part. Draft for an X article, November 2026.
+- [I gave Claude my X bookmarks. It built 17 lab machines in 3D.](memos/3d-lab-views.md): how [3D Lab Views](https://michaelraspuzzi.github.io/labautomationin3d/) came out of an AI for Science hack, the five layers, three examples, how the sessions were run, and why self-building labs matter. Draft for an X article, November 2026.
 - [Make molecular machinery visible](molecular-machines.html): a ten-second peptoid–membrane demo with three stages, source notes, and copyable Anatomy prompts. October 2026.
 - [MCP in three films](mcp.html): what the Model Context Protocol is, how to design a server worth using, and whether your company should ship one. Three short videos plus a memo. October 2026.
 - [Chunklab: chunking textbooks for hypothesis testing](https://youtu.be/Kz41lx-swic): a three-minute film on three ways to cut 594 pages of open textbooks into claims and evidence, scored on 30 hypotheses. Code and eval at [github.com/michaelraspuzzi/chunklab](https://github.com/michaelraspuzzi/chunklab). October 2026.
