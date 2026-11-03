@@ -1,5 +1,7 @@
 # I gave Claude my X bookmarks. It built 17 lab machines in 3D.
 
+**Site:** [michaelraspuzzi.github.io/labautomationin3d](https://michaelraspuzzi.github.io/labautomationin3d/) · **Code:** [github.com/michaelraspuzzi/labautomationin3d](https://github.com/michaelraspuzzi/labautomationin3d)
+
 ![3D Lab Views in 30 seconds](assets/3d-lab-views/hype.mp4)
 
 **TL;DR**
