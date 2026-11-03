@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3D Lab Views | Memos</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  html { background: #ffffff; }
+  body {
+    background: #ffffff;
+    color: #111111;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .page { max-width: 46em; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.6rem;
+    border-bottom: 1px solid #cccccc;
+  }
+  .bar .home {
+    font-size: 0.85rem;
+    margin-right: auto;
+    color: #555555;
+  }
+  button.act {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 0.85rem;
+    background: #f4f4f2;
+    color: #111111;
+    border: 1px solid #999999;
+    border-radius: 2px;
+    padding: 0.32rem 0.8rem;
+    cursor: pointer;
+  }
+  button.act:hover { background: #e8e8e4; }
+  button.act:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  button.act.done { background: #e6efe6; border-color: #4a7a4a; }
+
+  h1, h2, h3, h4 { font-weight: bold; margin: 0; }
+  h1 { font-size: 2rem; line-height: 1.15; }
+  h2 { font-size: 1.4rem; line-height: 1.2; margin-top: 2.4rem; padding-top: 0.9rem; border-top: 2px solid #111111; }
+  h3 { font-size: 1.1rem; margin-top: 1.6rem; }
+  p { margin: 0.75rem 0 0; }
+  ul, ol { margin: 0.7rem 0 0; padding-left: 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: #111111; }
+  a:hover { color: #7a1c14; }
+  a:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  hr { border: 0; border-top: 1px solid #cccccc; margin: 2rem 0 0; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: #f4f4f2;
+    padding: 0.05em 0.3em;
+    border-radius: 2px;
+  }
+  pre {
+    margin: 1rem 0 0;
+    padding: 1rem;
+    overflow-x: auto;
+    background: #f4f4f2;
+    border: 1px solid #cccccc;
+    line-height: 1.45;
+  }
+  pre code { padding: 0; background: transparent; font-size: 0.78rem; }
+  blockquote {
+    margin: 1rem 0 0;
+    padding: 0.1rem 0 0.1rem 1rem;
+    border-left: 3px solid #999999;
+  }
+  blockquote p { margin-top: 0.4rem; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote em.attrib { font-style: normal; font-size: 0.85rem; color: #555555; }
+
+  figure { margin: 1.35rem 0 0; }
+  figure img { display: block; width: 100%; height: auto; border: 1px solid #cccccc; }
+  figcaption { margin-top: 0.45rem; color: #555555; font-size: 0.82rem; line-height: 1.35; }
+
+  .tablewrap { overflow-x: auto; margin-top: 1.1rem; border: 1px solid #cccccc; }
+  table { border-collapse: collapse; width: 100%; min-width: 34em; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid #cccccc; vertical-align: top; }
+  thead th { background: #f4f4f2; border-bottom: 1px solid #111111; }
+  tbody tr:last-child td { border-bottom: 0; }
+
+  sup.fnref { font-size: 0.68em; line-height: 0; vertical-align: super; }
+  sup.fnref a { text-decoration: none; padding: 0 0.06em; }
+  ol.footnotes { list-style: none; padding-left: 0; margin-top: 1.1rem; font-size: 0.92rem; }
+  ol.footnotes li { position: relative; padding-left: 2.3em; margin-bottom: 0.75rem; }
+  ol.footnotes li .fnnum { position: absolute; left: 0; width: 2em; text-align: right; color: #555555; }
+  ol.footnotes li:target { background: #f4f4f2; }
+
+  .foot { margin-top: 3rem; padding-top: 0.9rem; border-top: 3px double #111111; font-size: 0.85rem; color: #555555; }
+</style>
+</head>
+<body data-slug="3d-lab-views">
+<div class="page">
+  <div class="bar">
+    <span class="home"><a href="../index.html">Memos</a></span>
+    <button class="act" id="btn-copy" type="button">Copy for agents</button>
+    <button class="act" id="btn-download" type="button">Download .md</button>
+  </div>
+<h1>Lab robots are black boxes. So I took 17 apart.</h1>
+<figure><video src="assets/3d-lab-views/hype.mp4" controls playsinline preload="metadata" poster="assets/3d-lab-views/hype.jpg" aria-label="3D Lab Views in 30 seconds" style="width:100%"></video><figcaption>30 seconds through the site: the slideshow of all 17 machines, the Opentrons Flex running DNA prep, then Liverpool's robot chemist and the parts inside it.</figcaption></figure>
+<p><em>Nov 3, 2026. Draft for an X article. It introduces <a href="https://michaelraspuzzi.github.io/labautomationin3d/">3D Lab Views</a>: 17 lab automation systems taken apart in 3D, from a desktop pipetting robot to a room-sized cell factory. Every number below is from a card on the site, and each card links its sources.</em></p>
+<h2>Summary</h2>
+<ul><li><strong>The problem:</strong> Lab robots are sold as brochures and quotes. You rarely see what science a machine actually runs, what software drives it, or what's inside.</li><li><strong>What I built:</strong> 17 machines in four sizes (benchtop, workstation, work cell, lab and room). Each film covers five layers: the science, the models, the software, the hardware and the components.</li><li><strong>What I found:</strong> The arms and pipettes are mostly solved. The hard part is the hand-off: a tool swap, a plate passed between instruments, a grasp nobody checks.</li><li><strong>The gap:</strong> Almost nobody publishes how often those hand-offs fail. Every card ends with the one log that would settle it.</li></ul>
+<blockquote>
+<p><strong>Bottom line:</strong> If you want to know where lab automation is stuck, don't look at the robot. Look at the moment it hands something off, and ask for the log.</p>
+</blockquote>
+<h2>Every lab robot ships as a black box</h2>
+<p>If you've ever tried to buy, use or just understand a lab robot, you know how it goes. There's a product page, a spec sheet, a sales call. What you don't get is the thing you actually want to know: what happens inside when it runs.</p>
+<p>So I took 17 of them apart, in 3D. Some are the robots you'd find in any biology lab, like the Opentrons Flex, a Hamilton STAR or a Tecan Fluent. Some are whole rooms: Berkeley's A-Lab, Multiply Labs' cell therapy towers, Cellares. And one is a robot that walks around a chemistry lab on wheels.</p>
+<p>Each machine gets the same five layers, top to bottom:</p>
+<ol><li><strong>Science:</strong> what it actually runs, played step by step on the 3D model.</li><li><strong>Models:</strong> the machine learning that picks what to try next, where there is any.</li><li><strong>Software:</strong> what schedules the run and talks to the instruments.</li><li><strong>Hardware:</strong> the arms, grippers, decks and tracks.</li><li><strong>Components:</strong> one level further down, cut open, such as a gripper lock, a torque sensor or a six-touch calibration routine.</li></ol>
+<h2>Three machines, three scales</h2>
+<p><strong>Opentrons Flex, the benchtop.</strong> It's an 87 cm steel-and-aluminium box with one gantry. The science card plays Illumina DNA Prep for 48 samples: tagmentation, washes, PCR and a bead cleanup, with the gripper moving the plate between the thermocycler and the magnetic block by itself. Here's the catch. A person screws each pipette onto the gantry by hand. Changing a pipette stops the run, and Opentrons publishes no time for it.</p>
+<p><strong>Liverpool's mobile robot chemist, the whole lab.</strong> Andy Cooper's group put a KUKA arm on a mobile base and let it run a lab built for people. It drives to the solid dispenser, the liquid station, the light box and the gas chromatograph, then back to its charger. It ran 688 experiments in 8 days and found a catalyst mix six times more active than where it started. But the robot never checks its grasps. When a station fails, a person watching CCTV restarts the run, often remotely.</p>
+<p><strong>Inside the parts.</strong> The Liverpool robot finds each station by touch. Six taps on a black cube tell it exactly where it is, to within 0.12 mm. Its gripper fingers open outward to lock into a rack. Each of the arm's seven joints has a torque sensor, which is how the arm feels the cube at all.</p>
+<h2>The hard part is the hand-off</h2>
+<p>Once you lay 17 machines side by side, the same thing shows up in nearly every one. The robot can move. What breaks is the moment it hands something off.</p>
+<div class="tablewrap"><table><thead><tr><th>Machine</th><th>What's known</th><th>The log that would settle it</th></tr></thead><tbody>
+<tr><td>Berkeley A-Lab</td><td>Over 1.5 years, 3.9% of 2,455 samples hit an exception, 89% of them mechanical</td><td>How each exception was cleared</td></tr>
+<tr><td>Maholo LabDroid</td><td>Over 185 days, 25 of 28 stoppages needed a person; 11 were tips that failed to load or eject</td><td>A force check on every tip pickup</td></tr>
+<tr><td>Liverpool chemist</td><td>Grasps are never checked; a person on CCTV restarts failed runs</td><td>Grasp checks and a self-restart</td></tr>
+<tr><td>Opentrons Flex</td><td>A pipette change stops the run</td><td>A dock that changes pipettes mid-run</td></tr>
+<tr><td>Chemspeed</td><td>57 tools listed, no swap time, no failure rate</td><td>One unedited log of tool swaps</td></tr>
+<tr><td>Tecan Fluent</td><td>8 to 10 s for a 384-head adapter swap; nothing for a finger swap</td><td>100 finger swaps, unedited</td></tr>
+<tr><td>Multiply Labs</td><td>Every bag, syringe and vial gets a snap-on adapter by hand first</td><td>Human touches per batch</td></tr>
+</tbody></table></div>
+<p>The few numbers that do exist come from academic labs (A-Lab, Maholo, Liverpool), because papers have to report them. The companies mostly don't. That's the real black box: not the hardware, but the failure rate.</p>
+<h2>How it's built</h2>
+<p>I built it with Claude, working through papers, patents, firmware, manuals and videos, one machine at a time. A few rules kept it honest:</p>
+<ul><li><strong>Every card carries its sources.</strong> A mark on each card shows how a fact is known: verified by a third party, shown in docs or video, or claimed by the company.</li><li><strong>Simulated means simulated.</strong> Component cutaways are drawn from firmware and docs, not a teardown, and each says so. The shapes are ours and the numbers are cited.</li><li><strong>Stand-ins are labelled.</strong> A photo marked "stand-in" shows the same kind of machine, not the company's own.</li></ul>
+<p>The whole thing is one static HTML page with three.js. You can link straight to one machine, for example <a href="https://michaelraspuzzi.github.io/labautomationin3d/#liverpool-mobile-chemist">#liverpool-mobile-chemist</a>.</p>
+<h2>The ask</h2>
+<p>If you run one of these machines, the most useful thing you could share is one unedited log: every tool swap, plate hand-off and grasp in a real run, including the ones that failed and who fixed them. One log like that would tell the field more than another spec sheet.</p>
+<p><strong>Open the box:</strong> <a href="https://michaelraspuzzi.github.io/labautomationin3d/">michaelraspuzzi.github.io/labautomationin3d</a></p>
+<hr>
+<p><em>Draft notes (cut before posting):</em></p>
+<ul><li><em>For X: lead with the video, then the first two sections. The hand-off table is the part people will share; consider turning it into an image.</em></li><li><em>Check the A-Lab exception figure and the Maholo eLife figures against their papers before posting. Both come from the sources linked on their cards.</em></li><li><em>The catalyst figure is from Burger et al., Nature 2020.</em></li></ul>
+</div>
+<script type="text/plain" id="memo-src">IyBMYWIgcm9ib3RzIGFyZSBibGFjayBib3hlcy4gU28gSSB0b29rIDE3IGFwYXJ0LgoKIVszRCBMYWIgVmlld3MgaW4gMzAgc2Vjb25kc10oYXNzZXRzLzNkLWxhYi12aWV3cy9oeXBlLm1wNCkKKjMwIHNlY29uZHMgdGhyb3VnaCB0aGUgc2l0ZTogdGhlIHNsaWRlc2hvdyBvZiBhbGwgMTcgbWFjaGluZXMsIHRoZSBPcGVudHJvbnMgRmxleCBydW5uaW5nIEROQSBwcmVwLCB0aGVuIExpdmVycG9vbCdzIHJvYm90IGNoZW1pc3QgYW5kIHRoZSBwYXJ0cyBpbnNpZGUgaXQuKgoKKk5vdiAzLCAyMDI2LiBEcmFmdCBmb3IgYW4gWCBhcnRpY2xlLiBJdCBpbnRyb2R1Y2VzIFszRCBMYWIgVmlld3NdKGh0dHBzOi8vbWljaGFlbHJhc3B1enppLmdpdGh1Yi5pby9sYWJhdXRvbWF0aW9uaW4zZC8pOiAxNyBsYWIgYXV0b21hdGlvbiBzeXN0ZW1zIHRha2VuIGFwYXJ0IGluIDNELCBmcm9tIGEgZGVza3RvcCBwaXBldHRpbmcgcm9ib3QgdG8gYSByb29tLXNpemVkIGNlbGwgZmFjdG9yeS4gRXZlcnkgbnVtYmVyIGJlbG93IGlzIGZyb20gYSBjYXJkIG9uIHRoZSBzaXRlLCBhbmQgZWFjaCBjYXJkIGxpbmtzIGl0cyBzb3VyY2VzLioKCiMjIFN1bW1hcnkKCi0gKipUaGUgcHJvYmxlbToqKiBMYWIgcm9ib3RzIGFyZSBzb2xkIGFzIGJyb2NodXJlcyBhbmQgcXVvdGVzLiBZb3UgcmFyZWx5IHNlZSB3aGF0IHNjaWVuY2UgYSBtYWNoaW5lIGFjdHVhbGx5IHJ1bnMsIHdoYXQgc29mdHdhcmUgZHJpdmVzIGl0LCBvciB3aGF0J3MgaW5zaWRlLgotICoqV2hhdCBJIGJ1aWx0OioqIDE3IG1hY2hpbmVzIGluIGZvdXIgc2l6ZXMgKGJlbmNodG9wLCB3b3Jrc3RhdGlvbiwgd29yayBjZWxsLCBsYWIgYW5kIHJvb20pLiBFYWNoIGZpbG0gY292ZXJzIGZpdmUgbGF5ZXJzOiB0aGUgc2NpZW5jZSwgdGhlIG1vZGVscywgdGhlIHNvZnR3YXJlLCB0aGUgaGFyZHdhcmUgYW5kIHRoZSBjb21wb25lbnRzLgotICoqV2hhdCBJIGZvdW5kOioqIFRoZSBhcm1zIGFuZCBwaXBldHRlcyBhcmUgbW9zdGx5IHNvbHZlZC4gVGhlIGhhcmQgcGFydCBpcyB0aGUgaGFuZC1vZmY6IGEgdG9vbCBzd2FwLCBhIHBsYXRlIHBhc3NlZCBiZXR3ZWVuIGluc3RydW1lbnRzLCBhIGdyYXNwIG5vYm9keSBjaGVja3MuCi0gKipUaGUgZ2FwOioqIEFsbW9zdCBub2JvZHkgcHVibGlzaGVzIGhvdyBvZnRlbiB0aG9zZSBoYW5kLW9mZnMgZmFpbC4gRXZlcnkgY2FyZCBlbmRzIHdpdGggdGhlIG9uZSBsb2cgdGhhdCB3b3VsZCBzZXR0bGUgaXQuCgo+ICoqQm90dG9tIGxpbmU6KiogSWYgeW91IHdhbnQgdG8ga25vdyB3aGVyZSBsYWIgYXV0b21hdGlvbiBpcyBzdHVjaywgZG9uJ3QgbG9vayBhdCB0aGUgcm9ib3QuIExvb2sgYXQgdGhlIG1vbWVudCBpdCBoYW5kcyBzb21ldGhpbmcgb2ZmLCBhbmQgYXNrIGZvciB0aGUgbG9nLgoKIyMgRXZlcnkgbGFiIHJvYm90IHNoaXBzIGFzIGEgYmxhY2sgYm94CgpJZiB5b3UndmUgZXZlciB0cmllZCB0byBidXksIHVzZSBvciBqdXN0IHVuZGVyc3RhbmQgYSBsYWIgcm9ib3QsIHlvdSBrbm93IGhvdyBpdCBnb2VzLiBUaGVyZSdzIGEgcHJvZHVjdCBwYWdlLCBhIHNwZWMgc2hlZXQsIGEgc2FsZXMgY2FsbC4gV2hhdCB5b3UgZG9uJ3QgZ2V0IGlzIHRoZSB0aGluZyB5b3UgYWN0dWFsbHkgd2FudCB0byBrbm93OiB3aGF0IGhhcHBlbnMgaW5zaWRlIHdoZW4gaXQgcnVucy4KClNvIEkgdG9vayAxNyBvZiB0aGVtIGFwYXJ0LCBpbiAzRC4gU29tZSBhcmUgdGhlIHJvYm90cyB5b3UnZCBmaW5kIGluIGFueSBiaW9sb2d5IGxhYiwgbGlrZSB0aGUgT3BlbnRyb25zIEZsZXgsIGEgSGFtaWx0b24gU1RBUiBvciBhIFRlY2FuIEZsdWVudC4gU29tZSBhcmUgd2hvbGUgcm9vbXM6IEJlcmtlbGV5J3MgQS1MYWIsIE11bHRpcGx5IExhYnMnIGNlbGwgdGhlcmFweSB0b3dlcnMsIENlbGxhcmVzLiBBbmQgb25lIGlzIGEgcm9ib3QgdGhhdCB3YWxrcyBhcm91bmQgYSBjaGVtaXN0cnkgbGFiIG9uIHdoZWVscy4KCkVhY2ggbWFjaGluZSBnZXRzIHRoZSBzYW1lIGZpdmUgbGF5ZXJzLCB0b3AgdG8gYm90dG9tOgoKMS4gKipTY2llbmNlOioqIHdoYXQgaXQgYWN0dWFsbHkgcnVucywgcGxheWVkIHN0ZXAgYnkgc3RlcCBvbiB0aGUgM0QgbW9kZWwuCjIuICoqTW9kZWxzOioqIHRoZSBtYWNoaW5lIGxlYXJuaW5nIHRoYXQgcGlja3Mgd2hhdCB0byB0cnkgbmV4dCwgd2hlcmUgdGhlcmUgaXMgYW55LgozLiAqKlNvZnR3YXJlOioqIHdoYXQgc2NoZWR1bGVzIHRoZSBydW4gYW5kIHRhbGtzIHRvIHRoZSBpbnN0cnVtZW50cy4KNC4gKipIYXJkd2FyZToqKiB0aGUgYXJtcywgZ3JpcHBlcnMsIGRlY2tzIGFuZCB0cmFja3MuCjUuICoqQ29tcG9uZW50czoqKiBvbmUgbGV2ZWwgZnVydGhlciBkb3duLCBjdXQgb3Blbiwgc3VjaCBhcyBhIGdyaXBwZXIgbG9jaywgYSB0b3JxdWUgc2Vuc29yIG9yIGEgc2l4LXRvdWNoIGNhbGlicmF0aW9uIHJvdXRpbmUuCgojIyBUaHJlZSBtYWNoaW5lcywgdGhyZWUgc2NhbGVzCgoqKk9wZW50cm9ucyBGbGV4LCB0aGUgYmVuY2h0b3AuKiogSXQncyBhbiA4NyBjbSBzdGVlbC1hbmQtYWx1bWluaXVtIGJveCB3aXRoIG9uZSBnYW50cnkuIFRoZSBzY2llbmNlIGNhcmQgcGxheXMgSWxsdW1pbmEgRE5BIFByZXAgZm9yIDQ4IHNhbXBsZXM6IHRhZ21lbnRhdGlvbiwgd2FzaGVzLCBQQ1IgYW5kIGEgYmVhZCBjbGVhbnVwLCB3aXRoIHRoZSBncmlwcGVyIG1vdmluZyB0aGUgcGxhdGUgYmV0d2VlbiB0aGUgdGhlcm1vY3ljbGVyIGFuZCB0aGUgbWFnbmV0aWMgYmxvY2sgYnkgaXRzZWxmLiBIZXJlJ3MgdGhlIGNhdGNoLiBBIHBlcnNvbiBzY3Jld3MgZWFjaCBwaXBldHRlIG9udG8gdGhlIGdhbnRyeSBieSBoYW5kLiBDaGFuZ2luZyBhIHBpcGV0dGUgc3RvcHMgdGhlIHJ1biwgYW5kIE9wZW50cm9ucyBwdWJsaXNoZXMgbm8gdGltZSBmb3IgaXQuCgoqKkxpdmVycG9vbCdzIG1vYmlsZSByb2JvdCBjaGVtaXN0LCB0aGUgd2hvbGUgbGFiLioqIEFuZHkgQ29vcGVyJ3MgZ3JvdXAgcHV0IGEgS1VLQSBhcm0gb24gYSBtb2JpbGUgYmFzZSBhbmQgbGV0IGl0IHJ1biBhIGxhYiBidWlsdCBmb3IgcGVvcGxlLiBJdCBkcml2ZXMgdG8gdGhlIHNvbGlkIGRpc3BlbnNlciwgdGhlIGxpcXVpZCBzdGF0aW9uLCB0aGUgbGlnaHQgYm94IGFuZCB0aGUgZ2FzIGNocm9tYXRvZ3JhcGgsIHRoZW4gYmFjayB0byBpdHMgY2hhcmdlci4gSXQgcmFuIDY4OCBleHBlcmltZW50cyBpbiA4IGRheXMgYW5kIGZvdW5kIGEgY2F0YWx5c3QgbWl4IHNpeCB0aW1lcyBtb3JlIGFjdGl2ZSB0aGFuIHdoZXJlIGl0IHN0YXJ0ZWQuIEJ1dCB0aGUgcm9ib3QgbmV2ZXIgY2hlY2tzIGl0cyBncmFzcHMuIFdoZW4gYSBzdGF0aW9uIGZhaWxzLCBhIHBlcnNvbiB3YXRjaGluZyBDQ1RWIHJlc3RhcnRzIHRoZSBydW4sIG9mdGVuIHJlbW90ZWx5LgoKKipJbnNpZGUgdGhlIHBhcnRzLioqIFRoZSBMaXZlcnBvb2wgcm9ib3QgZmluZHMgZWFjaCBzdGF0aW9uIGJ5IHRvdWNoLiBTaXggdGFwcyBvbiBhIGJsYWNrIGN1YmUgdGVsbCBpdCBleGFjdGx5IHdoZXJlIGl0IGlzLCB0byB3aXRoaW4gMC4xMiBtbS4gSXRzIGdyaXBwZXIgZmluZ2VycyBvcGVuIG91dHdhcmQgdG8gbG9jayBpbnRvIGEgcmFjay4gRWFjaCBvZiB0aGUgYXJtJ3Mgc2V2ZW4gam9pbnRzIGhhcyBhIHRvcnF1ZSBzZW5zb3IsIHdoaWNoIGlzIGhvdyB0aGUgYXJtIGZlZWxzIHRoZSBjdWJlIGF0IGFsbC4KCiMjIFRoZSBoYXJkIHBhcnQgaXMgdGhlIGhhbmQtb2ZmCgpPbmNlIHlvdSBsYXkgMTcgbWFjaGluZXMgc2lkZSBieSBzaWRlLCB0aGUgc2FtZSB0aGluZyBzaG93cyB1cCBpbiBuZWFybHkgZXZlcnkgb25lLiBUaGUgcm9ib3QgY2FuIG1vdmUuIFdoYXQgYnJlYWtzIGlzIHRoZSBtb21lbnQgaXQgaGFuZHMgc29tZXRoaW5nIG9mZi4KCnwgTWFjaGluZSB8IFdoYXQncyBrbm93biB8IFRoZSBsb2cgdGhhdCB3b3VsZCBzZXR0bGUgaXQgfAp8LS0tfC0tLXwtLS18CnwgQmVya2VsZXkgQS1MYWIgfCBPdmVyIDEuNSB5ZWFycywgMy45JSBvZiAyLDQ1NSBzYW1wbGVzIGhpdCBhbiBleGNlcHRpb24sIDg5JSBvZiB0aGVtIG1lY2hhbmljYWwgfCBIb3cgZWFjaCBleGNlcHRpb24gd2FzIGNsZWFyZWQgfAp8IE1haG9sbyBMYWJEcm9pZCB8IE92ZXIgMTg1IGRheXMsIDI1IG9mIDI4IHN0b3BwYWdlcyBuZWVkZWQgYSBwZXJzb247IDExIHdlcmUgdGlwcyB0aGF0IGZhaWxlZCB0byBsb2FkIG9yIGVqZWN0IHwgQSBmb3JjZSBjaGVjayBvbiBldmVyeSB0aXAgcGlja3VwIHwKfCBMaXZlcnBvb2wgY2hlbWlzdCB8IEdyYXNwcyBhcmUgbmV2ZXIgY2hlY2tlZDsgYSBwZXJzb24gb24gQ0NUViByZXN0YXJ0cyBmYWlsZWQgcnVucyB8IEdyYXNwIGNoZWNrcyBhbmQgYSBzZWxmLXJlc3RhcnQgfAp8IE9wZW50cm9ucyBGbGV4IHwgQSBwaXBldHRlIGNoYW5nZSBzdG9wcyB0aGUgcnVuIHwgQSBkb2NrIHRoYXQgY2hhbmdlcyBwaXBldHRlcyBtaWQtcnVuIHwKfCBDaGVtc3BlZWQgfCA1NyB0b29scyBsaXN0ZWQsIG5vIHN3YXAgdGltZSwgbm8gZmFpbHVyZSByYXRlIHwgT25lIHVuZWRpdGVkIGxvZyBvZiB0b29sIHN3YXBzIHwKfCBUZWNhbiBGbHVlbnQgfCA4IHRvIDEwIHMgZm9yIGEgMzg0LWhlYWQgYWRhcHRlciBzd2FwOyBub3RoaW5nIGZvciBhIGZpbmdlciBzd2FwIHwgMTAwIGZpbmdlciBzd2FwcywgdW5lZGl0ZWQgfAp8IE11bHRpcGx5IExhYnMgfCBFdmVyeSBiYWcsIHN5cmluZ2UgYW5kIHZpYWwgZ2V0cyBhIHNuYXAtb24gYWRhcHRlciBieSBoYW5kIGZpcnN0IHwgSHVtYW4gdG91Y2hlcyBwZXIgYmF0Y2ggfAoKVGhlIGZldyBudW1iZXJzIHRoYXQgZG8gZXhpc3QgY29tZSBmcm9tIGFjYWRlbWljIGxhYnMgKEEtTGFiLCBNYWhvbG8sIExpdmVycG9vbCksIGJlY2F1c2UgcGFwZXJzIGhhdmUgdG8gcmVwb3J0IHRoZW0uIFRoZSBjb21wYW5pZXMgbW9zdGx5IGRvbid0LiBUaGF0J3MgdGhlIHJlYWwgYmxhY2sgYm94OiBub3QgdGhlIGhhcmR3YXJlLCBidXQgdGhlIGZhaWx1cmUgcmF0ZS4KCiMjIEhvdyBpdCdzIGJ1aWx0CgpJIGJ1aWx0IGl0IHdpdGggQ2xhdWRlLCB3b3JraW5nIHRocm91Z2ggcGFwZXJzLCBwYXRlbnRzLCBmaXJtd2FyZSwgbWFudWFscyBhbmQgdmlkZW9zLCBvbmUgbWFjaGluZSBhdCBhIHRpbWUuIEEgZmV3IHJ1bGVzIGtlcHQgaXQgaG9uZXN0OgoKLSAqKkV2ZXJ5IGNhcmQgY2FycmllcyBpdHMgc291cmNlcy4qKiBBIG1hcmsgb24gZWFjaCBjYXJkIHNob3dzIGhvdyBhIGZhY3QgaXMga25vd246IHZlcmlmaWVkIGJ5IGEgdGhpcmQgcGFydHksIHNob3duIGluIGRvY3Mgb3IgdmlkZW8sIG9yIGNsYWltZWQgYnkgdGhlIGNvbXBhbnkuCi0gKipTaW11bGF0ZWQgbWVhbnMgc2ltdWxhdGVkLioqIENvbXBvbmVudCBjdXRhd2F5cyBhcmUgZHJhd24gZnJvbSBmaXJtd2FyZSBhbmQgZG9jcywgbm90IGEgdGVhcmRvd24sIGFuZCBlYWNoIHNheXMgc28uIFRoZSBzaGFwZXMgYXJlIG91cnMgYW5kIHRoZSBudW1iZXJzIGFyZSBjaXRlZC4KLSAqKlN0YW5kLWlucyBhcmUgbGFiZWxsZWQuKiogQSBwaG90byBtYXJrZWQgInN0YW5kLWluIiBzaG93cyB0aGUgc2FtZSBraW5kIG9mIG1hY2hpbmUsIG5vdCB0aGUgY29tcGFueSdzIG93bi4KClRoZSB3aG9sZSB0aGluZyBpcyBvbmUgc3RhdGljIEhUTUwgcGFnZSB3aXRoIHRocmVlLmpzLiBZb3UgY2FuIGxpbmsgc3RyYWlnaHQgdG8gb25lIG1hY2hpbmUsIGZvciBleGFtcGxlIFsjbGl2ZXJwb29sLW1vYmlsZS1jaGVtaXN0XShodHRwczovL21pY2hhZWxyYXNwdXp6aS5naXRodWIuaW8vbGFiYXV0b21hdGlvbmluM2QvI2xpdmVycG9vbC1tb2JpbGUtY2hlbWlzdCkuCgojIyBUaGUgYXNrCgpJZiB5b3UgcnVuIG9uZSBvZiB0aGVzZSBtYWNoaW5lcywgdGhlIG1vc3QgdXNlZnVsIHRoaW5nIHlvdSBjb3VsZCBzaGFyZSBpcyBvbmUgdW5lZGl0ZWQgbG9nOiBldmVyeSB0b29sIHN3YXAsIHBsYXRlIGhhbmQtb2ZmIGFuZCBncmFzcCBpbiBhIHJlYWwgcnVuLCBpbmNsdWRpbmcgdGhlIG9uZXMgdGhhdCBmYWlsZWQgYW5kIHdobyBmaXhlZCB0aGVtLiBPbmUgbG9nIGxpa2UgdGhhdCB3b3VsZCB0ZWxsIHRoZSBmaWVsZCBtb3JlIHRoYW4gYW5vdGhlciBzcGVjIHNoZWV0LgoKKipPcGVuIHRoZSBib3g6KiogW21pY2hhZWxyYXNwdXp6aS5naXRodWIuaW8vbGFiYXV0b21hdGlvbmluM2RdKGh0dHBzOi8vbWljaGFlbHJhc3B1enppLmdpdGh1Yi5pby9sYWJhdXRvbWF0aW9uaW4zZC8pCgotLS0KCipEcmFmdCBub3RlcyAoY3V0IGJlZm9yZSBwb3N0aW5nKToqCgotICpGb3IgWDogbGVhZCB3aXRoIHRoZSB2aWRlbywgdGhlbiB0aGUgZmlyc3QgdHdvIHNlY3Rpb25zLiBUaGUgaGFuZC1vZmYgdGFibGUgaXMgdGhlIHBhcnQgcGVvcGxlIHdpbGwgc2hhcmU7IGNvbnNpZGVyIHR1cm5pbmcgaXQgaW50byBhbiBpbWFnZS4qCi0gKkNoZWNrIHRoZSBBLUxhYiBleGNlcHRpb24gZmlndXJlIGFuZCB0aGUgTWFob2xvIGVMaWZlIGZpZ3VyZXMgYWdhaW5zdCB0aGVpciBwYXBlcnMgYmVmb3JlIHBvc3RpbmcuIEJvdGggY29tZSBmcm9tIHRoZSBzb3VyY2VzIGxpbmtlZCBvbiB0aGVpciBjYXJkcy4qCi0gKlRoZSBjYXRhbHlzdCBmaWd1cmUgaXMgZnJvbSBCdXJnZXIgZXQgYWwuLCBOYXR1cmUgMjAyMC4qCg==</script>
+<script>
+  (function () {
+    var src = document.getElementById('memo-src');
+    var raw = '';
+    try {
+      var bin = atob((src.textContent || '').replace(/\s+/g, ''));
+      var bytes = new Uint8Array(bin.length);
+      for (var k = 0; k < bin.length; k++) { bytes[k] = bin.charCodeAt(k); }
+      raw = new TextDecoder('utf-8').decode(bytes);
+    } catch (e) { raw = ''; }
+    var name = document.body.getAttribute('data-slug') + '.md';
+
+    var copy = document.getElementById('btn-copy');
+    copy.addEventListener('click', function () {
+      var done = function () {
+        copy.textContent = 'Copied';
+        copy.classList.add('done');
+        setTimeout(function () {
+          copy.textContent = 'Copy for agents';
+          copy.classList.remove('done');
+        }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(raw).then(done, fallback);
+      } else {
+        fallback();
+      }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = raw;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); } catch (e) { /* no-op */ }
+        document.body.removeChild(ta);
+      }
+    });
+
+    var dl = document.getElementById('btn-download');
+
+    function flash(label) {
+      var was = dl.textContent;
+      dl.textContent = label;
+      dl.classList.add('done');
+      setTimeout(function () {
+        dl.textContent = was;
+        dl.classList.remove('done');
+      }, 1600);
+    }
+
+    function blobSave() {
+      var blob = new Blob([raw], { type: 'text/markdown;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+    }
+
+    dl.addEventListener('click', function () {
+      // On claude.ai the host mediates saves; on GitHub Pages a blob link works.
+      if (window.claude && typeof window.claude.use === 'function') {
+        window.claude.use('downloads').then(function (d) {
+          if (!d) { blobSave(); return; }
+          d.save({ filename: name, data: raw }).then(
+            function () { flash('Saved'); },
+            function (e) { if (!e || e.code !== 'declined') { blobSave(); } }
+          );
+        }, blobSave);
+        return;
+      }
+      blobSave();
+    });
+  })();
+</script>
+</body>
+</html>

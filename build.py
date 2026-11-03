@@ -36,6 +36,8 @@ MEMOS = [
     ("n8n", "n8n"),
     # Diligence
     ("trainloop", "TrainLoop"),
+    # Visual essays
+    ("3d-lab-views", "3D Lab Views"),
 ]
 
 MEMO_SLUGS = {slug for slug, _ in MEMOS}
@@ -317,8 +319,14 @@ def convert(md):
                 if cm:
                     caption = inline(cm.group(1))
                     i += 1
-            out.append('<figure><img src="%s" alt="%s">%s</figure>' %
-                       (src, alt, '<figcaption>%s</figcaption>' % caption if caption else ''))
+            if src.endswith('.mp4'):  # a video, with a poster frame of the same name if there is one
+                poster = src[:-4] + '.jpg'
+                media = '<video src="%s" controls playsinline preload="metadata"%s aria-label="%s" style="width:100%%"></video>' % (
+                    src, ' poster="%s"' % poster if os.path.exists(os.path.join(ROOT, 'memos', poster)) else '', alt)
+            else:
+                media = '<img src="%s" alt="%s">' % (src, alt)
+            out.append('<figure>%s%s</figure>' %
+                       (media, '<figcaption>%s</figcaption>' % caption if caption else ''))
             i += 1
             continue
 
