@@ -2,6 +2,14 @@
 
 ![3D Lab Views in 30 seconds](assets/3d-lab-views/hype.mp4)
 
+**TL;DR**
+
+- **What:** Claude watched demo videos, read papers and release notes, and modelled 17 lab automation systems in 3D, from a $1,000 open-source pipetting kit to a room-sized cell therapy factory.
+- **How it's organised:** five layers per machine: science, ML, software, hardware and components.
+- **How it was made:** one main Claude Code session steering 20 side sessions over a few days, with every card showing its sources and marking what's simulated.
+- **Why it matters:** alongside self-driving labs, self-building labs let you design the setup in simulation first, and give scientists and automation engineers one shared picture.
+- **Try it:** [michaelraspuzzi.github.io/labautomationin3d](https://michaelraspuzzi.github.io/labautomationin3d/). It's open source: [github.com/michaelraspuzzi/labautomationin3d](https://github.com/michaelraspuzzi/labautomationin3d).
+
 We just hosted our seventh AI for Science hack in SF, [Physical AI for Life Science](https://sfaisciencestudio.substack.com/p/physical-ai-for-life-science-hack). One of the wilder builds was Lab Sentry: a live digital twin of the Opentrons Flex deck, where a camera watches the deck and blocks the run from starting until reality matches the protocol.
 
 That got me curious. If a team can build that in a weekend, what could Claude do if I handed it the lab automation posts sitting in my X bookmarks? So I let it loose. It watched demo videos, read release notes and changelogs, worked through papers and patents, and built 3D mockups of each machine in JavaScript.
@@ -9,8 +17,6 @@ That got me curious. If a team can build that in a weekend, what could Claude do
 The goal wasn't pretty renders. It was to understand the full stack, all the things that have to come together for better or new lab infrastructure: the labware, the science protocol, the ML, the software and the hardware, down to the parts.
 
 **A caveat up front:** this is me letting Claude cook. It isn't fully accurate, and some of it is inferred where nothing public exists. Every card says which facts are cited and which are guesses. I'm sharing it because I'm curious what this could or should become as a learning resource for people building in the lab.
-
-**See it here:** [michaelraspuzzi.github.io/labautomationin3d](https://michaelraspuzzi.github.io/labautomationin3d/)
 
 ## Five layers, top to bottom
 
@@ -22,7 +28,7 @@ Every machine is one long scroll through the same five layers:
 4. **Hardware:** the arms, grippers, decks, rails and enclosures.
 5. **Components:** one level further down, cut open, such as a pipette's pressure sensor or a robot joint's gearbox.
 
-![The Opentrons Flex, scrolled from the science layer down to its components](assets/3d-lab-views/five-layers.jpg)
+![Scrolling the Opentrons Flex from the science layer down to its components](assets/3d-lab-views/five-layers.gif)
 *One machine, top to bottom: Illumina DNA Prep (science), a Bayesian optimizer tuning enzyme reactions (ML), Protocol Designer (software), the frame and enclosure (hardware), and the two sensors in every pipette tip (components).*
 
 The 17 machines run from smallest to largest: benchtop robots (OLA, Trilobio, Opentrons, Andrew+, Chemspeed), workstations (OpenShelf, Hamilton, Tecan Fluent, Medra), work cells (Automata, Maholo, Ginkgo, HighRes) and whole labs (Liverpool's robot chemist, Berkeley's A-Lab, Multiply Labs, Cellares).
@@ -67,21 +73,36 @@ A few prompts that steered it, lightly cleaned up:
 
 > "Can you do an audit of 1) technical accuracy of cards 2) flow when scrolling 3) quality of each card for that system, and note gaps."
 
-Two habits mattered most. First, a separate critic: I had Claude review its own front end "as a senior UX designer who works at Apple" and audit the cards for accuracy. Second, every card shows its evidence: a mark for verified by a third party, shown in docs or video, or claimed by the company, plus a "simulated" tag wherever the shapes are Claude's own design.
+### How the steering went
 
-## So what?
+The page didn't start as five layers. It took about two days of me pushing back before it found its shape.
 
-Most of the talk right now is about **self-driving labs**, where the lab runs experiments and picks the next one. This points at a second axis alongside it: **self-building labs**, where you work out the setup and design in simulation before anyone bolts anything to a bench. Which machines, which hand-offs, which protocol on which deck, and where it will break. The Acceleration Consortium in Toronto just put a name to this with [Self-Building Labs](https://arxiv.org/abs/2610.23826) (Aspuru-Guzik's group, October 2026): given a science goal, the system designs the lab layout, a digital twin, the robot skills and the workflow from equipment that already exists.
+![Three versions of the page, from tiers to five layers](assets/3d-lab-views/evolution.jpg)
+*Oct 30 morning: a "tool-change wall" ranking every lab from L0 (human hands) to L5 (any tool, any instrument). Oct 30 evening: a tower of rungs per company. Nov 3: five layers per machine, in 3D.*
 
-It's also cross-functional. A scientist can scroll down into the hardware and see why a pipette swap stops the run. An automation engineer can scroll up into the science and see what the run is for. Today those people mostly meet in a requirements doc.
+- **Throw out the first design.** The first version was a chart of automation tiers. My note on it: "This is a horrible design. I want it to feel as magical as a native Mac app, and as clean as a Substack page." Then I had a second Claude (Fable) critique it "as a senior UX designer who works at Apple" and redo all of it.
+- **Score it and keep raising the bar.** "Better! We're 6/10. We need to get to 11/10." Later, on the science runs: "This is 2/10 right now." A number gave Claude something to beat.
+- **Make it real, not a dashboard.** "This information also feels fake, only part of the picture... I want this actionable, where the CTO of Opentrons sees this and reaches out." That pushed it from ratings toward reverse engineering real machines.
+- **Spot the breakthrough and lean in.** When the first 3D teardown landed: "I think we figured it out! This 3D teardown is great. Now we need to balance the evidence and linked claims with parts of the system."
+- **Change the question.** "We've moved beyond the challenge of looking at tool changers only... we're understanding full systems on the scroll." That one line turned a page about grippers into a page about whole machines.
+- **Audit before shipping.** Two accuracy audits across every card, the second run by Fable to see what the first one missed.
 
-This is a first proof of concept for seeing all of it in one place. It's rough, and the ramifications are bigger than the page: if a few days of prompting gets this far, digital twins of whole labs, built from public information and checked against reality, are close.
+Every card also shows its evidence: verified by a third party, shown in docs or video, or claimed by the company, plus a "simulated" tag wherever the shapes are Claude's own design.
 
-## TL;DR
+## Next to self-driving labs, we need self-building labs
 
-- **Built:** Claude watched demos, read papers and release notes, and modelled 17 lab automation systems in 3D, from a $1,000 open-source pipetting kit to a room-sized cell therapy factory.
-- **Structure:** five layers per machine: science, ML, software, hardware and components.
-- **Method:** one main session directing 20 side sessions over five days, with every card showing its sources and marking what's simulated.
-- **Why it matters:** alongside self-driving labs, self-building labs let you design the setup in simulation first, and give scientists and automation engineers one shared picture.
+Most of the talk right now is about **self-driving labs**: the lab runs an experiment and picks the next one.
 
-**Open the box:** [michaelraspuzzi.github.io/labautomationin3d](https://michaelraspuzzi.github.io/labautomationin3d/)
+This points at a second axis: **self-building labs**. You work out the setup in simulation before anyone bolts anything to a bench. Which machines, which hand-offs, which protocol on which deck, and where it will break.
+
+The Acceleration Consortium in Toronto just named this in [Self-Building Labs](https://arxiv.org/abs/2610.23826) (Aspuru-Guzik's group, October 2026). Given a science goal, their system designs the lab layout, a digital twin, the robot skills and the workflow from equipment that already exists.
+
+It's also cross-functional.
+
+- A scientist can scroll down into the hardware and see why a pipette swap stops the run.
+- An automation engineer can scroll up into the science and see what the run is for.
+- Today those people mostly meet in a requirements doc.
+
+Anyone with a Claude Code subscription can now start designing new components, exploring how they sit in a larger system, and running simulated workflows. You don't need gatekept credentials or a single-function build to move across the stack.
+
+But it also needs new tools to make that work well. This is just a proof of concept from a couple of days.
