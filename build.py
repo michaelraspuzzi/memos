@@ -36,6 +36,7 @@ MEMOS = [
     ("n8n", "n8n"),
     # Diligence
     ("trainloop", "TrainLoop"),
+    ("supercell-explorer", "Supercell Explorer"),
     # Visual essays
     ("3d-lab-views", "3D Lab Views"),
 ]

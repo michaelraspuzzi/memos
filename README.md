@@ -17,6 +17,7 @@ Start with the [overview](memos/closing-the-source.md): the pattern across all s
 ## Diligence
 
 - [TrainLoop](memos/trainloop.md): a YC W25 post-training lab for biopharma and finance. Traction, founder pedigree, durability, and why someone would (or wouldn't) work there. October 2026.
+- [Supercell Explorer](memos/supercell-explorer.md): feedback on an open-source 3D supercell airflow lab. Three moves to 10x it (simulated storms, a fixed integrator, a hodograph-to-storm emulator), five papers, and other considerations. November 2026.
 
 ## Open source
 

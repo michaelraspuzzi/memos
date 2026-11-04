@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Supercell Explorer | Memos</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  html { background: #ffffff; }
+  body {
+    background: #ffffff;
+    color: #111111;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .page { max-width: 46em; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.6rem;
+    border-bottom: 1px solid #cccccc;
+  }
+  .bar .home {
+    font-size: 0.85rem;
+    margin-right: auto;
+    color: #555555;
+  }
+  button.act {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 0.85rem;
+    background: #f4f4f2;
+    color: #111111;
+    border: 1px solid #999999;
+    border-radius: 2px;
+    padding: 0.32rem 0.8rem;
+    cursor: pointer;
+  }
+  button.act:hover { background: #e8e8e4; }
+  button.act:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  button.act.done { background: #e6efe6; border-color: #4a7a4a; }
+
+  h1, h2, h3, h4 { font-weight: bold; margin: 0; }
+  h1 { font-size: 2rem; line-height: 1.15; }
+  h2 { font-size: 1.4rem; line-height: 1.2; margin-top: 2.4rem; padding-top: 0.9rem; border-top: 2px solid #111111; }
+  h3 { font-size: 1.1rem; margin-top: 1.6rem; }
+  p { margin: 0.75rem 0 0; }
+  ul, ol { margin: 0.7rem 0 0; padding-left: 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: #111111; }
+  a:hover { color: #7a1c14; }
+  a:focus-visible { outline: 2px solid #7a1c14; outline-offset: 2px; }
+  hr { border: 0; border-top: 1px solid #cccccc; margin: 2rem 0 0; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: #f4f4f2;
+    padding: 0.05em 0.3em;
+    border-radius: 2px;
+  }
+  pre {
+    margin: 1rem 0 0;
+    padding: 1rem;
+    overflow-x: auto;
+    background: #f4f4f2;
+    border: 1px solid #cccccc;
+    line-height: 1.45;
+  }
+  pre code { padding: 0; background: transparent; font-size: 0.78rem; }
+  blockquote {
+    margin: 1rem 0 0;
+    padding: 0.1rem 0 0.1rem 1rem;
+    border-left: 3px solid #999999;
+  }
+  blockquote p { margin-top: 0.4rem; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote em.attrib { font-style: normal; font-size: 0.85rem; color: #555555; }
+
+  figure { margin: 1.35rem 0 0; }
+  figure img { display: block; width: 100%; height: auto; border: 1px solid #cccccc; }
+  figcaption { margin-top: 0.45rem; color: #555555; font-size: 0.82rem; line-height: 1.35; }
+
+  .tablewrap { overflow-x: auto; margin-top: 1.1rem; border: 1px solid #cccccc; }
+  table { border-collapse: collapse; width: 100%; min-width: 34em; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid #cccccc; vertical-align: top; }
+  thead th { background: #f4f4f2; border-bottom: 1px solid #111111; }
+  tbody tr:last-child td { border-bottom: 0; }
+
+  sup.fnref { font-size: 0.68em; line-height: 0; vertical-align: super; }
+  sup.fnref a { text-decoration: none; padding: 0 0.06em; }
+  ol.footnotes { list-style: none; padding-left: 0; margin-top: 1.1rem; font-size: 0.92rem; }
+  ol.footnotes li { position: relative; padding-left: 2.3em; margin-bottom: 0.75rem; }
+  ol.footnotes li .fnnum { position: absolute; left: 0; width: 2em; text-align: right; color: #555555; }
+  ol.footnotes li:target { background: #f4f4f2; }
+
+  .foot { margin-top: 3rem; padding-top: 0.9rem; border-top: 3px double #111111; font-size: 0.85rem; color: #555555; }
+</style>
+</head>
+<body data-slug="supercell-explorer">
+<div class="page">
+  <div class="bar">
+    <span class="home"><a href="../index.html">Memos</a></span>
+    <button class="act" id="btn-copy" type="button">Copy for agents</button>
+    <button class="act" id="btn-download" type="button">Download .md</button>
+  </div>
+<h1>Supercell Explorer: feedback memo</h1>
+<p><em>Nov 4, 2026. A one-page review of <a href="https://github.com/murkatopiya/supercell">murkatopiya/supercell</a> (<a href="https://supercell.iryna.online/">live app</a>), read from two seats: a research meteorologist who runs storm simulations, and an ML engineer who builds weather models. Based on the code and docs as of commit <code>18823fc</code>.</em></p>
+<h2>What it is today</h2>
+<ul><li><strong>A kinematic lab, not a storm model.</strong> Real wind profiles from four historical soundings (Goshen, Prospect Valley, Dumas, Moore), plus seven hand-built storm shapes (Gaussian updraft, rotation, inflow, outflow, downdraft) added together. Passive tracers drift through the sum.</li><li><strong>Built with unusual honesty.</strong> The README says plainly what the model is not: no buoyancy, pressure, moisture, or mass conservation. Few science apps are this careful. Keep that.</li><li><strong>Shape of the repo:</strong> about 23K lines of TypeScript (React + Three.js), 52K lines of tests, 221 Markdown docs, 238 commits in under three months, one author.</li><li><strong>The key result failed on numerics, not physics.</strong> The trajectory experiment (Phase P) closed as <em>INVALID CONTROL, numerical convergence</em>. Production still steps tracers with forward Euler, and RK2 exists only in tests.</li></ul>
+<blockquote>
+<p><strong>Bottom line:</strong> The interface and the scientific habits are strong. The airflow behind them is hand-drawn. The 10x move is to put real storm dynamics behind the same interface, first from simulations and then from a learned model that runs in the browser.</p>
+</blockquote>
+<h2>1. Top 3 things to 10x this</h2>
+<ol><li><strong>Replace the hand-built shapes with simulated storms.</strong> Run <a href="https://www2.mmm.ucar.edu/people/bryan/cm1/">CM1</a>, the standard research storm model, once for each of the four soundings, and ship the 4D wind fields as compressed 3D textures. That gives mass-conserving, buoyancy-driven storms that change over time, with real updraft–shear interaction, rear-flank downdrafts, and cold pools. The tracers and the tilting diagnostic then mean something physical. Goshen (VORTEX2, 5 June 2009) also has published radar and EnKF analyses to check against.</li><li><strong>Fix the integrator so the evidence can pass.</strong> Move production to RK4, or adaptive RK45 with error control, and use smooth (C¹) interpolation between sounding levels. The H3 control failed where trajectories crossed a sounding-segment boundary, which is what you'd expect from Euler on a piecewise-linear profile. Build the convergence ladder (dt, dt/2, dt/4 with an observed order of accuracy) into the test harness, and make every authored field divergence-free by deriving it from a stream function. Then move tracers to WebGPU compute so 10⁵–10⁶ particles can run, not dozens.</li><li><strong>Train an emulator: hodograph in, 3D storm out.</strong> The hodograph can't be edited today because nothing could respond to it. Sweep CM1 across hodographs and CAPE, as Weisman and Klemp did by hand in 1982, then train a small conditional diffusion model or neural operator on the runs. Users draw a hodograph and get a plausible evolving supercell in seconds. That's the product nobody else has: a storm-scale counterpart to GraphCast or GenCast that anyone can play with.</li></ol>
+<h2>2. Research to read</h2>
+<ul><li><strong>Weisman &amp; Klemp (1982), <a href="https://doi.org/10.1175/1520-0493(1982">The dependence of numerically simulated convective storms on vertical wind shear and buoyancy</a>110&lt;0504:TDONSC&gt;2.0.CO;2).</strong> <em>Why:</em> the original shear-by-buoyancy parameter sweep, and the template for the emulator's training set.</li><li><strong>Dahl, Parker &amp; Wicker (2014), <a href="https://doi.org/10.1175/JAS-D-13-0123.1">Imported and storm-generated near-ground vertical vorticity in a simulated supercell</a>.</strong> <em>Why:</em> the reference method for trajectory vorticity budgets, including how trajectory integration error can fake a result. It's exactly what T1 is reaching for.</li><li><strong>Coffer &amp; Parker (2017), <a href="https://doi.org/10.1175/MWR-D-16-0226.1">Simulated supercells in nontornadic and tornadic VORTEX2 environments</a>.</strong> <em>Why:</em> runs CM1 from VORTEX2 soundings, the same campaign as Goshen, and shows how much the lowest 500 m of the hodograph matters.</li><li><strong>Pathak et al. (2024), <a href="https://arxiv.org/abs/2408.10958">StormCast: kilometer-scale convection-allowing model emulation using generative diffusion</a>.</strong> <em>Why:</em> evidence that diffusion models can emulate convection-resolving physics, and the closest ML blueprint for item 3.</li><li><strong>Price et al. (2025), <a href="https://doi.org/10.1038/s41586-024-08252-9">GenCast: probabilistic weather forecasting with machine learning</a>.</strong> <em>Why:</em> storms are chaotic, so an emulator should sample an ensemble of storms, not one deterministic answer. GenCast shows how to do that and score it (CRPS, spread–skill).</li></ul>
+<h2>3. Other considerations</h2>
+<ul><li><strong>Process is outgrowing the product.</strong> About 70% of the repo is governance: a decision doc, an authorization, and an acceptance for each UI slice. That rigor fits scientific claims, but applying it to scroll behavior slows down the science. Keep it for physics gates and drop it for UI.</li><li><strong>Get outside eyes.</strong> V1 evaluation was done by the author alone. Five educators and one storm researcher (OU, NSSL, Penn State, or NC State) would tell you more than another protocol would.</li><li><strong>Pick the primary user.</strong> Educators want a few curated storms that look right. Researchers want CM1 output and trajectory budgets. Serving both is fine, but the roadmap should say which one comes first.</li><li><strong>Show what forecasters read.</strong> Streamwise vorticity, storm-relative helicity (0–1 and 0–3 km), and critical angle come straight from the hodograph you already have. They're cheap to add and connect the app to real practice.</li><li><strong>Data plumbing for real fields.</strong> Use Zarr or chunked binary with quantized float16 3D textures, streamed by time step. One CM1 run at 250 m spacing compresses to roughly tens of MB, which is fine for the web.</li><li><strong>The bigger risk is credibility, not code.</strong> The careful labeling of what's observed and what's prescribed is the app's moat. Carry it over to simulated and learned fields as well, for example with labels like "simulated from this sounding" and "emulated, ensemble of N".</li></ul>
+</div>
+<script type="text/plain" id="memo-src">IyBTdXBlcmNlbGwgRXhwbG9yZXI6IGZlZWRiYWNrIG1lbW8KCipOb3YgNCwgMjAyNi4gQSBvbmUtcGFnZSByZXZpZXcgb2YgW211cmthdG9waXlhL3N1cGVyY2VsbF0oaHR0cHM6Ly9naXRodWIuY29tL211cmthdG9waXlhL3N1cGVyY2VsbCkgKFtsaXZlIGFwcF0oaHR0cHM6Ly9zdXBlcmNlbGwuaXJ5bmEub25saW5lLykpLCByZWFkIGZyb20gdHdvIHNlYXRzOiBhIHJlc2VhcmNoIG1ldGVvcm9sb2dpc3Qgd2hvIHJ1bnMgc3Rvcm0gc2ltdWxhdGlvbnMsIGFuZCBhbiBNTCBlbmdpbmVlciB3aG8gYnVpbGRzIHdlYXRoZXIgbW9kZWxzLiBCYXNlZCBvbiB0aGUgY29kZSBhbmQgZG9jcyBhcyBvZiBjb21taXQgYDE4ODIzZmNgLioKCiMjIFdoYXQgaXQgaXMgdG9kYXkKCi0gKipBIGtpbmVtYXRpYyBsYWIsIG5vdCBhIHN0b3JtIG1vZGVsLioqIFJlYWwgd2luZCBwcm9maWxlcyBmcm9tIGZvdXIgaGlzdG9yaWNhbCBzb3VuZGluZ3MgKEdvc2hlbiwgUHJvc3BlY3QgVmFsbGV5LCBEdW1hcywgTW9vcmUpLCBwbHVzIHNldmVuIGhhbmQtYnVpbHQgc3Rvcm0gc2hhcGVzIChHYXVzc2lhbiB1cGRyYWZ0LCByb3RhdGlvbiwgaW5mbG93LCBvdXRmbG93LCBkb3duZHJhZnQpIGFkZGVkIHRvZ2V0aGVyLiBQYXNzaXZlIHRyYWNlcnMgZHJpZnQgdGhyb3VnaCB0aGUgc3VtLgotICoqQnVpbHQgd2l0aCB1bnVzdWFsIGhvbmVzdHkuKiogVGhlIFJFQURNRSBzYXlzIHBsYWlubHkgd2hhdCB0aGUgbW9kZWwgaXMgbm90OiBubyBidW95YW5jeSwgcHJlc3N1cmUsIG1vaXN0dXJlLCBvciBtYXNzIGNvbnNlcnZhdGlvbi4gRmV3IHNjaWVuY2UgYXBwcyBhcmUgdGhpcyBjYXJlZnVsLiBLZWVwIHRoYXQuCi0gKipTaGFwZSBvZiB0aGUgcmVwbzoqKiBhYm91dCAyM0sgbGluZXMgb2YgVHlwZVNjcmlwdCAoUmVhY3QgKyBUaHJlZS5qcyksIDUySyBsaW5lcyBvZiB0ZXN0cywgMjIxIE1hcmtkb3duIGRvY3MsIDIzOCBjb21taXRzIGluIHVuZGVyIHRocmVlIG1vbnRocywgb25lIGF1dGhvci4KLSAqKlRoZSBrZXkgcmVzdWx0IGZhaWxlZCBvbiBudW1lcmljcywgbm90IHBoeXNpY3MuKiogVGhlIHRyYWplY3RvcnkgZXhwZXJpbWVudCAoUGhhc2UgUCkgY2xvc2VkIGFzICpJTlZBTElEIENPTlRST0wsIG51bWVyaWNhbCBjb252ZXJnZW5jZSouIFByb2R1Y3Rpb24gc3RpbGwgc3RlcHMgdHJhY2VycyB3aXRoIGZvcndhcmQgRXVsZXIsIGFuZCBSSzIgZXhpc3RzIG9ubHkgaW4gdGVzdHMuCgo+ICoqQm90dG9tIGxpbmU6KiogVGhlIGludGVyZmFjZSBhbmQgdGhlIHNjaWVudGlmaWMgaGFiaXRzIGFyZSBzdHJvbmcuIFRoZSBhaXJmbG93IGJlaGluZCB0aGVtIGlzIGhhbmQtZHJhd24uIFRoZSAxMHggbW92ZSBpcyB0byBwdXQgcmVhbCBzdG9ybSBkeW5hbWljcyBiZWhpbmQgdGhlIHNhbWUgaW50ZXJmYWNlLCBmaXJzdCBmcm9tIHNpbXVsYXRpb25zIGFuZCB0aGVuIGZyb20gYSBsZWFybmVkIG1vZGVsIHRoYXQgcnVucyBpbiB0aGUgYnJvd3Nlci4KCiMjIDEuIFRvcCAzIHRoaW5ncyB0byAxMHggdGhpcwoKMS4gKipSZXBsYWNlIHRoZSBoYW5kLWJ1aWx0IHNoYXBlcyB3aXRoIHNpbXVsYXRlZCBzdG9ybXMuKiogUnVuIFtDTTFdKGh0dHBzOi8vd3d3Mi5tbW0udWNhci5lZHUvcGVvcGxlL2JyeWFuL2NtMS8pLCB0aGUgc3RhbmRhcmQgcmVzZWFyY2ggc3Rvcm0gbW9kZWwsIG9uY2UgZm9yIGVhY2ggb2YgdGhlIGZvdXIgc291bmRpbmdzLCBhbmQgc2hpcCB0aGUgNEQgd2luZCBmaWVsZHMgYXMgY29tcHJlc3NlZCAzRCB0ZXh0dXJlcy4gVGhhdCBnaXZlcyBtYXNzLWNvbnNlcnZpbmcsIGJ1b3lhbmN5LWRyaXZlbiBzdG9ybXMgdGhhdCBjaGFuZ2Ugb3ZlciB0aW1lLCB3aXRoIHJlYWwgdXBkcmFmdOKAk3NoZWFyIGludGVyYWN0aW9uLCByZWFyLWZsYW5rIGRvd25kcmFmdHMsIGFuZCBjb2xkIHBvb2xzLiBUaGUgdHJhY2VycyBhbmQgdGhlIHRpbHRpbmcgZGlhZ25vc3RpYyB0aGVuIG1lYW4gc29tZXRoaW5nIHBoeXNpY2FsLiBHb3NoZW4gKFZPUlRFWDIsIDUgSnVuZSAyMDA5KSBhbHNvIGhhcyBwdWJsaXNoZWQgcmFkYXIgYW5kIEVuS0YgYW5hbHlzZXMgdG8gY2hlY2sgYWdhaW5zdC4KMi4gKipGaXggdGhlIGludGVncmF0b3Igc28gdGhlIGV2aWRlbmNlIGNhbiBwYXNzLioqIE1vdmUgcHJvZHVjdGlvbiB0byBSSzQsIG9yIGFkYXB0aXZlIFJLNDUgd2l0aCBlcnJvciBjb250cm9sLCBhbmQgdXNlIHNtb290aCAoQ8K5KSBpbnRlcnBvbGF0aW9uIGJldHdlZW4gc291bmRpbmcgbGV2ZWxzLiBUaGUgSDMgY29udHJvbCBmYWlsZWQgd2hlcmUgdHJhamVjdG9yaWVzIGNyb3NzZWQgYSBzb3VuZGluZy1zZWdtZW50IGJvdW5kYXJ5LCB3aGljaCBpcyB3aGF0IHlvdSdkIGV4cGVjdCBmcm9tIEV1bGVyIG9uIGEgcGllY2V3aXNlLWxpbmVhciBwcm9maWxlLiBCdWlsZCB0aGUgY29udmVyZ2VuY2UgbGFkZGVyIChkdCwgZHQvMiwgZHQvNCB3aXRoIGFuIG9ic2VydmVkIG9yZGVyIG9mIGFjY3VyYWN5KSBpbnRvIHRoZSB0ZXN0IGhhcm5lc3MsIGFuZCBtYWtlIGV2ZXJ5IGF1dGhvcmVkIGZpZWxkIGRpdmVyZ2VuY2UtZnJlZSBieSBkZXJpdmluZyBpdCBmcm9tIGEgc3RyZWFtIGZ1bmN0aW9uLiBUaGVuIG1vdmUgdHJhY2VycyB0byBXZWJHUFUgY29tcHV0ZSBzbyAxMOKBteKAkzEw4oG2IHBhcnRpY2xlcyBjYW4gcnVuLCBub3QgZG96ZW5zLgozLiAqKlRyYWluIGFuIGVtdWxhdG9yOiBob2RvZ3JhcGggaW4sIDNEIHN0b3JtIG91dC4qKiBUaGUgaG9kb2dyYXBoIGNhbid0IGJlIGVkaXRlZCB0b2RheSBiZWNhdXNlIG5vdGhpbmcgY291bGQgcmVzcG9uZCB0byBpdC4gU3dlZXAgQ00xIGFjcm9zcyBob2RvZ3JhcGhzIGFuZCBDQVBFLCBhcyBXZWlzbWFuIGFuZCBLbGVtcCBkaWQgYnkgaGFuZCBpbiAxOTgyLCB0aGVuIHRyYWluIGEgc21hbGwgY29uZGl0aW9uYWwgZGlmZnVzaW9uIG1vZGVsIG9yIG5ldXJhbCBvcGVyYXRvciBvbiB0aGUgcnVucy4gVXNlcnMgZHJhdyBhIGhvZG9ncmFwaCBhbmQgZ2V0IGEgcGxhdXNpYmxlIGV2b2x2aW5nIHN1cGVyY2VsbCBpbiBzZWNvbmRzLiBUaGF0J3MgdGhlIHByb2R1Y3Qgbm9ib2R5IGVsc2UgaGFzOiBhIHN0b3JtLXNjYWxlIGNvdW50ZXJwYXJ0IHRvIEdyYXBoQ2FzdCBvciBHZW5DYXN0IHRoYXQgYW55b25lIGNhbiBwbGF5IHdpdGguCgojIyAyLiBSZXNlYXJjaCB0byByZWFkCgotICoqV2Vpc21hbiAmIEtsZW1wICgxOTgyKSwgW1RoZSBkZXBlbmRlbmNlIG9mIG51bWVyaWNhbGx5IHNpbXVsYXRlZCBjb252ZWN0aXZlIHN0b3JtcyBvbiB2ZXJ0aWNhbCB3aW5kIHNoZWFyIGFuZCBidW95YW5jeV0oaHR0cHM6Ly9kb2kub3JnLzEwLjExNzUvMTUyMC0wNDkzKDE5ODIpMTEwPDA1MDQ6VERPTlNDPjIuMC5DTzsyKS4qKiAqV2h5OiogdGhlIG9yaWdpbmFsIHNoZWFyLWJ5LWJ1b3lhbmN5IHBhcmFtZXRlciBzd2VlcCwgYW5kIHRoZSB0ZW1wbGF0ZSBmb3IgdGhlIGVtdWxhdG9yJ3MgdHJhaW5pbmcgc2V0LgotICoqRGFobCwgUGFya2VyICYgV2lja2VyICgyMDE0KSwgW0ltcG9ydGVkIGFuZCBzdG9ybS1nZW5lcmF0ZWQgbmVhci1ncm91bmQgdmVydGljYWwgdm9ydGljaXR5IGluIGEgc2ltdWxhdGVkIHN1cGVyY2VsbF0oaHR0cHM6Ly9kb2kub3JnLzEwLjExNzUvSkFTLUQtMTMtMDEyMy4xKS4qKiAqV2h5OiogdGhlIHJlZmVyZW5jZSBtZXRob2QgZm9yIHRyYWplY3Rvcnkgdm9ydGljaXR5IGJ1ZGdldHMsIGluY2x1ZGluZyBob3cgdHJhamVjdG9yeSBpbnRlZ3JhdGlvbiBlcnJvciBjYW4gZmFrZSBhIHJlc3VsdC4gSXQncyBleGFjdGx5IHdoYXQgVDEgaXMgcmVhY2hpbmcgZm9yLgotICoqQ29mZmVyICYgUGFya2VyICgyMDE3KSwgW1NpbXVsYXRlZCBzdXBlcmNlbGxzIGluIG5vbnRvcm5hZGljIGFuZCB0b3JuYWRpYyBWT1JURVgyIGVudmlyb25tZW50c10oaHR0cHM6Ly9kb2kub3JnLzEwLjExNzUvTVdSLUQtMTYtMDIyNi4xKS4qKiAqV2h5OiogcnVucyBDTTEgZnJvbSBWT1JURVgyIHNvdW5kaW5ncywgdGhlIHNhbWUgY2FtcGFpZ24gYXMgR29zaGVuLCBhbmQgc2hvd3MgaG93IG11Y2ggdGhlIGxvd2VzdCA1MDAgbSBvZiB0aGUgaG9kb2dyYXBoIG1hdHRlcnMuCi0gKipQYXRoYWsgZXQgYWwuICgyMDI0KSwgW1N0b3JtQ2FzdDoga2lsb21ldGVyLXNjYWxlIGNvbnZlY3Rpb24tYWxsb3dpbmcgbW9kZWwgZW11bGF0aW9uIHVzaW5nIGdlbmVyYXRpdmUgZGlmZnVzaW9uXShodHRwczovL2FyeGl2Lm9yZy9hYnMvMjQwOC4xMDk1OCkuKiogKldoeToqIGV2aWRlbmNlIHRoYXQgZGlmZnVzaW9uIG1vZGVscyBjYW4gZW11bGF0ZSBjb252ZWN0aW9uLXJlc29sdmluZyBwaHlzaWNzLCBhbmQgdGhlIGNsb3Nlc3QgTUwgYmx1ZXByaW50IGZvciBpdGVtIDMuCi0gKipQcmljZSBldCBhbC4gKDIwMjUpLCBbR2VuQ2FzdDogcHJvYmFiaWxpc3RpYyB3ZWF0aGVyIGZvcmVjYXN0aW5nIHdpdGggbWFjaGluZSBsZWFybmluZ10oaHR0cHM6Ly9kb2kub3JnLzEwLjEwMzgvczQxNTg2LTAyNC0wODI1Mi05KS4qKiAqV2h5Oiogc3Rvcm1zIGFyZSBjaGFvdGljLCBzbyBhbiBlbXVsYXRvciBzaG91bGQgc2FtcGxlIGFuIGVuc2VtYmxlIG9mIHN0b3Jtcywgbm90IG9uZSBkZXRlcm1pbmlzdGljIGFuc3dlci4gR2VuQ2FzdCBzaG93cyBob3cgdG8gZG8gdGhhdCBhbmQgc2NvcmUgaXQgKENSUFMsIHNwcmVhZOKAk3NraWxsKS4KCiMjIDMuIE90aGVyIGNvbnNpZGVyYXRpb25zCgotICoqUHJvY2VzcyBpcyBvdXRncm93aW5nIHRoZSBwcm9kdWN0LioqIEFib3V0IDcwJSBvZiB0aGUgcmVwbyBpcyBnb3Zlcm5hbmNlOiBhIGRlY2lzaW9uIGRvYywgYW4gYXV0aG9yaXphdGlvbiwgYW5kIGFuIGFjY2VwdGFuY2UgZm9yIGVhY2ggVUkgc2xpY2UuIFRoYXQgcmlnb3IgZml0cyBzY2llbnRpZmljIGNsYWltcywgYnV0IGFwcGx5aW5nIGl0IHRvIHNjcm9sbCBiZWhhdmlvciBzbG93cyBkb3duIHRoZSBzY2llbmNlLiBLZWVwIGl0IGZvciBwaHlzaWNzIGdhdGVzIGFuZCBkcm9wIGl0IGZvciBVSS4KLSAqKkdldCBvdXRzaWRlIGV5ZXMuKiogVjEgZXZhbHVhdGlvbiB3YXMgZG9uZSBieSB0aGUgYXV0aG9yIGFsb25lLiBGaXZlIGVkdWNhdG9ycyBhbmQgb25lIHN0b3JtIHJlc2VhcmNoZXIgKE9VLCBOU1NMLCBQZW5uIFN0YXRlLCBvciBOQyBTdGF0ZSkgd291bGQgdGVsbCB5b3UgbW9yZSB0aGFuIGFub3RoZXIgcHJvdG9jb2wgd291bGQuCi0gKipQaWNrIHRoZSBwcmltYXJ5IHVzZXIuKiogRWR1Y2F0b3JzIHdhbnQgYSBmZXcgY3VyYXRlZCBzdG9ybXMgdGhhdCBsb29rIHJpZ2h0LiBSZXNlYXJjaGVycyB3YW50IENNMSBvdXRwdXQgYW5kIHRyYWplY3RvcnkgYnVkZ2V0cy4gU2VydmluZyBib3RoIGlzIGZpbmUsIGJ1dCB0aGUgcm9hZG1hcCBzaG91bGQgc2F5IHdoaWNoIG9uZSBjb21lcyBmaXJzdC4KLSAqKlNob3cgd2hhdCBmb3JlY2FzdGVycyByZWFkLioqIFN0cmVhbXdpc2Ugdm9ydGljaXR5LCBzdG9ybS1yZWxhdGl2ZSBoZWxpY2l0eSAoMOKAkzEgYW5kIDDigJMzIGttKSwgYW5kIGNyaXRpY2FsIGFuZ2xlIGNvbWUgc3RyYWlnaHQgZnJvbSB0aGUgaG9kb2dyYXBoIHlvdSBhbHJlYWR5IGhhdmUuIFRoZXkncmUgY2hlYXAgdG8gYWRkIGFuZCBjb25uZWN0IHRoZSBhcHAgdG8gcmVhbCBwcmFjdGljZS4KLSAqKkRhdGEgcGx1bWJpbmcgZm9yIHJlYWwgZmllbGRzLioqIFVzZSBaYXJyIG9yIGNodW5rZWQgYmluYXJ5IHdpdGggcXVhbnRpemVkIGZsb2F0MTYgM0QgdGV4dHVyZXMsIHN0cmVhbWVkIGJ5IHRpbWUgc3RlcC4gT25lIENNMSBydW4gYXQgMjUwIG0gc3BhY2luZyBjb21wcmVzc2VzIHRvIHJvdWdobHkgdGVucyBvZiBNQiwgd2hpY2ggaXMgZmluZSBmb3IgdGhlIHdlYi4KLSAqKlRoZSBiaWdnZXIgcmlzayBpcyBjcmVkaWJpbGl0eSwgbm90IGNvZGUuKiogVGhlIGNhcmVmdWwgbGFiZWxpbmcgb2Ygd2hhdCdzIG9ic2VydmVkIGFuZCB3aGF0J3MgcHJlc2NyaWJlZCBpcyB0aGUgYXBwJ3MgbW9hdC4gQ2FycnkgaXQgb3ZlciB0byBzaW11bGF0ZWQgYW5kIGxlYXJuZWQgZmllbGRzIGFzIHdlbGwsIGZvciBleGFtcGxlIHdpdGggbGFiZWxzIGxpa2UgInNpbXVsYXRlZCBmcm9tIHRoaXMgc291bmRpbmciIGFuZCAiZW11bGF0ZWQsIGVuc2VtYmxlIG9mIE4iLgo=</script>
+<script>
+  (function () {
+    var src = document.getElementById('memo-src');
+    var raw = '';
+    try {
+      var bin = atob((src.textContent || '').replace(/\s+/g, ''));
+      var bytes = new Uint8Array(bin.length);
+      for (var k = 0; k < bin.length; k++) { bytes[k] = bin.charCodeAt(k); }
+      raw = new TextDecoder('utf-8').decode(bytes);
+    } catch (e) { raw = ''; }
+    var name = document.body.getAttribute('data-slug') + '.md';
+
+    var copy = document.getElementById('btn-copy');
+    copy.addEventListener('click', function () {
+      var done = function () {
+        copy.textContent = 'Copied';
+        copy.classList.add('done');
+        setTimeout(function () {
+          copy.textContent = 'Copy for agents';
+          copy.classList.remove('done');
+        }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(raw).then(done, fallback);
+      } else {
+        fallback();
+      }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = raw;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); } catch (e) { /* no-op */ }
+        document.body.removeChild(ta);
+      }
+    });
+
+    var dl = document.getElementById('btn-download');
+
+    function flash(label) {
+      var was = dl.textContent;
+      dl.textContent = label;
+      dl.classList.add('done');
+      setTimeout(function () {
+        dl.textContent = was;
+        dl.classList.remove('done');
+      }, 1600);
+    }
+
+    function blobSave() {
+      var blob = new Blob([raw], { type: 'text/markdown;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+    }
+
+    dl.addEventListener('click', function () {
+      // On claude.ai the host mediates saves; on GitHub Pages a blob link works.
+      if (window.claude && typeof window.claude.use === 'function') {
+        window.claude.use('downloads').then(function (d) {
+          if (!d) { blobSave(); return; }
+          d.save({ filename: name, data: raw }).then(
+            function () { flash('Saved'); },
+            function (e) { if (!e || e.code !== 'declined') { blobSave(); } }
+          );
+        }, blobSave);
+        return;
+      }
+      blobSave();
+    });
+  })();
+</script>
+</body>
+</html>
